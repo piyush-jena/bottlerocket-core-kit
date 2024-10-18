@@ -25,6 +25,8 @@ members = [
 
     "bootstrap-commands",
 
+    "nvidia-migmanager",
+
     "bottlerocket-release",
 
     "bottlerocket-variant",
