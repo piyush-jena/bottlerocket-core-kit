@@ -340,6 +340,9 @@ CONFIGURE_OPTS=(
  -Danalyze=true
 
  -Dbpf-framework=false
+
+ -Dmount-path=/usr/bin/mount
+ -Dumount-path=/usr/bin/umount
 )
 
 %cross_meson "${CONFIGURE_OPTS[@]}"

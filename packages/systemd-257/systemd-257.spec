@@ -334,6 +334,9 @@ CONFIGURE_OPTS=(
  -Dtpm=true
  -Dsbsign=false
  -Dopensslui=disabled
+
+ -Dmount-path=/usr/bin/mount
+ -Dumount-path=/usr/bin/umount
 )
 
 %cross_meson "${CONFIGURE_OPTS[@]}"
