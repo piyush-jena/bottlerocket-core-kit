@@ -4460,6 +4460,7 @@ dependencies = [
  "bytes",
  "constants",
  "generate-readme",
+ "indexmap",
  "log",
  "maplit",
  "nix",

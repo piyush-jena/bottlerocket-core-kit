@@ -22,6 +22,7 @@ serde = { workspace = true, features = ["derive"] }
 serde_json.workspace = true
 toml.workspace = true
 bottlerocket-modeled-types.workspace = true
+indexmap.workspace = true
 
 [dev-dependencies]
 maplit.workspace = true
