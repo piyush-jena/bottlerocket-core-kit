@@ -13,8 +13,8 @@ releases-url = "https://download.gnome.org/sources/glib"
 
 # glib uses the "stable releases use even minor numbers" versioning scheme
 [[package.metadata.build-package.external-files]]
-url = "https://download.gnome.org/sources/glib/2.86/glib-2.86.3.tar.xz"
-sha512 = "2b53aba22eef2d21cb40334fe55715bf0ca5009e5e105c462cdedfb45da96cca35e7edc95af27022893832feb5bfc0b0ee554382c8c8f55a2a777b864cfc53ba"
+url = "https://download.gnome.org/sources/glib/2.86/glib-2.86.4.tar.xz"
+sha512 = "13e8beb84f3464f50c9764d0d3c6822a4bb41ae65e6c3ffac4200a5b441acdd2eb6f838a6b0722cae501e367ce9cfd4f8516b684a391c2f088a593172abcacd9"
 
 [build-dependencies]
 glibc = { path = "../glibc" }
