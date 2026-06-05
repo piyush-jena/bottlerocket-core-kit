@@ -4,7 +4,7 @@ use crate::initrd::generate_initrd;
 use bottlerocket_modeled_types::{BootConfigKey, BootConfigValue};
 use serde::{Deserialize, Serialize};
 use snafu::{ensure, ResultExt};
-use std::collections::HashMap;
+use indexmap::IndexMap;
 use std::convert::TryInto;
 use std::io::ErrorKind;
 use std::path::Path;
@@ -34,14 +34,14 @@ struct BootSettings {
         default,
         skip_serializing_if = "Option::is_none"
     )]
-    kernel_parameters: Option<HashMap<BootConfigKey, Vec<BootConfigValue>>>,
+    kernel_parameters: Option<IndexMap<BootConfigKey, Vec<BootConfigValue>>>,
     #[serde(
         alias = "init",
         rename(serialize = "init"),
         default,
         skip_serializing_if = "Option::is_none"
     )]
-    init_parameters: Option<HashMap<BootConfigKey, Vec<BootConfigValue>>>,
+    init_parameters: Option<IndexMap<BootConfigKey, Vec<BootConfigValue>>>,
 }
 
 fn append_boot_config_value_list(values: &[BootConfigValue], output: &mut String) {
@@ -66,26 +66,25 @@ fn serialize_boot_settings_to_boot_config(boot_settings: &BootSettings) -> Resul
     let mut output = String::with_capacity(128);
     // Output init parameters first since "init." comes before "kernel." alphabetically
     if let Some(init_param) = &boot_settings.init_parameters {
-        write_sorted_params(&mut output, init_param, "init");
+        write_params(&mut output, init_param, "init");
     }
     if let Some(kernel_param) = &boot_settings.kernel_parameters {
-        write_sorted_params(&mut output, kernel_param, "kernel");
+        write_params(&mut output, kernel_param, "kernel");
     }
     Ok(output)
 }
 
 /// Writes parameters to output in sorted order with the given prefix
-fn write_sorted_params(
+fn write_params(
     output: &mut String,
-    params: &HashMap<BootConfigKey, Vec<BootConfigValue>>,
+    params: &IndexMap<BootConfigKey, Vec<BootConfigValue>>,
     prefix: &str,
 ) {
-    // Sort keys alphabetically for consistent ordering
-    let mut sorted_keys: Vec<_> = params.keys().collect();
-    sorted_keys.sort_by_cached_key(|k| k.as_ref().to_string());
+    if params.is_empty() {
+        return;
+    }
 
-    for key in sorted_keys {
-        let values = &params[key];
+    for (key, values) in params {
         output.push_str(&format!("{prefix}.{key}"));
         if !values.is_empty() {
             output.push_str(" =");
@@ -233,8 +232,8 @@ fn parse_boot_config_values(input: &str) -> Result<Vec<BootConfigValue>> {
 
 /// Takes a string representation of a bootconfig file and parse it into `BootSettings`
 fn parse_boot_config_to_boot_settings(bootconfig: &str) -> Result<BootSettings> {
-    let mut kernel_params: HashMap<BootConfigKey, Vec<BootConfigValue>> = HashMap::new();
-    let mut init_params: HashMap<BootConfigKey, Vec<BootConfigValue>> = HashMap::new();
+    let mut kernel_params: IndexMap<BootConfigKey, Vec<BootConfigValue>> = IndexMap::new();
+    let mut init_params: IndexMap<BootConfigKey, Vec<BootConfigValue>> = IndexMap::new();
     for line in bootconfig.trim().lines() {
         // ignore comment lines
         if line.trim_start().starts_with("#") {
@@ -331,8 +330,8 @@ fn boot_settings_change_requires_reboot(
     new_boot_settings: &BootSettings,
 ) -> bool {
     fn parameters_changed_materially(
-        old_params: &Option<HashMap<BootConfigKey, Vec<BootConfigValue>>>,
-        new_params: &Option<HashMap<BootConfigKey, Vec<BootConfigValue>>>,
+        old_params: &Option<IndexMap<BootConfigKey, Vec<BootConfigValue>>>,
+        new_params: &Option<IndexMap<BootConfigKey, Vec<BootConfigValue>>>,
     ) -> bool {
         // Consider a missing hash map equal to an empty one: There is no configuration in either case.
         match (old_params, new_params) {
@@ -362,16 +361,16 @@ mod boot_settings_tests {
         serialize_boot_settings_to_boot_config, DEFAULT_BOOTCONFIG_STR,
     };
     use bottlerocket_modeled_types::{BootConfigKey, BootConfigValue};
-    use maplit::hashmap;
+    use std::vec;
     use serde_json::json;
     use serde_json::value::Value;
-    use std::collections::HashMap;
+    use indexmap::IndexMap;
     use std::convert::TryInto;
 
     /// Convert a plain hash map into BootSettings parameters.
     fn to_boot_settings_params(
-        params: HashMap<&str, Vec<&str>>,
-    ) -> Option<HashMap<BootConfigKey, Vec<BootConfigValue>>> {
+        params: Vec<(&str, Vec<&str>)>,
+    ) -> Option<IndexMap<BootConfigKey, Vec<BootConfigValue>>> {
         Some(
             params
                 .into_iter()
@@ -389,28 +388,27 @@ mod boot_settings_tests {
     fn boot_settings_to_string() {
         let boot_settings = BootSettings {
             reboot_to_reconcile: None,
-            kernel_parameters: to_boot_settings_params(hashmap! {
-                "console" => vec!["ttyS1,115200n8", "tty0"],
-            }),
-            init_parameters: to_boot_settings_params(hashmap! {
-                "systemd.log_level" => vec!["debug"],
-                "splash" => vec![],
-                "weird" => vec!["'single'quotes'","\"double\"quotes\""],
-            }),
+            kernel_parameters: to_boot_settings_params(vec! [
+                ("console", vec!["ttyS1,115200n8", "tty0"]),
+            ]),
+            init_parameters: to_boot_settings_params(vec! [
+                ("systemd.log_level", vec!["debug"]),
+                ("splash", vec![]),
+                ("weird", vec!["'single'quotes'","\"double\"quotes\""]),
+            ]),
         };
         let output = serialize_boot_settings_to_boot_config(&boot_settings).unwrap();
         // Sort the entries alphabetically to keep results consistent
-        let mut lines = output
+        let lines = output
             .lines()
             .map(|s| s.to_string())
             .collect::<Vec<String>>();
-        lines.sort();
         let output = lines.join("\n");
         assert_eq!(
             output,
             r#"
-            init.splash
             init.systemd.log_level = "debug"
+            init.splash
             init.weird = "'single'quotes'", '"double"quotes"'
             kernel.console = "ttyS1,115200n8", "tty0"
             "#
@@ -436,10 +434,10 @@ mod boot_settings_tests {
 
         let init_none_boot_settings = BootSettings {
             reboot_to_reconcile: None,
-            kernel_parameters: to_boot_settings_params(hashmap! {
-                "console" => vec!["ttyS1,115200n8", "tty0"],
-                "usbcore.quirks" => vec!["0781:5580:bk","0a5c:5834:gij"],
-            }),
+            kernel_parameters: to_boot_settings_params(vec! [
+                ("console", vec!["ttyS1,115200n8", "tty0"]),
+                ("usbcore.quirks", vec!["0781:5580:bk","0a5c:5834:gij"]),
+            ]),
             init_parameters: None,
         };
         let output = serialize_boot_settings_to_boot_config(&init_none_boot_settings).unwrap();
@@ -468,7 +466,7 @@ mod boot_settings_tests {
     fn empty_map_boot_settings_to_string() {
         let boot_settings = BootSettings {
             reboot_to_reconcile: None,
-            kernel_parameters: Some(hashmap! {}),
+            kernel_parameters: Some(IndexMap::new()),
             init_parameters: None,
         };
         assert_eq!(
@@ -487,7 +485,7 @@ mod boot_settings_tests {
     #[test]
     fn standard_boot_config_to_boot_settings_json() {
         assert_eq!(
-            json!({"kernel":{"console":["ttyS1,115200n8","tty0"]},"init":{"systemd.log_level":["debug"],"splash":[],"splash2":[]}}),
+            json!({"kernel":{"console":["ttyS1,115200n8","tty0"]},"init":{"splash":[],"splash2":[],"systemd.log_level":["debug"]}}),
             serde_json::from_str::<Value>(
                 &boot_config_to_boot_settings_json(STANDARD_BOOTCONFIG).unwrap()
             )
@@ -582,39 +580,31 @@ mod boot_settings_tests {
     }
 
     #[test]
-    fn test_bootconfig_output_is_sorted() {
+    fn test_bootconfig_output_order_preserved() {
         // Test with both kernel and init parameters to verify sorting
         let boot_settings = BootSettings {
             reboot_to_reconcile: None,
-            kernel_parameters: to_boot_settings_params(hashmap! {
-                "zebra" => vec!["last"],
-                "apple" => vec!["first"],
-                "middle" => vec!["middle"],
-            }),
-            init_parameters: to_boot_settings_params(hashmap! {
-                "zoo" => vec!["last"],
-                "aardvark" => vec!["first"],
+            kernel_parameters: to_boot_settings_params(vec! [
+                ("zebra", vec!["last"]),
+                ("apple", vec!["first"]),
+                ("middle", vec!["middle"]),
+            ]),
+            init_parameters: to_boot_settings_params(vec! {
+                ("zoo", vec!["last"]),
+                ("aardvark", vec!["first"]),
             }),
         };
         let output = serialize_boot_settings_to_boot_config(&boot_settings).unwrap();
         let lines: Vec<&str> = output.lines().collect();
 
         // Verify init parameters come first (init < kernel alphabetically)
-        assert_eq!(lines[0], "init.aardvark = \"first\"");
-        assert_eq!(lines[1], "init.zoo = \"last\"");
+        assert_eq!(lines[0], "init.zoo = \"last\"");
+        assert_eq!(lines[1], "init.aardvark = \"first\"");
 
         // Verify kernel parameters come after, also sorted
-        assert_eq!(lines[2], "kernel.apple = \"first\"");
-        assert_eq!(lines[3], "kernel.middle = \"middle\"");
-        assert_eq!(lines[4], "kernel.zebra = \"last\"");
-
-        // Verify ALL lines are in sorted order
-        let mut sorted_lines = lines.clone();
-        sorted_lines.sort();
-        assert_eq!(
-            lines, sorted_lines,
-            "All lines should be in alphabetical order"
-        );
+        assert_eq!(lines[2], "kernel.zebra = \"last\"");
+        assert_eq!(lines[3], "kernel.apple = \"first\"");
+        assert_eq!(lines[4], "kernel.middle = \"middle\"");
     }
 
     #[test]
@@ -622,16 +612,16 @@ mod boot_settings_tests {
         let a = BootSettings {
             reboot_to_reconcile: None,
             kernel_parameters: None,
-            init_parameters: to_boot_settings_params(hashmap! {
-                "systemd.log_level" => vec!["debug"],
-            }),
+            init_parameters: to_boot_settings_params(vec! [
+                ("systemd.log_level", vec!["debug"]),
+            ]),
         };
         let b = BootSettings {
             reboot_to_reconcile: None,
             kernel_parameters: None,
-            init_parameters: to_boot_settings_params(hashmap! {
-                "systemd.log_level" => vec!["debug"],
-            }),
+            init_parameters: to_boot_settings_params(vec! [
+                ("systemd.log_level", vec!["debug"]),
+            ]),
         };
         assert!(!boot_settings_change_requires_reboot(&a, &b));
     }
@@ -641,18 +631,18 @@ mod boot_settings_tests {
         let a = BootSettings {
             reboot_to_reconcile: None,
             kernel_parameters: None,
-            init_parameters: to_boot_settings_params(hashmap! {
-                "systemd.log_level" => vec!["debug"],
-            }),
+            init_parameters: to_boot_settings_params(vec! [
+                ("systemd.log_level", vec!["debug"]),
+            ]),
         };
         let b = BootSettings {
             reboot_to_reconcile: None,
-            kernel_parameters: to_boot_settings_params(hashmap! {
-                "debug" => vec![""],
-            }),
-            init_parameters: to_boot_settings_params(hashmap! {
-                "systemd.log_level" => vec!["debug"],
-            }),
+            kernel_parameters: to_boot_settings_params(vec! [
+                ("debug", vec![""]),
+            ]),
+            init_parameters: to_boot_settings_params(vec! [
+                ("systemd.log_level", vec!["debug"]),
+            ]),
         };
         assert!(boot_settings_change_requires_reboot(&a, &b));
     }
@@ -662,11 +652,11 @@ mod boot_settings_tests {
         let a = BootSettings {
             reboot_to_reconcile: None,
             kernel_parameters: None,
-            init_parameters: to_boot_settings_params(hashmap! {}),
+            init_parameters: to_boot_settings_params(vec! []),
         };
         let b = BootSettings {
             reboot_to_reconcile: None,
-            kernel_parameters: to_boot_settings_params(hashmap! {}),
+            kernel_parameters: to_boot_settings_params(vec! []),
             init_parameters: None,
         };
         assert!(!boot_settings_change_requires_reboot(&a, &b));

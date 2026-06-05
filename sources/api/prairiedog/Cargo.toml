@@ -12,6 +12,7 @@ exclude = ["README.md"]
 argh.workspace = true
 bytes.workspace = true
 constants.workspace = true
+indexmap.workspace = true
 log.workspace = true
 nix.workspace = true
 schnauzer.workspace = true
