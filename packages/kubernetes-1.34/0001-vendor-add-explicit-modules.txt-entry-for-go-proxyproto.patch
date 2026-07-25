@@ -1,0 +1,36 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Bottlerocket Builder <builder@bottlerocket.aws>
+Date: Thu, 1 Jan 1970 00:00:00 +0000
+Subject: [PATCH] vendor: add explicit modules.txt entry for go-proxyproto
+
+The EKS distro v1.34.9 source adds github.com/pires/go-proxyproto as an
+explicit require in staging/src/k8s.io/apiserver/go.mod but does not
+re-run `go work vendor`, leaving vendor/modules.txt without the
+corresponding entry. This breaks hermetic (vendor-mode) builds with:
+
+  inconsistent vendoring: github.com/pires/go-proxyproto ... is
+  explicitly required in go.mod, but not marked as explicit in
+  vendor/modules.txt
+
+The module is not imported by any package in the tree, so only the
+module-level explicit annotation is required (no vendored package
+paths). This matches what `go work vendor` would generate.
+---
+ vendor/modules.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/vendor/modules.txt b/vendor/modules.txt
+index 5339335..84602f7 100644
+--- a/vendor/modules.txt
++++ b/vendor/modules.txt
+@@ -484,6 +484,8 @@ github.com/opencontainers/selinux/pkg/pwalkdir
+ # github.com/peterbourgon/diskv v2.0.1+incompatible
+ ## explicit
+ github.com/peterbourgon/diskv
++# github.com/pires/go-proxyproto v0.7.1-0.20240628150027-b718e7ce4964
++## explicit; go 1.18
+ # github.com/pkg/errors v0.9.1
+ ## explicit
+ github.com/pkg/errors
+--
+2.52.0

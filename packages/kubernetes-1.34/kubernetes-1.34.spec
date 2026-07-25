@@ -10,8 +10,8 @@
 %global gorepo kubernetes
 %global goimport %{goproject}/%{gorepo}
 
-%global releasever 16
-%global gover 1.34.4
+%global releasever 20
+%global gover 1.34.9
 %global rpmver %{gover}
 
 %global _dwz_low_mem_die_limit 0
@@ -67,6 +67,10 @@ Source101: pause-manifest.json
 Source102: pod-infra-container-image
 
 Source1000: clarify.toml
+
+# Fix inconsistent vendoring in EKS v1.34.9 source (go-proxyproto required
+# in apiserver/go.mod but missing from vendor/modules.txt).
+Patch0001: 0001-vendor-add-explicit-modules.txt-entry-for-go-proxyproto.patch
 
 BuildRequires: git
 BuildRequires: rsync
