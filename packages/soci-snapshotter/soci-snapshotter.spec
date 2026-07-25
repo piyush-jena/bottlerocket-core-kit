@@ -1,5 +1,5 @@
 %global gorepo soci-snapshotter
-%global gover 0.12.1
+%global gover 0.14.1
 %global rpmver %{gover}
 %global gitrev c140af2f22fffade79af74ddcc1c29388d763051
 
