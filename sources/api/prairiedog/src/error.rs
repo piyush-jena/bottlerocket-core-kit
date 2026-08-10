@@ -26,6 +26,9 @@ pub(super) enum Error {
     #[snafu(display("Failed to setup logger: {}", source))]
     Logger { source: log::SetLoggerError },
 
+    #[snafu(display("This is a UKI image, but no partition with the XBOOTLDR type GUID bc13c2ff-59e6-4262-a352-b275fd6f7172 was found on the OS disk, so there is no boot partition to mount"))]
+    MissingXbootldrPartition,
+
     #[snafu(display("Failed to create mount '{}': '{}'", path, source))]
     Mount { path: String, source: nix::Error },
 
@@ -40,6 +43,9 @@ pub(super) enum Error {
         source: std::io::Error,
         path: PathBuf,
     },
+
+    #[snafu(display("This is a UKI image, but the OS disk could not be scanned for a partition with the XBOOTLDR type GUID bc13c2ff-59e6-4262-a352-b275fd6f7172, so there is no boot partition to mount: {}", source))]
+    ScanForXbootldrPartition { source: SignpostError },
 
     #[snafu(display("Failed to setup mount '{}': '{}'", path, source))]
     SetupMount { path: String, source: nix::Error },
