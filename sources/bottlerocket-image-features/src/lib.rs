@@ -15,6 +15,7 @@ Currently supported feature flags:
 
 - `IN_PLACE_UPDATES` - Controls whether in-place updates are enabled (default: true)
 - `ENCRYPTED_STORAGE` - Controls whether encrypted storage is enabled (default: false)
+- `EPHEMERAL_ENCRYPTION_KEYS` - Controls whether encryption keys are regenerated every boot (default: false)
 
 ## Usage
 
@@ -56,6 +57,8 @@ pub struct ImageFeatures {
     pub in_place_updates: bool,
     #[serde(default)]
     pub encrypted_storage: bool,
+    #[serde(default)]
+    pub ephemeral_encryption_keys: bool,
 }
 
 fn default_true() -> bool {
@@ -68,6 +71,7 @@ pub fn parse_image_features() -> Result<ImageFeatures> {
         return Ok(ImageFeatures {
             in_place_updates: true,
             encrypted_storage: false,
+            ephemeral_encryption_keys: false,
         });
     }
 
