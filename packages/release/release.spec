@@ -98,6 +98,9 @@ Source1084: usr-bin.mount.in
 Source1085: usr-libexec.mount.in
 Source1086: bottlerocket.mount.in
 
+# UKI boot partition mount (installed only on UKI-format images).
+Source1090: boot.mount
+
 # Drop-in units to override defaults
 Source1100: systemd-tmpfiles-setup-service-debug.conf
 Source1101: systemd-resolved-service-env.conf
@@ -136,7 +139,6 @@ Source1605: systemd-pcrphase-multi-user.service
 Source1606: systemd-pcrphase-preconfigured.service
 Source1607: systemd-pcrphase-sysinit.service
 Source1608: measure-settings.service
-Source1609: measure-cmdline.service
 
 # TPM2-related drop-ins.
 Source1650: prepare-local-fs-encrypted.conf
@@ -165,7 +167,7 @@ Requires: %{_cross_os}filesystem
 Requires: %{_cross_os}findutils
 Requires: %{_cross_os}glibc
 Requires: %{_cross_os}grep
-Requires: %{_cross_os}grub
+Requires: %{_cross_os}bootloader
 Requires: %{_cross_os}iproute
 Requires: %{_cross_os}iptables
 Requires: %{_cross_os}kexec-tools
@@ -186,6 +188,8 @@ Requires: %{_cross_os}xfsprogs
 Requires: %{_cross_os}libkcapi
 Requires: (%{name}-fips if %{_cross_os}image-feature(fips))
 Requires: (%{name}-crypt if %{_cross_os}image-feature(encrypted-storage))
+Requires: (%{name}-uki-boot if %{_cross_os}image-feature(uki-image))
+
 
 %description
 %{summary}.
@@ -205,6 +209,13 @@ Requires: (%{_cross_os}image-feature(encrypted-storage) and %{name})
 Requires: %{_cross_os}rottweiler
 
 %description crypt
+%{summary}.
+
+%package uki-boot
+Summary: Bottlerocket release, with UKI boot partition mount
+Requires: (%{_cross_os}image-feature(uki-image) and %{name})
+
+%description uki-boot
 %{summary}.
 
 %package swap
@@ -277,7 +288,7 @@ install -p -m 0644 \
   %{S:1060} %{S:1061} %{S:1062} %{S:1063} %{S:1064} \
   %{S:1065} %{S:1066} %{S:1067} %{S:1068} \
   %{S:1600} %{S:1601} %{S:1602} %{S:1603} %{S:1604} \
-  %{S:1605} %{S:1606} %{S:1607} %{S:1608} %{S:1609} \
+  %{S:1605} %{S:1606} %{S:1607} %{S:1608} \
   %{buildroot}%{_cross_unitdir}
 
 install -d %{buildroot}%{_cross_unitdir}/systemd-tmpfiles-setup.service.d
@@ -354,6 +365,9 @@ install -p -m 0644 ${LIBEXECDIRPATH}.mount %{buildroot}%{_cross_unitdir}
 # Process bottlerocket mount template files with proper systemd naming
 BOTTLEROCKET_PATH=$(systemd-escape --path /.bottlerocket)
 install -p -m 0644 %{S:1086} %{buildroot}%{_cross_unitdir}/${BOTTLEROCKET_PATH}.mount
+
+# UKI boot partition mount (packaged in the uki-boot subpackage).
+install -p -m 0644 %{S:1090} %{buildroot}%{_cross_unitdir}/boot.mount
 
 install -d %{buildroot}%{_cross_templatedir}
 install -p -m 0644 %{S:200} %{buildroot}%{_cross_templatedir}/motd
@@ -503,7 +517,6 @@ ln -s preconfigured.target %{buildroot}%{_cross_unitdir}/default.target
 %files crypt
 %{_cross_unitdir}/encrypt-datastore.service
 %{_cross_unitdir}/encrypt-local-fs.service
-%{_cross_unitdir}/measure-cmdline.service
 %{_cross_unitdir}/measure-settings.service
 %{_cross_unitdir}/systemd-pcrphase-configured.service
 %{_cross_unitdir}/systemd-pcrphase-multi-user.service
@@ -514,6 +527,9 @@ ln -s preconfigured.target %{buildroot}%{_cross_unitdir}/default.target
 %{_cross_unitdir}/local.mount.d/10-encrypted.conf
 %{_cross_unitdir}/prepare-local-fs.service.d/10-encrypted.conf
 %{_cross_unitdir}/repart-local.service.d/10-encrypted.conf
+
+%files uki-boot
+%{_cross_unitdir}/boot.mount
 
 %files swap
 %{_cross_sysctldir}/81-release-swap.conf

@@ -1,0 +1,27 @@
+[Unit]
+Description=Boot Partition (/boot)
+DefaultDependencies=no
+Conflicts=umount.target
+Before=umount.target
+# On UKI images the boot partition is a FAT (XBOOTLDR) filesystem, and there is
+# only a single partition set (in-place updates are disallowed for UKI), so the
+# partition can be located directly by its stable partition label rather than
+# through the A/B "active set" logic that prairiedog's prepare-boot uses for
+# GRUB images. That logic is skipped on UKI (see prepare-boot.service), which is
+# why this static mount is needed: FIPS check-kernel-integrity.service reads
+# /boot/.vmlinuz.hmac and /boot/vmlinuz, which live on this partition.
+After=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dBOOT\x2dA.device selinux-policy-files.service
+Requires=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dBOOT\x2dA.device
+Wants=selinux-policy-files.service
+RefuseManualStart=true
+RefuseManualStop=true
+
+[Mount]
+What=/dev/disk/by-partlabel/BOTTLEROCKET-BOOT-A
+Where=/boot
+Type=vfat
+# vfat cannot carry SELinux xattrs, so impose the label via a mount option. The
+# boot files are labeled "os_t" on GRUB images (the default `(filecon "/.*" any
+# os)` in the SELinux policy), and the FIPS integrity check runs as system_t,
+# which can read os_t. Match that here so behavior is identical to GRUB.
+Options=ro,nosuid,nodev,noexec,noatime,context=system_u:object_r:os_t:s0
