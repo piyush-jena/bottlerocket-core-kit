@@ -154,6 +154,18 @@
 ; The socket for the API server gets the "api_socket_t" label.
 (typetransition api_t any_t sock_file "api.sock" api_socket_t)
 
+; The per-boot LUKS key for the encrypted PRIVATE partition (only shipped with
+; the "ephemeral-encryption-keys" feature) must never touch the partition it
+; unlocks, so rottweiler writes it to a tmpfs keystore (/run/rottweiler) via
+; ROTTWEILER_KEYSTORE. Files created there default to the public "any_t" tmpfs
+; label; give the key the read-restricted "private_t" label instead, so that
+; only privileged OS components can read it. This mirrors the private_t label
+; the persistent keystore receives from the /.bottlerocket mount option
+; (context=...:private_t). rottweiler runs as "api_t", which is a privileged_s
+; subject, so it retains create/read/delete access via the existing api_s and
+; privileged_s rules; only unprivileged subjects lose read access to the key.
+(typetransition api_t any_t file "bottlerocket-private" private_t)
+
 ; All subjects can describe anything and receive any file descriptors.
 (allow all_s global (files (describe receive)))
 
