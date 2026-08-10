@@ -26,6 +26,7 @@ snafu.workspace = true
 tokio = { workspace = true, features = ["macros", "process", "rt-multi-thread"] }
 toml.workspace = true
 walkdir.workspace = true
+bottlerocket-image-features.workspace = true
 
 [build-dependencies]
 generate-readme.workspace = true

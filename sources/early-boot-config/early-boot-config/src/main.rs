@@ -177,9 +177,20 @@ where
     Ok(())
 }
 
+/// Checks if ephemeral encryption keys feature is enabled via image features
+fn ephemeral_encryption_keys_enabled() -> Result<bool> {
+    let features = bottlerocket_image_features::parse_image_features().map_err(|e| {
+        error::Error::LoadImageFeatures {
+            message: e.to_string(),
+        }
+    })?;
+    Ok(features.ephemeral_encryption_keys)
+}
+
 async fn run() -> Result<()> {
     // Parse and store the args passed to the program
     let args = parse_args(env::args());
+    let is_ephemeral_encryption_keys_enabled = ephemeral_encryption_keys_enabled().unwrap_or(false);
 
     env_logger::Builder::new()
         .filter_level(args.log_level)
@@ -234,9 +245,13 @@ async fn run() -> Result<()> {
         submit_user_data(&args.socket_path, output.json).await?;
     }
 
-    fs::write(MARKER_FILE, "").unwrap_or_else(|e| {
-        warn!("Failed to create marker file {MARKER_FILE}, may unexpectedly run again: {e}")
-    });
+    // We do not write the marker file in case ephemeral encryption keys feature is enabled. This
+    // makes sure that post a reboot we repopulate the user-data in the datastore.
+    if is_ephemeral_encryption_keys_enabled {
+        fs::write(MARKER_FILE, "").unwrap_or_else(|e| {
+            warn!("Failed to create marker file {MARKER_FILE}, may unexpectedly run again: {e}")
+        });
+    }
 
     Ok(())
 }
@@ -274,6 +289,9 @@ mod error {
             provider: PathBuf,
             source: std::io::Error,
         },
+
+        #[snafu(display("Unable to load image features: {}", message))]
+        LoadImageFeatures { message: String },
 
         #[snafu(display("Provider '{}' failed: {}", provider.display(), message))]
         ProviderFailure { provider: PathBuf, message: String },

@@ -152,5 +152,26 @@ IN_PLACE_UPDATES="false"
         let content = "";
         let features = parse_image_features_from_str(content).unwrap();
         assert_eq!(features.in_place_updates, true);
+        assert_eq!(features.ephemeral_encryption_keys, false);
+    }
+
+    #[test]
+    fn test_parse_env_ephemeral_encryption_keys_false() {
+        let content = r#"EPHEMERAL_ENCRYPTION_KEYS="false""#;
+        let features = parse_image_features_from_str(content).unwrap();
+        assert_eq!(features.ephemeral_encryption_keys, false);
+    }
+
+    #[test]
+    fn test_parse_env_ephemeral_encryption_keys_true() {
+        let content = r#"EPHEMERAL_ENCRYPTION_KEYS="true""#;
+        let features = parse_image_features_from_str(content).unwrap();
+        assert_eq!(features.ephemeral_encryption_keys, true);
+    }
+
+    #[test]
+    fn test_parse_env_ephemeral_encryption_keys_invalid() {
+        let content = r#"EPHEMERAL_ENCRYPTION_KEYS="yes""#;
+        assert!(parse_image_features_from_str(content).is_err());
     }
 }

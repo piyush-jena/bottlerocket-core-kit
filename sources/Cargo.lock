@@ -2551,6 +2551,7 @@ dependencies = [
  "apiclient",
  "async-trait",
  "base64",
+ "bottlerocket-image-features",
  "constants",
  "early-boot-config-provider",
  "env_logger",
