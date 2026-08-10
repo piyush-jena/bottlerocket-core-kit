@@ -16,6 +16,7 @@ RefuseManualStop=true
 
 [Service]
 Type=oneshot
+EnvironmentFile=/usr/share/bottlerocket/image-features.env
 ExecStart=/usr/bin/early-boot-config
 RemainAfterExit=true
 StandardError=journal+console
