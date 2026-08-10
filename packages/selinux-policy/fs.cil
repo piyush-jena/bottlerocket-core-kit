@@ -114,6 +114,17 @@
 (filecon "/run" any any)
 (filecon "/run/.*" any ())
 
+; Label the tmpfs keystore that holds the per-boot LUKS key for the encrypted
+; PRIVATE partition (shipped only with the "ephemeral-encryption-keys"
+; feature). The key must never live on the partition it unlocks, so the
+; private-fs units point rottweiler at /run via ROTTWEILER_KEYSTORE. Restrict
+; the key to privileged OS components with the "private_t" label, mirroring the
+; label the persistent /.bottlerocket keystore receives from its mount option.
+; This is the setfiles/restorecon rule; runtime-created files are labeled by
+; the matching type_transition in rules.cil.
+(filecon "/run/rottweiler" any private)
+(filecon "/run/rottweiler/.*" any private)
+
 ; Label external filesystem mounts.
 (filecon "/mnt" any local)
 (filecon "/mnt/.*" any ())
