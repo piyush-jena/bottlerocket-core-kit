@@ -15,6 +15,13 @@ const BOTTLEROCKET_ROOT: [u8; 16] = uuid_to_guid(hex!("5526016a 1a97 4ea4 b39a b
 const BOTTLEROCKET_HASH: [u8; 16] = uuid_to_guid(hex!("598f10af c955 4456 6a99 7720068a6cea"));
 const BOTTLEROCKET_PRIVATE: [u8; 16] = uuid_to_guid(hex!("440408bb eb0b 4328 a6e5 a29038fad706"));
 
+/// The extended boot loader partition, as defined by the Discoverable Partitions Specification.
+///
+/// UKI images tag their boot partition with this type GUID so systemd-boot finds the unified
+/// kernel images on it, and format the partition as FAT rather than ext4. GRUB images have no
+/// partition of this type, so its presence identifies a UKI layout at runtime.
+const XBOOTLDR: [u8; 16] = uuid_to_guid(hex!("bc13c2ff 59e6 4262 a352 b275fd6f7172"));
+
 #[derive(Debug, Clone)]
 pub struct State {
     os_disk: PathBuf,
@@ -400,6 +407,98 @@ impl State {
     }
 }
 
+/// Returns the device path of the XBOOTLDR partition on the OS disk, or `None` if the disk has
+/// no partition of that type, which is the case on GRUB images.
+///
+/// Fails if more than one partition of that type is found, since there would be no way to choose
+/// between them.
+pub fn xbootldr_partition() -> Result<Option<PathBuf>, Error> {
+    // The root filesystem is a dm-verity device. We want to determine what disk and partition
+    // the backing data is part of. Look up the device major and minor via stat(2):
+    let root_fs = BlockDevice::from_device_path("/")
+        .context(error::BlockDeviceFromPathSnafu { device: "/" })?;
+    // Get the first lower device from this one, and determine what disk it belongs to.
+    let active_partition = root_fs
+        .lower_devices()
+        .and_then(|mut iter| iter.next().transpose())
+        .context(error::RootLowerDevicesSnafu {
+            root: root_fs.path(),
+        })?
+        .context(error::RootHasNoLowerDevicesSnafu {
+            root: root_fs.path(),
+        })?;
+    let os_disk = active_partition
+        .disk()
+        .context(error::DiskFromPartitionSnafu {
+            device: root_fs.path(),
+        })?
+        .context(error::RootNotPartitionSnafu {
+            device: root_fs.path(),
+        })?;
+
+    // Parse the partition table on the disk.
+    let table = GPT::find_from(&mut File::open(os_disk.path()).context(error::OpenSnafu {
+        path: os_disk.path(),
+        what: "reading",
+    })?)
+    .map_err(error::GPTError)
+    .context(error::GPTFindSnafu {
+        device: os_disk.path(),
+    })?;
+
+    // Loads the path to partition number `num` on the OS disk.
+    let device_from_part_num = |num| -> Result<PathBuf, Error> {
+        Ok(os_disk
+            .partition(num)
+            .context(error::PartitionFromDiskSnafu {
+                device: os_disk.path(),
+            })?
+            .context(error::PartitionNotFoundOnDeviceSnafu {
+                num,
+                device: os_disk.path(),
+            })?
+            .path())
+    };
+
+    let mut partitions = table
+        .iter()
+        .filter(|(_, p)| p.is_used() && p.partition_type_guid == XBOOTLDR)
+        .map(|(num, _)| device_from_part_num(num))
+        .collect::<Result<Vec<_>, Error>>()?;
+
+    ensure!(
+        partitions.len() <= 1,
+        error::MultiplePartitionsOfTypeSnafu {
+            partition_type: {
+                let g = XBOOTLDR;
+                format!(
+                    "{:02x}{:02x}{:02x}{:02x}-{:02x}{:02x}-{:02x}{:02x}-{:02x}{:02x}-\
+                     {:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
+                    g[3],
+                    g[2],
+                    g[1],
+                    g[0],
+                    g[5],
+                    g[4],
+                    g[7],
+                    g[6],
+                    g[8],
+                    g[9],
+                    g[10],
+                    g[11],
+                    g[12],
+                    g[13],
+                    g[14],
+                    g[15],
+                )
+            },
+            partitions,
+        }
+    );
+
+    Ok(partitions.pop())
+}
+
 impl fmt::Display for State {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         writeln!(f, "OS disk: {}", self.os_disk.display())?;
@@ -422,5 +521,99 @@ impl fmt::Display for State {
             Some(next) => write!(f, "Next:    Set {next}"),
             None => write!(f, "Next:    None"),
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{BOTTLEROCKET_BOOT, BOTTLEROCKET_PRIVATE, XBOOTLDR};
+    use gptman::{GPTPartitionEntry, GPT};
+    use std::io::Cursor;
+
+    const SECTOR_SIZE: u64 = 512;
+
+    /// Builds an in-memory partition table whose partitions have the given type GUIDs, in order
+    /// starting at partition number 1.
+    fn table_with_types(types: &[[u8; 16]]) -> GPT {
+        let mut disk = Cursor::new(vec![0u8; 1024 * SECTOR_SIZE as usize]);
+        let mut table =
+            GPT::new_from(&mut disk, SECTOR_SIZE, [0xff; 16]).expect("could not build a GPT");
+
+        for (i, partition_type) in types.iter().enumerate() {
+            let num = u32::try_from(i).unwrap() + 1;
+            let starting_lba = 2048 + u64::from(num) * 64;
+            table[num] = GPTPartitionEntry {
+                partition_type_guid: *partition_type,
+                unique_partition_guid: [num as u8; 16],
+                starting_lba,
+                ending_lba: starting_lba + 63,
+                attribute_bits: 0,
+                partition_name: "test".into(),
+            };
+        }
+
+        table
+    }
+
+    /// Finds the numbers of the partitions in `table` matching `partition_type`, in ascending
+    /// order, the same way `xbootldr_partition` and `State::load` scan the table.
+    fn partition_nums_with_type(table: &GPT, partition_type: [u8; 16]) -> Vec<u32> {
+        table
+            .iter()
+            .filter(|(_, p)| p.is_used() && p.partition_type_guid == partition_type)
+            .map(|(num, _)| num)
+            .collect()
+    }
+
+    #[test]
+    fn finds_partitions_of_a_type_in_order() {
+        // A GRUB layout: two boot partitions and the private partition.
+        let table = table_with_types(&[BOTTLEROCKET_BOOT, BOTTLEROCKET_PRIVATE, BOTTLEROCKET_BOOT]);
+
+        assert_eq!(
+            partition_nums_with_type(&table, BOTTLEROCKET_BOOT),
+            vec![1, 3]
+        );
+        assert_eq!(
+            partition_nums_with_type(&table, BOTTLEROCKET_PRIVATE),
+            vec![2]
+        );
+    }
+
+    #[test]
+    fn ignores_unused_and_other_types() {
+        // A UKI layout: one XBOOTLDR boot partition and the private partition. The rest of the
+        // partition array is unused, i.e. has an all-zero type GUID.
+        let table = table_with_types(&[XBOOTLDR, BOTTLEROCKET_PRIVATE]);
+
+        assert_eq!(partition_nums_with_type(&table, XBOOTLDR), vec![1]);
+        // The GRUB boot type must not match the XBOOTLDR partition, which is what tells the two
+        // layouts apart.
+        assert!(partition_nums_with_type(&table, BOTTLEROCKET_BOOT).is_empty());
+        // Unused entries are never reported.
+        assert!(partition_nums_with_type(&table, [0u8; 16]).is_empty());
+    }
+
+    #[test]
+    fn xbootldr_guid_byte_order() {
+        // The canonical form, from `partyplanner`, is "bc13c2ff-59e6-4262-a352-b275fd6f7172". On
+        // disk the first three fields are little-endian and the last two are big-endian, so the
+        // raw bytes are the first three fields reversed followed by the rest unchanged.
+        assert_eq!(
+            XBOOTLDR,
+            [
+                0xff, 0xc2, 0x13, 0xbc, // bc13c2ff, little-endian
+                0xe6, 0x59, // 59e6, little-endian
+                0x62, 0x42, // 4262, little-endian
+                0xa3, 0x52, // a352, big-endian
+                0xb2, 0x75, 0xfd, 0x6f, 0x71, 0x72, // b275fd6f7172, big-endian
+            ]
+        );
+    }
+
+    #[test]
+    fn bottlerocket_boot_guid_byte_order() {
+        // Bottlerocket's boot partition typecode spells out a message on disk.
+        assert_eq!(BOTTLEROCKET_BOOT, *b"hack the planet!");
     }
 }
