@@ -22,7 +22,6 @@ Source93: release-tmpfiles.conf
 Source94: release-fips-tmpfiles.conf
 Source95: release-systemd-networkd.conf
 Source96: release-repart-local.conf
-Source97: tmpfs-keystore.conf
 Source98: release-systemd-system.conf
 Source99: release-ca-certificates-tmpfiles.conf
 Source100: release-modules-load.conf
@@ -65,6 +64,7 @@ Source1027: root-.aws.mount
 Source1028: opt-cni.mount
 Source1029: opt-csi.mount
 Source1030: opt-civ.mount
+Source1031: run-rottweiler.mount
 
 # Mounts that require helper programs.
 Source1040: prepare-boot.service
@@ -251,7 +251,6 @@ install -p -m 0644 %{S:11} %{S:12} %{buildroot}%{_cross_factorydir}%{_cross_sysc
 
 install -d %{buildroot}%{_cross_tmpfilesdir}
 install -p -m 0644 %{S:93} %{buildroot}%{_cross_tmpfilesdir}/release.conf
-install -p -m 0644 %{S:97} %{buildroot}%{_cross_tmpfilesdir}/tmpfs-keystore.conf
 install -p -m 0644 %{S:99} %{buildroot}%{_cross_tmpfilesdir}/release-ca-certificates.conf
 install -p -m 0644 %{S:94} %{buildroot}%{_cross_tmpfilesdir}/release-fips.conf
 
@@ -298,7 +297,7 @@ install -p -m 0644 \
   %{S:1006} %{S:1007} %{S:1008} %{S:1009} %{S:1010} \
   %{S:1020} %{S:1021} %{S:1022} %{S:1023} %{S:1024} \
   %{S:1025} %{S:1026} %{S:1027} %{S:1028} %{S:1029} \
-  %{S:1030} \
+  %{S:1030} %{S:1031} \
   %{S:1040} %{S:1041} %{S:1042} %{S:1043} %{S:1044} \
   %{S:1045} %{S:1046} %{S:1047} %{S:1048} %{S:1049} \
   %{S:1050} \
@@ -572,7 +571,6 @@ ln -s preconfigured.target %{buildroot}%{_cross_unitdir}/default.target
 %dir %{_cross_unitdir}/unlock-datastore.service.d
 %dir %{_cross_unitdir}/encrypt-local-fs.service.d
 %dir %{_cross_unitdir}/\x2ebottlerocket.mount.d
-%{_cross_tmpfilesdir}/tmpfs-keystore.conf
 %{_cross_unitdir}/encrypt-datastore.service.d/20-ephemeral.conf
 %{_cross_unitdir}/encrypt-datastore.service.d/30-private-luks.conf
 %{_cross_unitdir}/unlock-datastore.service.d/20-ephemeral.conf
@@ -583,6 +581,7 @@ ln -s preconfigured.target %{buildroot}%{_cross_unitdir}/default.target
 %{_cross_unitdir}/unlock-private-fs.service
 %{_cross_unitdir}/prepare-private-fs.service
 %{_cross_unitdir}/\x2ebottlerocket.mount.d/10-encrypted.conf
+%{_cross_unitdir}/run-rottweiler.mount
 
 %files swap
 %{_cross_sysctldir}/81-release-swap.conf
