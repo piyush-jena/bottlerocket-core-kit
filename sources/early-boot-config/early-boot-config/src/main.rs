@@ -27,10 +27,6 @@ use walkdir::WalkDir;
 // ConditionPathExists that will prevent it from running again if this file exists.
 // We create it after running successfully.
 const MARKER_FILE: &str = "/var/lib/bottlerocket/early-boot-config.ran";
-// An exception to the case above is when we use ephemeral-encryption-keys feature. When enabled,
-// we reconstruct the data store in each boot requiring us to run early-boot-config every boot.
-// We read the value of the environment variable to determine if we write the marker file.
-const EPHEMERAL_ENCRYPTION_KEYS_ENVVAR: &str = "EPHEMERAL_ENCRYPTION_KEYS";
 /// The directory containing user data provider binaries
 const PROVIDERS_DIR: &str = "/usr/libexec/early-boot-config/data-providers.d";
 
@@ -181,13 +177,20 @@ where
     Ok(())
 }
 
+/// Checks if ephemeral encryption keys feature is enabled via image features
+fn ephemeral_encryption_keys_enabled() -> Result<bool> {
+    let features = bottlerocket_image_features::parse_image_features().map_err(|e| {
+        error::Error::LoadImageFeatures {
+            message: e.to_string(),
+        }
+    })?;
+    Ok(features.ephemeral_encryption_keys)
+}
+
 async fn run() -> Result<()> {
     // Parse and store the args passed to the program
     let args = parse_args(env::args());
-    let ephemeral_encryption_keys_enabled = env::var(EPHEMERAL_ENCRYPTION_KEYS_ENVVAR)
-        .ok()
-        .and_then(|v| v.parse().ok())
-        .unwrap_or(false);
+    let is_ephemeral_encryption_keys_enabled = ephemeral_encryption_keys_enabled().unwrap_or(false);
 
     env_logger::Builder::new()
         .filter_level(args.log_level)
@@ -242,7 +245,9 @@ async fn run() -> Result<()> {
         submit_user_data(&args.socket_path, output.json).await?;
     }
 
-    if !ephemeral_encryption_keys_enabled {
+    // We do not write the marker file in case ephemeral encryption keys feature is enabled. This
+    // makes sure that post a reboot we repopulate the user-data in the datastore.
+    if is_ephemeral_encryption_keys_enabled {
         fs::write(MARKER_FILE, "").unwrap_or_else(|e| {
             warn!("Failed to create marker file {MARKER_FILE}, may unexpectedly run again: {e}")
         });
@@ -284,6 +289,9 @@ mod error {
             provider: PathBuf,
             source: std::io::Error,
         },
+
+        #[snafu(display("Unable to load image features: {}", message))]
+        LoadImageFeatures { message: String },
 
         #[snafu(display("Provider '{}' failed: {}", provider.display(), message))]
         ProviderFailure { provider: PathBuf, message: String },

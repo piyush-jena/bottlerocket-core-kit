@@ -17,9 +17,9 @@ Environment=BOTTLEROCKET_PRIVATE=/dev/disk/by-partlabel/BOTTLEROCKET-PRIVATE
 EnvironmentFile=/usr/share/bottlerocket/image-features.env
 
 ExecStart=/usr/bin/rottweiler attach block-device ${BOTTLEROCKET_PRIVATE} bottlerocket-private
-# Delete the sealed data-partition encryption key after it has been used for the
-# time in the boot, forcing format and fresh key generation in the next boot.
-ExecStartPost=-/usr/bin/rottweiler delete-key bottlerocket-private
+# Delete the private-partition encryption key from the tmpfs keystore after it has
+# been used to unlock the volume, so a fresh key is generated on the next boot.
+ExecStartPost=/usr/bin/rottweiler delete-key bottlerocket-private
 ExecStop=/usr/bin/rottweiler detach block-device ${BOTTLEROCKET_PRIVATE}
 
 RemainAfterExit=yes
