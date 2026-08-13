@@ -1,8 +1,9 @@
 [Unit]
 Description=Encrypt Private Filesystem (/.bottlerocket)
 DefaultDependencies=no
+Conflicts=umount.target
 Wants=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device
-After=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device tpm2.target
+After=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device tpm2.target cryptsetup-pre.target
 Before=unlock-private-fs.service
 ConditionSecurity=tpm2
 RefuseManualStart=true

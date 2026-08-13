@@ -10,7 +10,7 @@ Before=encrypt-datastore.service encrypt-localfs.service encrypt-privatefs.servi
 What=tmpfs
 Where=/run/rottweiler
 Type=tmpfs
-Options=nosuid,nodev,noexec,noatime,context=system_u:object_r:private_t:s0,mode=0700
+Options=nosuid,nodev,noexec,noatime,noswap,context=system_u:object_r:private_t:s0,mode=0700
 
 [Install]
 RequiredBy=encrypt-datastore.service encrypt-localfs.service encrypt-privatefs.service

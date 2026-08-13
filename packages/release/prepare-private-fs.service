@@ -1,9 +1,10 @@
 [Unit]
 Description=Prepare Private Filesystem (/.bottlerocket)
 DefaultDependencies=no
+Conflicts=umount.target
 Wants=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device
 After=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device unlock-private-fs.service
-Requires=unlock-private-fs.service
+BindsTo=unlock-private-fs.service
 Before=\x2ebottlerocket.mount
 RefuseManualStart=true
 RefuseManualStop=true
@@ -12,8 +13,6 @@ RefuseManualStop=true
 Type=oneshot
 Environment=PRIVATE_PARTITION_BLOCK_DEVICE=/dev/mapper/BOTTLEROCKET-PRIVATE
 
-# Since we are re-encrypting wthe private partition, we run wipefs to reliably erase stale signatures.
-ExecStartPre=/usr/sbin/wipefs --all --force ${PRIVATE_PARTITION_BLOCK_DEVICE}
 # Relative to the ext4 defaults, we:
   # - adjust the inode ratio since we expect lots of small files
   # - retain the inode size to allow most settings to be stored inline

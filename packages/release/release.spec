@@ -149,7 +149,6 @@ Source1661: encrypt-datastore-ephemeral.conf
 Source1662: unlock-datastore-ephemeral.conf
 Source1663: encrypt-local-fs-ephemeral.conf
 Source1664: repart-local-ephemeral.conf
-Source1665: prepare-local-fs-ephemeral.conf
 
 # Full private-partition LUKS encryption units (ephemeral-encryption-keys).
 Source1670: encrypt-private-fs.service
@@ -429,9 +428,6 @@ install -p -m 0644 %{S:1663} %{buildroot}%{_cross_unitdir}/encrypt-local-fs.serv
 install -d %{buildroot}%{_cross_unitdir}/repart-local.service.d
 install -p -m 0644 %{S:1664} %{buildroot}%{_cross_unitdir}/repart-local.service.d/20-ephemeral.conf
 
-install -d %{buildroot}%{_cross_unitdir}/prepare-local-fs.service.d
-install -p -m 0644 %{S:1665} %{buildroot}%{_cross_unitdir}/prepare-local-fs.service.d/20-ephemeral.conf
-
 # Full private-partition LUKS encryption units (ephemeral-encryption-keys).
 install -p -m 0644 %{S:1670} %{S:1671} %{S:1672} %{buildroot}%{_cross_unitdir}
 
@@ -576,7 +572,6 @@ ln -s preconfigured.target %{buildroot}%{_cross_unitdir}/default.target
 %{_cross_unitdir}/unlock-datastore.service.d/20-ephemeral.conf
 %{_cross_unitdir}/encrypt-local-fs.service.d/20-ephemeral.conf
 %{_cross_unitdir}/repart-local.service.d/20-ephemeral.conf
-%{_cross_unitdir}/prepare-local-fs.service.d/20-ephemeral.conf
 %{_cross_unitdir}/encrypt-private-fs.service
 %{_cross_unitdir}/unlock-private-fs.service
 %{_cross_unitdir}/prepare-private-fs.service

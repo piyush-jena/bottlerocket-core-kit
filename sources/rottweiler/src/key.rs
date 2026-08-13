@@ -30,14 +30,19 @@ fn keystore_dir() -> PathBuf {
     }
 }
 
+fn validate_key_id(key_id: &str) -> Result<()> {
+    snafu::ensure_whatever!(
+        !key_id.is_empty()
+            && key_id.chars().all(|c| c.is_alphanumeric() || c == '-' || c == '_'),
+        "key_id must be non-empty and contain only alphanumerics, dashes, and underscores"
+    );
+
+    Ok(())
+}
+
 /// Generate a random encryption key and encrypt it with TPM2 PCRs 7+14
 pub fn generate(key_id: String) -> Result<()> {
-    if !key_id
-        .chars()
-        .all(|c| c.is_alphanumeric() || c == '-' || c == '_')
-    {
-        whatever!("key_id must contain only alphanumerics, dashes, and underscores");
-    }
+    validate_key_id(&key_id)?;
 
     let keystore = keystore_dir();
     let key_path = keystore.join(&key_id);
@@ -73,13 +78,7 @@ pub fn generate(key_id: String) -> Result<()> {
 
 /// Delete a sealed key from the keystore.
 pub fn delete(key_id: String) -> Result<()> {
-    if !key_id
-        .chars()
-        .all(|c| c.is_alphanumeric() || c == '-' || c == '_')
-    {
-        whatever!("key_id must contain only alphanumerics, dashes, and underscores");
-    }
-
+    validate_key_id(&key_id)?;
     let key_path = keystore_dir().join(&key_id);
 
     // Skip deletion if key doesn't exists
@@ -97,6 +96,7 @@ pub fn delete(key_id: String) -> Result<()> {
 
 /// Load and decrypt a TPM2-encrypted key from the keystore
 pub fn load(key_id: String) -> Result<Zeroizing<Vec<u8>>> {
+    validate_key_id(&key_id)?;
     let key_path = keystore_dir().join(&key_id);
 
     let encrypted = fs::read(&key_path)
