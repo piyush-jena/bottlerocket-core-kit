@@ -14,6 +14,8 @@ Bottlerocket's encrypted storage feature provides:
 
 All encryption keys are sealed to TPM2 PCRs, ensuring data can only be decrypted when the system boots in a trusted state.
 
+> **Two block-encryption modes.** The description above (LUKS2 with TPM2-sealed keys) applies to variants with the `encrypted-storage` image feature. Variants that also enable `ephemeral-encryption-keys` encrypt their block devices with plain-mode dm-crypt and a per-boot random key that is neither TPM-sealed nor persisted. The fscrypt datastore encryption is the same in both modes. See [Ephemeral Encryption Keys](#ephemeral-encryption-keys).
+
 ## Architecture
 
 ### Components
@@ -208,6 +210,129 @@ This ensures encrypted data can only be accessed when booting a trusted configur
 - Before: `migrator.service`, `storewolf.service`
 - Required by: `migrator.service`, `storewolf.service`
 
+## Ephemeral Encryption Keys
+
+Variants with the `ephemeral-encryption-keys` image feature (in addition to `encrypted-storage`) encrypt block devices with plain-mode dm-crypt using a fresh random key generated on every boot, instead of the LUKS2 flow described above. This covers `BOTTLEROCKET-DATA`, `BOTTLEROCKET-PRIVATE`, and the `EPHEMERAL-DATA` device from `apiclient ephemeral-storage init`.
+
+Directory encryption for `/.bottlerocket/datastore` still uses fscrypt with a TPM2-sealed key, but it runs as a single service (`encrypt-unlock-datastore.service`) instead of the `encrypt-datastore.service` / `unlock-datastore.service` pair, and the sealed key lives in the `/run/rottweiler` tmpfs keystore rather than on `/.bottlerocket`.
+
+### Keys
+
+No keys are stored. Each key is 64 bytes read from `/dev/random`, passed to `cryptsetup` on stdin, and thereafter held only in the kernel dm-crypt table:
+
+- Nothing is written to `/.bottlerocket/keystore/` for `bottlerocket-data` or `bottlerocket-private`
+- Keys are never added to the kernel keyring and never TPM2-sealed, so these units need no `ConditionSecurity=tpm2`
+- Data does not survive a reboot: the next boot uses a new key, so prior contents are unreadable and the filesystem is recreated
+
+### Boot Flow (Every Boot)
+
+Nothing is conditional on prior state, so every boot follows the same path.
+
+```
+1. encrypt-unlock-local-fs.service
+   - Grows /dev/disk/by-partlabel/BOTTLEROCKET-DATA to fill the disk
+   - Opens it as /dev/mapper/BOTTLEROCKET-DATA with a per-boot key
+   ↓
+2. prepare-local-fs.service
+   - Creates filesystem on /dev/mapper/BOTTLEROCKET-DATA
+   ↓
+3. local.mount
+   - Mounts /dev/mapper/BOTTLEROCKET-DATA to /local
+   ↓
+4. repart-local.service
+   - Partition is already full size, so grow and growfs are no-ops
+```
+
+```
+1. encrypt-unlock-private-fs.service
+   - Opens BOTTLEROCKET-PRIVATE as /dev/mapper/BOTTLEROCKET-PRIVATE with a per-boot key
+   ↓
+2. prepare-private-fs.service
+   - Creates filesystem on /dev/mapper/BOTTLEROCKET-PRIVATE (mkfs.ext4 -O encrypt)
+   ↓
+3. .bottlerocket.mount
+   - Mounts /dev/mapper/BOTTLEROCKET-PRIVATE to /.bottlerocket
+   ↓
+4. encrypt-unlock-datastore.service
+   - Generates a TPM2-sealed key into the /run/rottweiler tmpfs keystore
+   - Sets the fscrypt policy on /.bottlerocket/datastore and unlocks it
+   - Deletes the sealed key from the keystore (ExecStartPost)
+```
+
+### Services
+
+#### encrypt-unlock-local-fs.service
+
+**Purpose:** Encrypt and open the BOTTLEROCKET-DATA partition in one step.
+
+**Key behaviors:**
+- Grows the partition and waits for its device node to be recreated before opening the mapper, so it is full size from the start
+- Generates a per-boot key and opens the plain-mode mapper (`rottweiler encrypt-and-attach block-device`)
+- Detaches on shutdown (`ExecStop`)
+
+**Dependencies:**
+- After: `dev-disk-by-partlabel-BOTTLEROCKET-DATA.device`, `cryptsetup-pre.target`, `systemd-udevd-kernel.socket`
+- Before: `cryptsetup.target`, `blockdev@dev-mapper-BOTTLEROCKET-DATA.target`
+- Required by: `local-fs.target`
+
+#### encrypt-unlock-private-fs.service
+
+**Purpose:** Encrypt and open the BOTTLEROCKET-PRIVATE partition in one step.
+
+**Key behaviors:**
+- Generates a per-boot key and opens the plain-mode mapper (`rottweiler encrypt-and-attach block-device`)
+- Detaches on shutdown (`ExecStop`)
+
+**Dependencies:**
+- After: `dev-disk-by-partlabel-BOTTLEROCKET-PRIVATE.device`, `cryptsetup-pre.target`, `systemd-udevd-kernel.socket`
+- Before: `cryptsetup.target`, `blockdev@dev-mapper-BOTTLEROCKET-PRIVATE.target`
+- Required by: `prepare-private-fs.service`
+
+#### encrypt-unlock-datastore.service
+
+**Purpose:** Encrypt and unlock `/.bottlerocket/datastore` in one step, replacing the
+`encrypt-datastore.service` / `unlock-datastore.service` pair used in LUKS mode.
+
+**Key behaviors:**
+- `rottweiler generate-key datastore` seals a fresh key into the `/run/rottweiler` tmpfs keystore
+- `rottweiler encrypt directory` sets the fscrypt policy, `rottweiler unlock directory` adds the key
+- `ExecStartPost=rottweiler delete-key datastore` removes the sealed key, so nothing outlives the unit
+- `RequiresMountsFor=/.bottlerocket /run/rottweiler` pulls in both the PRIVATE filesystem and the
+  tmpfs keystore, so the key cannot land on a plain `/run` directory
+
+**Dependencies:**
+- Before: `migrator.service`, `storewolf.service`
+- Required by: `migrator.service`, `storewolf.service`
+- Requires mounts for: `/.bottlerocket`, `/run/rottweiler`
+
+#### prepare-local-fs.service (modified)
+
+**Drop-in:** `prepare-local-fs-plain.conf`
+
+**Changes:**
+- Operates on `/dev/mapper/BOTTLEROCKET-DATA` instead of the raw partition
+- Depends on `encrypt-unlock-local-fs.service`
+
+#### local.mount (modified)
+
+**Drop-in:** `local.mount.d/10-plain.conf`, installed from the same `local-mount-encrypted.conf`
+source as the LUKS mode's `10-encrypted.conf` — the mapper name is identical in both modes, so the
+drop-in only needs to override `What=`.
+
+**Changes:**
+- Mounts `/dev/mapper/BOTTLEROCKET-DATA` instead of the raw partition
+
+#### .bottlerocket.mount (modified)
+
+**Drop-in:** `bottlerocket-mount-ephemeral.conf`, installed as
+`.bottlerocket.mount.d/20-ephemeral.conf`
+
+**Changes:**
+- Mounts `/dev/mapper/BOTTLEROCKET-PRIVATE` instead of the raw partition
+- Requires `prepare-private-fs.service`
+
+`repart-local.service` has no drop-in in this mode: the partition is grown before the mapper is opened, so the base unit's grow and `systemd-growfs /local` are no-ops.
+
 ## TPM2 Measurements
 
 Bottlerocket extends TPM2 PCRs at various boot stages to establish a cryptographic chain of trust.
@@ -298,6 +423,25 @@ cryptsetup luksFormat \
 ```
 
 This matches systemd's behavior and avoids unnecessary key stretching.
+
+### Plain Mode Formatting
+
+With `ephemeral-encryption-keys`, block devices are opened in plain mode instead. No header is written, so encryption and attach are a single operation, and `--hash plain` uses the random bytes verbatim:
+
+```bash
+cryptsetup open \
+  --type plain \
+  --cipher aes-xts-plain64 \
+  --key-size 512 \
+  --hash plain \
+  --key-file=- \
+  --keyfile-size=64 \
+  <device> <name>
+```
+
+`--key-file=-` and `--keyfile-size=64` are required, not decoration.
+The 64 random key bytes are written to cryptsetup's stdin, and without those two arguments cryptsetup treats stdin as an interactive *passphrase* and stops reading at the first newline; `--hash plain` then zero-pads whatever it read out to `--key-size`.
+A random key contains a `0x0A` byte about 22% of the time, so the mapper would silently be opened with a truncated key — and a key whose *first* byte is `0x0A` yields an all-zero dm-crypt key, which a non-FIPS kernel accepts and a FIPS kernel rejects with `crypt: Error decoding and setting key (-EINVAL)`.
 
 ### fscrypt Configuration
 
@@ -433,8 +577,20 @@ rottweiler check directory /.bottlerocket/datastore encrypted
 ### Source Code
 
 - `sources/rottweiler/` - Storage encryption helper implementation
-- `packages/release/release.spec` - Service packaging
+- `sources/bottlerocket-image-features/` - Parses the `encrypted-storage` and `ephemeral-encryption-keys` image features
+- `sources/api/apiserver/src/server/ephemeral_storage.rs` - Encryption of the `EPHEMERAL-DATA` device for `apiclient ephemeral-storage init`
+- `packages/release/release.spec` - Service packaging. The units split across three subpackages:
+  `release-crypt` (measure/pcrphase, mode-independent), `release-crypt-luks` (LUKS block-device and
+  two-service datastore units plus the `10-encrypted` drop-ins), and `release-ephemeral-crypt`
+  (plain-mode `encrypt-unlock-*` units, `prepare-private-fs.service`, `run-rottweiler.mount`, and the
+  `10-plain` / `20-ephemeral` drop-ins)
 - `packages/release/encrypt-*.service` - Encryption services
 - `packages/release/unlock-*.service` - Unlocking services
+- `packages/release/encrypt-unlock-*.service` - Combined plain-mode encryption and unlock services
+- `packages/release/prepare-local-fs.service`, `packages/release/prepare-private-fs.service` - Filesystem creation
+- `packages/release/*-encrypted.conf` - LUKS mode drop-ins
+- `packages/release/*-plain.conf` - Plain mode drop-ins
+- `packages/release/bottlerocket-mount-ephemeral.conf` - Plain-mode `.bottlerocket.mount` drop-in
+- `packages/release/run-rottweiler.mount` - tmpfs keystore directory at `/run/rottweiler`
 - `packages/release/measure-*.service` - Measurement services
 - `packages/release/systemd-pcrphase-*.service` - Boot phase measurements
