@@ -142,20 +142,33 @@ Source1608: measure-settings.service
 Source1609: measure-cmdline.service
 Source1610: measure-user-data.service
 
+# Combined plain-mode (per-boot random key) block-device encryption services for
+# ephemeral-encryption-keys images. Each opens a headerless plain-mode dm-crypt
+# mapper in a single step (no LUKS header, no TPM-sealed key, nothing persisted),
+# replacing the legacy encrypt-*/unlock-* pair for its partition.
+Source1610: encrypt-unlock-local-fs.service
+Source1611: encrypt-unlock-private-fs.service
+
 # TPM2-related drop-ins.
 Source1650: prepare-local-fs-encrypted.conf
 Source1651: local-mount-encrypted.conf
 Source1652: repart-local-encrypted.conf
 
-# Ephemeral (per-boot) encryption key drop-ins.
+# Ephemeral (per-boot) encryption key datastore drop-ins.
 Source1661: encrypt-datastore-ephemeral.conf
 Source1662: unlock-datastore-ephemeral.conf
-Source1663: encrypt-local-fs-ephemeral.conf
-Source1664: repart-local-ephemeral.conf
+# Plain-mode DATA mapper-wiring drop-ins (ephemeral): mount + mkfs the plain
+# mapper and bind prepare-local-fs to the plain open unit. These replace the
+# mapper wiring the ephemeral set previously inherited from the LUKS
+# 10-encrypted drop-ins (now in the crypt-luks subpackage).
+Source1667: local-mount-plain.conf
+Source1668: prepare-local-fs-plain.conf
 
-# Full private-partition LUKS encryption units (ephemeral-encryption-keys).
-Source1670: encrypt-private-fs.service
-Source1671: unlock-private-fs.service
+# Private-partition support units (ephemeral-encryption-keys). The plain-mode
+# PRIVATE encryption itself is done by encrypt-unlock-private-fs.service
+# (registered in the ephemeral subpackage); these units format and mount the
+# resulting mapper. The legacy LUKS PRIVATE units (encrypt-private-fs.service /
+# unlock-private-fs.service) have been retired.
 Source1672: prepare-private-fs.service
 Source1673: bottlerocket-mount-encrypted.conf
 Source1674: encrypt-datastore-private-luks.conf
@@ -206,6 +219,13 @@ Requires: %{_cross_os}xfsprogs
 Requires: %{_cross_os}libkcapi
 Requires: (%{name}-fips if %{_cross_os}image-feature(fips))
 Requires: (%{name}-crypt if %{_cross_os}image-feature(encrypted-storage))
+# Pull in the LUKS block-device set on encrypted-storage images that are NOT also
+# ephemeral-encryption-keys (those use the plain-mode set). RPM only allows the
+# conditional operators (if/unless) at the top level of a rich dep, so "ES and not
+# EEK" is expressed as the idiomatic (pkg or image-feature(EEK)) inner term guarded
+# by `if image-feature(ES)`: when ES is set the term needs crypt-luks unless the
+# ephemeral feature already satisfies the `or`; when ES is unset the term is inert.
+Requires: ((%{name}-crypt-luks or %{_cross_os}image-feature(ephemeral-encryption-keys)) if %{_cross_os}image-feature(encrypted-storage))
 Requires: (%{name}-ephemeral-crypt if %{_cross_os}image-feature(ephemeral-encryption-keys))
 
 
@@ -227,6 +247,19 @@ Requires: (%{_cross_os}image-feature(encrypted-storage) and %{name})
 Requires: %{_cross_os}rottweiler
 
 %description crypt
+%{summary}.
+
+%package crypt-luks
+Summary: Bottlerocket release, with LUKS block-device encryption
+# Pull in the LUKS block-device set only on encrypted-storage images that are NOT
+# also ephemeral-encryption-keys (those use the plain-mode set instead). The
+# nested-`unless` pull-in lives in the main package's Requires; this Conflicts is
+# belt-and-suspenders so any future mis-pull becomes a hard build error.
+Requires: (%{_cross_os}image-feature(encrypted-storage) and %{name}-crypt)
+Conflicts: %{_cross_os}image-feature(ephemeral-encryption-keys)
+Requires: %{_cross_os}rottweiler
+
+%description crypt-luks
 %{summary}.
 
 %package ephemeral-crypt
@@ -427,14 +460,25 @@ install -p -m 0644 %{S:1661} %{buildroot}%{_cross_unitdir}/encrypt-datastore.ser
 install -d %{buildroot}%{_cross_unitdir}/unlock-datastore.service.d
 install -p -m 0644 %{S:1662} %{buildroot}%{_cross_unitdir}/unlock-datastore.service.d/20-ephemeral.conf
 
-install -d %{buildroot}%{_cross_unitdir}/encrypt-local-fs.service.d
-install -p -m 0644 %{S:1663} %{buildroot}%{_cross_unitdir}/encrypt-local-fs.service.d/20-ephemeral.conf
+# Plain-mode DATA mapper-wiring drop-ins (ephemeral): mount + mkfs the plain
+# mapper and bind prepare-local-fs to the plain open unit. These replace the
+# mapper wiring the ephemeral set previously inherited from the LUKS
+# 10-encrypted drop-ins (now in the crypt-luks subpackage). No repart-local
+# drop-in is needed: encrypt-unlock-local-fs.service grows the DATA partition
+# before it opens the mapper, so the base repart-local grow + growfs are
+# idempotent no-ops on ephemeral images.
+install -d %{buildroot}%{_cross_unitdir}/local.mount.d
+install -p -m 0644 %{S:1667} %{buildroot}%{_cross_unitdir}/local.mount.d/10-plain.conf
+install -d %{buildroot}%{_cross_unitdir}/prepare-local-fs.service.d
+install -p -m 0644 %{S:1668} %{buildroot}%{_cross_unitdir}/prepare-local-fs.service.d/10-plain.conf
 
-install -d %{buildroot}%{_cross_unitdir}/repart-local.service.d
-install -p -m 0644 %{S:1664} %{buildroot}%{_cross_unitdir}/repart-local.service.d/20-ephemeral.conf
+# Combined plain-mode (per-boot random key) block-device encryption services.
+# These ship only in the ephemeral-crypt subpackage.
+install -p -m 0644 %{S:1610} %{S:1611} %{buildroot}%{_cross_unitdir}
 
-# Full private-partition LUKS encryption units (ephemeral-encryption-keys).
-install -p -m 0644 %{S:1670} %{S:1671} %{S:1672} %{buildroot}%{_cross_unitdir}
+# Private-partition support units (ephemeral-encryption-keys). The legacy LUKS
+# PRIVATE units have been retired; only prepare-private-fs remains here.
+install -p -m 0644 %{S:1672} %{buildroot}%{_cross_unitdir}
 
 BOTTLEROCKET_PATH=$(systemd-escape --path /.bottlerocket)
 install -d %{buildroot}%{_cross_unitdir}/${BOTTLEROCKET_PATH}.mount.d
@@ -558,8 +602,6 @@ ln -s preconfigured.target %{buildroot}%{_cross_unitdir}/default.target
 %files crypt
 %{_cross_unitdir}/encrypt-datastore.service
 %dir %{_cross_unitdir}/encrypt-datastore.service.d
-%{_cross_unitdir}/encrypt-local-fs.service
-%dir %{_cross_unitdir}/encrypt-local-fs.service.d
 %{_cross_unitdir}/measure-cmdline.service
 %{_cross_unitdir}/measure-settings.service
 %{_cross_unitdir}/measure-user-data.service
@@ -569,19 +611,22 @@ ln -s preconfigured.target %{buildroot}%{_cross_unitdir}/default.target
 %{_cross_unitdir}/systemd-pcrphase-sysinit.service
 %{_cross_unitdir}/unlock-datastore.service
 %dir %{_cross_unitdir}/unlock-datastore.service.d
+
+%files crypt-luks
+%{_cross_unitdir}/encrypt-local-fs.service
 %{_cross_unitdir}/unlock-local-fs.service
 %{_cross_unitdir}/local.mount.d/10-encrypted.conf
 %{_cross_unitdir}/prepare-local-fs.service.d/10-encrypted.conf
 %{_cross_unitdir}/repart-local.service.d/10-encrypted.conf
 
 %files ephemeral-crypt
+%{_cross_unitdir}/encrypt-unlock-local-fs.service
+%{_cross_unitdir}/encrypt-unlock-private-fs.service
 %{_cross_unitdir}/encrypt-datastore.service.d/20-ephemeral.conf
 %{_cross_unitdir}/encrypt-datastore.service.d/30-private-luks.conf
 %{_cross_unitdir}/unlock-datastore.service.d/20-ephemeral.conf
-%{_cross_unitdir}/encrypt-local-fs.service.d/20-ephemeral.conf
-%{_cross_unitdir}/repart-local.service.d/20-ephemeral.conf
-%{_cross_unitdir}/encrypt-private-fs.service
-%{_cross_unitdir}/unlock-private-fs.service
+%{_cross_unitdir}/local.mount.d/10-plain.conf
+%{_cross_unitdir}/prepare-local-fs.service.d/10-plain.conf
 %{_cross_unitdir}/prepare-private-fs.service
 %{_cross_unitdir}/\x2ebottlerocket.mount.d/10-encrypted.conf
 %{_cross_unitdir}/run-rottweiler.mount

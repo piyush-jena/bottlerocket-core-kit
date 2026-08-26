@@ -17,6 +17,28 @@ pub fn encrypt(path: PathBuf, key_id: String) -> Result<()> {
     system::cryptsetup_luks_format(device, &key_bytes)
 }
 
+/// Encrypt and attach a block device in a single step using plain-mode dm-crypt.
+///
+/// Generates 64 random bytes as a per-boot key (never persisted, never TPM-sealed), then opens the
+/// device as a **headerless** plain-mode dm-crypt mapper named after the device file name. No LUKS
+/// header is written and there is no separate format step.
+///
+/// The key is fed once on stdin and thereafter lives only in the kernel dm-crypt table; the
+/// process buffer is zeroized on drop. Callers that need the device to be full size (the DATA
+/// partition) grow the partition *before* this runs, so no plain-mode mapper ever needs a keyed
+/// online resize and the key never has to be shared with another process.
+pub fn encrypt_and_attach(path: PathBuf) -> Result<()> {
+    let volume_name = filename(&path)?;
+
+    let device = path
+        .to_str()
+        .with_whatever_context(|| format!("path is not valid UTF-8: '{}'", path.display()))?;
+
+    let key_bytes = key::random_bytes()?;
+
+    system::cryptsetup_plain_format(volume_name, device, &key_bytes)
+}
+
 /// Attach (unlock) an encrypted block device, creating a device mapper entry
 pub fn attach(path: PathBuf, key_id: String) -> Result<()> {
     let volume_name = filename(&path)?;
@@ -37,7 +59,12 @@ pub fn detach(path: PathBuf) -> Result<()> {
     system::systemd_cryptsetup_detach(volume_name)
 }
 
-/// Resize a LUKS2 encrypted block device to match the underlying device size
+/// Resize a LUKS2 block-device mapper to match the underlying (grown) device size, loading the
+/// TPM-sealed key from the keystore.
+///
+/// This is the encrypted-storage flow only. Plain-mode (ephemeral) mappers are never resized: the
+/// DATA partition is grown before the mapper is opened, so the mapper is full size from the start
+/// and its per-boot volume key never has to leave the process that generated it.
 pub fn resize(path: PathBuf, key_id: String) -> Result<()> {
     let volume_name = filename(&path)?;
 
@@ -74,4 +101,34 @@ fn filename(path: &Path) -> Result<&str> {
         .with_whatever_context(|| format!("failed to extract filename from '{}'", path.display()))?
         .to_str()
         .with_whatever_context(|| format!("filename is not valid UTF-8: '{}'", path.display()))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn filename_derives_mapper_name_from_partlabel_path() {
+        // The mapper name that encrypt_and_attach / attach derive is the device file name.
+        let path = PathBuf::from("/dev/disk/by-partlabel/BOTTLEROCKET-DATA");
+        assert_eq!(filename(&path).unwrap(), "BOTTLEROCKET-DATA");
+    }
+
+    #[test]
+    fn filename_derives_mapper_name_from_ephemeral_path() {
+        let path = PathBuf::from("/dev/disk/EPHEMERAL-DATA");
+        assert_eq!(filename(&path).unwrap(), "EPHEMERAL-DATA");
+    }
+
+    #[test]
+    fn filename_handles_plain_device_node() {
+        let path = PathBuf::from("/dev/nvme1n1");
+        assert_eq!(filename(&path).unwrap(), "nvme1n1");
+    }
+
+    #[test]
+    fn filename_errors_without_a_file_name() {
+        let path = PathBuf::from("/");
+        assert!(filename(&path).is_err());
+    }
 }

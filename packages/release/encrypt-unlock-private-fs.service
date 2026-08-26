@@ -1,0 +1,33 @@
+[Unit]
+Description=Encrypt and Unlock Private Filesystem (/.bottlerocket)
+DefaultDependencies=no
+Conflicts=umount.target
+IgnoreOnIsolate=true
+Wants=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device blockdev@dev-mapper-BOTTLEROCKET\x2dPRIVATE.target
+After=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device cryptsetup-pre.target systemd-udevd-kernel.socket
+Before=cryptsetup.target blockdev@dev-mapper-BOTTLEROCKET\x2dPRIVATE.target
+# No ConditionSecurity=tpm2: the per-boot key is generated in memory and never
+# TPM-sealed, so there is no TPM dependency (and no unowned-hierarchy boot hang).
+RefuseManualStart=true
+RefuseManualStop=true
+
+[Service]
+Type=oneshot
+Environment=BOTTLEROCKET_PRIVATE=/dev/disk/by-partlabel/BOTTLEROCKET-PRIVATE
+EnvironmentFile=/usr/share/bottlerocket/image-features.env
+
+# Single step: open the PRIVATE partition as a headerless plain-mode dm-crypt
+# mapper using 64 bytes of per-boot randomness fed on stdin. No LUKS header is
+# written and no key is persisted, so there is no format->attach window and
+# nothing to delete. prepare-private-fs (mkfs.ext4 -O encrypt) and the
+# bottlerocket-mount-encrypted.conf mount still run after this unit.
+ExecStart=/usr/bin/rottweiler encrypt-and-attach block-device ${BOTTLEROCKET_PRIVATE}
+ExecStop=/usr/bin/rottweiler detach block-device ${BOTTLEROCKET_PRIVATE}
+
+UMask=0077
+RemainAfterExit=yes
+StandardOutput=journal+console
+StandardError=inherit
+
+[Install]
+RequiredBy=prepare-private-fs.service

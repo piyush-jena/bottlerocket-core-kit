@@ -14,6 +14,11 @@ Bottlerocket's encrypted storage feature provides:
 
 All encryption keys are sealed to TPM2 PCRs, ensuring data can only be decrypted when the system boots in a trusted state.
 
+> **Two block-encryption modes.** The description above (LUKS2 + TPM2-sealed keys) applies to variants with the `encrypted-storage` image feature.
+> Variants that additionally enable the `ephemeral-encryption-keys` image feature use a different scheme for **block devices** (the `BOTTLEROCKET-DATA` and `BOTTLEROCKET-PRIVATE` partitions, and the `EPHEMERAL-DATA` device from `apiclient ephemeral-storage init`): **plain-mode dm-crypt with a per-boot random key, no TPM sealing, and no persisted key**.
+> See [Ephemeral Encryption Keys (plain-mode)](#ephemeral-encryption-keys-plain-mode) below.
+> The fscrypt datastore directory encryption is unchanged in both modes (still TPM2-sealed).
+
 ## Architecture
 
 ### Components
@@ -207,6 +212,139 @@ This ensures encrypted data can only be accessed when booting a trusted configur
 **Dependencies:**
 - Before: `migrator.service`, `storewolf.service`
 - Required by: `migrator.service`, `storewolf.service`
+
+## Ephemeral Encryption Keys (plain-mode)
+
+**Keywords:** ephemeral-encryption-keys, plain-mode, dm-crypt, aes-xts-plain64, per-boot key, no-tpm, encrypt-and-attach
+
+Variants with the `ephemeral-encryption-keys` image feature (in addition to `encrypted-storage`) encrypt their block devices with **plain-mode dm-crypt using a fresh random key generated on every boot**, instead of the LUKS2 + TPM2-sealed-key flow described above.
+
+### Rationale
+
+Plain mode has no on-disk header, and the key is fed directly into the kernel device-mapper table:
+
+- **Nothing persisted.** The key is 64 bytes read from `/dev/random` into a zeroized in-memory buffer, passed once to `cryptsetup` on stdin, and thereafter exists only inside the kernel dm-crypt mapping. It is never written to disk or tmpfs, never placed in the kernel keyring, and never TPM-sealed — no keystore file is written for `bottlerocket-data`/`bottlerocket-private`, so there is nothing to read back and nothing to delete.
+- **No TPM dependency.** Because the key is never TPM-sealed, the new units carry **no `ConditionSecurity=tpm2`**. This removes the boot hang that occurred when a warm reboot left the TPM hierarchy in an unowned/changed state.
+- **Single step, no format→attach window.** Plain mode writes no header, so encryption and attach are a single `cryptsetup open --type plain` operation.
+- **Automatic rotation.** A fresh per-boot key makes any prior on-disk contents unreadable, so `/local`, `/.bottlerocket`, and any initialized ephemeral storage are effectively wiped and reformatted on every boot — the intended ephemeral behavior.
+
+### Cipher
+
+The plain-mode mapper is opened with a fixed cipher for the 64-byte key. Every site — DATA, PRIVATE, and `ephemeral-storage init` — uses the same single-step open, driven by `rottweiler encrypt-and-attach block-device <device>` (which generates the key and derives the mapper name from the device file name). The key is passed once to `cryptsetup` on stdin and then exists only inside the kernel dm-crypt mapping:
+
+```bash
+cryptsetup open --type plain \
+  --cipher aes-xts-plain64 \
+  --key-size 512 \
+  --hash plain \
+  <device> <mapper-name>   # key on stdin
+```
+
+`--hash plain` means no key derivation: the 64 raw bytes are used verbatim as the volume key.
+
+No mapper is ever resized, so the volume key never has to be handed to a second process. That is deliberate — see [DATA grow-before-open](#data-grow-before-open). A keyring-backed volume key (`--volume-key-keyring`) would work, but it would require publishing the key in the root user keyring and granting `KeyringMode=shared` to every unit that touches the mapper.
+
+### Services
+
+Two combined single-step services (shipped only in the `ephemeral-crypt` subpackage) replace the legacy `encrypt-*` + `unlock-*` pair for their partition:
+
+#### encrypt-unlock-local-fs.service
+
+**Purpose:** Open `/dev/mapper/BOTTLEROCKET-DATA` as a plain-mode mapper (per-boot key).
+
+**Key behaviors:**
+- Single `ExecStart=/usr/bin/rottweiler encrypt-and-attach block-device ${BOTTLEROCKET_DATA}` (no `generate-key`, no `delete-key`, no `ConditionSecurity=tpm2`).
+- Grows the raw DATA partition **before** opening the mapper, so the mapper is full size from the start and never needs a keyed online resize: `ExecStartPre=-/usr/bin/systemd-repart --dry-run=no ${BOTTLEROCKET_DATA}`.
+- Between the grow and the open, waits on a **device-scoped** barrier: `ExecStartPre=/usr/bin/udevadm wait --settle --timeout=30 ${BOTTLEROCKET_DATA}`. See [DATA grow-before-open](#data-grow-before-open).
+- Detaches on shutdown (`ExecStop`).
+
+**Dependencies:**
+- After: `dev-disk-by-partlabel-BOTTLEROCKET-DATA.device`, `cryptsetup-pre.target`, `systemd-udevd-kernel.socket`
+- Before: `cryptsetup.target`, `blockdev@dev-mapper-BOTTLEROCKET-DATA.target`
+- Required by: `local-fs.target`
+
+#### encrypt-unlock-private-fs.service
+
+**Purpose:** Open `/dev/mapper/BOTTLEROCKET-PRIVATE` as a plain-mode mapper (per-boot key).
+
+**Key behaviors:**
+- Single `ExecStart=/usr/bin/rottweiler encrypt-and-attach block-device ${BOTTLEROCKET_PRIVATE}` (no TPM condition).
+- `prepare-private-fs.service` (mkfs.ext4 `-O encrypt`) and the `bottlerocket-mount-encrypted.conf` mount still run after this unit.
+
+**Dependencies:**
+- After: `dev-disk-by-partlabel-BOTTLEROCKET-PRIVATE.device`, `cryptsetup-pre.target`
+- Before: `cryptsetup.target`, `blockdev@dev-mapper-BOTTLEROCKET-PRIVATE.target`
+- Required by: `prepare-private-fs.service`
+
+### Packaging: each feature ships its own block-device set
+
+The three variant classes get their block-device units from **separate subpackages** rather than sharing one unit set and neutralizing it with drop-ins. `release.spec` splits the crypto units three ways:
+
+| Subpackage | Installed when | Contents |
+|------------|----------------|----------|
+| `release-crypt` (shared base) | `image-feature(encrypted-storage)` | datastore fscrypt units (`encrypt-datastore` / `unlock-datastore`) + their datastore drop-ins, and the measure/pcrphase TPM units |
+| `release-crypt-luks` (LUKS block-device set) | `encrypted-storage` **and NOT** `ephemeral-encryption-keys` | `encrypt-local-fs.service`, `unlock-local-fs.service`, and the `10-encrypted` `prepare-local-fs` / `local.mount` / `repart-local` drop-ins |
+| `release-ephemeral-crypt` (plain-mode set) | `image-feature(ephemeral-encryption-keys)` | `encrypt-unlock-local-fs.service`, `encrypt-unlock-private-fs.service`, `prepare-private-fs.service`, `bottlerocket-mount-encrypted.conf`, `run-rottweiler.mount`, the ephemeral datastore drop-ins, and the plain-mode DATA wiring drop-ins (`10-plain` ×2) |
+
+The "NOT ephemeral" gate on the LUKS set uses the RPM rich-dependency idiom
+`((%{name}-crypt-luks or %{_cross_os}image-feature(ephemeral-encryption-keys)) if %{_cross_os}image-feature(encrypted-storage))`,
+which pulls in `crypt-luks` exactly when `encrypted-storage` is present and `ephemeral-encryption-keys` is absent. `crypt-luks` also carries `Conflicts: %{_cross_os}image-feature(ephemeral-encryption-keys)` as a belt-and-suspenders guard.
+
+**Consequences of the split:**
+- On an **ephemeral image** the LUKS block-device units (`encrypt-local-fs.service`, `unlock-local-fs.service`) and the `10-encrypted` drop-ins are **absent** — not installed-then-skipped. There is nothing to neutralize, so the four legacy neutralizing drop-ins are gone (see below).
+- On an **encrypted-storage-only image** the LUKS block-device units and their `10-encrypted` drop-ins are present and run exactly as before; the plain-mode units are absent.
+- Both encrypted-storage-only and ephemeral images still get the shared `release-crypt` base (datastore fscrypt + TPM units), so datastore behavior is unchanged.
+
+The legacy LUKS **PRIVATE** units (`encrypt-private-fs.service` / `unlock-private-fs.service`) are **retired** — no image ships them. On encrypted-storage-only images `BOTTLEROCKET-PRIVATE` is left **unencrypted** (raw partition mounted at `/.bottlerocket`); PRIVATE encryption is exclusively an ephemeral, plain-mode feature.
+
+**Removed neutralizing drop-ins.** Because the ephemeral image no longer installs the LUKS units, the four drop-ins that used to skip / no-op / rebind them are **deleted**:
+`encrypt-local-fs.service.d/20-ephemeral.conf`, `unlock-local-fs.service.d/20-ephemeral.conf`, `prepare-local-fs.service.d/20-ephemeral.conf`, and `repart-local.service.d/20-ephemeral.conf`. The datastore drop-ins (`encrypt-datastore.service.d/20-ephemeral.conf`, `unlock-datastore.service.d/20-ephemeral.conf`, `encrypt-datastore.service.d/30-private-luks.conf`) are **kept** — they express genuinely different datastore behavior, not LUKS-unit neutralization.
+
+### DATA boot chain (ephemeral plain-mode wiring drop-ins)
+
+Since the ephemeral set no longer inherits the `10-encrypted` drop-ins, it ships its own self-contained wiring drop-ins that point the DATA chain at the plain mapper. Because the LUKS units are absent, these set their values **directly** (no `BindsTo`/`ExecStart` reset needed):
+
+- `prepare-local-fs.service.d/10-plain.conf` — `BindsTo=`/`After=encrypt-unlock-local-fs.service` and `Environment=DATA_PARTITION_BLOCK_DEVICE=/dev/mapper/BOTTLEROCKET-DATA` (mkfs the mapper). Mirrors `prepare-local-fs-encrypted.conf`, bound to the plain open unit instead of `unlock-local-fs.service`.
+- `local.mount.d/10-plain.conf` — `What=/dev/mapper/BOTTLEROCKET-DATA` (mount the mapper, not the raw partition). Mirrors `local-mount-encrypted.conf`.
+
+There is **no** ephemeral `repart-local` drop-in: the partition is already full size by the time `repart-local` runs, so the base unit's `systemd-repart` grow and `systemd-growfs /local` are idempotent no-ops.
+
+The resulting ephemeral DATA chain:
+
+```
+encrypt-unlock-local-fs   (grow partition → udevadm wait → open plain mapper full-size)
+  → prepare-local-fs      (+10-plain: BindsTo/After encrypt-unlock; mkfs the mapper)
+  → local.mount           (+10-plain: What=/dev/mapper/BOTTLEROCKET-DATA)
+  → repart-local          (base systemd-repart grow + growfs /local; both no-ops)
+```
+
+### DATA grow-before-open
+
+The DATA partition has to be grown to fill its disk (the EBS volume is usually larger than the image), and plain-mode dm-crypt has no on-disk header — so a mapper opened over a small partition could only be extended later by a `cryptsetup resize` that **re-supplies the volume key**. In a systemd boot that resize necessarily runs in a different service (`repart-local`, which carries `RequiresMountsFor=/local` and therefore runs post-mount), which would mean publishing the per-boot key in the root user keyring as a `logon` key and giving both units `KeyringMode=shared` — systemd's default `KeyringMode=private` gives each service a fresh session keyring with `@u` unlinked, so the kernel `request_key()` behind `--volume-key-keyring` fails with `Required key not available` (ENOKEY).
+
+The design avoids that entirely: **grow the partition first, then open the mapper over it.** The mapper is full size from the start, nothing is ever resized, and the volume key never leaves the process that generated it — so every unit keeps systemd's default `KeyringMode=private`.
+
+The cost is that the open follows a GPT rewrite. Rewriting the partition table makes udev briefly delete and recreate `/dev/disk/by-partlabel/BOTTLEROCKET-DATA`, and resolving the symlink inside that window fails the open with `does not exist or access denied` (Bottlerocket #845). The barrier between the two steps is therefore **device-scoped**:
+
+```
+ExecStartPre=-/usr/bin/systemd-repart --dry-run=no ${BOTTLEROCKET_DATA}
+ExecStartPre=/usr/bin/udevadm wait --settle --timeout=30 ${BOTTLEROCKET_DATA}
+ExecStart=/usr/bin/rottweiler encrypt-and-attach block-device ${BOTTLEROCKET_DATA}
+```
+
+`udevadm wait <device>` waits for that specific symlink to exist **and** for its device to be udev-initialized; `--settle` additionally drains the udev event queue. A bare `udevadm settle` does neither — it drains the global queue and returns successfully while the symlink is still missing. `--timeout=30` bounds the wait so a genuinely absent device fails the unit instead of hanging the boot.
+
+This is a barrier, not the removal of a race class: systemd #40499 shows udevd can perform a userspace partition-table reread that recreates the node *after* a barrier returns, so no post-write barrier is absolute. The warm-reboot endurance loop is the arbiter.
+
+Also note the grow must stay in this unit rather than being ordered `After=repart-local.service`: `repart-local` has `RequiresMountsFor=/local`, which would close the cycle `local.mount → prepare-local-fs → encrypt-unlock-local-fs → repart-local → local.mount`, and systemd 257 cannot reset a dependency directive from a drop-in.
+
+### apiclient ephemeral-storage init
+
+When `ephemeral-encryption-keys` is enabled, `encrypt_ephemeral_device` (apiserver) runs a single `rottweiler encrypt-and-attach block-device /dev/disk/EPHEMERAL-DATA` (plain, per-boot key) instead of the LUKS `generate-key`/`encrypt`/`attach` sequence, still returning `/dev/mapper/EPHEMERAL-DATA`. When only `encrypted-storage` is enabled, the unchanged LUKS sequence runs.
+
+### Datastore fscrypt is unchanged
+
+The `/.bottlerocket/datastore` fscrypt directory encryption keeps its TPM2-sealed-key flow (`encrypt-datastore.service` / `unlock-datastore.service`) on ephemeral images as well. This is redundant with the plain-mode PRIVATE partition underneath it but is intentionally left as-is.
 
 ## TPM2 Measurements
 

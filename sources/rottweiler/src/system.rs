@@ -88,6 +88,33 @@ pub fn cryptsetup_luks_format(device: &str, key_data: &[u8]) -> Result<()> {
     Ok(())
 }
 
+/// Open a device as a headerless plain-mode dm-crypt mapper using the provided key.
+///
+/// Unlike `cryptsetup_luks_format`, plain mode writes no on-disk header: the key is fed straight
+/// into the kernel device-mapper table. Encrypt-and-attach is therefore a single operation with no
+/// format step and nothing persisted to disk. The 64-byte key uses `aes-xts-plain64` with a
+/// 512-bit key and `--hash plain` (no key derivation) so the raw bytes are used verbatim.
+pub fn cryptsetup_plain_format(volume_name: &str, device: &str, key_data: &[u8]) -> Result<()> {
+    execute(
+        CRYPTSETUP,
+        &[
+            "open",
+            "--type",
+            "plain",
+            "--cipher",
+            "aes-xts-plain64",
+            "--key-size",
+            "512",
+            "--hash",
+            "plain",
+            device,
+            volume_name,
+        ],
+        Some(key_data),
+    )?;
+    Ok(())
+}
+
 /// Resize a LUKS device using the provided key
 pub fn cryptsetup_resize(volume_name: &str, key_data: &[u8]) -> Result<()> {
     execute(

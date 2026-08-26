@@ -4,7 +4,7 @@ DefaultDependencies=no
 Conflicts=umount.target
 After=selinux-policy-files.service
 Wants=selinux-policy-files.service
-Before=encrypt-datastore.service encrypt-local-fs.service encrypt-private-fs.service
+Before=encrypt-datastore.service encrypt-local-fs.service
 
 [Mount]
 What=tmpfs

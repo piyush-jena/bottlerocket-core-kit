@@ -1,0 +1,70 @@
+[Unit]
+Description=Encrypt and Unlock Local Filesystem (/local)
+DefaultDependencies=no
+Conflicts=umount.target
+IgnoreOnIsolate=true
+Wants=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dDATA.device blockdev@dev-mapper-BOTTLEROCKET\x2dDATA.target
+# This unit grows the raw DATA partition and then opens the plain-mode mapper
+# over it, so the mapper is full size from the start and no keyed online resize
+# is ever needed. That matters because plain mode has no on-disk header: a
+# post-mount `cryptsetup resize` would have to re-supply the per-boot volume key
+# from a second service, which means publishing it in the kernel keyring and
+# granting both services KeyringMode=shared. Growing here keeps the volume key
+# confined to the process that generates it and the kernel dm-crypt table.
+#
+# Growing here also avoids the ordering cycle
+#   local.mount -> prepare-local-fs -> encrypt-unlock-local-fs -> repart-local
+#   -> local.mount
+# that ordering After=repart-local.service would create: repart-local carries
+# RequiresMountsFor=/local (so it runs post-mount) and systemd 257 cannot reset
+# a dependency directive from a drop-in.
+#
+# Rewriting the GPT makes udev delete and recreate the
+# /dev/disk/by-partlabel/BOTTLEROCKET-DATA symlink; resolving it inside that
+# window fails the open with "does not exist or access denied" (Bottlerocket
+# #845). The barrier between the grow and the open is therefore a
+# DEVICE-SCOPED `udevadm wait --settle`: it waits for that specific symlink to
+# exist and its device to be udev-initialized, and only then drains the event
+# queue. A bare `udevadm settle` does neither - it drains the global queue and
+# returns successfully while the symlink is still missing. (systemd #40499:
+# udevd can re-run a userspace partition-table reread, so no post-write barrier
+# is absolute; --timeout bounds the wait and the warm-reboot endurance loop is
+# the arbiter.)
+After=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dDATA.device cryptsetup-pre.target systemd-udevd-kernel.socket
+Before=cryptsetup.target blockdev@dev-mapper-BOTTLEROCKET\x2dDATA.target
+# No ConditionSecurity=tpm2: the per-boot key is generated in memory and never
+# TPM-sealed, so there is no TPM dependency (and no unowned-hierarchy boot hang).
+RefuseManualStart=true
+RefuseManualStop=true
+
+[Service]
+Type=oneshot
+Environment=BOTTLEROCKET_DATA=/dev/disk/by-partlabel/BOTTLEROCKET-DATA
+EnvironmentFile=/usr/share/bottlerocket/image-features.env
+
+# Grow the raw DATA partition to fill its disk before anything opens it. The
+# '-' prefix tolerates the benign outcomes: exit 77 when there is no GPT to
+# grow, and a no-op when the partition already fills the disk (every boot after
+# the first).
+ExecStartPre=-/usr/bin/systemd-repart --dry-run=no ${BOTTLEROCKET_DATA}
+
+# Barrier: wait for the by-partlabel symlink the GPT rewrite just invalidated to
+# be recreated and initialized, so the open below resolves a live node.
+ExecStartPre=/usr/bin/udevadm wait --settle --timeout=30 ${BOTTLEROCKET_DATA}
+
+# Single step: open the (now full-size) DATA partition as a headerless
+# plain-mode dm-crypt mapper using 64 bytes of per-boot randomness. No LUKS
+# header is written and no key is persisted, so there is no format->attach
+# window and nothing to delete. The key is fed once on stdin and thereafter
+# lives only in the kernel dm-crypt table - not on disk, not on tmpfs, not in
+# the keyring, and never TPM-sealed.
+ExecStart=/usr/bin/rottweiler encrypt-and-attach block-device ${BOTTLEROCKET_DATA}
+ExecStop=/usr/bin/rottweiler detach block-device ${BOTTLEROCKET_DATA}
+
+UMask=0077
+RemainAfterExit=yes
+StandardOutput=journal+console
+StandardError=inherit
+
+[Install]
+RequiredBy=local-fs.target

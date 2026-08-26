@@ -590,6 +590,18 @@ fn should_encrypt() -> Result<bool> {
     Ok(features.encrypted_storage)
 }
 
+/// Checks if per-boot plain-mode ephemeral encryption keys are enabled via image features.
+/// When enabled, ephemeral storage is encrypted with a per-boot random key in cryptsetup
+/// plain mode (no LUKS header, no persisted/TPM-sealed key) rather than the LUKS flow.
+fn should_use_plain_mode() -> Result<bool> {
+    let features = bottlerocket_image_features::parse_image_features().map_err(|e| {
+        error::Error::LoadImageFeatures {
+            message: e.to_string(),
+        }
+    })?;
+    Ok(features.ephemeral_encryption_keys)
+}
+
 /// Encrypt ephemeral device using rottweiler
 fn encrypt_ephemeral_device(device: &str) -> Result<String> {
     info!("encrypting ephemeral device {device:?}");
@@ -604,19 +616,42 @@ fn encrypt_ephemeral_device(device: &str) -> Result<String> {
     std::os::unix::fs::symlink(device, EPHEMERAL_DATA_LINK)
         .context(error::DiskSymlinkFailureSnafu {})?;
 
-    let is_encrypted =
-        run_rottweiler(&["check", "block-device", EPHEMERAL_DATA_LINK, "encrypted"])?
-            .status
-            .success();
-
-    if !is_encrypted {
+    if should_use_plain_mode()? {
+        // Plain-mode: a single combined step opens the device as a headerless dm-crypt mapper
+        // using a per-boot random key that is never persisted or TPM-sealed. There is no format
+        // step and thus no need to check whether the device is already encrypted (a fresh key
+        // makes any prior contents unreadable, so the downstream is_formatted/format logic
+        // reformats it, which is the desired ephemeral behavior).
         run_rottweiler_checked(
-            &["generate-key", EPHEMERAL_STORAGE_KEY_ID],
+            &["encrypt-and-attach", "block-device", EPHEMERAL_DATA_LINK],
             EPHEMERAL_DATA_LINK,
         )?;
+    } else {
+        // LUKS flow (encrypted-storage without ephemeral-encryption-keys): unchanged.
+        let is_encrypted =
+            run_rottweiler(&["check", "block-device", EPHEMERAL_DATA_LINK, "encrypted"])?
+                .status
+                .success();
+
+        if !is_encrypted {
+            run_rottweiler_checked(
+                &["generate-key", EPHEMERAL_STORAGE_KEY_ID],
+                EPHEMERAL_DATA_LINK,
+            )?;
+            run_rottweiler_checked(
+                &[
+                    "encrypt",
+                    "block-device",
+                    EPHEMERAL_DATA_LINK,
+                    EPHEMERAL_STORAGE_KEY_ID,
+                ],
+                EPHEMERAL_DATA_LINK,
+            )?;
+        }
+
         run_rottweiler_checked(
             &[
-                "encrypt",
+                "attach",
                 "block-device",
                 EPHEMERAL_DATA_LINK,
                 EPHEMERAL_STORAGE_KEY_ID,
@@ -624,16 +659,6 @@ fn encrypt_ephemeral_device(device: &str) -> Result<String> {
             EPHEMERAL_DATA_LINK,
         )?;
     }
-
-    run_rottweiler_checked(
-        &[
-            "attach",
-            "block-device",
-            EPHEMERAL_DATA_LINK,
-            EPHEMERAL_STORAGE_KEY_ID,
-        ],
-        EPHEMERAL_DATA_LINK,
-    )?;
 
     Ok(EPHEMERAL_MAPPER_DEVICE.to_string())
 }

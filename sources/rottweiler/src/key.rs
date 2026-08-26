@@ -42,6 +42,24 @@ fn validate_key_id(key_id: &str) -> Result<()> {
     Ok(())
 }
 
+/// Read `KEY_SIZE` random bytes from `/dev/random` into a zeroizing buffer.
+///
+/// Unlike [`generate`], this neither TPM-seals nor persists the key anywhere. It is used by the
+/// plain-mode block-device path, where the per-boot key lives only in process memory (zeroized on
+/// drop) and thereafter only inside the kernel dm-crypt mapping.
+pub fn random_bytes() -> Result<Zeroizing<Vec<u8>>> {
+    let mut random_bytes = Zeroizing::new(vec![0u8; KEY_SIZE]);
+
+    let mut random = fs::File::open(DEV_RANDOM)
+        .with_whatever_context(|_| format!("failed to open {}", DEV_RANDOM))?;
+
+    random
+        .read_exact(&mut random_bytes)
+        .with_whatever_context(|_| "failed to read random bytes")?;
+
+    Ok(random_bytes)
+}
+
 /// Generate a random encryption key and encrypt it with TPM2 PCRs 7+14
 pub fn generate(key_id: String) -> Result<()> {
     validate_key_id(&key_id)?;
@@ -53,14 +71,7 @@ pub fn generate(key_id: String) -> Result<()> {
         return Ok(());
     }
 
-    let mut random_bytes = Zeroizing::new(vec![0u8; KEY_SIZE]);
-
-    let mut random = fs::File::open(DEV_RANDOM)
-        .with_whatever_context(|_| format!("failed to open {}", DEV_RANDOM))?;
-
-    random
-        .read_exact(&mut random_bytes)
-        .with_whatever_context(|_| "failed to read random bytes")?;
+    let random_bytes = random_bytes()?;
 
     let encrypted = system::systemd_creds_encrypt(&key_id, &random_bytes)?;
 

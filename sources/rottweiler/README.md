@@ -19,9 +19,10 @@ interface for encrypting and managing encrypted storage resources including:
 
 #### Block Device Operations
 - `encrypt block-device <path> <key-id>` - Encrypt a block device using LUKS
+- `encrypt-and-attach block-device <path>` - Encrypt (plain mode, per-boot random key) and attach a block device in one step
 - `attach block-device <path> <key-id>` - Attach an encrypted block device
 - `detach block-device <path>` - Detach an encrypted block device
-- `resize block-device <path> <key-id>` - Resize a LUKS block device
+- `resize block-device <path> <key-id>` - Resize a LUKS2 block-device mapper to the grown device
 - `check block-device <path> encrypted|unencrypted` - Check block device encryption state
 
 #### Directory Operations
