@@ -1,0 +1,33 @@
+[Unit]
+Description=Encrypt and Unlock Local Filesystem (/local)
+DefaultDependencies=no
+Conflicts=umount.target
+IgnoreOnIsolate=true
+Wants=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dDATA.device blockdev@dev-mapper-BOTTLEROCKET\x2dDATA.target
+After=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dDATA.device cryptsetup-pre.target systemd-udevd-kernel.socket
+Before=cryptsetup.target blockdev@dev-mapper-BOTTLEROCKET\x2dDATA.target
+RefuseManualStart=true
+RefuseManualStop=true
+
+[Service]
+Type=oneshot
+Environment=BOTTLEROCKET_DATA=/dev/disk/by-partlabel/BOTTLEROCKET-DATA
+EnvironmentFile=/usr/share/bottlerocket/image-features.env
+
+# Grow the raw DATA partition to fill its disk before anything opens it.
+ExecStartPre=-/usr/bin/systemd-repart --dry-run=no ${BOTTLEROCKET_DATA}
+
+# Wait for the by-partlabel symlink the GPT rewrite just invalidated to
+# be recreated and initialized, so the open below resolves a live node.
+ExecStartPre=/usr/bin/udevadm wait --timeout=30 ${BOTTLEROCKET_DATA}
+
+ExecStart=/usr/bin/rottweiler encrypt-and-attach block-device ${BOTTLEROCKET_DATA}
+ExecStop=/usr/bin/rottweiler detach block-device ${BOTTLEROCKET_DATA}
+
+UMask=0077
+RemainAfterExit=yes
+StandardOutput=journal+console
+StandardError=inherit
+
+[Install]
+RequiredBy=local-fs.target

@@ -11,6 +11,9 @@ const SYSTEMD_CRYPTSETUP: &str = "/usr/lib/systemd/systemd-cryptsetup";
 const CRYPTSETUP: &str = "/usr/sbin/cryptsetup";
 const APICLIENT: &str = "/usr/bin/apiclient";
 const TPM2_PCREXTEND: &str = "/usr/bin/tpm2_pcrextend";
+/// Size in bytes and bits for the plain-mode dm-crypt key
+const PLAIN_KEY_BYTES: usize = 64;
+const PLAIN_KEY_SIZE_BITS: &str = "512";
 
 /// Encrypt data using systemd-creds with TPM2 PCRs
 pub fn systemd_creds_encrypt(name: &str, plaintext: &[u8]) -> Result<Zeroizing<Vec<u8>>> {
@@ -90,6 +93,15 @@ pub fn cryptsetup_luks_format(device: &str, key_data: &[u8]) -> Result<()> {
 
 /// Open a device as a headerless plain-mode dm-crypt mapper using the provided key.
 pub fn cryptsetup_plain_format(volume_name: &str, device: &str, key_data: &[u8]) -> Result<()> {
+    // fail loudly rather than encrypt with a key that is not what the caller generated.
+    ensure_whatever!(
+        key_data.len() == PLAIN_KEY_BYTES,
+        "plain-mode dm-crypt key must be exactly {} bytes, got {}",
+        PLAIN_KEY_BYTES,
+        key_data.len()
+    );
+
+    let keyfile_size_arg = format!("--keyfile-size={}", key_data.len());
     execute(
         CRYPTSETUP,
         &[
@@ -99,9 +111,11 @@ pub fn cryptsetup_plain_format(volume_name: &str, device: &str, key_data: &[u8])
             "--cipher",
             "aes-xts-plain64",
             "--key-size",
-            "512",
+            PLAIN_KEY_SIZE_BITS,
             "--hash",
             "plain",
+            "--key-file=-",
+            &keyfile_size_arg,
             device,
             volume_name,
         ],

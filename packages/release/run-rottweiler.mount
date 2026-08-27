@@ -4,7 +4,9 @@ DefaultDependencies=no
 Conflicts=umount.target
 After=selinux-policy-files.service
 Wants=selinux-policy-files.service
-Before=encrypt-datastore.service encrypt-local-fs.service encrypt-private-fs.service
+# encrypt-datastore.service writes the fscrypt key for /.bottlerocket/datastore
+# into this tmpfs keystore, so it must be mounted first.
+Before=encrypt-unlock-datastore.service
 
 [Mount]
 What=tmpfs
