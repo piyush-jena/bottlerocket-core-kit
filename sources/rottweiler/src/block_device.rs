@@ -17,6 +17,21 @@ pub fn encrypt(path: PathBuf, key_id: String) -> Result<()> {
     system::cryptsetup_luks_format(device, &key_bytes)
 }
 
+/// Encrypt and attach a block device in a single step using plain-mode dm-crypt.
+/// Generates 64 random bytes as a per-boot key (never persisted), then opens the device as a
+/// plain-mode dm-crypt mapper named after the device file name.
+pub fn encrypt_and_attach(path: PathBuf) -> Result<()> {
+    let volume_name = filename(&path)?;
+
+    let device = path
+        .to_str()
+        .with_whatever_context(|| format!("path is not valid UTF-8: '{}'", path.display()))?;
+
+    let key_bytes = key::random_bytes()?;
+
+    system::cryptsetup_plain_format(volume_name, device, &key_bytes)
+}
+
 /// Attach (unlock) an encrypted block device, creating a device mapper entry
 pub fn attach(path: PathBuf, key_id: String) -> Result<()> {
     let volume_name = filename(&path)?;

@@ -88,6 +88,28 @@ pub fn cryptsetup_luks_format(device: &str, key_data: &[u8]) -> Result<()> {
     Ok(())
 }
 
+/// Open a device as a headerless plain-mode dm-crypt mapper using the provided key.
+pub fn cryptsetup_plain_format(volume_name: &str, device: &str, key_data: &[u8]) -> Result<()> {
+    execute(
+        CRYPTSETUP,
+        &[
+            "open",
+            "--type",
+            "plain",
+            "--cipher",
+            "aes-xts-plain64",
+            "--key-size",
+            "512",
+            "--hash",
+            "plain",
+            device,
+            volume_name,
+        ],
+        Some(key_data),
+    )?;
+    Ok(())
+}
+
 /// Resize a LUKS device using the provided key
 pub fn cryptsetup_resize(volume_name: &str, key_data: &[u8]) -> Result<()> {
     execute(
