@@ -1,0 +1,40 @@
+[Unit]
+Description=Encrypt and Unlock Private Filesystem (/.bottlerocket)
+DefaultDependencies=no
+Conflicts=umount.target
+IgnoreOnIsolate=true
+Wants=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device blockdev@dev-mapper-BOTTLEROCKET\x2dPRIVATE.target
+After=dev-disk-by\x2dpartlabel-BOTTLEROCKET\x2dPRIVATE.device cryptsetup-pre.target systemd-udevd-kernel.socket
+After=tpm2.target
+Before=cryptsetup.target blockdev@dev-mapper-BOTTLEROCKET\x2dPRIVATE.target
+# /run/rottweiler is the tmpfs keystore that generate-key writes the sealed key
+# into. Requiring it matters because rottweiler's keystore helper creates the
+# directory if it is missing, so without this the key would silently land on a
+# plain /run directory instead of the tmpfs mount, losing its mode=0700 and
+# private_t label. (rottweiler uses /run/rottweiler as the keystore only when
+# image-feature(ephemeral-encryption-keys) is set, which is exactly when this
+# unit ships.)
+RequiresMountsFor=/run/rottweiler
+RefuseManualStart=true
+RefuseManualStop=true
+
+[Service]
+Type=oneshot
+Environment=BOTTLEROCKET_PRIVATE=/dev/disk/by-partlabel/BOTTLEROCKET-PRIVATE
+EnvironmentFile=/usr/share/bottlerocket/image-features.env
+
+# Generate a per-boot key, open the plain-mode mapper with it, then delete the
+# sealed key: it is generated and deleted within this single service so nothing
+# outlives the unit.
+ExecStart=/usr/bin/rottweiler generate-key bottlerocket-private
+ExecStart=/usr/bin/rottweiler encrypt-and-attach block-device ${BOTTLEROCKET_PRIVATE} bottlerocket-private
+ExecStartPost=/usr/bin/rottweiler delete-key bottlerocket-private
+ExecStop=/usr/bin/rottweiler detach block-device ${BOTTLEROCKET_PRIVATE}
+
+UMask=0077
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal+console
+
+[Install]
+RequiredBy=prepare-private-fs.service

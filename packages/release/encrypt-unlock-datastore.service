@@ -1,0 +1,29 @@
+[Unit]
+Description=Encrypt and Unlock Datastore (/.bottlerocket/datastore)
+DefaultDependencies=no
+Before=migrator.service storewolf.service
+After=tpm2.target
+# /run/rottweiler is the tmpfs backed keystore for temporarily holding keys
+# required by directory encryption with fscrypt.
+RequiresMountsFor=/.bottlerocket /run/rottweiler
+RefuseManualStart=true
+RefuseManualStop=true
+
+[Service]
+Type=oneshot
+Environment=DATASTORE_DIR=/.bottlerocket/datastore
+EnvironmentFile=/usr/share/bottlerocket/image-features.env
+
+# Generate key and encrypt directory.
+ExecStart=/usr/bin/rottweiler generate-key datastore
+ExecStart=/usr/bin/rottweiler encrypt directory ${DATASTORE_DIR} datastore
+ExecStart=/usr/bin/rottweiler unlock directory ${DATASTORE_DIR} datastore
+ExecStartPost=/usr/bin/rottweiler delete-key datastore
+
+UMask=0077
+RemainAfterExit=true
+StandardOutput=journal+console
+StandardError=inherit
+
+[Install]
+RequiredBy=migrator.service storewolf.service
