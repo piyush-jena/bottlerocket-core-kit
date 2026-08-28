@@ -4,7 +4,20 @@ DefaultDependencies=no
 Conflicts=umount.target
 After=selinux-policy-files.service
 Wants=selinux-policy-files.service
-Before=encrypt-datastore.service encrypt-local-fs.service encrypt-private-fs.service
+# encrypt-unlock-datastore.service writes the fscrypt key for
+# /.bottlerocket/datastore into this tmpfs keystore, so it must be mounted
+# first. That unit also declares RequiresMountsFor=/run/rottweiler, which is
+# what pulls this mount into the transaction and fails the unit fast if the
+# mount does not come up; this Before= records the ordering from the producer
+# side. Without it, rottweiler's create_dir_all would silently fall back to a
+# plain directory on /run, losing mode=0700 and the private_t label below.
+#
+# This mount ships only in release-ephemeral-crypt, which is correct: rottweiler
+# uses the /run/rottweiler keystore only when image-feature(ephemeral-encryption-keys)
+# is set (see keystore_dir() in sources/rottweiler/src/key.rs). On
+# encrypted-storage-only images the keystore is the on-disk /.bottlerocket/keystore
+# and the legacy encrypt-datastore.service never touches this tmpfs.
+Before=encrypt-unlock-datastore.service
 
 [Mount]
 What=tmpfs

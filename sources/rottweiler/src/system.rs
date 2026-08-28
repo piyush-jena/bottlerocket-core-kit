@@ -88,6 +88,64 @@ pub fn cryptsetup_luks_format(device: &str, key_data: &[u8]) -> Result<()> {
     Ok(())
 }
 
+/// Size in bytes of the plain-mode dm-crypt key, and the same value in bits as cryptsetup's
+/// `--key-size` wants it. `aes-xts-plain64` splits the key in half, so 512 bits is two AES-256 keys.
+const PLAIN_KEY_BYTES: usize = 64;
+const PLAIN_KEY_SIZE_BITS: &str = "512";
+
+/// Build the argv for opening a headerless plain-mode dm-crypt mapper.
+///
+/// Split out from [`cryptsetup_plain_format`] so the flags that make the key transfer exact can be
+/// asserted in a unit test; see the tests below for why each one is load-bearing.
+fn cryptsetup_plain_open_args<'a>(
+    volume_name: &'a str,
+    device: &'a str,
+    keyfile_size_arg: &'a str,
+) -> Vec<&'a str> {
+    vec![
+        "open",
+        "--type",
+        "plain",
+        "--cipher",
+        "aes-xts-plain64",
+        "--key-size",
+        PLAIN_KEY_SIZE_BITS,
+        "--hash",
+        "plain",
+        // Without `--key-file=-`, cryptsetup treats stdin as an interactive *passphrase* and stops
+        // reading at the first newline; `--keyfile-size` is what makes it read exactly the key even
+        // from stdin. Together they are the only reason the mapper gets all of the key bytes: a
+        // 0x0A anywhere in a random 64-byte key would otherwise silently truncate it (and a leading
+        // 0x0A would yield an all-zero key, accepted as-is on a non-FIPS kernel and rejected by
+        // xts_verify_key() as -EINVAL on a FIPS one).
+        "--key-file=-",
+        keyfile_size_arg,
+        device,
+        volume_name,
+    ]
+}
+
+/// Open a device as a headerless plain-mode dm-crypt mapper using the provided key.
+pub fn cryptsetup_plain_format(volume_name: &str, device: &str, key_data: &[u8]) -> Result<()> {
+    // A short key would be zero-padded to `--key-size` by cryptsetup, silently weakening the
+    // volume, and a long one would leave the tail unused. Neither should be reachable, so fail
+    // loudly rather than encrypt with a key that is not what the caller generated.
+    ensure_whatever!(
+        key_data.len() == PLAIN_KEY_BYTES,
+        "plain-mode dm-crypt key must be exactly {} bytes, got {}",
+        PLAIN_KEY_BYTES,
+        key_data.len()
+    );
+
+    let keyfile_size_arg = format!("--keyfile-size={}", key_data.len());
+    execute(
+        CRYPTSETUP,
+        &cryptsetup_plain_open_args(volume_name, device, &keyfile_size_arg),
+        Some(key_data),
+    )?;
+    Ok(())
+}
+
 /// Resize a LUKS device using the provided key
 pub fn cryptsetup_resize(volume_name: &str, key_data: &[u8]) -> Result<()> {
     execute(
@@ -249,5 +307,53 @@ mod tests {
         let message = describe_imds_userdata_error(err).to_string();
         assert!(!message.contains(SECRET_USER_DATA));
         assert_eq!(message, "failed to fetch user data from IMDS");
+    }
+
+    /// Regression test for a truncated plain-mode key.
+    ///
+    /// The key is 64 raw bytes from /dev/random handed to cryptsetup on stdin. Without
+    /// `--key-file=-` cryptsetup reads stdin as an interactive passphrase and stops at the first
+    /// newline, and `--hash plain` then zero-pads whatever it got to `--key-size`. Observed live on
+    /// aws-mantle-1{,-fips} x86_64: a key whose first byte was 0x0A produced an all-zero dm-crypt
+    /// key, silently accepted on the non-FIPS kernel and rejected on the FIPS kernel as
+    /// `crypt: Error decoding and setting key (-EINVAL)`, which failed
+    /// `encrypt-unlock-local-fs.service` and took `preconfigured.target` with it.
+    #[test]
+    fn plain_open_reads_the_whole_key_from_stdin() {
+        let keyfile_size_arg = format!("--keyfile-size={}", PLAIN_KEY_BYTES);
+        let args = cryptsetup_plain_open_args("BOTTLEROCKET-DATA", "/dev/sdb", &keyfile_size_arg);
+
+        assert!(
+            args.contains(&"--key-file=-"),
+            "the key must be passed as a key file, not as a newline-terminated passphrase: {:?}",
+            args
+        );
+        assert!(
+            args.contains(&"--keyfile-size=64"),
+            "an explicit key file size is what stops cryptsetup truncating stdin at a newline: {:?}",
+            args
+        );
+        // The two size arguments describe the same key and must not drift apart: 512 bits of key
+        // material read as exactly 64 bytes.
+        assert_eq!(
+            PLAIN_KEY_SIZE_BITS.parse::<usize>().unwrap(),
+            PLAIN_KEY_BYTES * 8,
+            "--key-size (bits) and the key length (bytes) must describe the same key"
+        );
+    }
+
+    /// The plain-mode invariant is a full-length random key; a short one would be zero-padded by
+    /// cryptsetup rather than rejected, so the caller-side check has to be the one that fails.
+    #[test]
+    fn plain_format_rejects_a_key_of_the_wrong_length() {
+        let short = vec![0x41u8; PLAIN_KEY_BYTES - 1];
+        let err = cryptsetup_plain_format("BOTTLEROCKET-DATA", "/dev/sdb", &short)
+            .expect_err("a short key must be rejected before cryptsetup is spawned");
+        let message = err.to_string();
+        assert!(
+            message.contains("must be exactly 64 bytes"),
+            "unexpected error message: {}",
+            message
+        );
     }
 }
