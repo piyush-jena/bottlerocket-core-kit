@@ -1,7 +1,7 @@
-%global abiver 59
+%global abiver 64
 
 Name: %{_cross_os}rdma-core
-Version: 60.1
+Version: 64.0
 Release: 1%{?dist}
 Summary: RDMA core userspace infrastructure, including core libraries and util programs.
 License: Linux-OpenIB AND MIT
@@ -39,6 +39,7 @@ Requires: %{name}
   -DCMAKE_INSTALL_SBINDIR:PATH=%{_cross_sbindir} \
   -DCMAKE_INSTALL_SYSCONFDIR:PATH=%{_cross_sysconfdir} \
   -DCMAKE_INSTALL_UDEV_RULESDIR:PATH=%{_cross_udevrulesdir} \
+  -DSYSUSERS_DIR:PATH=%{_cross_sysusersdir} \
 
 %make_build
 
@@ -97,11 +98,13 @@ install -p -m 0644 %{S:200} %{buildroot}%{_cross_datadir}/logdog.d
 %exclude %{_cross_libexecdir}
 %exclude %{_cross_pkgconfigdir}
 %exclude %{_cross_sysconfdir}
+%exclude %{_cross_sysusersdir}/rdma.conf
 %exclude %{_cross_unitdir}
 
 # Exclude all the unused libs
 %exclude %{_cross_libdir}/ibacm*
 %exclude %{_cross_libdir}/libhns*
+%exclude %{_cross_libdir}/libionic*
 %exclude %{_cross_libdir}/libmana*
 %exclude %{_cross_libdir}/libmlx*
 %exclude %{_cross_libdir}/rsocket
@@ -112,6 +115,7 @@ install -p -m 0644 %{S:200} %{buildroot}%{_cross_datadir}/logdog.d
 %exclude %{_cross_libdir}/libibverbs/liberdma-rdmav%{abiver}.so
 %exclude %{_cross_libdir}/libibverbs/libhfi1verbs-rdmav%{abiver}.so
 %exclude %{_cross_libdir}/libibverbs/libhns-rdmav%{abiver}.so
+%exclude %{_cross_libdir}/libibverbs/libionic-rdmav%{abiver}.so
 %exclude %{_cross_libdir}/libibverbs/libipathverbs-rdmav%{abiver}.so
 %exclude %{_cross_libdir}/libibverbs/libirdma-rdmav%{abiver}.so
 %exclude %{_cross_libdir}/libibverbs/libmana-rdmav%{abiver}.so
@@ -172,6 +176,7 @@ install -p -m 0644 %{S:200} %{buildroot}%{_cross_datadir}/logdog.d
 %exclude %{_cross_sbindir}/ibtracert
 %exclude %{_cross_sbindir}/iwpmd
 %exclude %{_cross_sbindir}/perfquery
+%exclude %{_cross_sbindir}/rdma_topo
 %exclude %{_cross_sbindir}/run_srp_daemon
 %exclude %{_cross_sbindir}/saquery
 %exclude %{_cross_sbindir}/sminfo
