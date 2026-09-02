@@ -1,5 +1,5 @@
 Name: %{_cross_os}libglib
-Version: 2.88.2
+Version: 2.88.3
 Release: 1%{?dist}
 Epoch: 1
 Summary: The GLib libraries
