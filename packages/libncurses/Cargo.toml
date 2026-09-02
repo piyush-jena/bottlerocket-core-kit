@@ -12,12 +12,12 @@ path = "../packages.rs"
 releases-url = "https://invisible-mirror.net/archives/ncurses/current/"
 
 [[package.metadata.build-package.external-files]]
-url = "https://invisible-mirror.net/archives/ncurses/current/ncurses-6.6-20260718.tgz"
-sha512 = "49214cfc401a4e466da9706d39355cf1354586943c1fbf4821564459482bbffaf927cac04f695379d96b14a00dc9bedcb2a9415217fa50aaf9d61d70a39810cb"
+url = "https://invisible-mirror.net/archives/ncurses/current/ncurses-6.6-20260829.tgz"
+sha512 = "b1d700cee64c08fe2227c9f98a7c03ae84f0925e184c573e7c9b8de264a2a05446768e584d764739edc28cf25a4802ceff8e90ec001da4d6a10f07b74ca4a04f"
 
 [[package.metadata.build-package.external-files]]
-url = "https://invisible-mirror.net/archives/ncurses/current/ncurses-6.6-20260718.tgz.asc"
-sha512 = "580dda12940a526a18fdf438bdba4dfcf97946225e4713ba79b631a8f3d508d6568000cb8a74e24494fb6e6ff5eb112aa75d58a318a87d0e31aff89fc3cd2bc2"
+url = "https://invisible-mirror.net/archives/ncurses/current/ncurses-6.6-20260829.tgz.asc"
+sha512 = "91d0e71489e55d548d3dd6dbc5b37d791c4c0dd659fe194500a6044ef6b61be088d98ca908123a7188f4c0e2b9c96b1eeb0fa9136284ba5aaa15a00e76549d58"
 
 [build-dependencies]
 glibc = { path = "../glibc" }
