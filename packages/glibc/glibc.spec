@@ -1,5 +1,5 @@
 Name: %{_cross_os}glibc
-Version: 2.44
+Version: 2.43
 Release: 1%{?dist}
 Epoch: 1
 Summary: The GNU libc libraries
@@ -17,6 +17,23 @@ Source14: tz-utc.txt
 # We include this patch as a source file to have more control over how it's
 # applied and reverted during the build.
 Source99: HACK-only-build-and-install-localedef.patch
+
+# Upstream patches from 2.43 release branch:
+# ```
+# git checkout origin/release/2.43/master
+# git format-patch --no-numbered --no-signature glibc-2.43..
+# ```
+Patch0001: 0001-Replace-advisories-directory-with-file-ADVISORIES.patch
+Patch0002: 0002-NEWS-add-new-section-2.43.1.patch
+Patch0003: 0003-Fix-ldbl-128ibm-ceill-floorl-roundl-and-truncl-zero-.patch
+Patch0004: 0004-po-Incorporate-translatins-nl-updated-ar-new.patch
+Patch0005: 0005-Don-t-include-bits-openat2.h-directly-bug-33848.patch
+Patch0006: 0006-nss-Introduce-dedicated-struct-nss_database_for_fork.patch
+Patch0007: 0007-Linux-In-getlogin_r-use-utmp-fallback-only-for-speci.patch
+Patch0008: 0008-nss-Missing-checks-in-__nss_configure_lookup-__nss_d.patch
+Patch0009: 0009-debug-Fix-build-with-enable-fortify-source-1-BZ-3390.patch
+Patch0010: 0010-Add-BZ-33904-entry-to-NEWS.patch
+Patch0011: 0011-Revert-malloc-auto-enable-THP-on-aarch64.patch
 
 # Fedora patches
 Patch1001: glibc-cs-path.patch
