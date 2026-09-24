@@ -1,5 +1,5 @@
 Name: %{_cross_os}tpm2-tools
-Version: 5.7
+Version: 5.8
 Release: 1%{?dist}
 Summary: Tools for the TPM 2.0 software stack
 License: BSD-3-Clause
@@ -28,6 +28,8 @@ Requires: %{_cross_os}libtss2
 %autosetup -n tpm2-tools-%{version} -p1
 
 %build
+# Preserve the bundled Autoconf Archive macros, which are not in the SDK.
+sed -n '/^#.*autoconf-archive/,/^# pkg.m4/{ /^# pkg.m4/!p; }' aclocal.m4 > m4/ax_macros.m4
 autoreconf -fi
 
 CONFIGURE_OPTS=(
