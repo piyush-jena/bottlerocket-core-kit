@@ -1,5 +1,37 @@
 # Issue 14: UKI mount drop-in revision, 2026-10-06
 
+## Acceptance follow-up, 23:02 UTC
+
+Both architecture builds at `fa6d388f834b2c370fed8f61c6c7145a20c0bab0`
+passed. The verified archives were published as
+`17.0.1-symphony.14.build-fa6d388f`; [kit-publication.json](kit-publication.json)
+records both platform digests and the combined index.
+
+Five fresh private AMIs passed: base mantle on x86_64 and aarch64, plus
+FIPS, NVIDIA and NVIDIA-FIPS on x86_64. Every case passed 38 effective-policy
+checks before and 38 after native container execution. Both supplied GPU
+smoke workflows reported one NVIDIA L4, deviceQuery PASS and vectorAdd
+PASSED. [acceptance-summary.json](acceptance-summary.json) records the
+tested source/configuration, AMI and instance IDs, build jobs and SSM IDs.
+Full scripts, command output, artifact hashes and source attestations are
+in the Bottlerocket member under `docs/evidence/issue-14-uki-dropin`,
+prepared for the PR 16 update.
+
+GPU capacity failures required g6.2xlarge in us-east-2c. GPU guest shutdown
+reached Power down but EC2 remained in shutting-down; cleanup used force
+termination for the two verified issue-owned GPU IDs. Shutdown filesystem
+and mdadm warnings are preserved without attributing their cause to this
+change. All five instances, five AMIs, ten snapshots and the access stack
+were removed; [ec2-cleanup.json](ec2-cleanup.json) records the final result.
+Registry cleanup remains pending the conductor's receipt.
+
+The fresh Symphony integration gate passed. The prior passing Twoliter
+gate applies to unchanged tool code. No reboot or non-UKI EC2 control
+result is claimed for this revision. The record below describes the
+implementation milestone before these new builds and live tests.
+
+## Implementation-time record
+
 PR 16 review comment 881 requests moving binfmt mount suppression from the
 mantle command line into a core-kit subpackage selected by `uki-image`.
 This revision supersedes the command-line-mask acceptance results.

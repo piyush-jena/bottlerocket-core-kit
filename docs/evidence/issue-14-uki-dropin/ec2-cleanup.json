@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "at": "2026-10-06T23:02:51.725815+00:00",
+  "terminated_instances": [
+    "i-02393698098b1c108",
+    "i-04b39cc386d65f0d9",
+    "i-063fae68a34d43e3a",
+    "i-0788bbca00e537a35",
+    "i-0ab72aa43e1cee521"
+  ],
+  "deregistered_images": [
+    "ami-019bb8caaf77b3463",
+    "ami-0df3f6053844bc807",
+    "ami-00f2b4235b558b774",
+    "ami-0c7235b305234a123",
+    "ami-00a1be9870b34c930"
+  ],
+  "deleted_snapshots": [
+    "snap-02b96f15358685682",
+    "snap-09fe3ee859ffb3ebd",
+    "snap-016389c17a1807fd6",
+    "snap-0c3c56649c2c15fa6",
+    "snap-0c1941fb90f95e0e3",
+    "snap-0ec9ba50e7f35ebf8",
+    "snap-0dde7976af2745ab1",
+    "snap-02a55ea558a866ba6",
+    "snap-0c48ebba70327970f",
+    "snap-0804d01a28798421a"
+  ],
+  "deleted_stack": "arn:aws:cloudformation:us-east-2:533267423195:stack/symphony-14-uki-dropin/c6053c30-c1d6-11f1-8be2-0aace09778c1",
+  "existing_default_vpc_and_subnet": "retained"
+}

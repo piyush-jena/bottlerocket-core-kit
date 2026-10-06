@@ -1,0 +1,39 @@
+{
+  "archive_sha256": "83fb5c7e8518dd457701e3f2306976f84b78ca0c1e1cbf41953b55a11cfaced4",
+  "brdev": {
+    "helper_sha256": "43d28a3bf6422a91957c2a07114e9b3269c41b1176f02551fd89169b92f7f34b",
+    "manifest": "/home/fedora/Repositories/bottlerocket-forest/crates/brdev/Cargo.toml",
+    "revision": "3e979b92109619605a0bd9a5f518e3673b1a4109",
+    "sha256": "bf96e9b448090a3d92822f864486aa01babb9386990c2624e814ef600bf920ab",
+    "source": "/home/fedora/Repositories/bottlerocket-forest",
+    "version": "brdev 0.1.0"
+  },
+  "build_id": "fa6d388f",
+  "container_id": "bd2ac1b2be0dd7875a515010a82a634916d07f9a567dd0a81a31ad8e08005785",
+  "container_name": "brdev-registry-symphony-14-binfmt-misc-encrypted-storage-3e374c55",
+  "endpoint": "localhost:6539",
+  "index_digest": "sha256:92e8ca62c4b3244aef4e48d892a48670e15c0cf04327cfdd1c008e302f4c1545",
+  "index_document": "{\"schemaVersion\":2,\"mediaType\":\"application/vnd.oci.image.index.v1+json\",\"manifests\":[{\"mediaType\":\"application/vnd.oci.image.manifest.v1+json\",\"size\":20387,\"digest\":\"sha256:66584a2a11134136c070d0cf0c91551eb6a1a3ac4b8640a569bc244f14b61ae2\",\"platform\":{\"architecture\":\"arm64\",\"os\":\"linux\"},\"artifactType\":\"application/vnd.oci.image.config.v1+json\"},{\"mediaType\":\"application/vnd.oci.image.manifest.v1+json\",\"size\":20388,\"digest\":\"sha256:78a1eafbcb5ce81a8edbe82251dd93e660a9a130b5cb15e3aa01164c4ebd253e\",\"platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"artifactType\":\"application/vnd.oci.image.config.v1+json\"}]}",
+  "issue": 14,
+  "manifest_digest": "sha256:66584a2a11134136c070d0cf0c91551eb6a1a3ac4b8640a569bc244f14b61ae2",
+  "platforms": {
+    "aarch64": {
+      "archive_sha256": "83fb5c7e8518dd457701e3f2306976f84b78ca0c1e1cbf41953b55a11cfaced4",
+      "manifest_digest": "sha256:66584a2a11134136c070d0cf0c91551eb6a1a3ac4b8640a569bc244f14b61ae2"
+    },
+    "x86_64": {
+      "archive_sha256": "835ef72697d2fb9f126d070448c084c6b7704e34421851f326ecdbe2ae6d8f5f",
+      "manifest_digest": "sha256:78a1eafbcb5ce81a8edbe82251dd93e660a9a130b5cb15e3aa01164c4ebd253e"
+    }
+  },
+  "pubsys_sha256": "accafb87fd7127891026c1a3f63c8aa8405d35d0758cb65eb8fddd1288317e91",
+  "registry": "localhost:6539",
+  "repository": "bottlerocket-core-kit",
+  "source_version": "17.0.1",
+  "stage": "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage",
+  "state": "running",
+  "tag": "v17.0.1-symphony.14.build-fa6d388f",
+  "version": "17.0.1-symphony.14.build-fa6d388f",
+  "volume_created_at": "2026-10-06T22:28:48Z",
+  "volume_name": "brdev-registry-data-symphony-14-binfmt-misc-encrypted-storage-3e374c55"
+}

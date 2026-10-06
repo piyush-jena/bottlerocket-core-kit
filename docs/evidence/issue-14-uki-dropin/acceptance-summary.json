@@ -1,0 +1,2069 @@
+{
+  "at": "2026-10-06T23:03:17.025992+00:00",
+  "release": {
+    "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+    "version": "1.66.1",
+    "build_id": "3f1f18e7-dirty",
+    "ami_identity": "symphony.14.r10",
+    "kit": "17.0.1-symphony.14.build-fa6d388f",
+    "core_source": "fa6d388f834b2c370fed8f61c6c7145a20c0bab0",
+    "twoliter_revision": "d2c650ad1489fe545f68c4fcbd481f2163ed5629",
+    "core_index_digest": "sha256:92e8ca62c4b3244aef4e48d892a48670e15c0cf04327cfdd1c008e302f4c1545",
+    "tracked_changes": "M Release.toml\n M Twoliter.lock\n M Twoliter.toml",
+    "configuration_patch_sha256": "8e57d15715b98c08e369c5f18208ff983cc9bf97379332a760a7a8c85e45ceaf",
+    "configuration_sha256": {
+      "Release.toml": "d601f54e077b1e6677cfbe62ef0d8b8b2acf5caf60522d5c1a5e26aa9737b57b",
+      "Twoliter.lock": "44429a47b444071744761bc7e3e9230505a49b949f5fc0d04c5b998b3cc67862",
+      "Twoliter.toml": "65791273b4390acee352ccb0e77354820080677b786456bd77a5d71917d14114"
+    },
+    "temporary_changes": "Only three release/dependency files; restore from original-config after all image builds finish."
+  },
+  "status": "passed",
+  "cases": [
+    {
+      "job": "42e12d73-8b95-8714-a64c-5e1c5e7fa725",
+      "variant": "aws-mantle-1",
+      "arch": "x86_64",
+      "build_status": "succeeded",
+      "build_result_path": "/home/fedora/Repositories/symphony/.symphony/builds/42e12d73-8b95-8714-a64c-5e1c5e7fa725/result.json",
+      "image": {
+        "status": "passed",
+        "ami": "ami-019bb8caaf77b3463",
+        "snapshot_ids": [
+          "snap-02b96f15358685682",
+          "snap-09fe3ee859ffb3ebd"
+        ],
+        "job": "42e12d73-8b95-8714-a64c-5e1c5e7fa725",
+        "arch": "x86_64",
+        "variant": "aws-mantle-1",
+        "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+        "input_sha256": "84366782cbea10e857ad26bb0e35c7f03a1f79f5ac08685dfbbe73b5e6cac2db",
+        "region": "us-east-2",
+        "private": true,
+        "boot_mode": "uefi",
+        "tpm": "v2.0",
+        "runtime": "pending"
+      },
+      "instance": "i-02393698098b1c108",
+      "runtime": {
+        "status": "passed",
+        "case": {
+          "status": "passed",
+          "ami": "ami-019bb8caaf77b3463",
+          "snapshot_ids": [
+            "snap-02b96f15358685682",
+            "snap-09fe3ee859ffb3ebd"
+          ],
+          "job": "42e12d73-8b95-8714-a64c-5e1c5e7fa725",
+          "arch": "x86_64",
+          "variant": "aws-mantle-1",
+          "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+          "input_sha256": "84366782cbea10e857ad26bb0e35c7f03a1f79f5ac08685dfbbe73b5e6cac2db",
+          "region": "us-east-2",
+          "private": true,
+          "boot_mode": "uefi",
+          "tpm": "v2.0",
+          "runtime": "pending"
+        },
+        "instance": "i-02393698098b1c108",
+        "smoke": {
+          "kind": "native",
+          "image": "public.ecr.aws/docker/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e",
+          "exit_code": 0,
+          "output": "R10_NATIVE_CONTAINER_PASS\nx86_64"
+        },
+        "boot_id": "b79fcd91-6aee-456a-8d25-1f84acd6e35b",
+        "finished_at": "2026-10-06T22:45:54.930007+00:00"
+      },
+      "policy-before": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "policy-after": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "ssm_commands": [
+        {
+          "id": "e464f78d-7e9f-48a3-b1cb-3dd759a0f7a4",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/admin-readiness-d419717f1625/invocation.json"
+        },
+        {
+          "id": "a48ea521-7d32-4083-9a79-3b28716e0e18",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/policy-before-2a40993d89a0/invocation.json"
+        },
+        {
+          "id": "7962b42f-5483-4e87-a6b0-946ca20d6e4d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/policy-before-read-d8d87bd0a351/invocation.json"
+        },
+        {
+          "id": "7f8a0891-9452-40b3-99d7-9a7195ba2e3f",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/policy-before-read-132b152257e9/invocation.json"
+        },
+        {
+          "id": "19106b5d-9687-4d95-8d32-dad348c06ad1",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/policy-before-read-36496c604707/invocation.json"
+        },
+        {
+          "id": "b6546d10-c416-4671-8ac0-1f119086138a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/container-preflight-eb1c38bc6e2d/invocation.json"
+        },
+        {
+          "id": "85b4d859-ab69-4046-9915-dd32de6bdbad",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/container-preflight-read-out-2cdd29582403/invocation.json"
+        },
+        {
+          "id": "93075a55-4e7f-42be-8891-5160685a9505",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/container-preflight-read-err-47ce28442629/invocation.json"
+        },
+        {
+          "id": "e194628b-2ede-4ff5-a09b-16235f887f38",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/rootfs-preflight-1b6cb466f084/invocation.json"
+        },
+        {
+          "id": "64e9b905-5f8b-4b86-948c-49e99fc66a3f",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/rootfs-preflight-read-out-a26da36e6f15/invocation.json"
+        },
+        {
+          "id": "6ac1a5f4-fe7e-4874-9cce-798b9fc49b98",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/rootfs-preflight-read-err-4910d9a33084/invocation.json"
+        },
+        {
+          "id": "349ca32c-0900-4fee-ad60-aa343dd43c54",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-pull-24e261bffa11/invocation.json"
+        },
+        {
+          "id": "abad3e27-ca0e-471d-8077-481f20e50cc4",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-pull-read-out-8333fc9c9d53/invocation.json"
+        },
+        {
+          "id": "2a01606a-b0ee-4591-80fa-308175a199c9",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-pull-read-err-7052e09d455c/invocation.json"
+        },
+        {
+          "id": "831e8718-4368-4f95-890b-bb08bf41186f",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-mkdir-adc1df19359a/invocation.json"
+        },
+        {
+          "id": "8aa40833-cc9f-4b2d-be07-b2f3cac55156",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-mkdir-read-out-58c9a5d81ea1/invocation.json"
+        },
+        {
+          "id": "cd5c616e-1951-465f-b016-be36225e8a8f",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-mkdir-read-err-15d8bab46440/invocation.json"
+        },
+        {
+          "id": "d6dff70a-b483-41bd-91d5-e17475e48274",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-mount-8ffde36f47fc/invocation.json"
+        },
+        {
+          "id": "2218811d-4a06-4faf-9f9e-261c882d2625",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-mount-read-out-2e47a80bc07b/invocation.json"
+        },
+        {
+          "id": "3742bed5-91f8-49c0-8f87-a5efeda62777",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-mount-read-err-8740cd97e961/invocation.json"
+        },
+        {
+          "id": "54713456-9535-4aa3-a1d1-e9a6e0e30a9b",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-label-016e5ccd7599/invocation.json"
+        },
+        {
+          "id": "e22d2124-770f-47a2-8e1c-4e994b30ca3c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-label-read-out-8218d1d4d6b5/invocation.json"
+        },
+        {
+          "id": "f67bb215-f094-420d-992a-7cd78207eaa1",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-label-read-err-79b0e7aa9b96/invocation.json"
+        },
+        {
+          "id": "e9b04714-e478-4ced-963b-59d4671b7433",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-helper-86796d80e512/invocation.json"
+        },
+        {
+          "id": "0de46c2c-dd37-4a20-abb2-1ea77168e071",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-helper-read-out-88a29b8d2c5e/invocation.json"
+        },
+        {
+          "id": "eed684f1-730b-434a-bd8a-0362ca8612e8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-helper-read-err-6aa4597ea32a/invocation.json"
+        },
+        {
+          "id": "d9c48b3a-df2f-48bd-987c-fa5d929550eb",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-info-11be4f0680f0/invocation.json"
+        },
+        {
+          "id": "d646be77-3c10-49ef-81d8-228b44378f44",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-info-read-out-0ae9b81d5ea3/invocation.json"
+        },
+        {
+          "id": "a35c9b87-5fb4-41df-a894-9173603efadc",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-info-read-err-cad4045f5c12/invocation.json"
+        },
+        {
+          "id": "c0d6e4b5-314b-417d-9fc3-0b243647ca8d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/deliver-spec-477a7915e2a9/invocation.json"
+        },
+        {
+          "id": "8f9181ec-29e6-4789-90bb-f170f4ae2daf",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/verify-spec-e0b9388f0354/invocation.json"
+        },
+        {
+          "id": "e2970fbb-5450-4268-8664-f7ebe982ddb7",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-run-f5adc4c13a4e/invocation.json"
+        },
+        {
+          "id": "ccdd4572-5af4-4eba-9720-a5f5aff2cffd",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-run-read-out-f0c7ed4e7871/invocation.json"
+        },
+        {
+          "id": "2d7846d4-cd96-4595-adf6-50c06c815ea7",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-run-read-err-0262099073e4/invocation.json"
+        },
+        {
+          "id": "d06c906e-3ee3-495d-b930-60ab5bbfb929",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-helper-c2a45379d46c/invocation.json"
+        },
+        {
+          "id": "c7cb7086-437c-47f1-ab35-d568b16b3373",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-helper-read-out-a1497ec0e146/invocation.json"
+        },
+        {
+          "id": "fbceec16-1717-4d72-a9b6-c85c0e3c31eb",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-helper-read-err-101148d4a1b7/invocation.json"
+        },
+        {
+          "id": "a74c1625-aa5b-4a2d-b4b2-a6bc73fa2196",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-mount-5d53f22b2fc7/invocation.json"
+        },
+        {
+          "id": "6fb18c6a-6b71-43d5-88e7-5afa527e5b1a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-mount-read-out-0bf49e43069b/invocation.json"
+        },
+        {
+          "id": "a43a53c1-7a96-42b3-945e-60a2229fc9d2",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-mount-read-err-35f29155687f/invocation.json"
+        },
+        {
+          "id": "123b441f-c1a3-4712-8ee6-0f294ac1ad73",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-snapshot-9066fed12677/invocation.json"
+        },
+        {
+          "id": "91232dab-0769-426f-bf12-4b7db5e2ef39",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-snapshot-read-out-64ad93debeb5/invocation.json"
+        },
+        {
+          "id": "a164a0a8-340b-42a5-8976-23bea5660169",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/native-clean-snapshot-read-err-ffa1b7943540/invocation.json"
+        },
+        {
+          "id": "ca4f7af4-9ede-421f-bc47-ffc2e2c65816",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/policy-after-24a728d28a09/invocation.json"
+        },
+        {
+          "id": "0d93cfd1-472d-4451-a76a-3ed0ec402457",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/policy-after-read-0eff1874b9e7/invocation.json"
+        },
+        {
+          "id": "f16f9da5-115d-4d5f-93fa-fee62b0d2fc2",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/policy-after-read-7b16bdc97192/invocation.json"
+        },
+        {
+          "id": "242acffa-f187-4d7f-abe1-6059392a363c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-x86_64/commands/policy-after-read-62c58f0e37e7/invocation.json"
+        }
+      ]
+    },
+    {
+      "job": "efac8751-c1fb-8915-aca8-0baec23a2c68",
+      "variant": "aws-mantle-1",
+      "arch": "aarch64",
+      "build_status": "succeeded",
+      "build_result_path": "/home/fedora/Repositories/symphony/.symphony/builds/efac8751-c1fb-8915-aca8-0baec23a2c68/result.json",
+      "image": {
+        "status": "passed",
+        "ami": "ami-0df3f6053844bc807",
+        "snapshot_ids": [
+          "snap-016389c17a1807fd6",
+          "snap-0c3c56649c2c15fa6"
+        ],
+        "job": "efac8751-c1fb-8915-aca8-0baec23a2c68",
+        "arch": "aarch64",
+        "variant": "aws-mantle-1",
+        "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+        "input_sha256": "d0e40ebfc5e9b058e2a1860244a64ab86dca30ad69fc2e130ca9fc9f1c3a99cb",
+        "region": "us-east-2",
+        "private": true,
+        "boot_mode": "uefi",
+        "tpm": "v2.0",
+        "runtime": "pending"
+      },
+      "instance": "i-0ab72aa43e1cee521",
+      "runtime": {
+        "status": "passed",
+        "case": {
+          "status": "passed",
+          "ami": "ami-0df3f6053844bc807",
+          "snapshot_ids": [
+            "snap-016389c17a1807fd6",
+            "snap-0c3c56649c2c15fa6"
+          ],
+          "job": "efac8751-c1fb-8915-aca8-0baec23a2c68",
+          "arch": "aarch64",
+          "variant": "aws-mantle-1",
+          "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+          "input_sha256": "d0e40ebfc5e9b058e2a1860244a64ab86dca30ad69fc2e130ca9fc9f1c3a99cb",
+          "region": "us-east-2",
+          "private": true,
+          "boot_mode": "uefi",
+          "tpm": "v2.0",
+          "runtime": "pending"
+        },
+        "instance": "i-0ab72aa43e1cee521",
+        "smoke": {
+          "kind": "native",
+          "image": "public.ecr.aws/docker/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e",
+          "exit_code": 0,
+          "output": "R10_NATIVE_CONTAINER_PASS\naarch64"
+        },
+        "boot_id": "f38ae1d2-dd4c-4607-bc7a-740c8d2ed6ef",
+        "finished_at": "2026-10-06T22:47:00.470954+00:00"
+      },
+      "policy-before": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "policy-after": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "ssm_commands": [
+        {
+          "id": "e553eb8d-91c4-4cc8-a565-dbd7abc9ae0c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/admin-readiness-e9a8078b4eab/invocation.json"
+        },
+        {
+          "id": "8b9ffd6a-b618-4f8b-8bd7-824db4c01074",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/policy-before-53d6f1dec3d5/invocation.json"
+        },
+        {
+          "id": "da2cbb31-fb9f-4185-981f-628c19b4a994",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/policy-before-read-19630c8a1dea/invocation.json"
+        },
+        {
+          "id": "1396ce24-d9bb-4795-aaa9-4b7aa9c27af2",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/policy-before-read-c2e17cd99927/invocation.json"
+        },
+        {
+          "id": "3d0931b3-7ce4-45c0-b6ed-17d90f7243f5",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/container-preflight-5e5af0e73e5b/invocation.json"
+        },
+        {
+          "id": "e6395bea-9c8e-4d75-8d4e-3e21c05cadd7",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/container-preflight-read-out-1a9a2e90711f/invocation.json"
+        },
+        {
+          "id": "ffa5ba00-94f1-4c9d-bdc7-aac62d6d5c0a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/container-preflight-read-err-3adf61403d86/invocation.json"
+        },
+        {
+          "id": "2e422967-9cbf-483b-8482-c78c61316324",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/rootfs-preflight-2f455fdc3b21/invocation.json"
+        },
+        {
+          "id": "81bbbd13-9d5b-467f-9939-9b98ed59492b",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/rootfs-preflight-read-out-f8cfded108c4/invocation.json"
+        },
+        {
+          "id": "c1273393-864c-4551-97c2-4b4406ef9cdb",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/rootfs-preflight-read-err-c2bff77681e9/invocation.json"
+        },
+        {
+          "id": "67e4b00e-6dac-45d7-8bb3-f292bb0ee5ef",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-pull-0a276c86ab08/invocation.json"
+        },
+        {
+          "id": "e85503af-8102-4cd4-88a7-5ac5c44eb9b4",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-pull-read-out-01a8e7c86d05/invocation.json"
+        },
+        {
+          "id": "3fc28e48-38fb-4c20-900e-ad215120a610",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-pull-read-err-954118fb4af8/invocation.json"
+        },
+        {
+          "id": "bf4425de-b143-4c32-ac49-6d3babaf0b2c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-mkdir-8d83977e34cb/invocation.json"
+        },
+        {
+          "id": "36e167b8-d148-4d18-84ec-35287c621960",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-mkdir-read-out-c0219e52b60a/invocation.json"
+        },
+        {
+          "id": "453bd809-a9e2-4e8e-8d9d-6d11a14b8a5a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-mkdir-read-err-9d18122a78b8/invocation.json"
+        },
+        {
+          "id": "1509fa0f-9ad8-4a29-ba60-a1fd18624a03",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-mount-e8b51ff1e750/invocation.json"
+        },
+        {
+          "id": "dc13e63b-c8ba-4b7f-bac7-eee3570eda27",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-mount-read-out-b5d4751ff744/invocation.json"
+        },
+        {
+          "id": "bd18d3c0-c642-4c82-a58d-c0c0e9edf1f8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-mount-read-err-0c7f43742721/invocation.json"
+        },
+        {
+          "id": "a86117fe-0920-40c5-abb0-980c2a60d753",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-label-22e88a9a4e4f/invocation.json"
+        },
+        {
+          "id": "2f2d7377-594b-479b-86f0-f444c84c2d3d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-label-read-out-acb884e413d0/invocation.json"
+        },
+        {
+          "id": "87143fe4-8f78-49cd-8a6d-e33fe8ae6a81",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-label-read-err-2898463b831d/invocation.json"
+        },
+        {
+          "id": "7e28c0f5-99d0-49e4-b6cb-c77956b692ec",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-helper-9cfab726639e/invocation.json"
+        },
+        {
+          "id": "c6ca9baf-a85c-425b-bef5-d697f3cdce58",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-helper-read-out-2120c6aba2ad/invocation.json"
+        },
+        {
+          "id": "ef178048-f4e2-4986-8ce3-f3e91abb96ff",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-helper-read-err-94e6bc3f2398/invocation.json"
+        },
+        {
+          "id": "d0db3897-41d3-4bd4-a5cd-2f9591bed8fc",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-info-f06a172d7665/invocation.json"
+        },
+        {
+          "id": "bf9e3e3a-f01e-4dbf-acaf-8bd07a9ac951",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-info-read-out-271ae764bca1/invocation.json"
+        },
+        {
+          "id": "339ccb00-4904-4183-b180-7f4bbe099fe0",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-info-read-err-c43894cfcb48/invocation.json"
+        },
+        {
+          "id": "65f3d387-f6c0-49ec-909b-0cff913db6dd",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/deliver-spec-ef0219c4fbe5/invocation.json"
+        },
+        {
+          "id": "e0dc6f71-24f7-41c5-bce5-fd8add643313",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/verify-spec-50e2be1feb50/invocation.json"
+        },
+        {
+          "id": "77d155c8-db0a-4dc7-a7f9-43085780fe92",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-run-37e99e686b9b/invocation.json"
+        },
+        {
+          "id": "7df6b06d-ce7f-4ebc-9f96-b272bf556916",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-run-read-out-0e543a0ea5bc/invocation.json"
+        },
+        {
+          "id": "985b8b08-6476-4cfa-bac7-82922488499d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-run-read-err-123b83e21a3e/invocation.json"
+        },
+        {
+          "id": "422541db-cec0-4480-9f99-a4eeaac85ddb",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-helper-e3e9172cbed6/invocation.json"
+        },
+        {
+          "id": "fbb93dc7-2860-4903-aafd-6c39ed2e0935",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-helper-read-out-7db1b345cbb6/invocation.json"
+        },
+        {
+          "id": "6a927e6e-0acd-4de1-8343-cc14752e54d9",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-helper-read-err-c2ee37f35d6e/invocation.json"
+        },
+        {
+          "id": "2aa58582-5365-4350-a6ff-f36f7c426206",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-mount-f54f50b7ffce/invocation.json"
+        },
+        {
+          "id": "81a19a32-3066-47a5-a3b9-1e4c7ccc7ff7",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-mount-read-out-35d0f640b08f/invocation.json"
+        },
+        {
+          "id": "fd87897a-9b8f-4ac2-ac87-99798d4290a4",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-mount-read-err-4eaea77d850e/invocation.json"
+        },
+        {
+          "id": "959ec56d-8c52-4bf8-add7-09284755163e",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-snapshot-d02d69f80713/invocation.json"
+        },
+        {
+          "id": "42afc606-5355-4f0f-b678-f5f0ee67b0e0",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-snapshot-read-out-cd5b25e076dd/invocation.json"
+        },
+        {
+          "id": "9c8dc5ab-f712-4947-9ceb-476ea1a62add",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/native-clean-snapshot-read-err-385a882da604/invocation.json"
+        },
+        {
+          "id": "faca4fd1-f132-4e01-a264-711664755d30",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/policy-after-25d70775269c/invocation.json"
+        },
+        {
+          "id": "f15a194b-16b0-4602-afe4-7199d885a728",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/policy-after-read-ce792f95cc24/invocation.json"
+        },
+        {
+          "id": "40632b0e-ea85-4b69-a8d3-bac34f08d6e3",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-aarch64/commands/policy-after-read-d946218efca7/invocation.json"
+        }
+      ]
+    },
+    {
+      "job": "cd6571d2-298a-8f62-a9ba-57a62967cc05",
+      "variant": "aws-mantle-1-fips",
+      "arch": "x86_64",
+      "build_status": "succeeded",
+      "build_result_path": "/home/fedora/Repositories/symphony/.symphony/builds/cd6571d2-298a-8f62-a9ba-57a62967cc05/result.json",
+      "image": {
+        "status": "passed",
+        "ami": "ami-00f2b4235b558b774",
+        "snapshot_ids": [
+          "snap-0c1941fb90f95e0e3",
+          "snap-0ec9ba50e7f35ebf8"
+        ],
+        "job": "cd6571d2-298a-8f62-a9ba-57a62967cc05",
+        "arch": "x86_64",
+        "variant": "aws-mantle-1-fips",
+        "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+        "input_sha256": "d61b9928cbbe6fbdfc78f1e7cb9742c7a7c540df47510e0cab94421bc85479a6",
+        "region": "us-east-2",
+        "private": true,
+        "boot_mode": "uefi",
+        "tpm": "v2.0",
+        "runtime": "pending"
+      },
+      "instance": "i-04b39cc386d65f0d9",
+      "runtime": {
+        "status": "passed",
+        "case": {
+          "status": "passed",
+          "ami": "ami-00f2b4235b558b774",
+          "snapshot_ids": [
+            "snap-0c1941fb90f95e0e3",
+            "snap-0ec9ba50e7f35ebf8"
+          ],
+          "job": "cd6571d2-298a-8f62-a9ba-57a62967cc05",
+          "arch": "x86_64",
+          "variant": "aws-mantle-1-fips",
+          "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+          "input_sha256": "d61b9928cbbe6fbdfc78f1e7cb9742c7a7c540df47510e0cab94421bc85479a6",
+          "region": "us-east-2",
+          "private": true,
+          "boot_mode": "uefi",
+          "tpm": "v2.0",
+          "runtime": "pending"
+        },
+        "instance": "i-04b39cc386d65f0d9",
+        "smoke": {
+          "kind": "native",
+          "image": "public.ecr.aws/docker/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e",
+          "exit_code": 0,
+          "output": "R10_NATIVE_CONTAINER_PASS\nx86_64"
+        },
+        "boot_id": "9133432e-b934-4b08-8f56-ec01b3ce7d1e",
+        "finished_at": "2026-10-06T22:47:24.393543+00:00"
+      },
+      "policy-before": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "policy-after": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "ssm_commands": [
+        {
+          "id": "c11650e3-3775-4c1b-857b-1d16b2ac7a28",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/admin-readiness-3f5df3a764d7/invocation.json"
+        },
+        {
+          "id": "fc08b553-d406-44e5-b6c5-995fb9321357",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/policy-before-1adf33d92fea/invocation.json"
+        },
+        {
+          "id": "396510db-ea54-4e81-974d-04b96d14accb",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/policy-before-read-7fa9de47c6c1/invocation.json"
+        },
+        {
+          "id": "f9558a14-6e51-484e-beca-5d71835182bb",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/policy-before-read-2d17bcef38c6/invocation.json"
+        },
+        {
+          "id": "39d5ced6-9068-4523-8e3d-d130a1fac4aa",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/policy-before-read-faf3628e5a5f/invocation.json"
+        },
+        {
+          "id": "7b993ed0-1964-4b1e-82fd-7c475fdbf0ff",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/container-preflight-9e0c197199bf/invocation.json"
+        },
+        {
+          "id": "ace980ef-a5d9-4b76-a5d0-ddd5cd468d44",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/container-preflight-read-out-a906c9ae9745/invocation.json"
+        },
+        {
+          "id": "5f877862-477a-4503-8f84-fc3c7c94cff2",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/container-preflight-read-err-464fd789f424/invocation.json"
+        },
+        {
+          "id": "c9317adc-fd79-4cc0-a1d7-5127b9bc5a54",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/rootfs-preflight-72a601e191b7/invocation.json"
+        },
+        {
+          "id": "89a2978d-bcb6-4da4-8766-c1649bb172a8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/rootfs-preflight-read-out-4a533859026e/invocation.json"
+        },
+        {
+          "id": "4e56091d-f451-4a0a-be73-16c5c44f4f11",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/rootfs-preflight-read-err-514a7cbf3993/invocation.json"
+        },
+        {
+          "id": "dad2fdf3-7661-4671-a441-5fe6566713bc",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-pull-b4baf7c26ada/invocation.json"
+        },
+        {
+          "id": "0a5d2635-a91d-4f12-9d68-d0238b23cb1c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-pull-read-out-99d909412cf4/invocation.json"
+        },
+        {
+          "id": "14246e4d-d54f-4073-a430-332151f140d8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-pull-read-err-48e431e9b4cf/invocation.json"
+        },
+        {
+          "id": "18e45e5d-721a-412a-bddc-78ed1dda23ed",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-mkdir-2735fe88e486/invocation.json"
+        },
+        {
+          "id": "3590c23f-8b90-4a8f-87c3-8eccab1172e6",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-mkdir-read-out-03f5ed1d3893/invocation.json"
+        },
+        {
+          "id": "40df2cc9-1212-4c2a-aeb6-540ddfd7e60b",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-mkdir-read-err-f64c0f432888/invocation.json"
+        },
+        {
+          "id": "54abc30a-66cb-4968-8b02-888b811f2551",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-mount-f6171a3f1e6d/invocation.json"
+        },
+        {
+          "id": "996c7b6a-7888-4019-aaac-5a0fa481e321",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-mount-read-out-935440a0c677/invocation.json"
+        },
+        {
+          "id": "d1346962-17e3-4d79-ac53-7283a345cd3a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-mount-read-err-e5289f6bce07/invocation.json"
+        },
+        {
+          "id": "4c2d4cca-09e4-496d-9d72-4ab81b13a03c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-label-4c288bf33e83/invocation.json"
+        },
+        {
+          "id": "4b9f6abb-351c-492f-bde7-40111ddff73e",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-label-read-out-367b35d4f9aa/invocation.json"
+        },
+        {
+          "id": "e1e6d3af-ee88-4fb7-b95e-7395870a5cfe",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-label-read-err-3d8665277481/invocation.json"
+        },
+        {
+          "id": "39053847-a742-46c7-a831-9f3b116a98dc",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-helper-ec052e9133f0/invocation.json"
+        },
+        {
+          "id": "bb5e6171-649a-411e-bccd-8851705a0896",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-helper-read-out-4edba67440b2/invocation.json"
+        },
+        {
+          "id": "9b1b33ab-30bb-4d6f-9819-a2ee122fa3a5",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-helper-read-err-39cd45bb2850/invocation.json"
+        },
+        {
+          "id": "727e9be0-a959-474f-b622-4fe82981a08a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-info-8f8fed3db855/invocation.json"
+        },
+        {
+          "id": "e31346b1-ebf0-4d46-b0d0-7fd1e395f0ce",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-info-read-out-ad1727e30dee/invocation.json"
+        },
+        {
+          "id": "357dd2e2-1439-4cb1-ac11-82e6a864851c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-info-read-err-aee093f868ae/invocation.json"
+        },
+        {
+          "id": "3a4aa62b-886e-48bc-98c5-ebe9b18fd2d0",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/deliver-spec-6c1f1351cfac/invocation.json"
+        },
+        {
+          "id": "140b8ab3-9d22-4eba-ac82-eb1965223941",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/verify-spec-0426a34921cf/invocation.json"
+        },
+        {
+          "id": "6c88346c-3fc8-4250-8cfa-02312aa5c949",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-run-a4081d5c650f/invocation.json"
+        },
+        {
+          "id": "2ec94393-14fd-466d-b1d2-81ce4bf93ce8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-run-read-out-f53c4146e800/invocation.json"
+        },
+        {
+          "id": "adc8933f-67ea-46d9-ba7a-c30ea90c7563",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-run-read-err-5c380b227143/invocation.json"
+        },
+        {
+          "id": "e8dede18-f3ab-445a-bd07-b28a6295ecbd",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-helper-c06c3434202b/invocation.json"
+        },
+        {
+          "id": "5837f485-38b4-404b-838e-9d4a5493bdcc",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-helper-read-out-74206a36fc7d/invocation.json"
+        },
+        {
+          "id": "46c5c7d3-34db-42f6-8ee8-761e95fdedcf",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-helper-read-err-a57452eb7547/invocation.json"
+        },
+        {
+          "id": "ca436d2b-708b-4a13-b77b-d5817ff5a9be",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-mount-13bb3d9ed048/invocation.json"
+        },
+        {
+          "id": "09897d9e-6d94-4484-863c-0cdeaf1b4b17",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-mount-read-out-381933de8d2b/invocation.json"
+        },
+        {
+          "id": "1510380a-4b8b-4d63-a738-9ce97be1abd7",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-mount-read-err-7fcc940febee/invocation.json"
+        },
+        {
+          "id": "f88154f9-e058-4102-97af-c2dd8df4f6b0",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-snapshot-4034be66b537/invocation.json"
+        },
+        {
+          "id": "0766b385-dfcd-4f28-ac2d-2ad118edb31d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-snapshot-read-out-30449515ee1b/invocation.json"
+        },
+        {
+          "id": "1bfefb7a-3202-4d84-92de-34ed2e5e3594",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/native-clean-snapshot-read-err-e13ff576cca5/invocation.json"
+        },
+        {
+          "id": "923fed79-42e3-4c36-a190-600596544f88",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/policy-after-b45bc57634b4/invocation.json"
+        },
+        {
+          "id": "819f809e-8940-4b7a-8b10-bc903fab7918",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/policy-after-read-5e99ba067426/invocation.json"
+        },
+        {
+          "id": "128f524c-86b4-4ea6-a6c4-0c97ef0e185d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/policy-after-read-2e27a9f217e5/invocation.json"
+        },
+        {
+          "id": "668121ae-1587-4388-9dd4-696e5363a01c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-fips-x86_64/commands/policy-after-read-b18a488e6010/invocation.json"
+        }
+      ]
+    },
+    {
+      "job": "b0ecfae7-01b1-8ae2-ad01-ca9a0f47c151",
+      "variant": "aws-mantle-1-nvidia",
+      "arch": "x86_64",
+      "build_status": "succeeded",
+      "build_result_path": "/home/fedora/Repositories/symphony/.symphony/builds/b0ecfae7-01b1-8ae2-ad01-ca9a0f47c151/cloud-result.json",
+      "image": {
+        "status": "passed",
+        "ami": "ami-0c7235b305234a123",
+        "snapshot_ids": [
+          "snap-0dde7976af2745ab1",
+          "snap-02a55ea558a866ba6"
+        ],
+        "job": "b0ecfae7-01b1-8ae2-ad01-ca9a0f47c151",
+        "arch": "x86_64",
+        "variant": "aws-mantle-1-nvidia",
+        "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+        "input_sha256": "ff6ab49612a81ee21198b7fb5126ecb6c41756b29fdeb6689d4d750ac5e17282",
+        "region": "us-east-2",
+        "private": true,
+        "boot_mode": "uefi",
+        "tpm": "v2.0",
+        "runtime": "pending"
+      },
+      "instance": "i-063fae68a34d43e3a",
+      "runtime": {
+        "status": "passed",
+        "case": {
+          "status": "passed",
+          "ami": "ami-0c7235b305234a123",
+          "snapshot_ids": [
+            "snap-0dde7976af2745ab1",
+            "snap-02a55ea558a866ba6"
+          ],
+          "job": "b0ecfae7-01b1-8ae2-ad01-ca9a0f47c151",
+          "arch": "x86_64",
+          "variant": "aws-mantle-1-nvidia",
+          "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+          "input_sha256": "ff6ab49612a81ee21198b7fb5126ecb6c41756b29fdeb6689d4d750ac5e17282",
+          "region": "us-east-2",
+          "private": true,
+          "boot_mode": "uefi",
+          "tpm": "v2.0",
+          "runtime": "pending"
+        },
+        "instance": "i-063fae68a34d43e3a",
+        "smoke": {
+          "kind": "nvidia",
+          "image": "public.ecr.aws/s2v1a1q8/nvidia-smoke-test@sha256:7f532735bf01894113c2294814d55e43f94d9b9605e2f6d69b79e76472aa6544",
+          "exit_code": 0,
+          "device_query": "PASS",
+          "vector_add": "PASSED"
+        },
+        "boot_id": "891ee6aa-bb9b-431f-833b-73ce23e353bc",
+        "finished_at": "2026-10-06T22:55:25.868549+00:00"
+      },
+      "policy-before": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "policy-after": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "ssm_commands": [
+        {
+          "id": "f65b2c12-c0c4-40b2-9b89-3824847f8193",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/admin-readiness-4b47e001bdec/invocation.json"
+        },
+        {
+          "id": "e014ad93-d2d5-4029-afb9-9567cb570533",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-before-5b19742628e6/invocation.json"
+        },
+        {
+          "id": "14e2cf29-f775-4fc0-bf4d-bb808c64fd1e",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-before-read-7a6b59eccceb/invocation.json"
+        },
+        {
+          "id": "645c53b7-51f2-4338-a2a7-4d0edf0fe987",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-before-read-373968ed8c1e/invocation.json"
+        },
+        {
+          "id": "628df191-b8dd-4853-a08b-83ddc59a8043",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-before-read-27f4547fe345/invocation.json"
+        },
+        {
+          "id": "0653f5df-784c-4b74-99fb-01eb7856037f",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-before-read-f2a4a905eff4/invocation.json"
+        },
+        {
+          "id": "54d4bc3a-7b15-4bc7-8b34-b833489e230e",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/container-preflight-0680bf61ce72/invocation.json"
+        },
+        {
+          "id": "1b64f3bc-cc33-4080-b9a1-84fb934a6f43",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/container-preflight-read-out-f72aacbaeefd/invocation.json"
+        },
+        {
+          "id": "4dc48a5c-4913-444e-8592-13f95dd3c5b8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/container-preflight-read-err-4aa23773a185/invocation.json"
+        },
+        {
+          "id": "7ab96db6-cab5-45db-8a24-c6bc444be1b4",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/rootfs-preflight-38a8483f81db/invocation.json"
+        },
+        {
+          "id": "3c8d2d05-6e3e-41a3-bfd4-d2d5fef0cd80",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/rootfs-preflight-read-out-d169a4a21e86/invocation.json"
+        },
+        {
+          "id": "c21442b8-da0b-444d-bc7b-59b64ca2f64d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/rootfs-preflight-read-err-efced4b7daa8/invocation.json"
+        },
+        {
+          "id": "0f169dd9-1587-4adb-a1ef-d321b44e4fc4",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-20accef86889/invocation.json"
+        },
+        {
+          "id": "65d9a431-54f3-429c-896f-e30fc539e37a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-fbf3c94e9a29/invocation.json"
+        },
+        {
+          "id": "5db80beb-2053-433b-a86e-6c50800b4878",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-4e797d471ca6/invocation.json"
+        },
+        {
+          "id": "9fb3699c-ccd8-4586-961c-831ff9d86837",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-81bec87afa41/invocation.json"
+        },
+        {
+          "id": "876a8892-c768-492a-9b65-7eda3a4b9541",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-05a3cf14bd2b/invocation.json"
+        },
+        {
+          "id": "3fd54d9a-fb3c-4877-a4b3-93f24057ef8c",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-abb61eb99eb4/invocation.json"
+        },
+        {
+          "id": "7139f415-84f1-4b8f-a1c7-ec39cdac6be6",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-149acfe7864a/invocation.json"
+        },
+        {
+          "id": "8cd7d958-b79e-4da6-9a35-3593dba76681",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-853e4d1db8bb/invocation.json"
+        },
+        {
+          "id": "4e6dc04a-7d12-4d4d-8d37-9dffeaa4465a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-d3da845f9d71/invocation.json"
+        },
+        {
+          "id": "1f478f9a-99a9-4ccf-ac25-0ec55bd3d25d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-d20837a5f906/invocation.json"
+        },
+        {
+          "id": "bb279032-f472-4911-b18b-fc49f1966295",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-d7316ffd6aac/invocation.json"
+        },
+        {
+          "id": "cd9f176c-639c-431f-9cc9-eca5f1838915",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-7eae00e1ff36/invocation.json"
+        },
+        {
+          "id": "a8782c94-c424-4cd9-a098-d9bb9afaa74f",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-fefb3a2a4c04/invocation.json"
+        },
+        {
+          "id": "0d453e93-0fa3-42ea-a028-26abaa832590",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-0955c752ad6a/invocation.json"
+        },
+        {
+          "id": "1cb226f3-e1ab-4624-8ded-28537fe12c54",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-82ebcbed6b46/invocation.json"
+        },
+        {
+          "id": "bfcd97fa-21c6-45aa-9e68-03bde8dd7efc",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-12114b3ac6b7/invocation.json"
+        },
+        {
+          "id": "78ed8ca3-e58b-41ba-a958-5e971ede4ea3",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-6eaa09d477e3/invocation.json"
+        },
+        {
+          "id": "9c7d127c-786c-4d2c-a8ad-3354e9efe6c9",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-532c79e8fcbf/invocation.json"
+        },
+        {
+          "id": "89b4b8be-fc5b-4dcf-a436-acddb948cf62",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-9d19e9adcd44/invocation.json"
+        },
+        {
+          "id": "06423cc0-d3a7-4f25-86d3-869f367f50e6",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-a3597ba3c342/invocation.json"
+        },
+        {
+          "id": "66eae7b4-477e-4015-8d9d-3929ea0edb93",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-eabc13cbc92e/invocation.json"
+        },
+        {
+          "id": "23f46511-0083-4c96-b1ff-6e993a3f0d70",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-b1d3dcc9f94b/invocation.json"
+        },
+        {
+          "id": "ec20b5e5-2845-4aa8-853a-b906620d5a8e",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-a04183d68b6c/invocation.json"
+        },
+        {
+          "id": "13ac8bad-330d-40e4-87cc-d9b787eb6161",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-960c0fe654cd/invocation.json"
+        },
+        {
+          "id": "0080ef8e-d8d0-4bda-be4a-561f2b0a90ea",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-2cd2152af0b4/invocation.json"
+        },
+        {
+          "id": "a099173b-8d71-4bcf-a2b5-c85daa3ddfad",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-af3d6c4850b5/invocation.json"
+        },
+        {
+          "id": "b52b2caf-bc0b-4371-9c71-dcbdc7d9953d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-138fbf30ec61/invocation.json"
+        },
+        {
+          "id": "4f964dde-4b3a-4beb-8168-6b213f80195f",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/deliver-spec-4eb32af28cab/invocation.json"
+        },
+        {
+          "id": "bdba118c-e65d-41cc-8c63-a0d9ecbf2267",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/deliver-spec-fbbcc50385c6/invocation.json"
+        },
+        {
+          "id": "663fea2b-af60-4bae-96a6-570b813c5df1",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/deliver-spec-3098b4190a69/invocation.json"
+        },
+        {
+          "id": "2ae068d9-06ea-4d7b-a72d-114afc90f3a3",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/deliver-spec-13639976f568/invocation.json"
+        },
+        {
+          "id": "ef23b932-6e0c-4789-89e7-033c5870a64e",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/deliver-spec-9112f975a46c/invocation.json"
+        },
+        {
+          "id": "c99e442c-fcf6-4389-90f5-0cc69bb01495",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/deliver-spec-7f75c213b84e/invocation.json"
+        },
+        {
+          "id": "46578085-3cc8-4be5-a8af-6fe10b817c7b",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/verify-spec-0ec0b7fe6d4f/invocation.json"
+        },
+        {
+          "id": "e982e58a-f7da-427d-89e5-4fed03cd21c0",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-7342f689eb3f/invocation.json"
+        },
+        {
+          "id": "05f9ed89-f856-449d-8716-ff7a7f2d6ee9",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-f4a6c95471a3/invocation.json"
+        },
+        {
+          "id": "c4ab01d7-4cca-4e41-88b8-f717c684e645",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-54b842798bd8/invocation.json"
+        },
+        {
+          "id": "0fe474eb-abb5-4b8f-9333-62da00a63352",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-bec9144b582c/invocation.json"
+        },
+        {
+          "id": "75772f55-16d1-4e53-9da1-c80aae305173",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-5fbc01cb5d16/invocation.json"
+        },
+        {
+          "id": "1dace38e-b943-417a-9d93-c372b9bf3966",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-0258384deef3/invocation.json"
+        },
+        {
+          "id": "e4e18c7a-71ef-491d-96e4-e4c869e3cc90",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-12276f1ed6b4/invocation.json"
+        },
+        {
+          "id": "cbdb7618-8a88-4614-8faa-a2a5587c0778",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-6f66770dfbdd/invocation.json"
+        },
+        {
+          "id": "a658c39d-ad3e-4807-a2fa-d7787b229f03",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-023e131b619b/invocation.json"
+        },
+        {
+          "id": "2eaccdc9-7857-4b33-90e0-6cf18ed47551",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-ae5bc27c69e0/invocation.json"
+        },
+        {
+          "id": "08399b0e-070c-4fae-8926-f3747bbb86b8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-out-6e44f93de287/invocation.json"
+        },
+        {
+          "id": "2c800b41-6666-425c-bba9-b6fc6cf9f2ea",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/smoke-host-read-err-c4b784a38e57/invocation.json"
+        },
+        {
+          "id": "e7a03b6d-d712-4453-9bf8-fd82aaae8da1",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-after-1494cdfe679c/invocation.json"
+        },
+        {
+          "id": "9ea912d5-b9bd-4a04-a3f7-9dd29b0d0ce0",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-after-read-ed19c746f4ca/invocation.json"
+        },
+        {
+          "id": "c2dc91b3-8b35-426b-9db0-b7bc093c97da",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-after-read-9fbc9b603e03/invocation.json"
+        },
+        {
+          "id": "e2672548-4201-4be5-b4e1-5badf4cedc95",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-after-read-9c9c7c7b3c4a/invocation.json"
+        },
+        {
+          "id": "74b1c863-6c7c-406f-808c-9f0ebbdfcd93",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-x86_64/commands/policy-after-read-cb8094814075/invocation.json"
+        }
+      ]
+    },
+    {
+      "job": "a172c296-6f34-80e9-a560-fe9c2a730b11",
+      "variant": "aws-mantle-1-nvidia-fips",
+      "arch": "x86_64",
+      "build_status": "succeeded",
+      "build_result_path": "/home/fedora/Repositories/symphony/.symphony/builds/a172c296-6f34-80e9-a560-fe9c2a730b11/cloud-result.json",
+      "image": {
+        "status": "passed",
+        "ami": "ami-00a1be9870b34c930",
+        "snapshot_ids": [
+          "snap-0c48ebba70327970f",
+          "snap-0804d01a28798421a"
+        ],
+        "job": "a172c296-6f34-80e9-a560-fe9c2a730b11",
+        "arch": "x86_64",
+        "variant": "aws-mantle-1-nvidia-fips",
+        "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+        "input_sha256": "f551747a23e4e3ec4d5ae43d0d8bbc668f10d5370a82cfa39d2edfb750709b0b",
+        "region": "us-east-2",
+        "private": true,
+        "boot_mode": "uefi",
+        "tpm": "v2.0",
+        "runtime": "pending"
+      },
+      "instance": "i-0788bbca00e537a35",
+      "runtime": {
+        "status": "passed",
+        "case": {
+          "status": "passed",
+          "ami": "ami-00a1be9870b34c930",
+          "snapshot_ids": [
+            "snap-0c48ebba70327970f",
+            "snap-0804d01a28798421a"
+          ],
+          "job": "a172c296-6f34-80e9-a560-fe9c2a730b11",
+          "arch": "x86_64",
+          "variant": "aws-mantle-1-nvidia-fips",
+          "source": "3f1f18e74640c671872a6b114bd42dddb612ea68",
+          "input_sha256": "f551747a23e4e3ec4d5ae43d0d8bbc668f10d5370a82cfa39d2edfb750709b0b",
+          "region": "us-east-2",
+          "private": true,
+          "boot_mode": "uefi",
+          "tpm": "v2.0",
+          "runtime": "pending"
+        },
+        "instance": "i-0788bbca00e537a35",
+        "smoke": {
+          "kind": "nvidia",
+          "image": "public.ecr.aws/s2v1a1q8/nvidia-smoke-test@sha256:7f532735bf01894113c2294814d55e43f94d9b9605e2f6d69b79e76472aa6544",
+          "exit_code": 0,
+          "device_query": "PASS",
+          "vector_add": "PASSED"
+        },
+        "boot_id": "b1227297-3106-4f99-9620-11bbcf2bd786",
+        "finished_at": "2026-10-06T22:55:25.831805+00:00"
+      },
+      "policy-before": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "policy-after": {
+        "status": "passed",
+        "checks": 38,
+        "errors": [],
+        "mount_unit": {
+          "Result": "success",
+          "LoadState": "loaded",
+          "ActiveState": "inactive",
+          "FragmentPath": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount",
+          "DropInPaths": "/x86_64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf",
+          "ConditionResult": "no"
+        }
+      },
+      "ssm_commands": [
+        {
+          "id": "3082ea52-a8c6-4d6e-bf98-833f0908d856",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/admin-readiness-6539a3e2e5d8/invocation.json"
+        },
+        {
+          "id": "19e2a355-7fdb-4f78-bfc8-af061d820c42",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-before-4acd1be4ce37/invocation.json"
+        },
+        {
+          "id": "547839ac-e5c0-4938-b67c-b6b2f59f9d3d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-before-read-d13cf49c4a6e/invocation.json"
+        },
+        {
+          "id": "c8810790-666a-4a3b-9871-2915b812f7cb",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-before-read-40cfb459b3fa/invocation.json"
+        },
+        {
+          "id": "ec12e45c-a215-40c8-8bcf-6ffa8eecf3da",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-before-read-a24a5526ec26/invocation.json"
+        },
+        {
+          "id": "bcfce32f-2de7-4b95-8e7f-9ae24537791e",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-before-read-5d744d29c28b/invocation.json"
+        },
+        {
+          "id": "a5747315-2753-4c62-a7f2-74d509afc94a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/container-preflight-812f2794c129/invocation.json"
+        },
+        {
+          "id": "49311993-beb5-4c3b-b592-1868733dd45a",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/container-preflight-read-out-43fbeda72404/invocation.json"
+        },
+        {
+          "id": "6eac53c8-3708-4412-acf1-81280e4e18ac",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/container-preflight-read-err-9bede9792886/invocation.json"
+        },
+        {
+          "id": "29554893-fdbb-47d4-a968-39a1c758eb93",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/rootfs-preflight-f0d17dd4ed06/invocation.json"
+        },
+        {
+          "id": "fb9f9c97-0adc-4f50-8813-0ba4d7c7d9ec",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/rootfs-preflight-read-out-55c9a6fa9b21/invocation.json"
+        },
+        {
+          "id": "4ca0a7f8-966a-428a-b13c-383541ad4787",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/rootfs-preflight-read-err-d71e2e6e6691/invocation.json"
+        },
+        {
+          "id": "3369fcfa-0533-4d3c-9c8b-b50111f10119",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-bbc1e5b4476c/invocation.json"
+        },
+        {
+          "id": "ed5a8695-95bb-4d61-9e41-ae8399f0aff7",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-876cf90ff293/invocation.json"
+        },
+        {
+          "id": "2e3e3bb9-9d93-4696-88f9-914af895e3c6",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-1413787373c9/invocation.json"
+        },
+        {
+          "id": "4cde025d-ceab-48a7-ba1a-6c4233d7cc4b",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-ced186ca0dee/invocation.json"
+        },
+        {
+          "id": "658b2413-de09-4151-92c8-a18aa328b990",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-6b504507704c/invocation.json"
+        },
+        {
+          "id": "a62a58fa-e6f2-4aa2-8890-80df20484fab",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-357065cc901c/invocation.json"
+        },
+        {
+          "id": "c3843ce6-9893-4577-a04d-39f2b9fa4aa0",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-d4d9f0023db7/invocation.json"
+        },
+        {
+          "id": "de7133bb-7d8a-4c3b-9070-55cc8e0e6000",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-0930b0456fca/invocation.json"
+        },
+        {
+          "id": "2ed6c6a5-f9e2-4039-bf24-5e296e846d57",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-0c3086c42f46/invocation.json"
+        },
+        {
+          "id": "5162804c-ab09-4d00-abf6-e2775e465c88",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-7cb45f6bd737/invocation.json"
+        },
+        {
+          "id": "10b182fd-84ff-4439-8c93-c0f2725b2285",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-f1b768aea429/invocation.json"
+        },
+        {
+          "id": "434af161-e1bf-4e10-9d80-bdd12eb70f69",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-041eef6b46d6/invocation.json"
+        },
+        {
+          "id": "41413b02-bfb7-46f7-b685-3252dc1b14f8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-2417b29f6080/invocation.json"
+        },
+        {
+          "id": "1ebf697f-38d9-4788-a3c7-534ba7f4f528",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-0094099a1504/invocation.json"
+        },
+        {
+          "id": "5ed602a8-caee-4e9b-a8d9-64e4faa551c1",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-1c13f3764455/invocation.json"
+        },
+        {
+          "id": "028a8d94-4670-45cd-afd9-7eb26561cf79",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-7a5611db9d10/invocation.json"
+        },
+        {
+          "id": "8a2e0d5f-e989-4282-8f48-90c21fa980db",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-526a150a9f40/invocation.json"
+        },
+        {
+          "id": "3cc48ce3-4393-491f-9d7f-44ff56dc81e4",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-e05ffe0f3d7d/invocation.json"
+        },
+        {
+          "id": "ec0a07b2-dcee-4cf6-9f63-024fe96207f9",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-29b360e4f012/invocation.json"
+        },
+        {
+          "id": "d8117b9b-d8f5-42a1-8477-6b2251c53f8b",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-687832f309db/invocation.json"
+        },
+        {
+          "id": "a6fd39d3-ce53-4f9f-b117-8533c52f4644",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-f20414c00fe3/invocation.json"
+        },
+        {
+          "id": "df4c392f-203f-4acd-9889-ead4265d34b0",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-0d8df5f68ac4/invocation.json"
+        },
+        {
+          "id": "1d3ebdca-d11e-4cd4-a009-ef4aef460776",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-65f3715192db/invocation.json"
+        },
+        {
+          "id": "114e3a24-1216-4853-97ab-091c65e524c5",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-341eb639d297/invocation.json"
+        },
+        {
+          "id": "bf9834e5-353e-449f-8141-025a31281a05",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-d4f64d3b872e/invocation.json"
+        },
+        {
+          "id": "deb3511f-27d0-4fd4-91b0-21ac724f0c75",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-f4a532a3ef99/invocation.json"
+        },
+        {
+          "id": "a6440457-e1db-4ac4-9d6e-980cf6098ec7",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-d5f75a2533f5/invocation.json"
+        },
+        {
+          "id": "9df2ae29-af79-42a4-8a04-01f98f12335b",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/deliver-spec-e4504d7f3bad/invocation.json"
+        },
+        {
+          "id": "73da1aa1-7fec-415e-bb8b-8f1ba4a7cd33",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/deliver-spec-0d01eb87a885/invocation.json"
+        },
+        {
+          "id": "c8df366f-36c2-49c9-9a24-22e8090cf0e1",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/deliver-spec-4703eadd9a8b/invocation.json"
+        },
+        {
+          "id": "a050d9d1-b67b-4a0c-a737-6d1b401d33de",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/deliver-spec-0d07b4ffc8e4/invocation.json"
+        },
+        {
+          "id": "a2654c99-4b26-4944-af67-46ca576c41a1",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/deliver-spec-be196e3ee9fc/invocation.json"
+        },
+        {
+          "id": "ae4cbcc5-ec0f-48dd-932e-0cc25533c15d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/deliver-spec-f5c656a3d368/invocation.json"
+        },
+        {
+          "id": "33ce2f84-5667-4643-9eee-e7308deb6e9d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/verify-spec-5c85bee3f36e/invocation.json"
+        },
+        {
+          "id": "2cda9242-d8e8-45f2-8c7b-248079ced203",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-ce1b6ad98b95/invocation.json"
+        },
+        {
+          "id": "9739560e-b8aa-4888-b149-98c5a3eb0da7",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-0a4c3d81e5db/invocation.json"
+        },
+        {
+          "id": "e4aa363b-9c72-4209-b5ac-41257e4be664",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-037ca048db8d/invocation.json"
+        },
+        {
+          "id": "cf284e23-c440-4d1f-91e8-4684c3a6b333",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-fbd39cffcd30/invocation.json"
+        },
+        {
+          "id": "22ed87d5-ec06-4a65-aca5-e029d9f6270b",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-eebf9f798d15/invocation.json"
+        },
+        {
+          "id": "968d2567-aa7e-40eb-9933-ed91506ecb11",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-974716faa2fb/invocation.json"
+        },
+        {
+          "id": "8029853e-8200-4288-9522-d928c51e2759",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-c419a90d399f/invocation.json"
+        },
+        {
+          "id": "f56f1dc2-955e-4f6b-bf33-5d5a90eef812",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-4d5130413ce5/invocation.json"
+        },
+        {
+          "id": "73a797b5-3ed2-47b3-a68c-3165f08a94c5",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-634bb8f38fc9/invocation.json"
+        },
+        {
+          "id": "b2f14557-8fd5-499c-9649-25ed1f3a63c8",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-91fe8df8939c/invocation.json"
+        },
+        {
+          "id": "41b72dc8-76f9-49e2-b9a1-7c0b4d04f995",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-out-3cee45a878e4/invocation.json"
+        },
+        {
+          "id": "ca5e20c3-bc21-4cb0-aa5d-4feba180567f",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/smoke-host-read-err-7307e7f18ebc/invocation.json"
+        },
+        {
+          "id": "740d93ef-8a7a-452c-93bc-7826fbdf360e",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-after-f586894742b4/invocation.json"
+        },
+        {
+          "id": "2b990de7-a573-454b-b19e-9732e7e77a0d",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-after-read-2d2947467376/invocation.json"
+        },
+        {
+          "id": "515b8940-066d-4735-b641-0b58a6f13ffc",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-after-read-918452204d41/invocation.json"
+        },
+        {
+          "id": "3d1708e0-8003-4e18-b7c7-259e21503940",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-after-read-e2b6eda892e4/invocation.json"
+        },
+        {
+          "id": "024c2d9b-7b24-4568-848c-a4ce71c39c47",
+          "status": "Success",
+          "response_code": 0,
+          "path": "cases/aws-mantle-1-nvidia-fips-x86_64/commands/policy-after-read-7b71ab44c1c4/invocation.json"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "status": "passed",
+    "at": "2026-10-06T23:02:51.725815+00:00",
+    "terminated_instances": [
+      "i-02393698098b1c108",
+      "i-04b39cc386d65f0d9",
+      "i-063fae68a34d43e3a",
+      "i-0788bbca00e537a35",
+      "i-0ab72aa43e1cee521"
+    ],
+    "deregistered_images": [
+      "ami-019bb8caaf77b3463",
+      "ami-0df3f6053844bc807",
+      "ami-00f2b4235b558b774",
+      "ami-0c7235b305234a123",
+      "ami-00a1be9870b34c930"
+    ],
+    "deleted_snapshots": [
+      "snap-02b96f15358685682",
+      "snap-09fe3ee859ffb3ebd",
+      "snap-016389c17a1807fd6",
+      "snap-0c3c56649c2c15fa6",
+      "snap-0c1941fb90f95e0e3",
+      "snap-0ec9ba50e7f35ebf8",
+      "snap-0dde7976af2745ab1",
+      "snap-02a55ea558a866ba6",
+      "snap-0c48ebba70327970f",
+      "snap-0804d01a28798421a"
+    ],
+    "deleted_stack": "arn:aws:cloudformation:us-east-2:533267423195:stack/symphony-14-uki-dropin/c6053c30-c1d6-11f1-8be2-0aace09778c1",
+    "existing_default_vpc_and_subnet": "retained"
+  },
+  "registry_cleanup": "pending conductor receipt"
+}
