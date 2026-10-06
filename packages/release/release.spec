@@ -222,9 +222,18 @@ Requires: (%{_cross_os}shim or %{_cross_os}image-feature(uki-image))
 Requires: (%{name}-crypt if %{_cross_os}image-feature(encrypted-storage))
 Requires: ((%{name}-crypt-luks or %{_cross_os}image-feature(ephemeral-encryption-keys)) if %{_cross_os}image-feature(encrypted-storage))
 Requires: (%{name}-ephemeral-crypt if %{_cross_os}image-feature(ephemeral-encryption-keys))
+Requires: (%{name}-kexec-hardening or %{_cross_os}image-feature(uki-image))
 
 
 %description managed
+%{summary}.
+
+%package kexec-hardening
+Summary: Bottlerocket kexec loading hardening
+Requires: %{name}-managed
+Conflicts: %{_cross_os}image-feature(uki-image)
+
+%description kexec-hardening
 %{summary}.
 
 %package fips
@@ -549,7 +558,6 @@ install -p -m 0644 %{S:1753} %{buildroot}%{_cross_tmpfilesdir}/release-managed.c
 %{_cross_tmpfilesdir}/release-managed.conf
 %{_cross_unitdir}/activate-multi-user.service.d/10-managed.conf
 %{_cross_unitdir}/capture-kernel-dump.service
-%{_cross_unitdir}/disable-kexec-load.service
 %{_cross_unitdir}/load-crash-kernel.service
 %{_cross_unitdir}/drivers.target.d/10-managed.conf
 %{_cross_unitdir}/prepare-local-fs.service.d/10-managed.conf
@@ -587,6 +595,9 @@ install -p -m 0644 %{S:1753} %{buildroot}%{_cross_tmpfilesdir}/release-managed.c
 %{_cross_unitdir}/create-fips-marker.service
 %{_cross_datadir}/bottlerocket/fips-go.env
 %{_cross_udevrulesdir}/61-mount-cdrom.rules
+
+%files kexec-hardening
+%{_cross_unitdir}/disable-kexec-load.service
 
 %files fips
 %{_cross_bootconfigdir}/10-fips.conf
