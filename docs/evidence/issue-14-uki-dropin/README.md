@@ -23,7 +23,10 @@ termination for the two verified issue-owned GPU IDs. Shutdown filesystem
 and mdadm warnings are preserved without attributing their cause to this
 change. All five instances, five AMIs, ten snapshots and the access stack
 were removed; [ec2-cleanup.json](ec2-cleanup.json) records the final result.
-Registry cleanup remains pending the conductor's receipt.
+Registry cleanup passed in conductor job
+`b4f66664-3558-8fb5-ae17-1345a7ac8403`, exit 0.
+[registry-cleanup.json](registry-cleanup.json) records removal of the
+issue-owned registry at localhost:6539. All cleanup is complete.
 
 The fresh Symphony integration gate passed. The prior passing Twoliter
 gate applies to unchanged tool code. No reboot or non-UKI EC2 control

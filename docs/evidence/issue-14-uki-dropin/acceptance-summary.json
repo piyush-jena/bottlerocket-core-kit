@@ -2065,5 +2065,11 @@
     "deleted_stack": "arn:aws:cloudformation:us-east-2:533267423195:stack/symphony-14-uki-dropin/c6053c30-c1d6-11f1-8be2-0aace09778c1",
     "existing_default_vpc_and_subnet": "retained"
   },
-  "registry_cleanup": "pending conductor receipt"
+  "registry_cleanup": {
+    "status": "passed",
+    "request_id": "b4f66664-3558-8fb5-ae17-1345a7ac8403",
+    "state": "removed",
+    "receipt": "registry-cleanup.json",
+    "receipt_sha256": "271b2d166fee319b8825008f1368dd9509988fe92c67e0a2a71e8f4e171431be"
+  }
 }

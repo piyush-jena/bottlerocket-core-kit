@@ -1,0 +1,38 @@
+{
+  "request_id": "b4f66664-3558-8fb5-ae17-1345a7ac8403",
+  "result": {
+    "request_id": "b4f66664-3558-8fb5-ae17-1345a7ac8403",
+    "request": {
+      "target": "core-kit",
+      "arch": "x86_64",
+      "reason": "Remove the issue-owned registry after all five AMI validation cases and EC2 cleanup passed.",
+      "testing": "Confirm removal of the issue-owned loopback registry while retaining verified archives and validation evidence.",
+      "last_change": "No product source changed. Acceptance evidence committed in Bottlerocket 0d3d3a1e and core-kit 069259b04; all runtime tests and EC2 cleanup passed.",
+      "operation": "registry-clean"
+    },
+    "status": "succeeded",
+    "exit_code": 0,
+    "log": "/home/fedora/Repositories/symphony/.symphony/builds/b4f66664-3558-8fb5-ae17-1345a7ac8403/build.log",
+    "wall_clock_s": 1.0,
+    "artifacts": [
+      "/home/fedora/Repositories/symphony/.symphony/builds/b4f66664-3558-8fb5-ae17-1345a7ac8403/registry-result.json"
+    ],
+    "cache": "unknown",
+    "executor": "local"
+  },
+  "receipt": {
+    "brdev": {
+      "helper_sha256": "43d28a3bf6422a91957c2a07114e9b3269c41b1176f02551fd89169b92f7f34b",
+      "manifest": "/home/fedora/Repositories/bottlerocket-forest/crates/brdev/Cargo.toml",
+      "revision": "3e979b92109619605a0bd9a5f518e3673b1a4109",
+      "sha256": "bf96e9b448090a3d92822f864486aa01babb9386990c2624e814ef600bf920ab",
+      "source": "/home/fedora/Repositories/bottlerocket-forest",
+      "version": "brdev 0.1.0"
+    },
+    "endpoint": "localhost:6539",
+    "stage": "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage",
+    "state": "removed"
+  },
+  "receipt_sha256": "271b2d166fee319b8825008f1368dd9509988fe92c67e0a2a71e8f4e171431be",
+  "log_sha256": "271b2d166fee319b8825008f1368dd9509988fe92c67e0a2a71e8f4e171431be"
+}
