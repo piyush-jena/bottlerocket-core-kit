@@ -1,0 +1,64 @@
+{
+  "at": "2026-10-06T08:28:15.264299+00:00",
+  "scope": "Historical prerequisite checks; final corrected kit/image and runtime results are recorded separately.",
+  "checks": {
+    "source_verification": {
+      "record": {
+        "source_inputs_verified": 40,
+        "signature_verifications": 8,
+        "prepared": [
+          "bash-5.3.20",
+          "iproute-7.2.0",
+          "aws-otel-collector-0.50.0"
+        ],
+        "kubernetes_1_34_obsolete_patch_confirmed": true,
+        "compilation": "Not run; package builds must use the conductor queue."
+      },
+      "evidence_path": "kits/bottlerocket-core-kit/.symphony/implementation-2026-10-05/source-verification-summary.json",
+      "evidence_sha256": "0b0f223cec1600cbe2abe5ced0eb536b9478369a399e1e2a80b2e61857907cf7"
+    },
+    "harness_gate": {
+      "record": {
+        "started_at": "2026-10-05T23:54:47.111321+00:00",
+        "finished_at": "2026-10-05T23:56:17.900177+00:00",
+        "command": [
+          "make",
+          "-C",
+          "/home/fedora/Repositories/symphony",
+          "integ"
+        ],
+        "exit_code": 0,
+        "environment_overrides": {
+          "CARGO_TARGET_DIR": "/home/fedora/Repositories/symphony/stages/12-package-updates/kits/bottlerocket-core-kit/.symphony/design-2026-10-05/gate-target",
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "CARGO_NET_OFFLINE": "true"
+        },
+        "note": "Required handoff gate after identifying RPM export gap. Read-only harness working-tree checks; no harness edits."
+      },
+      "evidence_path": "kits/bottlerocket-core-kit/.symphony/package-matrix-2026-10-05/make-integ.json",
+      "evidence_sha256": "f4716bf9a48bdd6b080a90ed32c11aa8d346bee9c0d93951dbf2665490c625f9"
+    }
+  },
+  "harness_gate_limitation": "Read-only checks of the existing harness working tree, not a pristine commit qualification. The issue changes only owning members.",
+  "fresh_review_gate": {
+    "record": {
+      "started_at": "2026-10-06T08:51:42.829921+00:00",
+      "finished_at": "2026-10-06T08:53:18.938654+00:00",
+      "command": [
+        "make",
+        "-C",
+        "/home/fedora/Repositories/symphony",
+        "integ"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "harness_head": "a596ec77aa1f8f4fd2c80c8a39a7577cca5616df",
+      "harness_tracked_diff_sha256_before": "5d305f6c833099fd1da29364768acce75519e9ac3031c7efd598465e765bf5f9",
+      "harness_tracked_diff_sha256_after": "5d305f6c833099fd1da29364768acce75519e9ac3031c7efd598465e765bf5f9",
+      "harness_tracked_sources_unchanged": true,
+      "log_sha256": "fd8f10756d8c5664787da1dbf0c00948229cd17cda50cfcfb1826d2ef91b7af9"
+    },
+    "evidence_path": "kits/bottlerocket-core-kit/.symphony/review-response-2026-10-06/make-integ.json",
+    "evidence_sha256": "101ff15f36d2aec41d9ff5012548e7633fe38eb04aa28627df517c43abcd0e9f"
+  }
+}

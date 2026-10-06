@@ -1,0 +1,893 @@
+{
+  "date": "2026-10-06",
+  "scope": "ten-package source and original pre-alias conformance mapping",
+  "head": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+  "reference_source": "931a92b742c61823b60f6880d444c129be467278",
+  "files": [
+    {
+      "file": "packages/aws-signing-helper/Cargo.toml",
+      "sha256": "c0f93adce9cd8bec68328d3b4f56bb9cedcc019a19da0cd0a3f0992bea0603b5",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/aws-signing-helper/aws-signing-helper.spec",
+      "sha256": "0e4acbba83d1a75b61042b903938fe13d9bb104b2e568e22ef8f948dad1ad33f",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/aws-signing-helper/brush-aws-signing-helper.toml",
+      "sha256": "734c9d402e752d5cedad5b8d9b369c1ac0c1b7ed1b2fdbf383ea9b0440f77e26",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/aws-signing-helper/clarify.toml",
+      "sha256": "f25fb2166b0d603b35da9069c7284242ffe3b9690f524ec379509ed8a972736d",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/aws-otel-collector/0001-change-logger-and-extraconfig-file-paths.patch",
+      "sha256": "fe33e4b77231beda42517a62ddc5fccaca4fd86971c6325cac51daccbd84c833",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/aws-otel-collector/Cargo.toml",
+      "sha256": "1089cc013a089b7b98023a05cedb62eaf38f0884c76eaef2d39cd6242ac47230",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/aws-otel-collector/aws-otel-collector-tmpfiles.conf",
+      "sha256": "3eb9f69d7a48e80189b06cdd6325955c78b30ed9fa1d70b6dd2e527181889697",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/aws-otel-collector/aws-otel-collector.service",
+      "sha256": "481f75bf245fb76a1c99bd282cff4eadaed085e116a51801235ee83353c384a0",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/aws-otel-collector/aws-otel-collector.spec",
+      "sha256": "3ef077387895a2af64f406a45a7a5667751f5766921066ad930e8e19c8778c5f",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/aws-otel-collector/aws-otel-collector.yaml",
+      "sha256": "ceb768bbd8b1a82230134ca7d045fcfbc6850e8e1036876f3feee2820654d10a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/.gitignore",
+      "sha256": "2baab1e41ba3e9e6facdae3af4e2810a8fa0f81c85bba00c69f15dfa8e739da2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/Cargo.toml",
+      "sha256": "392ba31b902ad619af27ee32a4b8104b6145dab313051f89bde1431e8d8f525b",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/kubernetes-1.31/clarify.toml",
+      "sha256": "d436c6c45cc68f5e367e21e8ee4c6a83cf269492f0c714736742b6baf7da0163",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/credential-provider-config-yaml",
+      "sha256": "7f001861268804bce419b7657a6e564156d07919070bd6078bebdf750b648828",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/dockershim-symlink.conf",
+      "sha256": "1b374a6e6e7f32efb1e067bd84b984015f397b63a81894bf7397a8ee8fe4be50",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/ephemeral-storage.conf",
+      "sha256": "719924b4b9128ff5a991eab0d860b4bdeac711e6a8d832540cd2c4b67a945783",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/etc-kubernetes-pki-private.mount",
+      "sha256": "56adee58951599367f04c14aacb1e1f85bc61b1bfd83fd1bcd12e2a046a66c81",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet-bootstrap-kubeconfig",
+      "sha256": "8cf343e357ae8c7b9b5cd416c5c661d5e7aaddfe0a2a3a94278e8d0045cc50ff",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet-config",
+      "sha256": "822a47051bcf106c6feaf7433615d693432c9944e4a73e2b090edc999acbe49f",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet-env",
+      "sha256": "dff64db2c29f4e14d912c575da68bdf9e2965ef67c9deed19374aa33767123ee",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet-exec-start-conf",
+      "sha256": "650ee986287a8d4637d74b1eee08ac975bb1d96efc1d2e51bbcf4e6d9243e10e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet-kubeconfig",
+      "sha256": "8a3d69331df75595b03e7c38ec94c38eba81dbbd17c087ea69534445f34b324f",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet-server-crt",
+      "sha256": "bee8f027d1c0e686a5591c35fad092030ec3a96a0f836091c4cc7954e08799d9",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet-server-key",
+      "sha256": "9577272a38756ea4900dd911921e12e25cf14fff8f39c75b40298db272592f51",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet-sysctl.conf",
+      "sha256": "c5c9dd3063cda6c5452e2b1c86ed8f67399a5a16e74974db39011ddc6c5812c5",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubelet.service",
+      "sha256": "c2fa96c4869c0648d99730dbcf58a233d5baab6c60ed359383bc8d3f882d79b3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubernetes-1.31.spec",
+      "sha256": "f5d46781267debb34541ef33a0428e7a03870571f3c37ada36fdc9fb17e5d555",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubernetes-ca-crt",
+      "sha256": "3a0ee3f5b49eada5f739b494adb3a77580cf4d8420c61bf399d3ec2bc464f5a8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/kubernetes-tmpfiles.conf",
+      "sha256": "d16eabb050fe940274a20c2ab048e6cb25a109577b7a75a5b8e9bfbb3ec8cb2a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/logdog.kubelet.conf",
+      "sha256": "0746aba3b47401ecc65f85001e0ee202198355d2d79fbda59d9f8dfff46c8bc3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/make-kubelet-dirs.conf",
+      "sha256": "0400179ee8a337dae7ce6b69176a97ed3a5048079bdcd2c1958de1bd12c366a2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/multi-user-uphold-kubelet.conf",
+      "sha256": "2aa2a3897091ab1340f71d2b96a88a038012ca71133310ea169869a360649d95",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/pause-config.json",
+      "sha256": "b5a4eee9a918dff64f7840c0b167b47a0e018a238b40727444ac2b9e7ae84b31",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/pause-manifest.json",
+      "sha256": "d263530a7d7243f0b3aeba67ce8f3d8f7744fd8fa0bc123c082075cfbd8a84c8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/pod-infra-container-image",
+      "sha256": "558eeaef4968082e2ff714a4455b0131add63a08d3dd8a408dc55bff9237e280",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/prepare-var-lib-kubelet.service",
+      "sha256": "130d9c2da811c4d0502aa968f6311a4307922d7e02c65e749cd217fccc0e889e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.31/prestart-load-pause-ctr.conf",
+      "sha256": "205577ae954edf9d7b7eb6e735065d16837e18219d302c1a802ecc5763ed33fd",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/.gitignore",
+      "sha256": "2baab1e41ba3e9e6facdae3af4e2810a8fa0f81c85bba00c69f15dfa8e739da2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/Cargo.toml",
+      "sha256": "1b02bebac3953bd740bcd0077b2c683b5f8630e0bdb20e475dea68b6c76a5dc0",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/kubernetes-1.32/clarify.toml",
+      "sha256": "d436c6c45cc68f5e367e21e8ee4c6a83cf269492f0c714736742b6baf7da0163",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/credential-provider-config-yaml",
+      "sha256": "7f001861268804bce419b7657a6e564156d07919070bd6078bebdf750b648828",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/dockershim-symlink.conf",
+      "sha256": "1b374a6e6e7f32efb1e067bd84b984015f397b63a81894bf7397a8ee8fe4be50",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/ephemeral-storage.conf",
+      "sha256": "719924b4b9128ff5a991eab0d860b4bdeac711e6a8d832540cd2c4b67a945783",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/etc-kubernetes-pki-private.mount",
+      "sha256": "56adee58951599367f04c14aacb1e1f85bc61b1bfd83fd1bcd12e2a046a66c81",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet-bootstrap-kubeconfig",
+      "sha256": "8cf343e357ae8c7b9b5cd416c5c661d5e7aaddfe0a2a3a94278e8d0045cc50ff",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet-config",
+      "sha256": "fabfeaa4915f0b190802414d7e0194edf22cf183b2d8a2dbc07760221bf617b1",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet-env",
+      "sha256": "dff64db2c29f4e14d912c575da68bdf9e2965ef67c9deed19374aa33767123ee",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet-exec-start-conf",
+      "sha256": "650ee986287a8d4637d74b1eee08ac975bb1d96efc1d2e51bbcf4e6d9243e10e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet-kubeconfig",
+      "sha256": "8a3d69331df75595b03e7c38ec94c38eba81dbbd17c087ea69534445f34b324f",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet-server-crt",
+      "sha256": "bee8f027d1c0e686a5591c35fad092030ec3a96a0f836091c4cc7954e08799d9",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet-server-key",
+      "sha256": "9577272a38756ea4900dd911921e12e25cf14fff8f39c75b40298db272592f51",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet-sysctl.conf",
+      "sha256": "c5c9dd3063cda6c5452e2b1c86ed8f67399a5a16e74974db39011ddc6c5812c5",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubelet.service",
+      "sha256": "c2fa96c4869c0648d99730dbcf58a233d5baab6c60ed359383bc8d3f882d79b3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubernetes-1.32.spec",
+      "sha256": "c47cf221963f8a7550fa04016d10d92303d04986f255044f984085220ea9fb3d",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubernetes-ca-crt",
+      "sha256": "3a0ee3f5b49eada5f739b494adb3a77580cf4d8420c61bf399d3ec2bc464f5a8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/kubernetes-tmpfiles.conf",
+      "sha256": "d16eabb050fe940274a20c2ab048e6cb25a109577b7a75a5b8e9bfbb3ec8cb2a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/logdog.kubelet.conf",
+      "sha256": "0746aba3b47401ecc65f85001e0ee202198355d2d79fbda59d9f8dfff46c8bc3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/make-kubelet-dirs.conf",
+      "sha256": "0400179ee8a337dae7ce6b69176a97ed3a5048079bdcd2c1958de1bd12c366a2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/multi-user-uphold-kubelet.conf",
+      "sha256": "2aa2a3897091ab1340f71d2b96a88a038012ca71133310ea169869a360649d95",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/pause-config.json",
+      "sha256": "b5a4eee9a918dff64f7840c0b167b47a0e018a238b40727444ac2b9e7ae84b31",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/pause-manifest.json",
+      "sha256": "d263530a7d7243f0b3aeba67ce8f3d8f7744fd8fa0bc123c082075cfbd8a84c8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/pod-infra-container-image",
+      "sha256": "558eeaef4968082e2ff714a4455b0131add63a08d3dd8a408dc55bff9237e280",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/prepare-var-lib-kubelet.service",
+      "sha256": "130d9c2da811c4d0502aa968f6311a4307922d7e02c65e749cd217fccc0e889e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.32/prestart-load-pause-ctr.conf",
+      "sha256": "205577ae954edf9d7b7eb6e735065d16837e18219d302c1a802ecc5763ed33fd",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/.gitignore",
+      "sha256": "2baab1e41ba3e9e6facdae3af4e2810a8fa0f81c85bba00c69f15dfa8e739da2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/Cargo.toml",
+      "sha256": "30ebddfbebf0bb77d4c0de50bf74086d55e7984c8b9840b069efbc8b40dab510",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/kubernetes-1.33/clarify.toml",
+      "sha256": "d436c6c45cc68f5e367e21e8ee4c6a83cf269492f0c714736742b6baf7da0163",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/credential-provider-config-yaml",
+      "sha256": "7f001861268804bce419b7657a6e564156d07919070bd6078bebdf750b648828",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/dockershim-symlink.conf",
+      "sha256": "1b374a6e6e7f32efb1e067bd84b984015f397b63a81894bf7397a8ee8fe4be50",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/ephemeral-storage.conf",
+      "sha256": "719924b4b9128ff5a991eab0d860b4bdeac711e6a8d832540cd2c4b67a945783",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/etc-kubernetes-pki-private.mount",
+      "sha256": "56adee58951599367f04c14aacb1e1f85bc61b1bfd83fd1bcd12e2a046a66c81",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet-bootstrap-kubeconfig",
+      "sha256": "8cf343e357ae8c7b9b5cd416c5c661d5e7aaddfe0a2a3a94278e8d0045cc50ff",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet-config",
+      "sha256": "9cd8f11ad0cab0b85ac6b3f241db1c2a91ef46918541871c49f3b77e03165468",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet-env",
+      "sha256": "dff64db2c29f4e14d912c575da68bdf9e2965ef67c9deed19374aa33767123ee",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet-exec-start-conf",
+      "sha256": "650ee986287a8d4637d74b1eee08ac975bb1d96efc1d2e51bbcf4e6d9243e10e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet-kubeconfig",
+      "sha256": "8a3d69331df75595b03e7c38ec94c38eba81dbbd17c087ea69534445f34b324f",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet-server-crt",
+      "sha256": "bee8f027d1c0e686a5591c35fad092030ec3a96a0f836091c4cc7954e08799d9",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet-server-key",
+      "sha256": "9577272a38756ea4900dd911921e12e25cf14fff8f39c75b40298db272592f51",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet-sysctl.conf",
+      "sha256": "c5c9dd3063cda6c5452e2b1c86ed8f67399a5a16e74974db39011ddc6c5812c5",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubelet.service",
+      "sha256": "c2fa96c4869c0648d99730dbcf58a233d5baab6c60ed359383bc8d3f882d79b3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubernetes-1.33.spec",
+      "sha256": "f366455051ea49461aaecd1e6c1a42af6997fc593fa63f7d0791d2e635db9fb0",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubernetes-ca-crt",
+      "sha256": "3a0ee3f5b49eada5f739b494adb3a77580cf4d8420c61bf399d3ec2bc464f5a8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/kubernetes-tmpfiles.conf",
+      "sha256": "d16eabb050fe940274a20c2ab048e6cb25a109577b7a75a5b8e9bfbb3ec8cb2a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/logdog.kubelet.conf",
+      "sha256": "0746aba3b47401ecc65f85001e0ee202198355d2d79fbda59d9f8dfff46c8bc3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/make-kubelet-dirs.conf",
+      "sha256": "0400179ee8a337dae7ce6b69176a97ed3a5048079bdcd2c1958de1bd12c366a2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/multi-user-uphold-kubelet.conf",
+      "sha256": "2aa2a3897091ab1340f71d2b96a88a038012ca71133310ea169869a360649d95",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/pause-config.json",
+      "sha256": "b5a4eee9a918dff64f7840c0b167b47a0e018a238b40727444ac2b9e7ae84b31",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/pause-manifest.json",
+      "sha256": "d263530a7d7243f0b3aeba67ce8f3d8f7744fd8fa0bc123c082075cfbd8a84c8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/pod-infra-container-image",
+      "sha256": "558eeaef4968082e2ff714a4455b0131add63a08d3dd8a408dc55bff9237e280",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/prepare-var-lib-kubelet.service",
+      "sha256": "130d9c2da811c4d0502aa968f6311a4307922d7e02c65e749cd217fccc0e889e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.33/prestart-load-pause-ctr.conf",
+      "sha256": "1c9e4132141ea101bf934ca6bcdbb723dc60eb8ff79389c4fe662b52a884a13a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/.gitignore",
+      "sha256": "2baab1e41ba3e9e6facdae3af4e2810a8fa0f81c85bba00c69f15dfa8e739da2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/Cargo.toml",
+      "sha256": "c882bbad1c5e554423218ba8a130ad52f57f179a2ecd9e7fc18beb956299a831",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/kubernetes-1.34/clarify.toml",
+      "sha256": "63c72ecacd08c761092f1a6d33b332949c04ca279874cf9d71aa79958d8bae49",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/credential-provider-config-yaml",
+      "sha256": "7f001861268804bce419b7657a6e564156d07919070bd6078bebdf750b648828",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/dockershim-symlink.conf",
+      "sha256": "1b374a6e6e7f32efb1e067bd84b984015f397b63a81894bf7397a8ee8fe4be50",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/ephemeral-storage.conf",
+      "sha256": "719924b4b9128ff5a991eab0d860b4bdeac711e6a8d832540cd2c4b67a945783",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/etc-kubernetes-pki-private.mount",
+      "sha256": "c619129835b831ef4ae77611b926a878b1d4a2d1fed93b80ac851a0efd80f1fb",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet-bootstrap-kubeconfig",
+      "sha256": "8cf343e357ae8c7b9b5cd416c5c661d5e7aaddfe0a2a3a94278e8d0045cc50ff",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet-config",
+      "sha256": "13fa2d2a25b0bcf4c8dc70d6039cd6eb1d5c0b51af2659b37d123271ee324190",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet-env",
+      "sha256": "dff64db2c29f4e14d912c575da68bdf9e2965ef67c9deed19374aa33767123ee",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet-exec-start-conf",
+      "sha256": "650ee986287a8d4637d74b1eee08ac975bb1d96efc1d2e51bbcf4e6d9243e10e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet-kubeconfig",
+      "sha256": "8a3d69331df75595b03e7c38ec94c38eba81dbbd17c087ea69534445f34b324f",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet-server-crt",
+      "sha256": "bee8f027d1c0e686a5591c35fad092030ec3a96a0f836091c4cc7954e08799d9",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet-server-key",
+      "sha256": "9577272a38756ea4900dd911921e12e25cf14fff8f39c75b40298db272592f51",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet-sysctl.conf",
+      "sha256": "c5c9dd3063cda6c5452e2b1c86ed8f67399a5a16e74974db39011ddc6c5812c5",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubelet.service",
+      "sha256": "c2fa96c4869c0648d99730dbcf58a233d5baab6c60ed359383bc8d3f882d79b3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubernetes-1.34.spec",
+      "sha256": "be81b4901815a057095e2c4b29d70be40646b84e45f118ce1e7878d3edb216ba",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubernetes-ca-crt",
+      "sha256": "3a0ee3f5b49eada5f739b494adb3a77580cf4d8420c61bf399d3ec2bc464f5a8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/kubernetes-tmpfiles.conf",
+      "sha256": "d16eabb050fe940274a20c2ab048e6cb25a109577b7a75a5b8e9bfbb3ec8cb2a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/logdog.kubelet.conf",
+      "sha256": "0746aba3b47401ecc65f85001e0ee202198355d2d79fbda59d9f8dfff46c8bc3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/make-kubelet-dirs.conf",
+      "sha256": "0400179ee8a337dae7ce6b69176a97ed3a5048079bdcd2c1958de1bd12c366a2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/multi-user-uphold-kubelet.conf",
+      "sha256": "2aa2a3897091ab1340f71d2b96a88a038012ca71133310ea169869a360649d95",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/pause-config.json",
+      "sha256": "b5a4eee9a918dff64f7840c0b167b47a0e018a238b40727444ac2b9e7ae84b31",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/pause-manifest.json",
+      "sha256": "d263530a7d7243f0b3aeba67ce8f3d8f7744fd8fa0bc123c082075cfbd8a84c8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/pod-infra-container-image",
+      "sha256": "558eeaef4968082e2ff714a4455b0131add63a08d3dd8a408dc55bff9237e280",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/prepare-var-lib-kubelet.service",
+      "sha256": "130d9c2da811c4d0502aa968f6311a4307922d7e02c65e749cd217fccc0e889e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.34/prestart-load-pause-ctr.conf",
+      "sha256": "1c9e4132141ea101bf934ca6bcdbb723dc60eb8ff79389c4fe662b52a884a13a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/.gitignore",
+      "sha256": "2baab1e41ba3e9e6facdae3af4e2810a8fa0f81c85bba00c69f15dfa8e739da2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/Cargo.toml",
+      "sha256": "ccebbeb621e6d26cdceda923c50c5e2aa8e8686fc01255e354be6045f2fb855b",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/kubernetes-1.35/clarify.toml",
+      "sha256": "63c72ecacd08c761092f1a6d33b332949c04ca279874cf9d71aa79958d8bae49",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/credential-provider-config-yaml",
+      "sha256": "7f001861268804bce419b7657a6e564156d07919070bd6078bebdf750b648828",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/dockershim-symlink.conf",
+      "sha256": "1b374a6e6e7f32efb1e067bd84b984015f397b63a81894bf7397a8ee8fe4be50",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/ephemeral-storage.conf",
+      "sha256": "719924b4b9128ff5a991eab0d860b4bdeac711e6a8d832540cd2c4b67a945783",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/etc-kubernetes-pki-private.mount",
+      "sha256": "c619129835b831ef4ae77611b926a878b1d4a2d1fed93b80ac851a0efd80f1fb",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-bootstrap-kubeconfig",
+      "sha256": "8cf343e357ae8c7b9b5cd416c5c661d5e7aaddfe0a2a3a94278e8d0045cc50ff",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-config",
+      "sha256": "762612bcd9e15d039c2516d3b852169ecb4c8d8e512391c106d4323cdcabcac2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-env",
+      "sha256": "dff64db2c29f4e14d912c575da68bdf9e2965ef67c9deed19374aa33767123ee",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-env-nvidia",
+      "sha256": "8177b2d14c46d0b9ebf9bc9961eda769a56718986d9b5eb20023e91c0e80d1ab",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-exec-start-conf",
+      "sha256": "5361aac344fe67b833fe19da7d1ad855ca01442528713fb566d6598b771c05d0",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-kubeconfig",
+      "sha256": "8a3d69331df75595b03e7c38ec94c38eba81dbbd17c087ea69534445f34b324f",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-server-crt",
+      "sha256": "bee8f027d1c0e686a5591c35fad092030ec3a96a0f836091c4cc7954e08799d9",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-server-key",
+      "sha256": "9577272a38756ea4900dd911921e12e25cf14fff8f39c75b40298db272592f51",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet-sysctl.conf",
+      "sha256": "c5c9dd3063cda6c5452e2b1c86ed8f67399a5a16e74974db39011ddc6c5812c5",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubelet.service",
+      "sha256": "c2fa96c4869c0648d99730dbcf58a233d5baab6c60ed359383bc8d3f882d79b3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubernetes-1.35.spec",
+      "sha256": "566a2b0071cdf46e7a5dce96d42d2f4c71e40a66e8bbe44cfe754e6f543f25ef",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubernetes-ca-crt",
+      "sha256": "3a0ee3f5b49eada5f739b494adb3a77580cf4d8420c61bf399d3ec2bc464f5a8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/kubernetes-tmpfiles.conf",
+      "sha256": "d16eabb050fe940274a20c2ab048e6cb25a109577b7a75a5b8e9bfbb3ec8cb2a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/logdog.kubelet.conf",
+      "sha256": "0746aba3b47401ecc65f85001e0ee202198355d2d79fbda59d9f8dfff46c8bc3",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/make-kubelet-dirs.conf",
+      "sha256": "0400179ee8a337dae7ce6b69176a97ed3a5048079bdcd2c1958de1bd12c366a2",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/multi-user-uphold-kubelet.conf",
+      "sha256": "2aa2a3897091ab1340f71d2b96a88a038012ca71133310ea169869a360649d95",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/pause-config.json",
+      "sha256": "b5a4eee9a918dff64f7840c0b167b47a0e018a238b40727444ac2b9e7ae84b31",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/pause-manifest.json",
+      "sha256": "d263530a7d7243f0b3aeba67ce8f3d8f7744fd8fa0bc123c082075cfbd8a84c8",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/pod-infra-container-image",
+      "sha256": "558eeaef4968082e2ff714a4455b0131add63a08d3dd8a408dc55bff9237e280",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/prepare-var-lib-kubelet.service",
+      "sha256": "130d9c2da811c4d0502aa968f6311a4307922d7e02c65e749cd217fccc0e889e",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/kubernetes-1.35/prestart-load-pause-ctr.conf",
+      "sha256": "1c9e4132141ea101bf934ca6bcdbb723dc60eb8ff79389c4fe662b52a884a13a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/bash/.gitignore",
+      "sha256": "1b677acfae66afbb50df3dbd0b0ad5ad2db6ff206c89696cd16a4f4a0cf52304",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/bash/Cargo.toml",
+      "sha256": "eab069aa30fca15a241ab2a48163bb969887d5f10c33b01c3905807edfe1652a",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/bash/bash-4.4-no-loadable-builtins.patch",
+      "sha256": "417bc22496a6feea91980c9b301d8695f95909ef71ec1d85cee086683bd908d1",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/bash/bash.spec",
+      "sha256": "30a70da2c2f9001ba9c2672b9631539f45ddcebb945229178939f7f9ffbdc86c",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/bash/gpgkey-7C0135FB088AAF6C66C650B9BB5869F064EA74AB.asc",
+      "sha256": "370fcdaac746b5272585bd39de7491881ee9d307f0765d548d321c925ef86d02",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/iproute/0001-skip-libelf-check.patch",
+      "sha256": "b1a4e150d1a94e044333f5063fdf0e5e12ae8b7f7ef6ea8e6ef585f6086e4c8a",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/iproute/Cargo.toml",
+      "sha256": "62a7a469cc6d0c0c4613f3f00f9370cac97aa7206343a5a3d1d2a2276f095867",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/iproute/gpgkey-9F6FC345B05BE7E766B83C8F80A77F6095CDE47E.asc",
+      "sha256": "34e771eb639e33ea67ea17cd8554255010312800e105d67f3685f13319259fe7",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/iproute/iproute.spec",
+      "sha256": "4d1f4a2768d71d73049b3e8e666bfb589bd63a44bc778f67cdcd76dd6034a0b5",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/strace/Cargo.toml",
+      "sha256": "1b2d667c64b2aa173a6764b720748600df72fb7bd66ffab15368982e5eba5520",
+      "original_tested_source_match": "TOML equal except removal of force-upstream"
+    },
+    {
+      "file": "packages/strace/gpgkey-FB3DCD19FF874735E4F61CE64E9FE8522F160EC2.asc",
+      "sha256": "40d9b237cb926d3cda17644a379ca707b914758e1a6c30be71cb9b47f9f61fe5",
+      "original_tested_source_match": "byte-identical"
+    },
+    {
+      "file": "packages/strace/strace.spec",
+      "sha256": "71835a9e823b8ec7e0f03b151117cbdd20ac26fa41ee319e6846d65626c89532",
+      "original_tested_source_match": "byte-identical"
+    }
+  ],
+  "excluded_directories_match_baseline": true,
+  "original_conformance_runs": [
+    {
+      "minor": "1.31",
+      "arch": "x86_64",
+      "attempt": "attempt2",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.31-x86_64-attempt2",
+      "passed": 362,
+      "failed": 0,
+      "log_sha256": "ef5ed7e240e141f8805089f0cb2ad8d1efa541e4e17324503a5501fe0c4384a0"
+    },
+    {
+      "minor": "1.31",
+      "arch": "aarch64",
+      "attempt": "attempt1",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.31-aarch64-attempt1",
+      "passed": 362,
+      "failed": 0,
+      "log_sha256": "13adafec890124e367ad212428c10f313d06fe3d12d947cca3d018835f2f82a4"
+    },
+    {
+      "minor": "1.32",
+      "arch": "x86_64",
+      "attempt": "attempt1",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.32-x86_64-attempt1",
+      "passed": 372,
+      "failed": 0,
+      "log_sha256": "2e958813cbac131c38a16e561d4ef9cb54a5203131ec938320d691b55258cdbe"
+    },
+    {
+      "minor": "1.32",
+      "arch": "aarch64",
+      "attempt": "attempt1",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.32-aarch64-attempt1",
+      "passed": 372,
+      "failed": 0,
+      "log_sha256": "f043a03da2df8455b6443a86b0e306b8c342e34fbe8432fee578f58deb946629"
+    },
+    {
+      "minor": "1.33",
+      "arch": "x86_64",
+      "attempt": "attempt2",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.33-x86_64-attempt2",
+      "passed": 380,
+      "failed": 0,
+      "log_sha256": "f1c864eeff9eec096b4b7266ae6156082dca69afdfae4e500bf7bb5539df47f5"
+    },
+    {
+      "minor": "1.33",
+      "arch": "aarch64",
+      "attempt": "attempt1",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.33-aarch64-attempt1",
+      "passed": 380,
+      "failed": 0,
+      "log_sha256": "0b088dcc9a9894505e99b998679f065c9cfa614cfd497fad039165531532dec4"
+    },
+    {
+      "minor": "1.34",
+      "arch": "x86_64",
+      "attempt": "attempt1",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.34-x86_64-attempt1",
+      "passed": 385,
+      "failed": 0,
+      "log_sha256": "5edde09bb3c507e41fbd07eb1603590db66ac9d327ce134a749014134fe09c45"
+    },
+    {
+      "minor": "1.34",
+      "arch": "aarch64",
+      "attempt": "attempt1",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.34-aarch64-attempt1",
+      "passed": 385,
+      "failed": 0,
+      "log_sha256": "cc03ab175f7af731ae073b071528d181a022aff39710d16cc7d9e9529712f7bd"
+    },
+    {
+      "minor": "1.35",
+      "arch": "x86_64",
+      "attempt": "attempt1",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.35-x86_64-attempt1",
+      "passed": 402,
+      "failed": 0,
+      "log_sha256": "1804dc270faa0891540152229a87e5de72bd4989f934167bfbfdd202a40ddbc3"
+    },
+    {
+      "minor": "1.35",
+      "arch": "aarch64",
+      "attempt": "attempt1",
+      "directory": "bottlerocket/.symphony/conformance-2026-10-06/1.35-aarch64-attempt1",
+      "passed": 402,
+      "failed": 0,
+      "log_sha256": "fefc3ebe281670e157da1017774b5932e3d5f38b5846b0bf54c1b7dd4284c660"
+    }
+  ],
+  "selected_passed": 3802,
+  "limitations": "Original images were built from the broader kit. No final narrowed-image conformance run claimed. Included package inputs are unchanged except fetching options. Original x86_64 1.31 and 1.33 campaigns required a second launch; their first attempts remain historical evidence."
+}

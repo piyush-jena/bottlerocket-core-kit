@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-06",
+  "status": "fresh_runtime_validation_passed",
+  "authorization": "User explicitly requested the remaining package PR and excluded Kubernetes 1.36, Kubernetes 1.37, and SELinux.",
+  "base": "209347ba321f023c242f48cb1afc590e5f9793bb",
+  "prior_head": "4aa7f1f7345d39e2a6e690b825ab4ddb74532587",
+  "included": [
+    "aws-signing-helper",
+    "aws-otel-collector",
+    "kubernetes-1.31",
+    "kubernetes-1.32",
+    "kubernetes-1.33",
+    "kubernetes-1.34",
+    "kubernetes-1.35",
+    "bash",
+    "iproute",
+    "strace"
+  ],
+  "excluded": [
+    "kubernetes-1.36",
+    "kubernetes-1.37",
+    "selinux-policy"
+  ],
+  "single_review": "Already consumed; addressing the existing findings only.",
+  "validation_limit": "See fresh-rerun.json: filtered conformance, loopback collector transport, no live Roles Anywhere or hardware signer.",
+  "fallback_correction": "Makefile defaults UPSTREAM_SOURCE_FALLBACK=false. Operator helper will set it to true in the tracked cloud plan without product source changes.",
+  "validated_source_revision": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+  "review_addressed": true,
+  "build_invocation": "Preload five retained GNU Bash patches after SHA-512 verification, then make build ARCH=<arch> with UPSTREAM_SOURCE_FALLBACK=true; cache inputs are recorded in the conductor cloud plan.",
+  "initial_build_failures": [
+    {
+      "status": "failed_artifacts_verified",
+      "arch": "x86_64",
+      "request_id": "97e81d43-9b41-587d-8cb2-10da8b59ccb4",
+      "exit_code": 2,
+      "cause": "Canonical GNU Bash patch 016 download failed; no kit archive was produced.",
+      "verified_returned_files": 5,
+      "log_sha256": "d266867344183a702ec8cc9f02e21f771a25e645807a9430238d8921e076f8c3",
+      "input_sha256": "94bc8cce9aa6b53e89725045ee223debc5ddca9f2401ec017b018ccc335559e7",
+      "retry_justification": "Unchanged source with five retained SHA-512-pinned patches preloaded in the disposable build cache."
+    },
+    {
+      "status": "failed_artifacts_verified",
+      "arch": "aarch64",
+      "request_id": "1029da94-b3f6-5a08-9f8f-3b2d0f1533dd",
+      "exit_code": 2,
+      "cause": "Canonical GNU Bash patch 016 download failed; no kit archive was produced.",
+      "verified_returned_files": 5,
+      "log_sha256": "c69472362e65a041d575e9803a2328984753aaaf1bdb7b48838434170ff41024",
+      "input_sha256": "0200dd399b9f06e5a322cf5f197cf8e109ac15e52d27ca884031fed0c3f73c39",
+      "retry_justification": "Unchanged source with five retained SHA-512-pinned patches preloaded in the disposable build cache."
+    }
+  ],
+  "source_fetch_limit": "Initial builds failed fetching GNU Bash patch 016. Final builds used retained verified patches 016-020; fresh retrieval from GNU was not established.",
+  "bash_cache_inputs": [
+    {
+      "name": "bash53-016",
+      "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-016",
+      "sha512": "e18aed683aca1af8a92f955a0ad32a23ee22f982e1bec9ea4c078a8523b30e4848fd9dc4d863cb14d1fce25bf9fdbde2473d9c0686e8be25be113cb5a36cb462"
+    },
+    {
+      "name": "bash53-017",
+      "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-017",
+      "sha512": "608245b580267e33ffa3ed02de7173a07594a9831e3b6a505bc6fa68570e3839663bad39552744ec61421179b000dc2584f48cbadb232fc2c1427871c899a1ad"
+    },
+    {
+      "name": "bash53-018",
+      "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-018",
+      "sha512": "5a15dfb3dafddea9a62ef5d552660d425d0658a8254adabeed5c993264b6ac59f670e6a47e6847ef6598d60e553e834a08e09dfca3734ae119dcd7d36dca97d1"
+    },
+    {
+      "name": "bash53-019",
+      "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-019",
+      "sha512": "fecb787bf5b0c6589d5c891c8df205e39a83330e36dcb685a01ff1e117074db5288b22e7dfd3d4e9096267cc80decefd16d6837e4dd99bae26fdf3b6f9814c7c"
+    },
+    {
+      "name": "bash53-020",
+      "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-020",
+      "sha512": "64e34979fb20cab2e6b38bcd9ec470cb917de3ef2d53db7c96c71fb5245083e37d9c65a6c2935164da2b6dc97116e4210366b8253bdd7a201f618770a44135ab"
+    }
+  ],
+  "bash_cache_manifest_sha256": "ec3e0408f6f7e00db0b9e5497d69f7c84b8855a592f6d6e703205521448c289c",
+  "final_artifact_checks": "Both kit archives, all OCI blobs, RPM versions/architectures/digests, binaries/configs/attribution/symlinks, and byte-identical baseline SELinux policies verified.",
+  "gate": {
+    "date": "2026-10-06",
+    "command": "make integ",
+    "cwd": "/home/fedora/Repositories/symphony",
+    "exit_code": 0,
+    "log": "issue12-package-pr-integ.log",
+    "sha256": "a11dfaec24f6163be1e2d928a85978541228eb947a8961add36e3c88c5addb17",
+    "note": "Host-access gate; existing harness working tree, not a pristine harness commit."
+  },
+  "policy": [
+    {
+      "arch": "x86_64",
+      "status": "passed",
+      "sha256": "e172d366aeed3d3a88b8e4c65a2818dee3326b582296d2973bd3057a15e43b08",
+      "reference_source": "931a92b742c61823b60f6880d444c129be467278",
+      "finding": "Compiled policy is byte-identical to the original pre-alias policy."
+    },
+    {
+      "arch": "aarch64",
+      "status": "passed",
+      "sha256": "e172d366aeed3d3a88b8e4c65a2818dee3326b582296d2973bd3057a15e43b08",
+      "reference_source": "931a92b742c61823b60f6880d444c129be467278",
+      "finding": "Compiled policy is byte-identical to the original pre-alias policy."
+    }
+  ],
+  "scope_verification": "scope-validation.json",
+  "retry_evidence": "retry-evidence.json",
+  "final_builds": "final-builds.json",
+  "remaining_for_original_issue": [
+    "Kubernetes 1.36 update deferred by the human",
+    "Kubernetes 1.37 update deferred by the human",
+    "SELinux compatibility change excluded; no separate PR created"
+  ],
+  "review_resolution": {
+    "1": "Human explicitly excluded SELinux and Kubernetes 1.36/1.37; excluded directories exactly restored.",
+    "2": "All 18 source overrides removed; both final kits build using the existing opt-in fallback switch.",
+    "3": "Canonical GNU Bash URLs restored; retained pinned bytes unchanged.",
+    "4": "Combined-kit/RPM-validation substitution disclosed.",
+    "5": "make integ passed during the ten-package handoff.",
+    "6": "Standalone runtime/conformance overlap disclosed.",
+    "7": "Post-output evidence-parser adjustments disclosed."
+  },
+  "prior_validation_limit": "No final narrowed-image AMI or live runtime rerun. Included source inputs match the original campaign except source-fetch overrides; historical conformance/runtime evidence remains revision-bound.",
+  "fresh_rerun": "fresh-rerun.json",
+  "history": "Ten signed package commits plus one validation-evidence commit; excluded updates and defer commit removed."
+}

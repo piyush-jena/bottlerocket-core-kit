@@ -1,0 +1,42 @@
+[
+  {
+    "date": "2026-10-06",
+    "source_revision": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+    "arch": "x86_64",
+    "request_id": "f5838385-93b5-57e7-b55f-110f8182f3ab",
+    "archive": "build/symphony/f5838385-93b5-57e7-b55f-110f8182f3ab/kits/bottlerocket-core-kit/bottlerocket-core-kit-v17.0.1-6b1b4690-x86_64.tar",
+    "archive_sha256": "d20a0edc871df3a9e969b7fa8d8d9d7670499c61d63a6f63dca4fa006bb9839e",
+    "verified_blob_count": 134,
+    "manifest_digest": "sha256:380672b60b9fb801957c1eecf0793be511de35c9d1e63fe776c61600ea55cab1",
+    "updated_package_count": 10,
+    "inspected_package_count": 13,
+    "updated_rpm_count": 34,
+    "rpm_versions_architectures_digests": "passed",
+    "binary_count": 19,
+    "config_count": 4,
+    "attribution_count": 12,
+    "raw_archive_audit": ".symphony/package-pr-2026-10-06/x86_64/verification.json",
+    "raw_payload_audit": ".symphony/package-pr-2026-10-06/x86_64/payload-verification.json",
+    "payload_audit_sha256": "72803dc3624f13f386e2ce648ca2e3938442a1174fb5e2a78102540706c1049d"
+  },
+  {
+    "date": "2026-10-06",
+    "source_revision": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+    "arch": "aarch64",
+    "request_id": "2e0cb9f2-2d91-5f0d-bc03-053f56a8baa1",
+    "archive": "build/symphony/2e0cb9f2-2d91-5f0d-bc03-053f56a8baa1/kits/bottlerocket-core-kit/bottlerocket-core-kit-v17.0.1-6b1b4690-aarch64.tar",
+    "archive_sha256": "582848f2064994b13859fa63162329c653b4b680e8df41f5d9318d814b4cabb6",
+    "verified_blob_count": 134,
+    "manifest_digest": "sha256:0fbe2bc49b8bc22e0418eb40afdbed0ed44790a9ab06cc1a61d2240844e954d6",
+    "updated_package_count": 10,
+    "inspected_package_count": 13,
+    "updated_rpm_count": 34,
+    "rpm_versions_architectures_digests": "passed",
+    "binary_count": 19,
+    "config_count": 4,
+    "attribution_count": 12,
+    "raw_archive_audit": ".symphony/package-pr-2026-10-06/aarch64/verification.json",
+    "raw_payload_audit": ".symphony/package-pr-2026-10-06/aarch64/payload-verification.json",
+    "payload_audit_sha256": "fea448f22619ace77d71e4764ac776efde5afba7bb6d2c5dbaa11656595e9e2a"
+  }
+]

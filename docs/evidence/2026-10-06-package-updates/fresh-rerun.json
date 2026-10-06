@@ -1,0 +1,2433 @@
+{
+  "status": "passed",
+  "completed_at": "2026-10-06T22:30:58.209411+00:00",
+  "campaign": {
+    "date": "2026-10-06",
+    "original_consumer": "2c7614b2fedb7dcb3126c2718e08d1bc4f647292",
+    "consumer_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+    "core_kit_revision": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+    "core_pr_head": "f5d21f4b65b2669e1598e66b94b837c533a195b6",
+    "core_package_tree": "198a971ecdc0eb5d3d3c8a417d792fc2a8b7db21",
+    "core_kit": "17.0.1-symphony.12.build-6b1b4690",
+    "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd",
+    "endpoint": "localhost:6431",
+    "region": "us-east-2",
+    "account": "533267423195",
+    "image_version": "1.66.0-symphony.12",
+    "jobs": [
+      {
+        "id": "8e6f2cad-3b65-493e-a201-424ef7a2eb61",
+        "arch": "x86_64",
+        "variant": "aws-k8s-1.35",
+        "minor": "1.35"
+      },
+      {
+        "id": "3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4",
+        "arch": "aarch64",
+        "variant": "aws-k8s-1.35",
+        "minor": "1.35"
+      },
+      {
+        "id": "98026b74-7047-4ffc-a20c-e5938bf393b0",
+        "arch": "x86_64",
+        "variant": "aws-k8s-1.31",
+        "minor": "1.31"
+      },
+      {
+        "id": "961d1c52-1cc4-486a-83fb-56b7c16e2e1b",
+        "arch": "aarch64",
+        "variant": "aws-k8s-1.31",
+        "minor": "1.31"
+      },
+      {
+        "id": "25346be6-8229-4021-8188-0f1b3afabcb2",
+        "arch": "x86_64",
+        "variant": "aws-k8s-1.32",
+        "minor": "1.32"
+      },
+      {
+        "id": "627ce449-3e24-4247-9c83-e9c16c8d9e70",
+        "arch": "aarch64",
+        "variant": "aws-k8s-1.32",
+        "minor": "1.32"
+      },
+      {
+        "id": "026a5c66-f5a7-479d-a505-53e6c6b97b1c",
+        "arch": "x86_64",
+        "variant": "aws-k8s-1.33",
+        "minor": "1.33"
+      },
+      {
+        "id": "8e1d8b41-da17-4742-89bb-f66dbbc9989a",
+        "arch": "aarch64",
+        "variant": "aws-k8s-1.33",
+        "minor": "1.33"
+      },
+      {
+        "id": "41ae0e09-24ea-4dcc-b51e-2c89ed469fa0",
+        "arch": "x86_64",
+        "variant": "aws-k8s-1.34",
+        "minor": "1.34"
+      },
+      {
+        "id": "23c919a6-e402-4768-81a7-9645751efccd",
+        "arch": "aarch64",
+        "variant": "aws-k8s-1.34",
+        "minor": "1.34"
+      },
+      {
+        "id": "a2965f34-594a-4852-971a-860d8d48b79f",
+        "arch": "x86_64",
+        "variant": "aws-dev",
+        "minor": null,
+        "previous_job": "e7ef3694-f19d-4581-ae2e-dc0560e1be00",
+        "consumer_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+        "tracked_changes": ""
+      },
+      {
+        "id": "f969e12b-f7f6-493a-9f84-a50f03a4401d",
+        "arch": "aarch64",
+        "variant": "aws-dev",
+        "minor": null,
+        "previous_job": "ad9a3fec-93b4-4d42-b010-dca4900839ea",
+        "consumer_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+        "tracked_changes": ""
+      }
+    ],
+    "runtime_consumer_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+    "superseded_runtime_jobs": [
+      {
+        "id": "e7ef3694-f19d-4581-ae2e-dc0560e1be00",
+        "arch": "x86_64",
+        "variant": "aws-dev",
+        "minor": null
+      },
+      {
+        "id": "ad9a3fec-93b4-4d42-b010-dca4900839ea",
+        "arch": "aarch64",
+        "variant": "aws-dev",
+        "minor": null
+      }
+    ]
+  },
+  "conformance": [
+    {
+      "minor": "1.31",
+      "arch": "x86_64",
+      "test_release": "v1.31.14",
+      "run_id": "symphony-12-pr-131-x86-01",
+      "ami": "ami-035807f0cc56ee04a",
+      "selected_passed": 362,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6245,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:44:29.480711+00:00",
+      "finished_at": "2026-10-06T22:19:33.212225+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "6eeb0ec802d79692ad8daa0105a3bc9247fa0b8b4bd05fe6a6bb10798eeb0eb6",
+        "result.json": "dcbe745f0c712653f639143d48d05dfd761f1be809ab60a52bffdf7be5f002dc",
+        "suite-verification.json": "d1acc2c3cfe00bde831ee5c69f685e878fe9fbe9618fa5412a79c9bcba2f7510",
+        "node-verification.json": "8571c11a14b5aabc5e4405f7e2bf1be69bc9c8f85d9dbdc1e6046b6dfb8e0ec5",
+        "pre-test-instances.json": "aef9f131bba74de4ded125f6a7006229d1f169ab043ac55af94fb9052b98a141",
+        "cleanup-inventory.json": "16fdfa3836e06ce089f21f159ee6159fd2012bb09056d6e98b3b9b1d70ca7f91",
+        "cleanup/verification.json": "0881a8304e8ced969846b7450dbd8612e8bf221f18ae93e65d84e5b3c4f36409",
+        "artifacts/junit_01.xml": "094a4d0cf05113062dc639826a8f53203bdd3b9595b3b63fcf782ac2e1b74290",
+        "artifacts/junit_runner.xml": "64130f73aa9c920657905ae02cc986c848698afcc1beb6ac72cc420400df0757",
+        "conformance.log": "11756ef2e30d4f367d4139f96903bc1a404395f2c73c8166bfa1280f098ea1da",
+        "cleanup-inputs/instances.json": "a082d3fb98a6c95e3e5c00eff49852a0d94279f1a6aa096e9712e4ad9f3cba3a",
+        "node-stabilization/001-instances.json": "aef9f131bba74de4ded125f6a7006229d1f169ab043ac55af94fb9052b98a141",
+        "node-stabilization/002-instances.json": "aef9f131bba74de4ded125f6a7006229d1f169ab043ac55af94fb9052b98a141",
+        "node-stabilization/003-instances.json": "aef9f131bba74de4ded125f6a7006229d1f169ab043ac55af94fb9052b98a141"
+      }
+    },
+    {
+      "minor": "1.31",
+      "arch": "aarch64",
+      "test_release": "v1.31.14",
+      "run_id": "symphony-12-pr-131-arm-01",
+      "ami": "ami-0096662fab20969dd",
+      "selected_passed": 362,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6245,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:42:42.688568+00:00",
+      "finished_at": "2026-10-06T22:16:04.045849+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "4ee9db24a9ee0fde9682657d0bffd91e2f634eb00a1f9d6b3211ef4085af296a",
+        "result.json": "dae008086b14d72858844428780b09182bac22ed96e1393b52fd909360565a2d",
+        "suite-verification.json": "2100ff146f8085aba782daa60d8c5874503fe274396f0c3d08e9326ba73b8919",
+        "node-verification.json": "2ce8538829d908fddc255b15e58369ed3ddfe0b53bb9f0d534e33106cb51ca41",
+        "pre-test-instances.json": "9f0e448263e09ed87fa749b2c09b0d6034ed5303c7210aff796cd78f69258fc0",
+        "cleanup-inventory.json": "4d2d961f8f5af6489aed2fed3b3129a20283e49b6ee9ba97c66ef4be6cd55568",
+        "cleanup/verification.json": "e2b97074bd42055aa4a5b94248dcc9af974b3407d5db35f3b8029b8a3ededb00",
+        "artifacts/junit_01.xml": "a6b2ec66759bbcdd997abf0a1217c6df9f46b69ee00496b99fa94d9e81bf0599",
+        "artifacts/junit_runner.xml": "11d5c35074020353cb08c31ed15ff05cdc4a223d70003b0054f6d60383640075",
+        "conformance.log": "e7d53044c0733a4e8e85a69600a9615cd444902b82301c1702d418b29365579b",
+        "cleanup-inputs/instances.json": "9f0e448263e09ed87fa749b2c09b0d6034ed5303c7210aff796cd78f69258fc0",
+        "node-stabilization/001-instances.json": "9f0e448263e09ed87fa749b2c09b0d6034ed5303c7210aff796cd78f69258fc0",
+        "node-stabilization/002-instances.json": "9f0e448263e09ed87fa749b2c09b0d6034ed5303c7210aff796cd78f69258fc0",
+        "node-stabilization/003-instances.json": "9f0e448263e09ed87fa749b2c09b0d6034ed5303c7210aff796cd78f69258fc0"
+      }
+    },
+    {
+      "minor": "1.32",
+      "arch": "x86_64",
+      "test_release": "v1.32.13",
+      "run_id": "symphony-12-pr-132-x86-01",
+      "ami": "ami-0bbe65ed7a437a642",
+      "selected_passed": 372,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6252,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:43:30.949010+00:00",
+      "finished_at": "2026-10-06T22:16:44.342863+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "dec6cf40501a6e6814eb9c29c0c3e96ebef24922b8f112ead81c4238c10206ba",
+        "result.json": "1eaab5dc7c72f83fe45479c309cb7650fbd30352e4288d3ab2ac7f20e2107e36",
+        "suite-verification.json": "42a7fc59b88d9a9926f3fed10e0e7d400fbf591e4092901fac774c4f9bb08e1f",
+        "node-verification.json": "7a652d0ba3f566a45a5f833203fceb5c8e80eadd72604c11237b7edcc3472a04",
+        "pre-test-instances.json": "72dac46cce3053738583e5dc04ec2b491f5595f595f60f122cdb00dab7c1234e",
+        "cleanup-inventory.json": "69abc8203c2e7e6d7299008321b4806debe071dc1daeabaa03cb17464f0ba206",
+        "cleanup/verification.json": "da77f2c880d0a242a58c02acef03c4f260f560804c6e87aac4457f55bd05f771",
+        "artifacts/junit_01.xml": "c1d36040cda50e455d4dd23bd5b4ab2f3eccb135c939876a03f9d62f4165cc95",
+        "artifacts/junit_runner.xml": "5fe9e1126976c37808c8de27a512a6acb01c97c067047599e49be9197b42a088",
+        "conformance.log": "d7428f36dc72e0a5f6d327aff12b1ca1a7b2fce44517e52ca9e3f84191ef433a",
+        "cleanup-inputs/instances.json": "e15371c1ee5401e5165cf4c633543ee2207045885119b66601d40fddfe2fe7d9",
+        "node-stabilization/001-instances.json": "72dac46cce3053738583e5dc04ec2b491f5595f595f60f122cdb00dab7c1234e",
+        "node-stabilization/002-instances.json": "72dac46cce3053738583e5dc04ec2b491f5595f595f60f122cdb00dab7c1234e",
+        "node-stabilization/003-instances.json": "72dac46cce3053738583e5dc04ec2b491f5595f595f60f122cdb00dab7c1234e"
+      }
+    },
+    {
+      "minor": "1.32",
+      "arch": "aarch64",
+      "test_release": "v1.32.13",
+      "run_id": "symphony-12-pr-132-arm-01",
+      "ami": "ami-0f86e9f23d1c62c94",
+      "selected_passed": 372,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6252,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:50:32.711483+00:00",
+      "finished_at": "2026-10-06T22:28:29.025812+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "8212f8eb598692e712af3fd8c9f1b8dd60598fdf8f1ce1a6a922a3968ce231a3",
+        "result.json": "1ad2d6e837654018c89f3e5ba3d180c4cf7774acee306e1d1abb4827248d8dd0",
+        "suite-verification.json": "fcc243ef750fac19d8ea4dd8ed5acf3dfcbececae970c990c50494acbaa8612e",
+        "node-verification.json": "f707e5969f3054349ecdbf7176a45f16c7a03d21abffbedeecc396a8226b3efc",
+        "pre-test-instances.json": "3d74ef7357162391c80f2bb656a5676cc310ec1c668d30f7ad77e6a74763ea47",
+        "cleanup-inventory.json": "ec9616eb28eac55e4bb6b7978f9bf2a66cbe6ef02bcceded8c7a7ec8854d5b67",
+        "cleanup/verification.json": "178a5d63decc3cd08a19a0f02edca8cdfb1f5793e6352c35b95d9f01f4c773af",
+        "artifacts/junit_01.xml": "814477e84fb6ee564fab5665327e2c27ba0abb84c08b511e5b08c9881e3c4c98",
+        "artifacts/junit_runner.xml": "23fb8be20fed6196c5e36f5edfe99a03b8f0858d6eab30325e72ce1df26e7063",
+        "conformance.log": "9a515fea7439a1ba420917abf9fc9986221d67bb9e66adab1bed4a25ae722267",
+        "cleanup-inputs/instances.json": "5ab40230e4625f289ce74b0bb21a089850088cfdea71f807a54458fe9bcf7295",
+        "node-stabilization/001-instances.json": "44f9d31263b3fb3b4e7c77e616b30d4f528aec58720c896925e0c4e4311eb818",
+        "node-stabilization/002-instances.json": "3d74ef7357162391c80f2bb656a5676cc310ec1c668d30f7ad77e6a74763ea47",
+        "node-stabilization/003-instances.json": "3d74ef7357162391c80f2bb656a5676cc310ec1c668d30f7ad77e6a74763ea47"
+      }
+    },
+    {
+      "minor": "1.33",
+      "arch": "x86_64",
+      "test_release": "v1.33.13",
+      "run_id": "symphony-12-pr-133-x86-01",
+      "ami": "ami-03dc400b61af37df2",
+      "selected_passed": 380,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6361,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:50:48.439078+00:00",
+      "finished_at": "2026-10-06T22:24:31.133854+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "d788418558ca2f42ad25a4d85784bfd9358d53e88a553f78b34225b2da41b4d7",
+        "result.json": "c4c5aa0e327d05d3269b52dbe0a5e1d2aa89dc877cc9a7514da2c5657b7deb63",
+        "suite-verification.json": "78da21e62bf4075aca2fb833edc6f67b39b7879c0f28161b4b76b00c459019e3",
+        "node-verification.json": "2b6a77261111cbe226405c24d86eb1f0e65439327f8b00ca39ff2f2cb3d312cc",
+        "pre-test-instances.json": "1da6ad56d01bcf4178eddf823c522d179010338d1aea4e3564454393bd4088d8",
+        "cleanup-inventory.json": "b3b3a2e758189830a19464a006d83c5b952c00fcb95993ae9d383d92e9b5b8e6",
+        "cleanup/verification.json": "5482a5a3bf1499afec63b8a01f563cc5504b73e326b63ef877d6f143c715eb21",
+        "artifacts/junit_01.xml": "265f70a5432c87bacc7fd2804167e6b939b409db179990c8d3ba024048746337",
+        "artifacts/junit_runner.xml": "bbaace2cb269e8f790ecdec8f4552b5e95974f0b4f20c41714cc54332a54870a",
+        "conformance.log": "c8e3ec61d8080200b4218ff0ab77bac65b0af99564ea6a80c4196b842a79a1d0",
+        "cleanup-inputs/instances.json": "61eef3aae278e07cbc1435cdf98d69c307bda4c4134a9ec17506497a5e84de8b",
+        "node-stabilization/001-instances.json": "1da6ad56d01bcf4178eddf823c522d179010338d1aea4e3564454393bd4088d8",
+        "node-stabilization/002-instances.json": "1da6ad56d01bcf4178eddf823c522d179010338d1aea4e3564454393bd4088d8",
+        "node-stabilization/003-instances.json": "1da6ad56d01bcf4178eddf823c522d179010338d1aea4e3564454393bd4088d8"
+      }
+    },
+    {
+      "minor": "1.33",
+      "arch": "aarch64",
+      "test_release": "v1.33.13",
+      "run_id": "symphony-12-pr-133-arm-01",
+      "ami": "ami-0b5591f38aaeec3f6",
+      "selected_passed": 380,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6361,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:50:41.091318+00:00",
+      "finished_at": "2026-10-06T22:28:41.001336+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "7c036cd217c528b1d11f082c070995753885cd16798b7979a9babf31adc2554c",
+        "result.json": "4548b66bb1bbbf6fac54b429df8e104c02e3582512a22e2007d28ae17bec4362",
+        "suite-verification.json": "ae89eb4d108d2f07d0b4e7b6b40d05159b0f723b3f9b46ea005501e931ab4ffc",
+        "node-verification.json": "8e5fd16d7fe66b14082515253b28b6879b887d41b3f94f45557b0351de7daed6",
+        "pre-test-instances.json": "9a4400632a9cac7ac295a6658827b0ee7327383615df64349f2e7d1f78c165ee",
+        "cleanup-inventory.json": "a8c4cb2545ba5bfa3e33041b330427fc37d42b3fb3576e21c5dc0e264e726b9b",
+        "cleanup/verification.json": "43ef5fc1503b09aa815c1ff5725d8acbaaed9a8b7180fd40a57a84f4192a7eb6",
+        "artifacts/junit_01.xml": "04276e6062763cce1870a290f35df9e3740f89b3458ec28a1a003b2ba927acc9",
+        "artifacts/junit_runner.xml": "6a62c4689b899637e7fef3e34f18c542ffa4589036d459495172f8ba8aa14b41",
+        "conformance.log": "5e975f4fe1a411f06f2ac03aae546762913f790940e713aa29fbf9032bd3e2d2",
+        "cleanup-inputs/instances.json": "44fe5a4cc561a63f71af52d5b5a034a4dd31f7e9e5f4f21fc3a5a9e37552d414",
+        "node-stabilization/001-instances.json": "9a4400632a9cac7ac295a6658827b0ee7327383615df64349f2e7d1f78c165ee",
+        "node-stabilization/002-instances.json": "9a4400632a9cac7ac295a6658827b0ee7327383615df64349f2e7d1f78c165ee",
+        "node-stabilization/003-instances.json": "9a4400632a9cac7ac295a6658827b0ee7327383615df64349f2e7d1f78c165ee"
+      }
+    },
+    {
+      "minor": "1.34",
+      "arch": "x86_64",
+      "test_release": "v1.34.11",
+      "run_id": "symphony-12-pr-134-x86-01",
+      "ami": "ami-0a9b8086dffcdd169",
+      "selected_passed": 385,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6759,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:50:57.102418+00:00",
+      "finished_at": "2026-10-06T22:26:06.415870+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "bbd9fe816b9c3337a8cd00601e2bf57c09bbbaefc57812ecfe2df637fd0c5480",
+        "result.json": "9e1bd4d58c13dd1b40c007860a7e365757051ed3c6c52b397592a67137ff51b8",
+        "suite-verification.json": "53e0604988b759328984c6b7d066136efed34f68b65924595d3aa85227e9b3d3",
+        "node-verification.json": "596746dd9d6318ab054586a057511714675b9fef10b24450452ae13b6f4625a0",
+        "pre-test-instances.json": "30b6c4325ee91eca332b6ae68d4f5142a52fd0f643f014fe65317bb9972dd4b5",
+        "cleanup-inventory.json": "d0fc78387c3c3b2147fd6daf164ccc4346b7cd1bc1d8649fa4a50cc468926d67",
+        "cleanup/verification.json": "43c69e0ffc1082b8714411982be8fea45eef727dedfe43193318e6d602a3a0d8",
+        "artifacts/junit_01.xml": "ccd27b6f4f8663d76de7fdc5ec5a635492a20e46ac18032b725813db84362734",
+        "artifacts/junit_runner.xml": "4bf09ea26d2d382110586255e50ec2cd7fc77b199048e048da64fb574c47ad6c",
+        "conformance.log": "0ea76d9a26528d99bf77b7f1468f7598cb4a7871bbda2eb846774599d116278a",
+        "cleanup-inputs/instances.json": "52ac70f60484b72187fb6feb8b9950846990738617e04615cae2d7f563be1f94",
+        "node-stabilization/001-instances.json": "30b6c4325ee91eca332b6ae68d4f5142a52fd0f643f014fe65317bb9972dd4b5",
+        "node-stabilization/002-instances.json": "30b6c4325ee91eca332b6ae68d4f5142a52fd0f643f014fe65317bb9972dd4b5",
+        "node-stabilization/003-instances.json": "30b6c4325ee91eca332b6ae68d4f5142a52fd0f643f014fe65317bb9972dd4b5"
+      }
+    },
+    {
+      "minor": "1.34",
+      "arch": "aarch64",
+      "test_release": "v1.34.11",
+      "run_id": "symphony-12-pr-134-arm-01",
+      "ami": "ami-030a9dea9f48a120e",
+      "selected_passed": 385,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6759,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:50:53.985467+00:00",
+      "finished_at": "2026-10-06T22:25:08.566052+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "28a5f358d64fa46a9f824fc58dab6384ad872b0513a607faec12e1aefb50d159",
+        "result.json": "3f404102d6ddcb2bca081e4fb5db198a8014d835b41c52bf8069e59bc7d25a67",
+        "suite-verification.json": "2e658d99c68483ca3989c5a0b4b536122d88a084574b88940bbd8f97bf20fc47",
+        "node-verification.json": "e23dba4e27e35c69eced1f6a48971291061e8ef2bfa79961bd8ad769c0133875",
+        "pre-test-instances.json": "9098348beec19a0462a8a0d6bb11a7d1b4d660719419d35b6ab22f2da3f6ca1c",
+        "cleanup-inventory.json": "1be3fe6c47bd8155b608cfd28e62df1e4d8096f365972cb4b3fa4c159da5b161",
+        "cleanup/verification.json": "5fdc4e1a6c6eec0bf6d3dd4d3e45c8332d065b50c493b81add98f2732f2f2e89",
+        "artifacts/junit_01.xml": "b2af39edbc2cd6d609c839ae7b6c109d49a6bf59d8c633d19b349adc40a8f57b",
+        "artifacts/junit_runner.xml": "36e0e56a9f6e10ba8a32c779d18f8243d2a282d40a60e433d5b8949ab4aa2e4c",
+        "conformance.log": "a47dbe8c218dae9164fd10edacd2fd2b830d3f7d58084e56e38553c82cde782b",
+        "cleanup-inputs/instances.json": "9098348beec19a0462a8a0d6bb11a7d1b4d660719419d35b6ab22f2da3f6ca1c",
+        "node-stabilization/001-instances.json": "9098348beec19a0462a8a0d6bb11a7d1b4d660719419d35b6ab22f2da3f6ca1c",
+        "node-stabilization/002-instances.json": "9098348beec19a0462a8a0d6bb11a7d1b4d660719419d35b6ab22f2da3f6ca1c",
+        "node-stabilization/003-instances.json": "9098348beec19a0462a8a0d6bb11a7d1b4d660719419d35b6ab22f2da3f6ca1c"
+      }
+    },
+    {
+      "minor": "1.35",
+      "arch": "x86_64",
+      "test_release": "v1.35.8",
+      "run_id": "symphony-12-pr-135-x86-01",
+      "ami": "ami-0991367f5e08caa15",
+      "selected_passed": 402,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6953,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:43:37.177226+00:00",
+      "finished_at": "2026-10-06T22:16:50.571519+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "115fc2723fb5b3b55042dcc48b80890d2f00702a0f8342b9fb09112e3ac7d7b5",
+        "result.json": "93023037b24b79d8a51136b1aa011f26827e37e710ae1a8109a74f49c2e2a468",
+        "suite-verification.json": "7e1c4c25d431fa6e449275528e4ddbe9297779d0758280d0659c8b8c600d333f",
+        "node-verification.json": "c9c411368fcfa8013d93e088c99d76537115121677b3722c1eab6616af8cdae1",
+        "pre-test-instances.json": "b3cce5f20a22244adf0c0529d59b1bfa8e614139d35c21d63918d65345a2cbf8",
+        "cleanup-inventory.json": "a42226d345e40be07d1cedbae745e2e82ce098129868cb132c2c4634f39664a3",
+        "cleanup/verification.json": "29076a337fa31af73d3eb001fd3fb2c9b9a10dc6aaa3a722f0be8d33a7ac3b23",
+        "artifacts/junit_01.xml": "e734dae50be25d6bb57ad36776b9fddc2a9cea537da05a1aac6a7f332b6642c4",
+        "artifacts/junit_runner.xml": "b49d47167ba04b8551a41e1128e3bdc0c1f1f1b2250749d289362c1a3e43a117",
+        "conformance.log": "89e2a686ac18e495f93be217c3e983551cf010f92804eea7e11dac1a5278863e",
+        "cleanup-inputs/instances.json": "78cc2780c0fa2b1dbb6fc985aac8dff7b5639fb1002af1eb9f84548adf7a5aa9",
+        "node-stabilization/001-instances.json": "b3cce5f20a22244adf0c0529d59b1bfa8e614139d35c21d63918d65345a2cbf8",
+        "node-stabilization/002-instances.json": "b3cce5f20a22244adf0c0529d59b1bfa8e614139d35c21d63918d65345a2cbf8",
+        "node-stabilization/003-instances.json": "b3cce5f20a22244adf0c0529d59b1bfa8e614139d35c21d63918d65345a2cbf8"
+      }
+    },
+    {
+      "minor": "1.35",
+      "arch": "aarch64",
+      "test_release": "v1.35.8",
+      "run_id": "symphony-12-pr-135-arm-01",
+      "ami": "ami-028318613bb4966d9",
+      "selected_passed": 402,
+      "failed": 0,
+      "selected_skipped": 0,
+      "excluded": 6953,
+      "flaked": 0,
+      "retried_tests": [],
+      "started_at": "2026-10-06T21:43:34.078039+00:00",
+      "finished_at": "2026-10-06T22:15:16.664778+00:00",
+      "cleanup": "verified",
+      "evidence_sha256": {
+        "run.json": "b422041aa2a8a4c0cafa60de7e6d00325bed0a94d6b3d7ce241034895278345c",
+        "result.json": "642bebd9095ca7763bafd104f808a952d2ddbcb0c68adbe3e3752446694bac42",
+        "suite-verification.json": "7f942ff4da4baa0313f5c9f07729e692dd0747a91626d4a58afdb2e1082fac49",
+        "node-verification.json": "5e79e2c805ae24e5c2bafb594829af1d72840c3407d54a2a877f900df86e6adf",
+        "pre-test-instances.json": "e5c4eab9b7e2762d5cf222fa1d58a3c5a2d633ab99927c69a4b91b205ce857ea",
+        "cleanup-inventory.json": "c3f5739713b5de88cc428a9e4afa6bce844a8ef7a963afb8ea77d7c31a39c0d8",
+        "cleanup/verification.json": "46a9e0e36a88726e588aaa7720e36c88f180543649ad47921dc21054bb778fab",
+        "artifacts/junit_01.xml": "4469a88fdc1d7e71679333c43f4b098afe371c9511256a1f44013ada6e995c87",
+        "artifacts/junit_runner.xml": "1a90f978227a5a3d7c5f0296b648ed2795144d548faf8bcdbb46802749c2b93c",
+        "conformance.log": "af02cebbb9d57b754e6cd0bd5e79627c8b827872bf1cd14a0e88b155c960d300",
+        "cleanup-inputs/instances.json": "f95cc406ab0a50a8c0cc560206cd735491cc558925bfe16b9b5e8a0184bdd5ab",
+        "node-stabilization/001-instances.json": "e5c4eab9b7e2762d5cf222fa1d58a3c5a2d633ab99927c69a4b91b205ce857ea",
+        "node-stabilization/002-instances.json": "e5c4eab9b7e2762d5cf222fa1d58a3c5a2d633ab99927c69a4b91b205ce857ea",
+        "node-stabilization/003-instances.json": "e5c4eab9b7e2762d5cf222fa1d58a3c5a2d633ab99927c69a4b91b205ce857ea"
+      }
+    }
+  ],
+  "selected_passed": 3802,
+  "runtime": [
+    {
+      "arch": "x86_64",
+      "standalone": {
+        "status": "passed",
+        "at": "2026-10-06T22:09:10.356897+00:00",
+        "instance_id": "i-029c05425c7172883",
+        "ami": "ami-0c02c2542fbebcb46",
+        "consumer_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+        "core_kit_revision": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+        "commands": {
+          "bash": "59467305-b6e1-421e-9a5c-bccffd32c6d0",
+          "iproute": "58dd5f38-a5d2-4ff4-9cee-15e2684a113b",
+          "strace-version": "ef788f0c-4026-40c2-8890-3b1722b3ef2e",
+          "strace-ls": "20e84c7a-e5ff-498d-9e16-6a8a4c180d13",
+          "collector": "0966d087-7f2a-49fc-aabb-87c9ee1087d5"
+        },
+        "collector_report": {
+          "marker": "symphony-12-8b71ede6e3144edd8a7def566b1ad416",
+          "phases": [
+            {
+              "phase": 1,
+              "main_pid": "2639",
+              "forwarded": [
+                [
+                  "metric",
+                  "symphony-12-8b71ede6e3144edd8a7def566b1ad416-phase-1",
+                  1
+                ],
+                [
+                  "trace",
+                  "symphony-12-8b71ede6e3144edd8a7def566b1ad416-phase-1",
+                  "6567fcb728c307be406feba48c3ad3d5",
+                  "80dd9d760dc69e23"
+                ]
+              ],
+              "extra_config_header_verified_by_receiver": true
+            },
+            {
+              "phase": 2,
+              "main_pid": "2679",
+              "forwarded": [
+                [
+                  "trace",
+                  "symphony-12-8b71ede6e3144edd8a7def566b1ad416-phase-2",
+                  "4b5dc30b2ad69b5b96409c75f7b78dd4",
+                  "48572791b5a23189"
+                ],
+                [
+                  "metric",
+                  "symphony-12-8b71ede6e3144edd8a7def566b1ad416-phase-2",
+                  2
+                ]
+              ],
+              "extra_config_header_verified_by_receiver": true
+            }
+          ],
+          "scope": "Packaged service and config, loopback OTLP; temporary plaintext exporter override for controlled receiver",
+          "original_config_sha256": "ceb768bbd8b1a82230134ca7d045fcfbc6850e8e1036876f3feee2820654d10a",
+          "log_path": "-rw-------. 1 root root 16541 Oct  6 22:09 /var/log/aws/aws-otel-collector.log\n",
+          "status": "passed",
+          "restored": true,
+          "host_commands": [
+            {
+              "host_script": "sha256sum /etc/aws-otel-collector.yaml",
+              "exit_code": 0,
+              "stdout": "ceb768bbd8b1a82230134ca7d045fcfbc6850e8e1036876f3feee2820654d10a  /etc/aws-otel-collector.yaml\n",
+              "stderr": ""
+            },
+            {
+              "host_script": "test ! -e /run/systemd/system/aws-otel-collector.service.d/12-symphony-test.conf; test ! -e /etc/aws-otel-collector/extracfg.txt; test ! -e /run/symphony-12-otel-probe; if test -d /etc/aws-otel-collector; then echo extra-dir-exists; fi; if test -d /run/systemd/system/aws-otel-collector.service.d; then echo drop-dir-exists; fi",
+              "exit_code": 0,
+              "stdout": "",
+              "stderr": ""
+            },
+            {
+              "host_script": "mkdir /run/symphony-12-otel-probe; mkdir -p /etc/aws-otel-collector /run/systemd/system/aws-otel-collector.service.d; printf '%s\\n' 'SYMPHONY_12_OTEL_PROBE=symphony-12-8b71ede6e3144edd8a7def566b1ad416' > /etc/aws-otel-collector/extracfg.txt; printf %s 'exporters:\n  otlp:\n    tls:\n      insecure: true\n    headers:\n      x-symphony-12-fixture: ${env:SYMPHONY_12_OTEL_PROBE}\n' > /run/symphony-12-otel-probe/override.yaml; printf '%s\\n' '[Service]' 'ExecStart=' 'ExecStart=/usr/bin/aws-otel-collector --config /etc/aws-otel-collector.yaml --config /run/symphony-12-otel-probe/override.yaml' > /run/systemd/system/aws-otel-collector.service.d/12-symphony-test.conf; systemctl daemon-reload; systemctl restart aws-otel-collector.service",
+              "exit_code": 0,
+              "stdout": "",
+              "stderr": ""
+            },
+            {
+              "host_script": "systemctl show aws-otel-collector.service -p MainPID --value",
+              "exit_code": 0,
+              "stdout": "2639\n",
+              "stderr": ""
+            },
+            {
+              "host_script": "systemctl restart aws-otel-collector.service",
+              "exit_code": 0,
+              "stdout": "",
+              "stderr": ""
+            },
+            {
+              "host_script": "systemctl show aws-otel-collector.service -p MainPID --value",
+              "exit_code": 0,
+              "stdout": "2679\n",
+              "stderr": ""
+            },
+            {
+              "host_script": "test -s /var/log/aws/aws-otel-collector.log; ls -l /var/log/aws/aws-otel-collector.log",
+              "exit_code": 0,
+              "stdout": "-rw-------. 1 root root 16541 Oct  6 22:09 /var/log/aws/aws-otel-collector.log\n",
+              "stderr": ""
+            },
+            {
+              "host_script": "test -d /run/symphony-12-otel-probe; rm -f /run/systemd/system/aws-otel-collector.service.d/12-symphony-test.conf /etc/aws-otel-collector/extracfg.txt /run/symphony-12-otel-probe/override.yaml; rmdir /run/symphony-12-otel-probe; rmdir /etc/aws-otel-collector; rmdir /run/systemd/system/aws-otel-collector.service.d; systemctl daemon-reload; systemctl restart aws-otel-collector.service; systemctl is-active aws-otel-collector.service; sha256sum /etc/aws-otel-collector.yaml",
+              "exit_code": 0,
+              "stdout": "active\nceb768bbd8b1a82230134ca7d045fcfbc6850e8e1036876f3feee2820654d10a  /etc/aws-otel-collector.yaml\n",
+              "stderr": ""
+            }
+          ]
+        },
+        "fixture_sha256": "aa64b4cf5fa993b7b1398eaf2f3ea254c35c6bfe9b5dbad44bb3b9d65b4293ad",
+        "scope": "Bash builtins and commands, ip version/address, strace version/ls, collector trace/metric forwarding before/after restart with extra-config environment header.",
+        "limitations": "Loopback OTLP with temporary plaintext exporter override; external TLS not tested. Image artifact inventory proves collector version.",
+        "cleanup": "Collector configuration restored; instance, volumes and runtime network cleanup remain."
+      },
+      "live_payload_hashes": {
+        "status": "passed",
+        "at": "2026-10-06T22:09:15.005519+00:00",
+        "arch": "x86_64",
+        "instance_id": "i-029c05425c7172883",
+        "command_id": "a6f4e002-c114-40dc-a78a-c90e5bb5f2d1",
+        "binaries": {
+          "/usr/bin/aws-otel-collector": "cc05f1be08b715f2cc559d0209e30fcbcf6435d31c01597190f55a5e7119dc6d",
+          "/usr/bin/bash": "b301a7f4de5f05eae019b38c786a8e2a5e2466bb06faa431de16af3b50886590",
+          "/usr/bin/strace": "1c8a5085cc6144f4fe99fb6fffc23b16bee22f9d9fa5d043ad2dfa0228e7c233",
+          "/usr/sbin/ip": "aca339556aaa0223385b2e3593cf3359deea2acb0b863e4f0077a047a73a606c"
+        },
+        "payload_evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/kits/bottlerocket-core-kit/.symphony/package-pr-2026-10-06/x86_64-payload-verification.json",
+        "payload_evidence_sha256": "8a4cc506bce59607b689d1f09ff024c745438c8a8a10f81b472a7e6781575f53"
+      },
+      "signing_helper": {
+        "status": "passed",
+        "observed_at": "2026-10-06T22:00:01.606199+00:00",
+        "arch": "x86_64",
+        "instance_id": "i-00417e5846f588f3c",
+        "ami_id": "ami-0991367f5e08caa15",
+        "core_kit_revision": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+        "consumer_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "version": "1.8.5",
+        "binary_sha256": "99f6754d6a09196ff5cb12b83cc2e1b9d67d7e788e3047ba7ac7ac5f3858545b",
+        "fixture_sha256": "30eb60fa7638960aa4de5b41fcc53d57192e58036c1e840a319dde518688b020",
+        "commands": {
+          "admin-before": "f56f2d9c-dcc2-4d49-a938-70f0aa33db83",
+          "fixture": "2a4edc48-4070-43da-82b2-a8c76b46a41e"
+        },
+        "passed": [
+          "RSA2048 and ECDSA P256 independent signature verification and tamper rejection",
+          "Both version aliases and installed links",
+          "Invalid credential-process rejects missing credentials",
+          "Both brush aliases require credential-process and block --debug while permitting credential-process execution"
+        ],
+        "cleanup": "Disposable files removed; admin was already enabled and remains unchanged",
+        "limitations": [
+          "No live Roles Anywhere session",
+          "No hardware-backed signer"
+        ]
+      }
+    },
+    {
+      "arch": "aarch64",
+      "standalone": {
+        "status": "passed",
+        "at": "2026-10-06T22:09:07.418617+00:00",
+        "instance_id": "i-00915903e22e1becb",
+        "ami": "ami-0656f3efe14fca276",
+        "consumer_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+        "core_kit_revision": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+        "commands": {
+          "bash": "589f6fbe-307e-46f6-87a3-eaedf4da05c8",
+          "iproute": "4b56aebf-4365-4308-adad-c3ea03b278e5",
+          "strace-version": "1d141d56-8ef5-4630-ab3f-5125edf01226",
+          "strace-ls": "99208439-13c1-4729-bc28-0b3f87136611",
+          "collector": "b806af5a-e56f-4a3b-a7c4-5bd60f0307dc"
+        },
+        "collector_report": {
+          "marker": "symphony-12-0ebb1f40fb464775af3b9a9369f5a8d8",
+          "phases": [
+            {
+              "phase": 1,
+              "main_pid": "2773",
+              "forwarded": [
+                [
+                  "trace",
+                  "symphony-12-0ebb1f40fb464775af3b9a9369f5a8d8-phase-1",
+                  "502e674b1fe13b7d40137fd5de763ce6",
+                  "3ed5d1101a6d18b8"
+                ],
+                [
+                  "metric",
+                  "symphony-12-0ebb1f40fb464775af3b9a9369f5a8d8-phase-1",
+                  1
+                ]
+              ],
+              "extra_config_header_verified_by_receiver": true
+            },
+            {
+              "phase": 2,
+              "main_pid": "2813",
+              "forwarded": [
+                [
+                  "metric",
+                  "symphony-12-0ebb1f40fb464775af3b9a9369f5a8d8-phase-2",
+                  2
+                ],
+                [
+                  "trace",
+                  "symphony-12-0ebb1f40fb464775af3b9a9369f5a8d8-phase-2",
+                  "f404e4bfdf2843eb026368435c5e590e",
+                  "ace0c59d4872cbf9"
+                ]
+              ],
+              "extra_config_header_verified_by_receiver": true
+            }
+          ],
+          "scope": "Packaged service and config, loopback OTLP; temporary plaintext exporter override for controlled receiver",
+          "original_config_sha256": "ceb768bbd8b1a82230134ca7d045fcfbc6850e8e1036876f3feee2820654d10a",
+          "log_path": "-rw-------. 1 root root 16553 Oct  6 22:09 /var/log/aws/aws-otel-collector.log\n",
+          "status": "passed",
+          "restored": true,
+          "host_commands": [
+            {
+              "host_script": "sha256sum /etc/aws-otel-collector.yaml",
+              "exit_code": 0,
+              "stdout": "ceb768bbd8b1a82230134ca7d045fcfbc6850e8e1036876f3feee2820654d10a  /etc/aws-otel-collector.yaml\n",
+              "stderr": ""
+            },
+            {
+              "host_script": "test ! -e /run/systemd/system/aws-otel-collector.service.d/12-symphony-test.conf; test ! -e /etc/aws-otel-collector/extracfg.txt; test ! -e /run/symphony-12-otel-probe; if test -d /etc/aws-otel-collector; then echo extra-dir-exists; fi; if test -d /run/systemd/system/aws-otel-collector.service.d; then echo drop-dir-exists; fi",
+              "exit_code": 0,
+              "stdout": "",
+              "stderr": ""
+            },
+            {
+              "host_script": "mkdir /run/symphony-12-otel-probe; mkdir -p /etc/aws-otel-collector /run/systemd/system/aws-otel-collector.service.d; printf '%s\\n' 'SYMPHONY_12_OTEL_PROBE=symphony-12-0ebb1f40fb464775af3b9a9369f5a8d8' > /etc/aws-otel-collector/extracfg.txt; printf %s 'exporters:\n  otlp:\n    tls:\n      insecure: true\n    headers:\n      x-symphony-12-fixture: ${env:SYMPHONY_12_OTEL_PROBE}\n' > /run/symphony-12-otel-probe/override.yaml; printf '%s\\n' '[Service]' 'ExecStart=' 'ExecStart=/usr/bin/aws-otel-collector --config /etc/aws-otel-collector.yaml --config /run/symphony-12-otel-probe/override.yaml' > /run/systemd/system/aws-otel-collector.service.d/12-symphony-test.conf; systemctl daemon-reload; systemctl restart aws-otel-collector.service",
+              "exit_code": 0,
+              "stdout": "",
+              "stderr": ""
+            },
+            {
+              "host_script": "systemctl show aws-otel-collector.service -p MainPID --value",
+              "exit_code": 0,
+              "stdout": "2773\n",
+              "stderr": ""
+            },
+            {
+              "host_script": "systemctl restart aws-otel-collector.service",
+              "exit_code": 0,
+              "stdout": "",
+              "stderr": ""
+            },
+            {
+              "host_script": "systemctl show aws-otel-collector.service -p MainPID --value",
+              "exit_code": 0,
+              "stdout": "2813\n",
+              "stderr": ""
+            },
+            {
+              "host_script": "test -s /var/log/aws/aws-otel-collector.log; ls -l /var/log/aws/aws-otel-collector.log",
+              "exit_code": 0,
+              "stdout": "-rw-------. 1 root root 16553 Oct  6 22:09 /var/log/aws/aws-otel-collector.log\n",
+              "stderr": ""
+            },
+            {
+              "host_script": "test -d /run/symphony-12-otel-probe; rm -f /run/systemd/system/aws-otel-collector.service.d/12-symphony-test.conf /etc/aws-otel-collector/extracfg.txt /run/symphony-12-otel-probe/override.yaml; rmdir /run/symphony-12-otel-probe; rmdir /etc/aws-otel-collector; rmdir /run/systemd/system/aws-otel-collector.service.d; systemctl daemon-reload; systemctl restart aws-otel-collector.service; systemctl is-active aws-otel-collector.service; sha256sum /etc/aws-otel-collector.yaml",
+              "exit_code": 0,
+              "stdout": "active\nceb768bbd8b1a82230134ca7d045fcfbc6850e8e1036876f3feee2820654d10a  /etc/aws-otel-collector.yaml\n",
+              "stderr": ""
+            }
+          ]
+        },
+        "fixture_sha256": "aa64b4cf5fa993b7b1398eaf2f3ea254c35c6bfe9b5dbad44bb3b9d65b4293ad",
+        "scope": "Bash builtins and commands, ip version/address, strace version/ls, collector trace/metric forwarding before/after restart with extra-config environment header.",
+        "limitations": "Loopback OTLP with temporary plaintext exporter override; external TLS not tested. Image artifact inventory proves collector version.",
+        "cleanup": "Collector configuration restored; instance, volumes and runtime network cleanup remain."
+      },
+      "live_payload_hashes": {
+        "status": "passed",
+        "at": "2026-10-06T22:09:12.137647+00:00",
+        "arch": "aarch64",
+        "instance_id": "i-00915903e22e1becb",
+        "command_id": "f58e9ded-3db8-4f73-b5c7-b03770d9ec87",
+        "binaries": {
+          "/usr/bin/aws-otel-collector": "04cd9bc295faba50f7489124495955ee0aec30d3d2adbc7b14214be21bce238f",
+          "/usr/bin/bash": "2107d9037e5edc6933314f2dab5a1ab31e30527a4eb75d07e9fcae48efdeb705",
+          "/usr/bin/strace": "7ea6647cdabc05724487460b714f16821f85daa97f5ea9848d62e68e51b35209",
+          "/usr/sbin/ip": "b556984d7ae70a012adcdeb5ad64ac32c8f773e8a8bf90831097e55d151d5354"
+        },
+        "payload_evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/kits/bottlerocket-core-kit/.symphony/package-pr-2026-10-06/aarch64-payload-verification.json",
+        "payload_evidence_sha256": "85d691a56688829434607353dc1901c9626612ea819d5bfc693e639d21d3669e"
+      },
+      "signing_helper": {
+        "status": "passed",
+        "observed_at": "2026-10-06T21:59:37.446942+00:00",
+        "arch": "aarch64",
+        "instance_id": "i-012653f7e0493d684",
+        "ami_id": "ami-028318613bb4966d9",
+        "core_kit_revision": "6b1b46902d22ddce0377d3d575b1961d859f2c75",
+        "consumer_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "version": "1.8.5",
+        "binary_sha256": "f185ea1c3da7068e884f3fa9da7899b68a94c2a2cc6f0ec55478bd03554c4fa7",
+        "fixture_sha256": "30eb60fa7638960aa4de5b41fcc53d57192e58036c1e840a319dde518688b020",
+        "commands": {
+          "admin-before": "2e6f8284-ae88-4903-b0b0-f7dd28466e3f",
+          "fixture": "268ef95c-355f-4fd8-a38e-21bf1a960277"
+        },
+        "passed": [
+          "RSA2048 and ECDSA P256 independent signature verification and tamper rejection",
+          "Both version aliases and installed links",
+          "Invalid credential-process rejects missing credentials",
+          "Both brush aliases require credential-process and block --debug while permitting credential-process execution"
+        ],
+        "cleanup": "Disposable files removed; admin was already enabled and remains unchanged",
+        "limitations": [
+          "No live Roles Anywhere session",
+          "No hardware-backed signer"
+        ]
+      }
+    }
+  ],
+  "images": [
+    {
+      "id": "8e6f2cad-3b65-493e-a201-424ef7a2eb61",
+      "arch": "x86_64",
+      "variant": "aws-k8s-1.35",
+      "minor": "1.35",
+      "ami": "ami-0991367f5e08caa15",
+      "snapshots": [
+        "snap-090ebedbaadaff900",
+        "snap-0355dc43e08ad98d1"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "bb6a62db824dddb089bf969a90b81fc3a87c34729aefb255a9764f4fba2f0cd6",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "8e6f2cad-3b65-493e-a201-424ef7a2eb61"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:35:42Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.35",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.35.8",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:35:42Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:35:42Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/.no-kmod-kit",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "4648d15090c71da2ab747b047348fa4f41bf5f48e78996899e373632d2e306d2"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "d0787bee3e8c016ee1ed1afcb75ae8b5143e5ffd8fa757af5e28ca6849acced4"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-x86_64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "26f61de83c8e34f3f0254f7f709f91dcc332251094758b9c97d035441a90c0a5"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-x86_64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "03055d1e301476211dcae27ac1723ea201425baf1dbde812dd4cc3146eeffc7d"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-x86_64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "62120a0489ee671ac31b1f510a1b8b1cb4cbbc0cb8c53ff3fd7e6b67e21fb8a0"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "74253011ba0a0ca4d9e5fb695b87f4ca5d577b5c77c178afb584413bb2ab4dc0"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "1a633e1a35130e54c14f345a7c79c4bff942059eb779addef0e4197a8f24ee39"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-x86_64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "487b25a3a4dc861ea392f884db7c84ca9210cff0c52f9b2772d6f356aead697c"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "1ebfdbceb3bd46a208c548ab469fb5e1db5d6533d652af19d51c188a5816bb9d"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "768fb765b83da8b51cd81574766b968d284a5642ddbefe63e5b0423c19330413"
+        },
+        {
+          "path": "build/symphony/8e6f2cad-3b65-493e-a201-424ef7a2eb61/images/x86_64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "90bdba7fba01beb0e20556def55954d84d3f50797aa2fc638cc4b34d5a83d927"
+        }
+      ]
+    },
+    {
+      "id": "3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4",
+      "arch": "aarch64",
+      "variant": "aws-k8s-1.35",
+      "minor": "1.35",
+      "ami": "ami-028318613bb4966d9",
+      "snapshots": [
+        "snap-0dc046ac390223df9",
+        "snap-0e6420e438c4b895c"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "12f7becd61747804173321889ed7b6ac874a71fd76bc4b698517cd421bb97eb9",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:36:49Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.35",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.35.8",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:36:49Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:36:49Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/.no-kmod-kit",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "ebc73dfd75fd812aa99818ebd76bc5de2acf7923b3c4705261fe5b821e0b2eeb"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "342b34361eb1aeca903d2dc2d6f883e493ea19d27a3553aa10725d704e1a0832"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-aarch64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "c9c2acc8da4e8fc351a9aecb9f4632970c214482a846ba0a439a9d7bd41bd716"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-aarch64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "7cfd22e415bc04734c046a06e62a94ce9c9b5863aa49cf38ad24d6026a879fad"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-aarch64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "b29603f403f34dfd1d23c811ff14898652535467770a744a949c5e634fa1ed16"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "5673db903e3ce5938b055d5b799e73831d633c3b372252f052280063f342db5e"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "0d39924e956038afe2f95044f5e2f59197890e94c84bc11f066b6249f40dadeb"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.35-aarch64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "0a0a526978454e6267cd58a3c038ccd7e28e8a7a5542b522f0e392062def4d49"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "75f4a9c77afd53d0d7d5d90aa2a5d8952af8ad698122e19544c47f87d7a6e4ec"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "250522108d054dee3793be96abc20a90000dbf10f68cbc3e4235d825042721d8"
+        },
+        {
+          "path": "build/symphony/3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4/images/aarch64-aws-k8s-1.35/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "e2592efe0317596a172c1d70d04aef44965ef904aaf5ac24b6db0e4042241cda"
+        }
+      ]
+    },
+    {
+      "id": "98026b74-7047-4ffc-a20c-e5938bf393b0",
+      "arch": "x86_64",
+      "variant": "aws-k8s-1.31",
+      "minor": "1.31",
+      "ami": "ami-035807f0cc56ee04a",
+      "snapshots": [
+        "snap-08bd9fe346d65013e",
+        "snap-05e38d57e338b89ba"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "3ebb385a8916e8c57d7e9aec675bd605c6a4292a6a68846dbdc228a1f73b451e",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "98026b74-7047-4ffc-a20c-e5938bf393b0"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:37:46Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.31",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.31.14",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:37:46Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:37:46Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "236e9e16328f68e3ce1c3493de66febbdd561cef1b938c82d05184fa1ef0fb2c"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "0a37861d5c9506a0b0bfbb69e8778949d59f27202c11bcb5a3d6ca0ed87c2104"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-x86_64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "abd99cf170762839e2535badaeaf8ec25f676413d93823901633c35b7dd25526"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-x86_64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "54b8afe9632a8683e739a48ebedb55de3dafb537549aa5117f6996a36d7056d5"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-x86_64-1.66.0-symphony.12-feeffd6-dirty-kmod-kit.tar.xz",
+          "sha256": "5ece2216fc59b809768f1e68104aec56a6f93a2052030570cc4e2f1ff7fa229d"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-x86_64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "a151aaea92f5d6b3cdb82d46c5ac4a54e5d55cd6a45fd3e8fd81c16a91525de2"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "96fbc07da94f2fd9d1562c23059e6041007e3b97c3ccd9de6ab06a19ab6956d7"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "826135bba6e507a48ceaaceffaa60698d141aa02234c1aa3df1375c7a8fb10c3"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-x86_64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "2f7a242dbf20fce7caa384eac8c7db355a18d8f8c9061b483b949d1fdee16f33"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "d663fc031758a9e27d0195955c8325700e349e0a1be4ebdac6bb125adb63fe61"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "9c240780e51480bd92e44642e7564afb36d24c9b127c133634679b3d415d5b23"
+        },
+        {
+          "path": "build/symphony/98026b74-7047-4ffc-a20c-e5938bf393b0/images/x86_64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "5d26dc1b066c64c38b12f7943f1f479ed287423e472c712a948cbfcbe6f705ae"
+        }
+      ]
+    },
+    {
+      "id": "961d1c52-1cc4-486a-83fb-56b7c16e2e1b",
+      "arch": "aarch64",
+      "variant": "aws-k8s-1.31",
+      "minor": "1.31",
+      "ami": "ami-0096662fab20969dd",
+      "snapshots": [
+        "snap-0d7c40eacbb4b9212",
+        "snap-05decc3489d0705e1"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "495b7e08036537cd4a0fdde33ac52d4e67e876ee7e5b543d66945cc34cc4b531",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "961d1c52-1cc4-486a-83fb-56b7c16e2e1b"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:38:54Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.31",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.31.14",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:38:54Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:38:54Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "966793ca8c237fda2bd20451fe3ba4384139130f7f27d584e03932e139816e25"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "ec575ea88eb23c31c750d2d8567909f23763691d980cfc43906c7f6a3f7f91f2"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-aarch64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "beff7911ef1403920dbeb1e8e607b9e435fc8071153e7cb02b7ff0b751bc22e5"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-aarch64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "a409649611a0f4f7877dd89fe47a19053cba4b349bdd15337fb57bf4b443ffe0"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-aarch64-1.66.0-symphony.12-feeffd6-dirty-kmod-kit.tar.xz",
+          "sha256": "213bd76f28af201c7d66811c1dbdf3aa8cf68881777c0549c916da9d5f4609f1"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-aarch64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "0d69ea8fc76a4db927d69621a47d881dd998d6fe9ee602f84c75c475e7918c5f"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "3faf4a444418fc7e190d5e9d593d4ac453a747f5111e79c525f2b4702e64a1e7"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "ba85180c954d237a46667689910b2c30eb70c979a0ea744f5e69e71cefffcfe1"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.31-aarch64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "89117050c0da37c7cf473bde24f7beaf5bd987055a8a8277acc12d495510cde7"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "6035520ac8b70b8ef6b78321e363445116a7d04c9093bdd0788027e3003333f7"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "9be9ddb42931736f4cb0f653e0d0e161c81e075dc81142869b63e3397d72c8a4"
+        },
+        {
+          "path": "build/symphony/961d1c52-1cc4-486a-83fb-56b7c16e2e1b/images/aarch64-aws-k8s-1.31/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "e98e4003d5caccae6e5866b77c3aef0380d92c8e7d15b1d858cc7d0a15128980"
+        }
+      ]
+    },
+    {
+      "id": "25346be6-8229-4021-8188-0f1b3afabcb2",
+      "arch": "x86_64",
+      "variant": "aws-k8s-1.32",
+      "minor": "1.32",
+      "ami": "ami-0bbe65ed7a437a642",
+      "snapshots": [
+        "snap-029626a823832b2e3",
+        "snap-03360e7a39559cd75"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "9468c6fa738efb221f4fb5a4980d4640b315d95575fbea209cfee999ae4781e2",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "25346be6-8229-4021-8188-0f1b3afabcb2"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:39:55Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.32",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.32.13",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:39:55Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:39:55Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "d387b1fb7cd5f072ef9700f161866376d1bee56a66658940873fbbee71a6acfb"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "35a6810419475949c45333987ed7eaa0ba8fb71caf724dac0de3f12a453b34f6"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-x86_64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "a573e88979f41edf00f5248d95c03baf3287871caccc355a9cbf6046a8210538"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-x86_64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "e7359e3330860a29e890a31cecba6a3dcde335e4c226c15c2ddda6cd40b868d2"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-x86_64-1.66.0-symphony.12-feeffd6-dirty-kmod-kit.tar.xz",
+          "sha256": "e3ad8dca910095bc8d060e969c21c27f55144dbdf0be1b4d9e8f1da235af1100"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-x86_64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "30c4c02a61937fe44b5750fec8dec2755b93daf2a253632195a2304db5d3fee5"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "a02b7bec0d8ff95c5d0a3dc3240e97e76a7d69a4c616564ebbe3190faf3a4902"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "4905506308c10d20e7f756e77add6baa9b6650cb0781a37dece9aac4df7ce74c"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-x86_64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "814cc14d5f16c8658ebe49c3a567395491498c32ac9fd7050100d8eba718b71c"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "529df2d1e3b99e55d5a0f5c56c299a54d6f70e0f865b30b5ed644325c0b3ce33"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "5b3bae1a0327175f96a2b080b1487e108767b4dc94552453177e3b259039072d"
+        },
+        {
+          "path": "build/symphony/25346be6-8229-4021-8188-0f1b3afabcb2/images/x86_64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "b9839eedd8908c15aee2afae3d2969f0f0c256e15df340adeb6dec06713f9af6"
+        }
+      ]
+    },
+    {
+      "id": "627ce449-3e24-4247-9c83-e9c16c8d9e70",
+      "arch": "aarch64",
+      "variant": "aws-k8s-1.32",
+      "minor": "1.32",
+      "ami": "ami-0f86e9f23d1c62c94",
+      "snapshots": [
+        "snap-06f247e47bf006a93",
+        "snap-049342b8eae367324"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "34c51d6f2487b7310934dfa27c6b0712eeec50e61d643b3adb3bf3b3c067a0f0",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "627ce449-3e24-4247-9c83-e9c16c8d9e70"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:40:58Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.32",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.32.13",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:40:58Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:40:58Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "a868f5f41c40eda5b229b971e3851009dd526cf2e74fa3595d791db58698b132"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "1212ea465ab1ff54eea3ccb02fdb7f970548919f70dd6b2a825a075049cfafd1"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-aarch64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "4134593e25c89797802a8fec128e4a7cd5edd7e568d7d7cfd5c8c6a053c6aec2"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-aarch64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "226d0fe29b88e53afd9b3ec8440e0d8c7db11605aa79463366882b002cfaa784"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-aarch64-1.66.0-symphony.12-feeffd6-dirty-kmod-kit.tar.xz",
+          "sha256": "74101e416719ca25a51868be57f11991ed0f03773f7fbe490289d0df09ccab00"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-aarch64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "976024ce3175ef30655c295ee4f97855811c63a7aece39ae05bdfc3d689da52b"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "8ebc27e0cf3a0bc752b01caf0917b7a69c5b017a2238198b975bd149bae7277a"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "8e5de3d288cc2da72da47c159380b091b1cdb607331847d35113d267be65d236"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.32-aarch64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "a27da15d3be96baf6543e786b564e6d968472ffc6bc46faf2339a56ef1a2f29a"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "c585e71a403fb22cc46daa7673e58dcf51c8165728d49a84ecf5b82949b0d728"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "5fc846790ecec81d18dc1e3b6b13dcaaef7dd3e2bf0ab872bbbf056a9d3a33e3"
+        },
+        {
+          "path": "build/symphony/627ce449-3e24-4247-9c83-e9c16c8d9e70/images/aarch64-aws-k8s-1.32/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "28aaafefeba854e9c4a7716ee425242ea7a262bd73c89e07074f3e3c30cc716a"
+        }
+      ]
+    },
+    {
+      "id": "026a5c66-f5a7-479d-a505-53e6c6b97b1c",
+      "arch": "x86_64",
+      "variant": "aws-k8s-1.33",
+      "minor": "1.33",
+      "ami": "ami-03dc400b61af37df2",
+      "snapshots": [
+        "snap-0ccc7adaf618b82c6",
+        "snap-05f6f477d30bb9ca2"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "6ae6783e7156c20bd6191caca2378678f302f605239ac3fceef043a0b955833a",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "026a5c66-f5a7-479d-a505-53e6c6b97b1c"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:42:03Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.33",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.33.13",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:42:03Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:42:03Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/.no-kmod-kit",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "b995191d744d74b549b5f118e2d000647ab60afd97420396bd90b2344c9fd4b8"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "8f14034c45d90504ee3892ebfc543ca910a37946f2170a0d3f632bda5771b0a8"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-x86_64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "816026e875fa025e240b4c16291966333fcb6eb49e087d697fe71cabbee6c67a"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-x86_64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "ff764300dfcefc83e58631766c18fa7798982e39217023c19a66634caa931be5"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-x86_64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "439e9757054234081a5417890699e4d9c9dcf6ee94dc6249010e4ae55bb1136b"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "64a9b0e814cbd479d26e69912ab68309e649db7a49bd698e5e5b63ab993768d3"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "c813656da58eca114906024aab3e4d705c4bde26a4b378375c1f6eab3e2115a3"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-x86_64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "e856d6efd839a3894f6f6702987b2bd169e4a076a9c625995c564bd9a16ba176"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "8469df561dcfd1fea127e7d13919cec3c03a26322f6d61808091b6456e0b7c1e"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "d5bce2ef3f3975984efd152316f1aecef55864a5c1ed2927749b21d387fa268d"
+        },
+        {
+          "path": "build/symphony/026a5c66-f5a7-479d-a505-53e6c6b97b1c/images/x86_64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "617da21a120a22a949c44237c02f9bc6b9a2aaf552ca7d90af0f6693027b533d"
+        }
+      ]
+    },
+    {
+      "id": "8e1d8b41-da17-4742-89bb-f66dbbc9989a",
+      "arch": "aarch64",
+      "variant": "aws-k8s-1.33",
+      "minor": "1.33",
+      "ami": "ami-0b5591f38aaeec3f6",
+      "snapshots": [
+        "snap-0a6bb19748f2c9576",
+        "snap-04a0e833c080d4336"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "048967859bd1dd57a570a66023973f1079baab3c4e2423ba5642482365813fa2",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "8e1d8b41-da17-4742-89bb-f66dbbc9989a"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:43:04Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.33",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.33.13",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:43:04Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:43:04Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/.no-kmod-kit",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "b8387223164a7344e8fdcbc04d0d3ce2f61c104de10abe9486f0f8a98a512b46"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "5a2566a484828e9fb20a2ef9cb9af739c269b6e139df4e9f27b6fa449cad8622"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-aarch64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "c5fe7e1a0a91f699607191615658c7876aad296998031d1853861fc8e9a18081"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-aarch64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "a6c20bc4610e90b0668f69850b73b047b2c04bd91e0037ba152dbc5112a2445a"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-aarch64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "8c54af11774302517f5ad6213031d9ca1b444e02a783a191bb223ffd00581783"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "a47e73036630b6a10b989964333e3045a6cb0d417b8b65ab3772493b19944a9c"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "bcbe0851e8335df220229dd809292059c9be9a23c79141c9aaa4dc62f9de614d"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.33-aarch64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "ee229f1b2fbacb0caf1709d11219405c7d32ebf9ec655111e8cf9e110803f943"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "27d28b8996e0d9ffd6204ac698fcaf833be759c2ff601bb44a322398dd57b61d"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "7d0093110fc4ed913c8d2ea9fef51ceef120101ea453fdcefc052384a2a7d7ce"
+        },
+        {
+          "path": "build/symphony/8e1d8b41-da17-4742-89bb-f66dbbc9989a/images/aarch64-aws-k8s-1.33/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "b4c3598bd4261238e26ac4d0052968a60ae8fdedf3143967b876d11861230898"
+        }
+      ]
+    },
+    {
+      "id": "41ae0e09-24ea-4dcc-b51e-2c89ed469fa0",
+      "arch": "x86_64",
+      "variant": "aws-k8s-1.34",
+      "minor": "1.34",
+      "ami": "ami-0a9b8086dffcdd169",
+      "snapshots": [
+        "snap-0298295a020a2120e",
+        "snap-02ee06053065c61da"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "a4f17574c189eca98768ccf1d861e78fa58718653290ca59f65bf2b4b8743fac",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "41ae0e09-24ea-4dcc-b51e-2c89ed469fa0"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:44:28Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.34",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.34.11",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:44:28Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:44:28Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/.no-kmod-kit",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "0e613a91c73c4511bf71aa016ae52cd14898476b7c6a20d849768f36fc57218c"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "9c8edab30604d6e08f9ae1279bd7529aa7c3f6c261eed7190f03401fd42b47ce"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-x86_64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "7cb3888db40cc811e61c364abe1b568e4159030bfb1588fe9e7bbf2954bb3e74"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-x86_64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "d2dd94e5f06a7792edc16805e1b34e8671ccd32bf605986195d0d3b3d8bd10fa"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-x86_64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "4d7e4692196597ea65a6491710cb31b8461884c77fbc940841b900a6fa0643d3"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "5bf052b49a864b840b8703834dcbdf25b913171484965f94864946763e49c01a"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-x86_64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "bf436b753ff28b17682838d3207ccafcbc87870f75788473e8f52dfc48235cef"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-x86_64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "3872ac731ef3affb83c9db07cf5c0ebdb39d535600e6c441ef295496df2e3507"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "eec3e20f1cc978092a0bc456e43989b40c376c655194ae607005b08aa484b67e"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "786602177306ced148c04a3a1af337827b951404eb12ef1a0f8aec84d2499196"
+        },
+        {
+          "path": "build/symphony/41ae0e09-24ea-4dcc-b51e-2c89ed469fa0/images/x86_64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "63826911f3dc697a66035613138e56e54e0dc284aa4385b3f456aa11a9a26a04"
+        }
+      ]
+    },
+    {
+      "id": "23c919a6-e402-4768-81a7-9645751efccd",
+      "arch": "aarch64",
+      "variant": "aws-k8s-1.34",
+      "minor": "1.34",
+      "ami": "ami-030a9dea9f48a120e",
+      "snapshots": [
+        "snap-0320039e436362f32",
+        "snap-0ca714357e48536fe"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+        "tracked_changes": "M Twoliter.lock",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "f5690d357dfe80c80b6a56fac25c56d2697d4c339b956c049b5c92beefaa5ba7",
+        "sources": {
+          "member": {
+            "revision": "feeffd6b45fc60362938a1f2acff20791fe1e0ad",
+            "tracked_changes": "M Twoliter.lock"
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "23c919a6-e402-4768-81a7-9645751efccd"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:46:08Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "kubelet-1.34",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.34.11",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T21:46:08Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/kubernetes/kubernetes",
+          "Summary": "Container cluster node agent"
+        },
+        {
+          "Name": "aws-signing-helper",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "1.8.5",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T21:46:08Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/aws/rolesanywhere-credential-helper",
+          "Summary": "AWS signing helper for IAM Roles Anywhere support"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/.no-kmod-kit",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/application-inventory.json",
+          "sha256": "8644a639c5f5f1bf477beb3439e60a38b00d7f535f1578eaad1b46f237796033"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/artifact-metadata.json",
+          "sha256": "364bfbeff3ef9535beb1982a83c5c4685dfa7ba581438f010e762f0fd0355447"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-aarch64-1.66.0-symphony.12-feeffd6-dirty-boot.ext4.lz4",
+          "sha256": "e033d2ba193ebb0b8ff687ba2631e4465ce861142947f100a1654a01b0f29970"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-aarch64-1.66.0-symphony.12-feeffd6-dirty-data.img.lz4",
+          "sha256": "ad1f375f26b099ceb942a1274b863e4d9c47121b876272ae1e9a38e702961ded"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-aarch64-1.66.0-symphony.12-feeffd6-dirty-migrations.tar",
+          "sha256": "a1dddae0d7947914d31465f6b36d298c0bb9ebc2e7b6750bf26450c6cc48d8b6"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.ext4.lz4",
+          "sha256": "4396046475a8273269f31abfe02df904d501b1b6e04ce8059a464fddfadcb93b"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-aarch64-1.66.0-symphony.12-feeffd6-dirty-root.verity.lz4",
+          "sha256": "5e63025ad646b83a4e5c126a40dc8acbb25d2cfbc053740efb9de88eee610194"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/bottlerocket-aws-k8s-1.34-aarch64-1.66.0-symphony.12-feeffd6-dirty.img.lz4",
+          "sha256": "de1f7b50a642372a5f6c20a3356a5566d5e915e13ccc9c41480cb57f2fcb644b"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/cyclonedx-sbom.json",
+          "sha256": "7847189425a52733a271695953fd7f36219d4c22d4e0a340d9c5e706f9a9daae"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/pcr-predictions.json",
+          "sha256": "917adbe0fb816361ccdde72938e3a51edc54089eeb8cd7e296ce6be5338f3fc6"
+        },
+        {
+          "path": "build/symphony/23c919a6-e402-4768-81a7-9645751efccd/images/aarch64-aws-k8s-1.34/1.66.0-symphony.12-feeffd6-dirty/spdx-sbom.json",
+          "sha256": "38d1c53606ae43968a92ce86fb2c1fcf2df558c3d6019e37946b316b9063f3d0"
+        }
+      ]
+    },
+    {
+      "id": "a2965f34-594a-4852-971a-860d8d48b79f",
+      "arch": "x86_64",
+      "variant": "aws-dev",
+      "minor": null,
+      "previous_job": "e7ef3694-f19d-4581-ae2e-dc0560e1be00",
+      "consumer_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+      "tracked_changes": "",
+      "ami": "ami-0c02c2542fbebcb46",
+      "snapshots": [
+        "snap-06f58f0179b61fede",
+        "snap-0ee220f31e048c0f2"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+        "tracked_changes": "",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "180aad41f20765ffd247fd5d6c549f7634aee718062b3e05e44fa7982a7f701e",
+        "sources": {
+          "member": {
+            "revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+            "tracked_changes": ""
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "a2965f34-594a-4852-971a-860d8d48b79f"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T22:00:46Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "bash",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "5.3.20",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T22:00:46Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://www.gnu.org/software/bash",
+          "Summary": "The GNU Bourne Again shell"
+        },
+        {
+          "Name": "strace",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T22:00:46Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://strace.io/",
+          "Summary": "Linux syscall tracer"
+        },
+        {
+          "Name": "aws-otel-collector",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "0.50.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T22:00:46Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "x86_64",
+          "Url": "https://github.com/aws-observability/aws-otel-collector",
+          "Summary": "AWS Distro for OpenTelemetry Collector"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/.no-kmod-kit",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/.no-migrations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/application-inventory.json",
+          "sha256": "5eb18142fc04cdc28f6c6ca866553ec5b93eddef9cf6814e65ef27f5d34b9088"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/artifact-metadata.json",
+          "sha256": "b35ad69aa447a2b8a1068c051a6660710a6c093711c24464e7320ba73281093a"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-x86_64-1.66.0-symphony.12-a77a7b3-boot.ext4.lz4",
+          "sha256": "e35468a29f6840e8cd128e46932268c9a6cae1c147c5931ee61f0f4aa3c262a3"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-x86_64-1.66.0-symphony.12-a77a7b3-data.img.lz4",
+          "sha256": "b475d3ec2dd8856ab3e94e83b12e252cbe00ba6960ace53634f0c461d837a5b1"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-x86_64-1.66.0-symphony.12-a77a7b3-root.ext4.lz4",
+          "sha256": "3f43317949850f1c3e02c822b9a1aedb7427a4eed68786d1d560049ad38e70ed"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-x86_64-1.66.0-symphony.12-a77a7b3-root.verity.lz4",
+          "sha256": "23fb2598cf0e3d5e3f9786adf62a3075c6bd1e1bebf301cd27c61f989bdaae89"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-x86_64-1.66.0-symphony.12-a77a7b3.img.lz4",
+          "sha256": "16de29c792d48c6d8fe14d1c47e828ee48341f08134d7e342c6d74078ce59967"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/cyclonedx-sbom.json",
+          "sha256": "4da8adfb9227e568549fef0c90fd70a7799e4056b05a657d91e058a3d1d1b2bb"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/pcr-predictions.json",
+          "sha256": "e4757976a19edf22e6f139be69be4da9059d883bd1bdbb028eed5db5de12414f"
+        },
+        {
+          "path": "build/symphony/a2965f34-594a-4852-971a-860d8d48b79f/images/x86_64-aws-dev/1.66.0-symphony.12-a77a7b3/spdx-sbom.json",
+          "sha256": "801e3da12a0e50672b3fe273d9c3a5f3d6434f42789172e7e141ae86e559e1bf"
+        }
+      ]
+    },
+    {
+      "id": "f969e12b-f7f6-493a-9f84-a50f03a4401d",
+      "arch": "aarch64",
+      "variant": "aws-dev",
+      "minor": null,
+      "previous_job": "ad9a3fec-93b4-4d42-b010-dca4900839ea",
+      "consumer_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+      "tracked_changes": "",
+      "ami": "ami-0656f3efe14fca276",
+      "snapshots": [
+        "snap-02391a9be5e76b1b9",
+        "snap-0d52fc4bdf63788fa"
+      ],
+      "source_snapshot": {
+        "tracked_file_count": 1685,
+        "source_revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+        "tracked_changes": "",
+        "lock_sha256": "a1bb83b0a1e180a767274ad837c65e1098d473c661d01ebe232c3d754887ef9d",
+        "all_other_tracked_files_match_commit": true
+      },
+      "provenance": {
+        "input_sha256": "1e1f96981f43524cf25fd4503dbc44bccf159025747253d196d023163d328bfc",
+        "sources": {
+          "member": {
+            "revision": "a77a7b3d7c83b9624c11b71d256d99ed1a48a40b",
+            "tracked_changes": ""
+          }
+        },
+        "dependencies": [
+          {
+            "kit": "bottlerocket-core-kit",
+            "vendor": "local",
+            "version": "17.0.1-symphony.12.build-6b1b4690",
+            "index_digest": "sha256:f683502260a1a3862671b94a9655fabcc10cef5437a9ddfc1b51d8cb7fcbc9fd"
+          }
+        ],
+        "request_id": "f969e12b-f7f6-493a-9f84-a50f03a4401d"
+      },
+      "inventory": [
+        {
+          "Name": "iproute",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T22:01:11Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://kernel.org/pub/linux/utils/net/iproute2/",
+          "Summary": "Tools for advanced IP routing and network device configuration"
+        },
+        {
+          "Name": "bash",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "5.3.20",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T22:01:11Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://www.gnu.org/software/bash",
+          "Summary": "The GNU Bourne Again shell"
+        },
+        {
+          "Name": "strace",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "7.2",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "0",
+          "InstalledTime": "2026-10-06T22:01:11Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://strace.io/",
+          "Summary": "Linux syscall tracer"
+        },
+        {
+          "Name": "aws-otel-collector",
+          "Publisher": "bottlerocket-core-kit",
+          "Version": "0.50.0",
+          "Release": "1.1791317700.6b1b4690.br1",
+          "Epoch": "1",
+          "InstalledTime": "2026-10-06T22:01:11Z",
+          "ApplicationType": "Unspecified",
+          "Architecture": "aarch64",
+          "Url": "https://github.com/aws-observability/aws-otel-collector",
+          "Summary": "AWS Distro for OpenTelemetry Collector"
+        }
+      ],
+      "image_artifacts": [
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/.no-kmod-kit",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/.no-migrations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/application-inventory.json",
+          "sha256": "bbef06b6950c2db06ee82b6fe4b1c67a8d09c061ecbeb3d5a9091dffc714f89c"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/artifact-metadata.json",
+          "sha256": "7d6d06e29e867ead44ced4c8ab6290ee46764c3fa8c8cfe018ce473a4f0bd73e"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-aarch64-1.66.0-symphony.12-a77a7b3-boot.ext4.lz4",
+          "sha256": "1cd5bfdad2a62bfd9f182e3af340826263966859bf4563909a74cec53e169718"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-aarch64-1.66.0-symphony.12-a77a7b3-data.img.lz4",
+          "sha256": "934026f461851eb33f63494d94547326f14a854e5fff3e904914a8e08e86a1b1"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-aarch64-1.66.0-symphony.12-a77a7b3-root.ext4.lz4",
+          "sha256": "89b1153d03b9ff1bea46a727d44d9341422467e079c756981aef2e368a7cdefc"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-aarch64-1.66.0-symphony.12-a77a7b3-root.verity.lz4",
+          "sha256": "d2a82bd27552f4b38af21bdfa3bdd1b52873ad348cd71cc739d0082420f24f3c"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/bottlerocket-aws-dev-aarch64-1.66.0-symphony.12-a77a7b3.img.lz4",
+          "sha256": "039a6176517c7b2549dbe1b6b2203944b44c9aa21fdb24a3b51d8804ffa6bbbd"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/cyclonedx-sbom.json",
+          "sha256": "1c01e011e91a07747990e374da2a4933f253eb963aea9faf3666ea85898b981a"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/pcr-predictions.json",
+          "sha256": "231fab55e6b75eb828b905712ae3774fd888c5397cde8c4f9e371c8e9f14f68a"
+        },
+        {
+          "path": "build/symphony/f969e12b-f7f6-493a-9f84-a50f03a4401d/images/aarch64-aws-dev/1.66.0-symphony.12-a77a7b3/spdx-sbom.json",
+          "sha256": "2fbf25644401379364d1cb9d0a6b63c00307fdedeb71b3a8a2628d3ef69542ba"
+        }
+      ]
+    }
+  ],
+  "ami_cleanup": {
+    "status": "passed",
+    "at": "2026-10-06T22:30:56.611869+00:00",
+    "ami_count": 12,
+    "snapshot_count": 24,
+    "resources": [
+      {
+        "ami": "ami-0991367f5e08caa15",
+        "snapshots": [
+          "snap-090ebedbaadaff900",
+          "snap-0355dc43e08ad98d1"
+        ],
+        "job": "8e6f2cad-3b65-493e-a201-424ef7a2eb61"
+      },
+      {
+        "ami": "ami-028318613bb4966d9",
+        "snapshots": [
+          "snap-0dc046ac390223df9",
+          "snap-0e6420e438c4b895c"
+        ],
+        "job": "3c3bbd82-c3a1-43e1-8ff3-eb75f68412d4"
+      },
+      {
+        "ami": "ami-035807f0cc56ee04a",
+        "snapshots": [
+          "snap-08bd9fe346d65013e",
+          "snap-05e38d57e338b89ba"
+        ],
+        "job": "98026b74-7047-4ffc-a20c-e5938bf393b0"
+      },
+      {
+        "ami": "ami-0096662fab20969dd",
+        "snapshots": [
+          "snap-0d7c40eacbb4b9212",
+          "snap-05decc3489d0705e1"
+        ],
+        "job": "961d1c52-1cc4-486a-83fb-56b7c16e2e1b"
+      },
+      {
+        "ami": "ami-0bbe65ed7a437a642",
+        "snapshots": [
+          "snap-029626a823832b2e3",
+          "snap-03360e7a39559cd75"
+        ],
+        "job": "25346be6-8229-4021-8188-0f1b3afabcb2"
+      },
+      {
+        "ami": "ami-0f86e9f23d1c62c94",
+        "snapshots": [
+          "snap-06f247e47bf006a93",
+          "snap-049342b8eae367324"
+        ],
+        "job": "627ce449-3e24-4247-9c83-e9c16c8d9e70"
+      },
+      {
+        "ami": "ami-03dc400b61af37df2",
+        "snapshots": [
+          "snap-0ccc7adaf618b82c6",
+          "snap-05f6f477d30bb9ca2"
+        ],
+        "job": "026a5c66-f5a7-479d-a505-53e6c6b97b1c"
+      },
+      {
+        "ami": "ami-0b5591f38aaeec3f6",
+        "snapshots": [
+          "snap-0a6bb19748f2c9576",
+          "snap-04a0e833c080d4336"
+        ],
+        "job": "8e1d8b41-da17-4742-89bb-f66dbbc9989a"
+      },
+      {
+        "ami": "ami-0a9b8086dffcdd169",
+        "snapshots": [
+          "snap-0298295a020a2120e",
+          "snap-02ee06053065c61da"
+        ],
+        "job": "41ae0e09-24ea-4dcc-b51e-2c89ed469fa0"
+      },
+      {
+        "ami": "ami-030a9dea9f48a120e",
+        "snapshots": [
+          "snap-0320039e436362f32",
+          "snap-0ca714357e48536fe"
+        ],
+        "job": "23c919a6-e402-4768-81a7-9645751efccd"
+      },
+      {
+        "ami": "ami-0c02c2542fbebcb46",
+        "snapshots": [
+          "snap-06f58f0179b61fede",
+          "snap-0ee220f31e048c0f2"
+        ],
+        "job": "a2965f34-594a-4852-971a-860d8d48b79f"
+      },
+      {
+        "ami": "ami-0656f3efe14fca276",
+        "snapshots": [
+          "snap-02391a9be5e76b1b9",
+          "snap-0d52fc4bdf63788fa"
+        ],
+        "job": "f969e12b-f7f6-493a-9f84-a50f03a4401d"
+      }
+    ]
+  },
+  "registry_cleanup": {
+    "brdev": {
+      "helper_sha256": "43d28a3bf6422a91957c2a07114e9b3269c41b1176f02551fd89169b92f7f34b",
+      "manifest": "/home/fedora/Repositories/bottlerocket-forest/crates/brdev/Cargo.toml",
+      "revision": "3e979b92109619605a0bd9a5f518e3673b1a4109",
+      "sha256": "bf96e9b448090a3d92822f864486aa01babb9386990c2624e814ef600bf920ab",
+      "source": "/home/fedora/Repositories/bottlerocket-forest",
+      "version": "brdev 0.1.0"
+    },
+    "endpoint": "localhost:6431",
+    "stage": "/home/fedora/Repositories/symphony/stages/12-package-updates",
+    "state": "removed"
+  },
+  "gate": {
+    "command": "make integ",
+    "status": "passed",
+    "log_sha256": "555da7b25f83ed67051bc020ca3563c98f78f8454bccc0e51193e19738b1208b",
+    "skill_commit": "756ec1c"
+  },
+  "scope": "Ten-package PR; Kubernetes 1.31-1.35 and five utility packages on both architectures.",
+  "limitations": [
+    "Filtered conformance; Serial, Disruptive, Slow, and Garbage-collector categories excluded by the unchanged runner.",
+    "Collector forwarding used loopback OTLP with a temporary plaintext exporter; external TLS not exercised.",
+    "No live Roles Anywhere session or hardware-backed signer."
+  ],
+  "validation_notes": [
+    "Reused the two verified kit archives for the unchanged package tree. All accepted images and runtime runs are fresh.",
+    "Conformance images used the recorded consumer commit plus the exact verified refreshed dependency lock; every other tracked source file was checked against the commit.",
+    "Initial aws-dev inventories lacked the collector. The test variant was corrected and only the two utility images were rebuilt.",
+    "The existing final review was not repeated. Combined-kit/RPM checks remain the disclosed substitute for individual package build jobs."
+  ],
+  "consumer_restored": {
+    "status": "passed",
+    "at": "2026-10-06T22:16:53.413668+00:00",
+    "head": "d1942f157bdc19edcba3a42c67a40070253d4fe4",
+    "restored_from": "2c7614b2fedb7dcb3126c2718e08d1bc4f647292",
+    "files": [
+      "Twoliter.toml",
+      "Release.toml",
+      "Twoliter.lock",
+      "variants/aws-dev/Cargo.toml"
+    ]
+  },
+  "evidence_archive": {
+    "path": "/home/fedora/Repositories/symphony/.symphony/evidence/issue12-pr-rerun-2026-10-06/issue12-fresh-tests-b6459175b2b1.tar.gz",
+    "sha256": "b6459175b2b17062490860b396c539e0929a03ae1a5ed5b883f062543a74852a",
+    "size": 1553178,
+    "file_count": 268,
+    "url": "http://127.0.0.1:3100/attachments/27368a13-912f-4ecd-a0f0-7a3fc88b82ac"
+  },
+  "validated_package_tree": "198a971ecdc0eb5d3d3c8a417d792fc2a8b7db21"
+}

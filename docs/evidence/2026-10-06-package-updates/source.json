@@ -1,0 +1,379 @@
+{
+  "recorded_at": "2026-10-06T07:52:36.456396+00:00",
+  "member": "core-kit",
+  "baseline_revision": "209347ba321f023c242f48cb1afc590e5f9793bb",
+  "tested_revision": "ac8104fadeba8e18ecd4d266314a2e66e3876368",
+  "source_diff_sha256": "808e9250d717c85f87912e5ad9e5749bcb0da4b4d352611e86db28177da8261b",
+  "changed_files": [
+    "M\tpackages/aws-otel-collector/Cargo.toml",
+    "M\tpackages/aws-otel-collector/aws-otel-collector.spec",
+    "M\tpackages/aws-signing-helper/Cargo.toml",
+    "M\tpackages/aws-signing-helper/aws-signing-helper.spec",
+    "M\tpackages/bash/Cargo.toml",
+    "M\tpackages/bash/bash.spec",
+    "M\tpackages/iproute/Cargo.toml",
+    "M\tpackages/iproute/iproute.spec",
+    "M\tpackages/kubernetes-1.31/Cargo.toml",
+    "M\tpackages/kubernetes-1.31/kubernetes-1.31.spec",
+    "M\tpackages/kubernetes-1.32/Cargo.toml",
+    "M\tpackages/kubernetes-1.32/kubernetes-1.32.spec",
+    "M\tpackages/kubernetes-1.33/Cargo.toml",
+    "M\tpackages/kubernetes-1.33/kubernetes-1.33.spec",
+    "D\tpackages/kubernetes-1.34/0001-apiserver-drop-unused-go-proxyproto-require.patch",
+    "M\tpackages/kubernetes-1.34/Cargo.toml",
+    "M\tpackages/kubernetes-1.34/kubernetes-1.34.spec",
+    "M\tpackages/kubernetes-1.35/Cargo.toml",
+    "M\tpackages/kubernetes-1.35/kubernetes-1.35.spec",
+    "M\tpackages/kubernetes-1.36/Cargo.toml",
+    "M\tpackages/kubernetes-1.36/kubernetes-1.36.spec",
+    "M\tpackages/kubernetes-1.37/Cargo.toml",
+    "M\tpackages/kubernetes-1.37/kubernetes-1.37.spec",
+    "M\tpackages/selinux-policy/subject.cil",
+    "M\tpackages/strace/Cargo.toml",
+    "M\tpackages/strace/strace.spec"
+  ],
+  "commits": [
+    {
+      "revision": "617bbb8f736c676c98918bcfbc322989e5ad9b0b",
+      "subject": "packages: update kubernetes-1.31 to 50"
+    },
+    {
+      "revision": "03fece2789ed80f2392ff03fe20fa8ca8ec24ed5",
+      "subject": "packages: update kubernetes-1.32 to 43"
+    },
+    {
+      "revision": "465f55e14d13595b956c4e1ea46a552045165f98",
+      "subject": "packages: update kubernetes-1.33 to 33"
+    },
+    {
+      "revision": "1c3ee9214e47d457be9786670667612f2c0c82c2",
+      "subject": "packages: update kubernetes-1.34 to 24"
+    },
+    {
+      "revision": "5b6f0935fff260852584be6a0248422020cb4128",
+      "subject": "packages: update kubernetes-1.35 to 15"
+    },
+    {
+      "revision": "4bb38c1c0f7da12b894c95be0b3564ccd66dc669",
+      "subject": "packages: update kubernetes-1.36 to 9"
+    },
+    {
+      "revision": "e546d57b2165f661ae1d0e518e6e7dcaf1757664",
+      "subject": "packages: update kubernetes-1.37 to 3"
+    },
+    {
+      "revision": "f22a2a5eb44626e43f114c58efb5fb248f293cdf",
+      "subject": "packages: update aws-signing-helper to 1.8.5"
+    },
+    {
+      "revision": "858b5e96f45adfb453dbc7e66601a954e7f4c5c9",
+      "subject": "packages: update aws-otel-collector to 0.50.0"
+    },
+    {
+      "revision": "1f22c5f09a37a1e358a574e994167cd639587c2b",
+      "subject": "packages: update iproute to 7.2.0"
+    },
+    {
+      "revision": "b5e3f06efb1bcbaea5f404aa1906811553e368fd",
+      "subject": "packages: update strace to 7.2"
+    },
+    {
+      "revision": "3506190320f67ffcc8f4e62bf5b5d7be3b50a9af",
+      "subject": "packages: update bash to 5.3.20"
+    },
+    {
+      "revision": "931a92b742c61823b60f6880d444c129be467278",
+      "subject": "packages: allow upstream fallback for updated sources"
+    },
+    {
+      "revision": "133b225f2ba81a4e4cdd035e65f60628493d66cf",
+      "subject": "selinux-policy: support the legacy container type"
+    },
+    {
+      "revision": "ac8104fadeba8e18ecd4d266314a2e66e3876368",
+      "subject": "bash: fetch new patches from the GNU kernel.org mirror"
+    }
+  ],
+  "packages": [
+    {
+      "package": "aws-signing-helper",
+      "file": "packages/aws-signing-helper/aws-signing-helper.spec",
+      "baseline": {
+        "package_version": "1.8.4",
+        "eks_d_release": null,
+        "spec_sha256": "d3cca9b0cfe19983c87d3ec4ee39e9f9ddf3d4df5e6c5dae4a871da21db67b2a",
+        "version_line": 11,
+        "go_versions": [
+          "1.26"
+        ]
+      },
+      "updated": {
+        "package_version": "1.8.5",
+        "eks_d_release": null,
+        "spec_sha256": "0e4acbba83d1a75b61042b903938fe13d9bb104b2e568e22ef8f948dad1ad33f",
+        "version_line": 11,
+        "go_versions": [
+          "1.26"
+        ]
+      }
+    },
+    {
+      "package": "aws-otel-collector",
+      "file": "packages/aws-otel-collector/aws-otel-collector.spec",
+      "baseline": {
+        "package_version": "0.49.0",
+        "eks_d_release": null,
+        "spec_sha256": "4f5f2a46860cb471c8cd963f13011e4e78664a5a59a1f4f367348502d81b02cf",
+        "version_line": 6,
+        "go_versions": [
+          "1.26"
+        ]
+      },
+      "updated": {
+        "package_version": "0.50.0",
+        "eks_d_release": null,
+        "spec_sha256": "3ef077387895a2af64f406a45a7a5667751f5766921066ad930e8e19c8778c5f",
+        "version_line": 6,
+        "go_versions": [
+          "1.26"
+        ]
+      }
+    },
+    {
+      "package": "kubernetes-1.31",
+      "file": "packages/kubernetes-1.31/kubernetes-1.31.spec",
+      "baseline": {
+        "package_version": "1.31.14",
+        "eks_d_release": "48",
+        "spec_sha256": "b0b49ce6b84f9c7fb83cf549ce5702c426fffe1a9adfb9ac888306371dacc2cf",
+        "version_line": 35,
+        "go_versions": []
+      },
+      "updated": {
+        "package_version": "1.31.14",
+        "eks_d_release": "50",
+        "spec_sha256": "f5d46781267debb34541ef33a0428e7a03870571f3c37ada36fdc9fb17e5d555",
+        "version_line": 35,
+        "go_versions": []
+      }
+    },
+    {
+      "package": "kubernetes-1.32",
+      "file": "packages/kubernetes-1.32/kubernetes-1.32.spec",
+      "baseline": {
+        "package_version": "1.32.13",
+        "eks_d_release": "41",
+        "spec_sha256": "f275b87f1a78e2ac707427973380554dc0bc18159f2eca401de420d080ee3276",
+        "version_line": 35,
+        "go_versions": []
+      },
+      "updated": {
+        "package_version": "1.32.13",
+        "eks_d_release": "43",
+        "spec_sha256": "c47cf221963f8a7550fa04016d10d92303d04986f255044f984085220ea9fb3d",
+        "version_line": 35,
+        "go_versions": []
+      }
+    },
+    {
+      "package": "kubernetes-1.33",
+      "file": "packages/kubernetes-1.33/kubernetes-1.33.spec",
+      "baseline": {
+        "package_version": "1.33.13",
+        "eks_d_release": "31",
+        "spec_sha256": "eeb06498795a1142e0b3da350104105d2b5f17311f706aec3cc1301c118cf845",
+        "version_line": 35,
+        "go_versions": []
+      },
+      "updated": {
+        "package_version": "1.33.13",
+        "eks_d_release": "33",
+        "spec_sha256": "f366455051ea49461aaecd1e6c1a42af6997fc593fa63f7d0791d2e635db9fb0",
+        "version_line": 35,
+        "go_versions": []
+      }
+    },
+    {
+      "package": "kubernetes-1.34",
+      "file": "packages/kubernetes-1.34/kubernetes-1.34.spec",
+      "baseline": {
+        "package_version": "1.34.9",
+        "eks_d_release": "21",
+        "spec_sha256": "34f69bd8671d0c10ad3014cbfcb2ecb789420d151518822f54fe5070d2acb319",
+        "version_line": 35,
+        "go_versions": []
+      },
+      "updated": {
+        "package_version": "1.34.11",
+        "eks_d_release": "24",
+        "spec_sha256": "be81b4901815a057095e2c4b29d70be40646b84e45f118ce1e7878d3edb216ba",
+        "version_line": 35,
+        "go_versions": [
+          "1.26"
+        ]
+      }
+    },
+    {
+      "package": "kubernetes-1.35",
+      "file": "packages/kubernetes-1.35/kubernetes-1.35.spec",
+      "baseline": {
+        "package_version": "1.35.6",
+        "eks_d_release": "13",
+        "spec_sha256": "f20506cdf93086743762f18196c681bfcb66bbd889ce85c36543bf941b913d7b",
+        "version_line": 35,
+        "go_versions": []
+      },
+      "updated": {
+        "package_version": "1.35.8",
+        "eks_d_release": "15",
+        "spec_sha256": "566a2b0071cdf46e7a5dce96d42d2f4c71e40a66e8bbe44cfe754e6f543f25ef",
+        "version_line": 35,
+        "go_versions": [
+          "1.26"
+        ]
+      }
+    },
+    {
+      "package": "kubernetes-1.36",
+      "file": "packages/kubernetes-1.36/kubernetes-1.36.spec",
+      "baseline": {
+        "package_version": "1.36.2",
+        "eks_d_release": "7",
+        "spec_sha256": "284524c9c28be3ccae4e152e238b35495a6f608498b767399aa4d198b7fd6e8c",
+        "version_line": 35,
+        "go_versions": [
+          "1.26"
+        ]
+      },
+      "updated": {
+        "package_version": "1.36.4",
+        "eks_d_release": "9",
+        "spec_sha256": "96b1c8918f8011801f8f9d9b70901365b0a8ae448189b2817aec5444dab77d2d",
+        "version_line": 35,
+        "go_versions": [
+          "1.26"
+        ]
+      }
+    },
+    {
+      "package": "kubernetes-1.37",
+      "file": "packages/kubernetes-1.37/kubernetes-1.37.spec",
+      "baseline": {
+        "package_version": "1.37.0",
+        "eks_d_release": "2",
+        "spec_sha256": "6a82cf8f64171acde1a34f1e3d43fe0ee89069e330101ab5b16f75d1a5949cf4",
+        "version_line": 35,
+        "go_versions": [
+          "1.26"
+        ]
+      },
+      "updated": {
+        "package_version": "1.37.0",
+        "eks_d_release": "3",
+        "spec_sha256": "c5d03407a6d9cf0000b71b49d1e9f94a9765badd49f7028e2d3cb576371d0c6b",
+        "version_line": 35,
+        "go_versions": [
+          "1.26"
+        ]
+      }
+    },
+    {
+      "package": "bash",
+      "file": "packages/bash/bash.spec",
+      "baseline": {
+        "package_version": "5.3.15",
+        "eks_d_release": null,
+        "spec_sha256": "31fb2c27b6eb98977370546f3740505c9bcb7dd045cb81173a70695525b4101b",
+        "version_line": 5,
+        "go_versions": []
+      },
+      "updated": {
+        "package_version": "5.3.20",
+        "eks_d_release": null,
+        "spec_sha256": "30a70da2c2f9001ba9c2672b9631539f45ddcebb945229178939f7f9ffbdc86c",
+        "version_line": 5,
+        "go_versions": []
+      }
+    },
+    {
+      "package": "iproute",
+      "file": "packages/iproute/iproute.spec",
+      "baseline": {
+        "package_version": "7.1.0",
+        "eks_d_release": null,
+        "spec_sha256": "fe630c899bb1e8158901b4939619e5e528d9a760d8099021a229d2659a68b48e",
+        "version_line": 2,
+        "go_versions": []
+      },
+      "updated": {
+        "package_version": "7.2.0",
+        "eks_d_release": null,
+        "spec_sha256": "4d1f4a2768d71d73049b3e8e666bfb589bd63a44bc778f67cdcd76dd6034a0b5",
+        "version_line": 2,
+        "go_versions": []
+      }
+    },
+    {
+      "package": "strace",
+      "file": "packages/strace/strace.spec",
+      "baseline": {
+        "package_version": "7.1",
+        "eks_d_release": null,
+        "spec_sha256": "eb9c3fe7542fc92af9813f70a9f6dc7c43348d477cf1a1422ff841caea8cd10f",
+        "version_line": 2,
+        "go_versions": []
+      },
+      "updated": {
+        "package_version": "7.2",
+        "eks_d_release": null,
+        "spec_sha256": "71835a9e823b8ec7e0f03b151117cbdd20ac26fa41ee319e6846d65626c89532",
+        "version_line": 2,
+        "go_versions": []
+      }
+    }
+  ],
+  "validation_state": "Historical validation of ac8104fa passed. Source-fetch cleanup at 6c01657e883c66c5d22d1dd8ba8cc18d66cd8372 requires final-source build validation; SELinux scope decision pending.",
+  "deviations_to_explain": [
+    "Bash repository baseline was 5.3.15; added patches 016 through 020 to reach requested 5.3.20",
+    "aws-signing-helper linker version symbol moved from main.Version to cmd.Version",
+    "Kubernetes build Go selections/order aligned with updated upstream generation requirements; obsolete 1.34 proxyproto patch removed",
+    "Transient consumer uses issue-scoped release and local multi-architecture kit; aws-dev includes collector for runtime checks; restore before final package PR",
+    "Conformance pins exact test releases and preverified binaries while preserving skill filters; not full certification",
+    "Collector forwarding test used temporary plaintext loopback exporter overlay; restored packaged service configuration afterward",
+    "Confined legacy SELinux type alias svirt_lxc_net_t to container_t required by Kubernetes 1.36/1.37 ImageVolume conformance; compiled policy comparison verified no permission changes.",
+    "Corrected kit/images and all runtime/conformance cells repeated after SELinux fix; original source results remain historical.",
+    "Collector runtime result parser accepts strictly recognized gRPC log preamble; existing successful x86 SSM command reconciled without replay.",
+    "The 18 force-upstream entries and five Bash mirror URLs were temporary harness/network workarounds. Removed/restored in 6c01657e883c66c5d22d1dd8ba8cc18d66cd8372; all source pins unchanged and five retained Bash patch SHA512 values reverified.",
+    "The planned 24 per-package build cells were not an accepted matrix: six compilation passes lacked exported RPMs and 18 remained requested in its retained record. Two combined kit builds plus offline inspection of all 12 packages on both architectures substituted for it because the worker scanned build/packages rather than build/rpms.",
+    "Standalone aws-dev runtime overlapped conformance instead of being serialized afterward. Recorded parallel authorization covered conformance only; this scheduling deviation is disclosed, not retroactively authorized. Cleanup passed.",
+    "Collector and Ginkgo success-summary parsers were fitted to observed outputs after initial rejection, then used on the same saved successful outputs. Independent checks and negative cases support acceptance; no live command or suite was replayed.",
+    "The SELinux alias is pending explicit human scope approval or separation into another issue. Static baseline reasoning supports pre-existing incompatibility; no unchanged-baseline live run was performed."
+  ],
+  "changed_file_sha256": {
+    "packages/aws-otel-collector/Cargo.toml": "040cb1a497de4ee7a9a4cee8b1260b6fcc0de79b6bcdf40b3e8eae5609a50241",
+    "packages/aws-otel-collector/aws-otel-collector.spec": "3ef077387895a2af64f406a45a7a5667751f5766921066ad930e8e19c8778c5f",
+    "packages/aws-signing-helper/Cargo.toml": "dcd9e081333ed26683fc1d8baf9d22aeb682f84104223a7aaf82f8fe7db37ee7",
+    "packages/aws-signing-helper/aws-signing-helper.spec": "0e4acbba83d1a75b61042b903938fe13d9bb104b2e568e22ef8f948dad1ad33f",
+    "packages/bash/Cargo.toml": "abd850e1363856c18c0fc7b012eef8b733c7a48558910e37df70678fceb64761",
+    "packages/bash/bash.spec": "30a70da2c2f9001ba9c2672b9631539f45ddcebb945229178939f7f9ffbdc86c",
+    "packages/iproute/Cargo.toml": "f834e198afbdd18382d1017da87fbcc5abf8f67f028b8a5e701672365510a8e8",
+    "packages/iproute/iproute.spec": "4d1f4a2768d71d73049b3e8e666bfb589bd63a44bc778f67cdcd76dd6034a0b5",
+    "packages/kubernetes-1.31/Cargo.toml": "9a15601dc48686835628590cfec709219956e027ad66b0fb7726f782bb3624af",
+    "packages/kubernetes-1.31/kubernetes-1.31.spec": "f5d46781267debb34541ef33a0428e7a03870571f3c37ada36fdc9fb17e5d555",
+    "packages/kubernetes-1.32/Cargo.toml": "f4beb3636dcdbb87c3155307576d76263c1995a4e523c39126f31c01b0145754",
+    "packages/kubernetes-1.32/kubernetes-1.32.spec": "c47cf221963f8a7550fa04016d10d92303d04986f255044f984085220ea9fb3d",
+    "packages/kubernetes-1.33/Cargo.toml": "f0c7cfcbbf2f0e4a88e695f3d010a09f3920907367767a63e200f574b939e920",
+    "packages/kubernetes-1.33/kubernetes-1.33.spec": "f366455051ea49461aaecd1e6c1a42af6997fc593fa63f7d0791d2e635db9fb0",
+    "packages/kubernetes-1.34/Cargo.toml": "dc87374635c073719d12860b9e54852ef5370f4c7122454df887455f0f7c596e",
+    "packages/kubernetes-1.34/kubernetes-1.34.spec": "be81b4901815a057095e2c4b29d70be40646b84e45f118ce1e7878d3edb216ba",
+    "packages/kubernetes-1.35/Cargo.toml": "9d026662a83622b4b21a1b6a9645e5979b133ed0db4febd71bd04749bd7600d3",
+    "packages/kubernetes-1.35/kubernetes-1.35.spec": "566a2b0071cdf46e7a5dce96d42d2f4c71e40a66e8bbe44cfe754e6f543f25ef",
+    "packages/kubernetes-1.36/Cargo.toml": "c226d23f4543efbd8f07be43c2d93f6604b5cfa96eafd17af8c9f73180f1582f",
+    "packages/kubernetes-1.36/kubernetes-1.36.spec": "96b1c8918f8011801f8f9d9b70901365b0a8ae448189b2817aec5444dab77d2d",
+    "packages/kubernetes-1.37/Cargo.toml": "288529c8aae55e6c6f712e31d08124f351ef0794a5c43f21f6f1f09618bf3223",
+    "packages/kubernetes-1.37/kubernetes-1.37.spec": "c5d03407a6d9cf0000b71b49d1e9f94a9765badd49f7028e2d3cb576371d0c6b",
+    "packages/selinux-policy/subject.cil": "aad303eaf93d465dc0211039007fccd4dca7581cddbbb462ebaa4b1eb3ff1933",
+    "packages/strace/Cargo.toml": "902a09346930f058f8e9a97109119220555d092b7e2b50732247cbacdd9b8b43",
+    "packages/strace/strace.spec": "71835a9e823b8ec7e0f03b151117cbdd20ac26fa41ee319e6846d65626c89532"
+  }
+}

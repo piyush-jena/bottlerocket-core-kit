@@ -1,0 +1,182 @@
+{
+  "at": "2026-10-06T08:54:00.356158+00:00",
+  "status": "superseded_by_ten_package_handoff",
+  "current_package_source_revision": "6c01657e883c66c5d22d1dd8ba8cc18d66cd8372",
+  "prior_tested_revision": "ac8104fadeba8e18ecd4d266314a2e66e3876368",
+  "findings": {
+    "1": {
+      "status": "resolved_by_human_exclusion",
+      "baseline_reasoning": {
+        "at": "2026-10-06T08:51:57.137029+00:00",
+        "baseline_core_revision": "209347ba321f023c242f48cb1afc590e5f9793bb",
+        "original_updated_core_revision": "931a92b742c61823b60f6880d444c129be467278",
+        "baseline_and_original_updated_policy_directory_identical": true,
+        "subject_cil_sha256": "35f8111aef57fcdddd520555ad9fe544abf97074107cb6c45b4e343373e0ec65",
+        "test_sources": [
+          {
+            "minor": "1.36",
+            "file": "bottlerocket/.symphony/conformance-2026-10-06/image-volume-investigation-2026-10-06/1.36-image_volume.go",
+            "sha256": "6b22a1329599fdc2f8079da3c2d4e8d33d36cbca4f4c1f53c864328f6fe865c9",
+            "legacy_type_line": 48,
+            "conformance_release_line": 91
+          },
+          {
+            "minor": "1.37",
+            "file": "bottlerocket/.symphony/conformance-2026-10-06/image-volume-investigation-2026-10-06/1.37-image_volume.go",
+            "sha256": "6b22a1329599fdc2f8079da3c2d4e8d33d36cbca4f4c1f53c864328f6fe865c9",
+            "legacy_type_line": 48,
+            "conformance_release_line": 91
+          }
+        ],
+        "inference": "The legacy type is absent from the unchanged baseline policy, and the conformance test hardcodes it. The Release v1.36 declaration explains why the earlier-minor suites did not exercise this context. This supports a pre-existing policy/test incompatibility, rather than a policy regression introduced by the twelve package bumps.",
+        "limitation": "No unchanged-baseline live run with identical test inputs was performed. Static policy/source evidence is an inference, not a baseline runtime pass.",
+        "decision_pending": "Human scope decision required by final review before retaining this alias in the package PR or moving it to a separate issue."
+      },
+      "proposed_retained_patch": "133b225f2ba81a4e4cdd035e65f60628493d66cf; five-line legacy alias to confined container_t; no new allow rules",
+      "resolution": "Human excluded SELinux and Kubernetes 1.36/1.37; all three directories restored to baseline."
+    },
+    "2": {
+      "status": "source_fixed_final_builds_passed",
+      "removed_overrides": 18,
+      "harness_defect": {
+        "at": "2026-10-06T08:53:35.956627+00:00",
+        "status": "reported_not_modified",
+        "core_revision": "6c01657e883c66c5d22d1dd8ba8cc18d66cd8372",
+        "twoliter_revision": "ffc66e2ed01e3f4ce460b646ce73bee4b8d698e8",
+        "harness_revision": "a596ec77aa1f8f4fd2c80c8a39a7577cca5616df",
+        "files": {
+          "core_makefile": {
+            "path": "/home/fedora/Repositories/symphony/stages/12-package-updates/kits/bottlerocket-core-kit/Makefile",
+            "sha256": "8506a685c8218dee75879859167f13d8740c8154e9e2f0c506186000a0e74d5a"
+          },
+          "conductor_wrapper": {
+            "path": "/home/fedora/Repositories/symphony/sources/symphony-build/src/local-twoliter.sh",
+            "sha256": "a7b91f93237580ae0a2664979dd4f9b02df8807e7d932cef09059f4a54e0d4e6"
+          },
+          "conductor_request": {
+            "path": "/home/fedora/Repositories/symphony/sources/symphony-build/src/request.rs",
+            "sha256": "b4b804df2339485dbba459ef2c88617b90c14ee8d3fc82c0bfd30277ed9f0c00"
+          },
+          "cache": {
+            "path": "/home/fedora/Repositories/symphony/stages/12-package-updates/twoliter/tools/buildsys/src/cache.rs",
+            "sha256": "0c265cb69956611caf7cf4000aa656d51beb97571d80a72c0db467250613133e"
+          }
+        },
+        "finding": "Core-kit Makefile:43-48 supplies --upstream-source-fallback by default; local-twoliter.sh:96 invokes build kit without it; BuildRequest has no fallback or make-entrypoint selection. cache.rs:95 uses the explicit flag or per-file override.",
+        "operator_action": "Make the tracked kit executor honor the normal make build fallback behavior or expose its explicit flag; do not require permanent force-upstream entries in package metadata.",
+        "scope": "Static dispatch/request mismatch verified. No new access denial or final-source build failure claimed; build validation pending. No Symphony files edited."
+      },
+      "resolution": "Both final kits passed normal make build with the existing opt-in upstream fallback, supplied in the conductor plan."
+    },
+    "3": {
+      "status": "source_fixed_checksums_passed",
+      "checks": {
+        "at": "2026-10-06T08:51:35.622099+00:00",
+        "previous_revision": "26ff10d35f721fc9c216e87d18f14fd144280f78",
+        "removed_force_upstream_entries": 18,
+        "changed_files": [
+          "packages/aws-otel-collector/Cargo.toml",
+          "packages/aws-signing-helper/Cargo.toml",
+          "packages/bash/Cargo.toml",
+          "packages/iproute/Cargo.toml",
+          "packages/kubernetes-1.31/Cargo.toml",
+          "packages/kubernetes-1.32/Cargo.toml",
+          "packages/kubernetes-1.33/Cargo.toml",
+          "packages/kubernetes-1.34/Cargo.toml",
+          "packages/kubernetes-1.35/Cargo.toml",
+          "packages/kubernetes-1.36/Cargo.toml",
+          "packages/kubernetes-1.37/Cargo.toml",
+          "packages/strace/Cargo.toml"
+        ],
+        "all_external_sha512_pins_unchanged": true,
+        "bash_retained_sources_verified": [
+          {
+            "file": "kits/bottlerocket-core-kit/.symphony/implementation-2026-10-05/downloads/bash/bash53-016",
+            "sha512": "e18aed683aca1af8a92f955a0ad32a23ee22f982e1bec9ea4c078a8523b30e4848fd9dc4d863cb14d1fce25bf9fdbde2473d9c0686e8be25be113cb5a36cb462",
+            "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-016"
+          },
+          {
+            "file": "kits/bottlerocket-core-kit/.symphony/implementation-2026-10-05/downloads/bash/bash53-017",
+            "sha512": "608245b580267e33ffa3ed02de7173a07594a9831e3b6a505bc6fa68570e3839663bad39552744ec61421179b000dc2584f48cbadb232fc2c1427871c899a1ad",
+            "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-017"
+          },
+          {
+            "file": "kits/bottlerocket-core-kit/.symphony/implementation-2026-10-05/downloads/bash/bash53-018",
+            "sha512": "5a15dfb3dafddea9a62ef5d552660d425d0658a8254adabeed5c993264b6ac59f670e6a47e6847ef6598d60e553e834a08e09dfca3734ae119dcd7d36dca97d1",
+            "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-018"
+          },
+          {
+            "file": "kits/bottlerocket-core-kit/.symphony/implementation-2026-10-05/downloads/bash/bash53-019",
+            "sha512": "fecb787bf5b0c6589d5c891c8df205e39a83330e36dcb685a01ff1e117074db5288b22e7dfd3d4e9096267cc80decefd16d6837e4dd99bae26fdf3b6f9814c7c",
+            "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-019"
+          },
+          {
+            "file": "kits/bottlerocket-core-kit/.symphony/implementation-2026-10-05/downloads/bash/bash53-020",
+            "sha512": "64e34979fb20cab2e6b38bcd9ec470cb917de3ef2d53db7c96c71fb5245083e37d9c65a6c2935164da2b6dc97116e4210366b8253bdd7a201f618770a44135ab",
+            "url": "https://ftp.gnu.org/gnu/bash/bash-5.3-patches/bash53-020"
+          }
+        ],
+        "validation_pending": "Final source builds through make build / upstream fallback; retained source hashes do not replace a build result."
+      }
+    },
+    "4": {
+      "status": "disclosed",
+      "planned_package_cells": 24,
+      "recorded_compilation_passes_without_rpms": 6,
+      "recorded_requested_cells": 18,
+      "substitution": "Two combined kit builds plus verified offline payload inspection for all 12 packages on both architectures.",
+      "exporter_evidence": "kits/bottlerocket-core-kit/.symphony/package-matrix-2026-10-05/rpm-export-observation.json"
+    },
+    "5": {
+      "status": "passed",
+      "receipt": {
+        "started_at": "2026-10-06T08:51:42.829921+00:00",
+        "finished_at": "2026-10-06T08:53:18.938654+00:00",
+        "command": [
+          "make",
+          "-C",
+          "/home/fedora/Repositories/symphony",
+          "integ"
+        ],
+        "environment_overrides": {},
+        "exit_code": 0,
+        "harness_head": "a596ec77aa1f8f4fd2c80c8a39a7577cca5616df",
+        "harness_tracked_diff_sha256_before": "5d305f6c833099fd1da29364768acce75519e9ac3031c7efd598465e765bf5f9",
+        "harness_tracked_diff_sha256_after": "5d305f6c833099fd1da29364768acce75519e9ac3031c7efd598465e765bf5f9",
+        "harness_tracked_sources_unchanged": true,
+        "log_sha256": "fd8f10756d8c5664787da1dbf0c00948229cd17cda50cfcfb1826d2ef91b7af9"
+      },
+      "log": "kits/bottlerocket-core-kit/.symphony/review-response-2026-10-06/make-integ.log"
+    },
+    "6": {
+      "status": "disclosed",
+      "deviation": "Standalone aws-dev launches overlapped conformance; the conformance parallelism authorization did not expressly cover this scheduling change."
+    },
+    "7": {
+      "status": "disclosed",
+      "deviation": "Collector and Ginkgo summary parsers were fitted to rejected saved output before accepting it. No test or command replay; independent positive and negative checks retained."
+    }
+  },
+  "adversarial_review": "Single final review already consumed; do not request another.",
+  "current_metadata_sha256": {
+    "packages/aws-otel-collector/Cargo.toml": "1089cc013a089b7b98023a05cedb62eaf38f0884c76eaef2d39cd6242ac47230",
+    "packages/aws-signing-helper/Cargo.toml": "c0f93adce9cd8bec68328d3b4f56bb9cedcc019a19da0cd0a3f0992bea0603b5",
+    "packages/bash/Cargo.toml": "eab069aa30fca15a241ab2a48163bb969887d5f10c33b01c3905807edfe1652a",
+    "packages/iproute/Cargo.toml": "62a7a469cc6d0c0c4613f3f00f9370cac97aa7206343a5a3d1d2a2276f095867",
+    "packages/kubernetes-1.31/Cargo.toml": "392ba31b902ad619af27ee32a4b8104b6145dab313051f89bde1431e8d8f525b",
+    "packages/kubernetes-1.32/Cargo.toml": "1b02bebac3953bd740bcd0077b2c683b5f8630e0bdb20e475dea68b6c76a5dc0",
+    "packages/kubernetes-1.33/Cargo.toml": "30ebddfbebf0bb77d4c0de50bf74086d55e7984c8b9840b069efbc8b40dab510",
+    "packages/kubernetes-1.34/Cargo.toml": "c882bbad1c5e554423218ba8a130ad52f57f179a2ecd9e7fc18beb956299a831",
+    "packages/kubernetes-1.35/Cargo.toml": "ccebbeb621e6d26cdceda923c50c5e2aa8e8686fc01255e354be6045f2fb855b",
+    "packages/kubernetes-1.36/Cargo.toml": "eb67ec2344dedd902667ab7ec32d062789348036d8c492a9efb2a5c9b53c598b",
+    "packages/kubernetes-1.37/Cargo.toml": "473297a45e7a963baabb9a82eed935a0312092b224c687769fc11f82b21ba9bf",
+    "packages/strace/Cargo.toml": "1b2d667c64b2aa173a6764b720748600df72fb7bd66ffab15368982e5eba5520"
+  },
+  "resolved_by": "package-pr.json",
+  "remaining_at_review_response": [
+    "Human decision on SELinux scope before any PR",
+    "Tracked final-source build validation using normal core-kit fallback behavior",
+    "Affected artifact/live checks after final source decision"
+  ],
+  "remaining_review_findings_for_ten_package_pr": []
+}

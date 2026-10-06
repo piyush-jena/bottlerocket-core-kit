@@ -1,0 +1,467 @@
+{
+  "status": "passed",
+  "cloud_artifacts": {
+    "status": "passed",
+    "at": "2026-10-06T08:32:49.222768+00:00",
+    "deregistered_amis": [
+      "ami-0098526edf6a9b0ae",
+      "ami-01c3d4ea1eee6c64c",
+      "ami-02317c67c20288a2a",
+      "ami-028cec707d0083e36",
+      "ami-031647fa2963a363a",
+      "ami-031b919910d3e62bf",
+      "ami-038998e6b55a2ded4",
+      "ami-038f0c15d9c6b6cb5",
+      "ami-03d11256639118b86",
+      "ami-0455cf7fcfee0aca6",
+      "ami-059839fe740066aa2",
+      "ami-06519356b0c1da088",
+      "ami-065f65447942272da",
+      "ami-07b583068dd0de47f",
+      "ami-0846dcac1c0dd7b15",
+      "ami-089ab72317611d116",
+      "ami-09640e0de59104442",
+      "ami-0a461812922fcf068",
+      "ami-0aa733fbdc5deb12d",
+      "ami-0b647128b834ecb90",
+      "ami-0b6f31848861e4cb1",
+      "ami-0b75c0af6305976ec",
+      "ami-0bea5cd06e1233d8b",
+      "ami-0bec3d6a951384845",
+      "ami-0bf7225ea951d5d2c",
+      "ami-0daa14df6e41a1ae6",
+      "ami-0dd2ba289521c2fc6",
+      "ami-0dd4eb5c89fc3a689",
+      "ami-0ea0876a0c6808922",
+      "ami-0edc05cec74c875f7",
+      "ami-0fcdd5fb38674859d",
+      "ami-0fceb35931cc4791c"
+    ],
+    "deleted_snapshots": [
+      "snap-0068e3598b8352d3b",
+      "snap-006db72b3e96be051",
+      "snap-00ac6f1c6c9ac775b",
+      "snap-01045dee8d00854bc",
+      "snap-01156ee7603449454",
+      "snap-01cd1dca9546be854",
+      "snap-020ab74a70a58b82d",
+      "snap-020cf324a34eb6c7c",
+      "snap-0249f58a986ed40a1",
+      "snap-027262c58d6ae5a96",
+      "snap-02ad7f953a503950f",
+      "snap-02b647116103c515d",
+      "snap-02dbbb57a53458b01",
+      "snap-03085f63a51930d19",
+      "snap-031da3cec0122b893",
+      "snap-0367ae27357885a56",
+      "snap-03c57926886927277",
+      "snap-03e4a9aa27fa351b4",
+      "snap-03efb8d46880f4acb",
+      "snap-0409543202b2a2747",
+      "snap-042ffa21dad4f4e43",
+      "snap-043106b86b87726e7",
+      "snap-0461008b48c5a4239",
+      "snap-049c11be2037c0cd8",
+      "snap-04ab9f9eee2b0ccdf",
+      "snap-04e7160c5026e4368",
+      "snap-05429ea1dd0964127",
+      "snap-05703fd91ef7d1998",
+      "snap-061b46a9dd949d7af",
+      "snap-063ad766ea2a615af",
+      "snap-067f373ae7394ca38",
+      "snap-0688e26e30b46d39d",
+      "snap-06c2d2b66ef211a97",
+      "snap-0748dbc4d3927e9f1",
+      "snap-07e63d4e92a61f0af",
+      "snap-07fe7b3dbf349df03",
+      "snap-085a05e0d5e2781e8",
+      "snap-08d075f0ba1dbcc28",
+      "snap-09125fbb79031cd40",
+      "snap-098c41c6df68e5dd2",
+      "snap-09a37a63743b700dd",
+      "snap-0a20fd86625788bcf",
+      "snap-0a4f85719b6fb4c2a",
+      "snap-0a5fe293ef62940ed",
+      "snap-0b4070f6272e190cb",
+      "snap-0b47d4d8f7c150709",
+      "snap-0b762908d7eb60706",
+      "snap-0ba2396a92af958ff",
+      "snap-0ba39e71abad161ab",
+      "snap-0ba57aaf792825bbf",
+      "snap-0bcb37fa520b33b92",
+      "snap-0c00bf14f31b59488",
+      "snap-0c2812667b84c48fa",
+      "snap-0c9601ed0915dac43",
+      "snap-0cbf87d869416aa6e",
+      "snap-0d3b6ba8327caf6d0",
+      "snap-0d438f02fa50e9e27",
+      "snap-0dbe6a158b22a4540",
+      "snap-0dd2d3e272f13bbf4",
+      "snap-0ec2a4283c52532f7",
+      "snap-0edaf8aac70c63c31",
+      "snap-0edc06a39f224469a",
+      "snap-0f25ede655dc4a166",
+      "snap-0f5b652307bcb3af8"
+    ],
+    "retained": "Verified local image/kit archives and validation evidence",
+    "remaining": "None; registry removal and consumer restoration verified below."
+  },
+  "registry_request_id": "31090cee-09ef-826c-aa9e-d80c8bf8af26",
+  "registry": {
+    "brdev": {
+      "helper_sha256": "43d28a3bf6422a91957c2a07114e9b3269c41b1176f02551fd89169b92f7f34b",
+      "manifest": "/home/fedora/Repositories/bottlerocket-forest/crates/brdev/Cargo.toml",
+      "revision": "3e979b92109619605a0bd9a5f518e3673b1a4109",
+      "sha256": "bf96e9b448090a3d92822f864486aa01babb9386990c2624e814ef600bf920ab",
+      "source": "/home/fedora/Repositories/bottlerocket-forest",
+      "version": "brdev 0.1.0"
+    },
+    "endpoint": "localhost:6431",
+    "stage": "/home/fedora/Repositories/symphony/stages/12-package-updates",
+    "state": "removed"
+  },
+  "consumer_restoration": {
+    "at": "2026-10-06T08:31:33.804436+00:00",
+    "status": "passed",
+    "tested_consumer_revision": "4a3a643456536696b5adcdf2c663f07ac4f5a774",
+    "baseline_revision": "1ad6b4a40390696d772e9821bb331d25846d4cad",
+    "files": [
+      {
+        "path": "Release.toml",
+        "baseline_sha256": "f2f26ba6e56d085c68fd0aeb22c80037aa4c6b13885ae8417931831a21aad315",
+        "tested_consumer_sha256": "d789418ce5a11194c8049f859d87f551d9ad154cb7d72c2b22919298b54bf299",
+        "verified_backup": "bottlerocket/.symphony/image-inputs-2026-10-06/baseline/Release.toml"
+      },
+      {
+        "path": "Twoliter.toml",
+        "baseline_sha256": "b8470f6aaa34fd0a7aa73a34fc4986508d4d46c6b835b8b5117a858666d9e038",
+        "tested_consumer_sha256": "11a7e7fff2e632aca3edbce64ac9e70a7a25f26f7ea158967c6336faac192383",
+        "verified_backup": "bottlerocket/.symphony/image-inputs-2026-10-06/baseline/Twoliter.toml"
+      },
+      {
+        "path": "Twoliter.lock",
+        "baseline_sha256": "26d4236ada055208a3bd09bbbd357e70857ec7b8e5732e6d85c5d4561ccf6046",
+        "tested_consumer_sha256": "3d49d28e04d969386c7859409e2978e96819dab80e5451741343ec69412d523e",
+        "verified_backup": "bottlerocket/.symphony/image-inputs-2026-10-06/baseline/Twoliter.lock"
+      },
+      {
+        "path": "variants/aws-dev/Cargo.toml",
+        "baseline_sha256": "5ea7139ac9340274caee44bf5dc9ebd92a5467626cef2d777b46c28f3b2ebafd",
+        "tested_consumer_sha256": "a219c7149a1a57b51ef5130b452dbb87e041668df345d008a22ce8b394fd0be0",
+        "verified_backup": "bottlerocket/.symphony/image-inputs-2026-10-06/baseline/variants/aws-dev/Cargo.toml"
+      }
+    ],
+    "validation": "All 14 corrected runs accepted before restoring all four files byte-for-byte to baseline; no package or tested artifacts changed.",
+    "restoration_commit": "2c7614b2fedb7dcb3126c2718e08d1bc4f647292",
+    "verified_at": "2026-10-06T08:31:37.475137+00:00",
+    "net_consumer_diff": "empty against original baseline"
+  },
+  "standalone_instances_and_volumes": {
+    "status": "passed",
+    "at": "2026-10-06T07:49:13.986688+00:00",
+    "instance_ids": [
+      "i-0ac185f4516422aad",
+      "i-0a871d499b7a05b88"
+    ],
+    "terminated": true,
+    "deleted_volume_ids": [
+      "vol-0a9a10380ce261214",
+      "vol-00956026d3a0a581f",
+      "vol-00e2ceddef7bf6f28",
+      "vol-0277f263530d92d28"
+    ],
+    "network_stack": "arn:aws:cloudformation:us-east-2:533267423195:stack/symphony-12-runtime/2ed46e80-c159-11f1-a292-06ffd7e24887",
+    "network": "Deletion independently verified",
+    "retained": "Private AMIs and snapshots pending final campaign cleanup"
+  },
+  "standalone_network": {
+    "observed_at": "2026-10-06T07:49:13.976008+00:00",
+    "status": "passed",
+    "checks": [
+      {
+        "label": "stack",
+        "argv": [
+          "aws",
+          "cloudformation",
+          "describe-stacks",
+          "--stack-name",
+          "arn:aws:cloudformation:us-east-2:533267423195:stack/symphony-12-runtime/2ed46e80-c159-11f1-a292-06ffd7e24887",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "label": "stack-resources",
+        "argv": [
+          "aws",
+          "cloudformation",
+          "list-stack-resources",
+          "--stack-name",
+          "arn:aws:cloudformation:us-east-2:533267423195:stack/symphony-12-runtime/2ed46e80-c159-11f1-a292-06ffd7e24887",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "label": "vpc",
+        "argv": [
+          "aws",
+          "ec2",
+          "describe-vpcs",
+          "--vpc-ids",
+          "vpc-07ab403bfaf8ba28e",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 254
+      },
+      {
+        "label": "profile",
+        "argv": [
+          "aws",
+          "iam",
+          "get-instance-profile",
+          "--instance-profile-name",
+          "symphony-12-runtime-InstanceProfile-Rbcb9LH347L9",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 254
+      },
+      {
+        "label": "role",
+        "argv": [
+          "aws",
+          "iam",
+          "get-role",
+          "--role-name",
+          "symphony-12-runtime-Role-lFQUgHC0wpV1",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 254
+      },
+      {
+        "label": "gateway",
+        "argv": [
+          "aws",
+          "ec2",
+          "describe-internet-gateways",
+          "--internet-gateway-ids",
+          "igw-035f800ccc3c975ba",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 254
+      },
+      {
+        "label": "interfaces",
+        "argv": [
+          "aws",
+          "ec2",
+          "describe-network-interfaces",
+          "--filters",
+          "Name=vpc-id,Values=vpc-07ab403bfaf8ba28e",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "label": "subnets",
+        "argv": [
+          "aws",
+          "ec2",
+          "describe-subnets",
+          "--filters",
+          "Name=vpc-id,Values=vpc-07ab403bfaf8ba28e",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "label": "security-groups",
+        "argv": [
+          "aws",
+          "ec2",
+          "describe-security-groups",
+          "--filters",
+          "Name=vpc-id,Values=vpc-07ab403bfaf8ba28e",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 0
+      },
+      {
+        "label": "routes",
+        "argv": [
+          "aws",
+          "ec2",
+          "describe-route-tables",
+          "--filters",
+          "Name=vpc-id,Values=vpc-07ab403bfaf8ba28e",
+          "--region",
+          "us-east-2",
+          "--output",
+          "json"
+        ],
+        "passed": true,
+        "exit_code": 0
+      }
+    ],
+    "retained": "Private AMIs and snapshots for final acceptance/review; registry retained for image provenance"
+  },
+  "corrected_conformance": {
+    "accepted_runs": 14,
+    "tested_instances": 210,
+    "cleaned_instances_including_startup_replacements": 217,
+    "cleaned_volumes": 434,
+    "details": "conformance.json contains every instance/volume ID and acceptance receipt hash."
+  },
+  "original_campaign": {
+    "at": "2026-10-06T06:25:41.510507+00:00",
+    "status": "completed_with_four_test_failures",
+    "source_revision": "931a92b742c61823b60f6880d444c129be467278",
+    "consumer_revision": "d316047d79d21aa12b3f93c8114e203de1cbb384",
+    "suite_passes": 10,
+    "suite_failures": 4,
+    "cleanup_passes": 14,
+    "observer_stopped_pid": 3061794,
+    "runs": [
+      {
+        "run_id": "symphony-12-131-x86-02",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 362,
+        "evidence": "bottlerocket/.symphony/conformance-2026-10-06/1.31-x86_64-attempt2/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-132-x86-01",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 372,
+        "evidence": "bottlerocket/.symphony/conformance-2026-10-06/1.32-x86_64-attempt1/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-133-x86-02",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 380,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.33-x86_64-attempt2/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-134-x86-01",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 385,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.34-x86_64-attempt1/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-135-x86-01",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 402,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.35-x86_64-attempt1/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-136-x86-01",
+        "suite": "failed",
+        "cleanup": "passed",
+        "selected_passed": 406,
+        "selected_failed": 1,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.36-x86_64-attempt1/suite-failure-verification.json"
+      },
+      {
+        "run_id": "symphony-12-137-x86-01",
+        "suite": "failed",
+        "cleanup": "passed",
+        "selected_passed": 422,
+        "selected_failed": 1,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.37-x86_64-attempt1/suite-failure-verification.json"
+      },
+      {
+        "run_id": "symphony-12-131-arm-01",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 362,
+        "evidence": "bottlerocket/.symphony/conformance-2026-10-06/1.31-aarch64-attempt1/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-132-arm-01",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 372,
+        "evidence": "bottlerocket/.symphony/conformance-2026-10-06/1.32-aarch64-attempt1/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-133-arm-01",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 380,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.33-aarch64-attempt1/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-134-arm-01",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 385,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.34-aarch64-attempt1/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-135-arm-01",
+        "suite": "passed",
+        "cleanup": "passed",
+        "selected_passed": 402,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.35-aarch64-attempt1/acceptance.json"
+      },
+      {
+        "run_id": "symphony-12-136-arm-01",
+        "suite": "failed",
+        "cleanup": "passed",
+        "selected_passed": 406,
+        "selected_failed": 1,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.36-aarch64-attempt1/suite-failure-verification.json"
+      },
+      {
+        "run_id": "symphony-12-137-arm-01",
+        "suite": "failed",
+        "cleanup": "passed",
+        "selected_passed": 422,
+        "selected_failed": 1,
+        "evidence": "/home/fedora/Repositories/symphony/stages/12-package-updates/bottlerocket/.symphony/conformance-2026-10-06/1.37-aarch64-attempt1/suite-failure-verification.json"
+      }
+    ],
+    "retained": "16 private AMIs and 32 snapshots plus original published kit retained as reference evidence until corrected validation finishes."
+  },
+  "retained": "Local verified kit/image archives, test binaries and raw evidence under the issue stage."
+}

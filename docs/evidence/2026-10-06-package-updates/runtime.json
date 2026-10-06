@@ -1,0 +1,116 @@
+{
+  "at": "2026-10-06T07:48:17.501026+00:00",
+  "status": "passed",
+  "scope": "Five package behavior targets on each of two architectures: signing helper, Bash, iproute, strace, aws-otel-collector",
+  "core_revision": "ac8104fadeba8e18ecd4d266314a2e66e3876368",
+  "consumer_revision": "4a3a643456536696b5adcdf2c663f07ac4f5a774",
+  "standalone_runtime": [
+    {
+      "arch": "x86_64",
+      "instance_id": "i-0ac185f4516422aad",
+      "ami": "ami-0dd4eb5c89fc3a689",
+      "commands": {
+        "bash": "f0b5d9a9-69eb-465f-a59c-1cb874a71313",
+        "iproute": "bd31e717-cfaa-4b4f-81bf-da41b457a0bc",
+        "strace-version": "8303f6cf-c51b-492f-9ec4-d9e19217faea",
+        "strace-ls": "daf78f9c-c6d7-42af-a127-3721dfcd7ef9",
+        "collector": "b3f6570b-3909-4bb1-b99e-37d46e9fa64b"
+      },
+      "live_binary_hashes": {
+        "/usr/bin/aws-otel-collector": "574724e2858006b037dfed3a316814b8ce33790e9ca63deeca0622d919e32d77",
+        "/usr/bin/bash": "b301a7f4de5f05eae019b38c786a8e2a5e2466bb06faa431de16af3b50886590",
+        "/usr/bin/strace": "1c8a5085cc6144f4fe99fb6fffc23b16bee22f9d9fa5d043ad2dfa0228e7c233",
+        "/usr/sbin/ip": "aca339556aaa0223385b2e3593cf3359deea2acb0b863e4f0077a047a73a606c"
+      },
+      "verification": "bottlerocket/.symphony/runtime-corrected-2026-10-06/x86-runtime-verification.json"
+    },
+    {
+      "arch": "aarch64",
+      "instance_id": "i-0a871d499b7a05b88",
+      "ami": "ami-031b919910d3e62bf",
+      "commands": {
+        "bash": "5d5794a1-22b2-46f1-98a6-277beaf73fdc",
+        "iproute": "c0764c70-6d79-43cc-b6e5-07e410eae1f5",
+        "strace-version": "d88ec1f6-c60b-4443-aa3c-95f86ba75a84",
+        "strace-ls": "374ba104-9ad8-4d29-b408-92276b1adc4a",
+        "collector": "97414fc6-d188-4652-8d6f-fc5e33923ddb"
+      },
+      "live_binary_hashes": {
+        "/usr/bin/aws-otel-collector": "908b7255f2d1b8c3c7dbec648fae7769f44702fe834bbbb0999c322595935513",
+        "/usr/bin/bash": "2107d9037e5edc6933314f2dab5a1ab31e30527a4eb75d07e9fcae48efdeb705",
+        "/usr/bin/strace": "7ea6647cdabc05724487460b714f16821f85daa97f5ea9848d62e68e51b35209",
+        "/usr/sbin/ip": "b556984d7ae70a012adcdeb5ad64ac32c8f773e8a8bf90831097e55d151d5354"
+      },
+      "verification": "bottlerocket/.symphony/runtime-corrected-2026-10-06/arm-runtime-verification.json"
+    }
+  ],
+  "signing_helper": [
+    {
+      "status": "passed",
+      "observed_at": "2026-10-06T07:40:39.400531+00:00",
+      "arch": "x86_64",
+      "instance_id": "i-001c8338c23e34039",
+      "ami_id": "ami-0b75c0af6305976ec",
+      "core_kit_revision": "ac8104fadeba8e18ecd4d266314a2e66e3876368",
+      "consumer_revision": "4a3a643456536696b5adcdf2c663f07ac4f5a774",
+      "version": "1.8.5",
+      "binary_sha256": "52cd1c639841d9db1e559f7666e0afe48b0cdd87b14a2ae5a10ff5d44d67f9ec",
+      "fixture_sha256": "30eb60fa7638960aa4de5b41fcc53d57192e58036c1e840a319dde518688b020",
+      "commands": {
+        "admin-before": "2dd7bbe6-5e72-457d-9cdc-b9b707dfc4f8",
+        "fixture": "e9c6dec4-728e-46f7-a755-b19f51d43eb0"
+      },
+      "passed": [
+        "RSA2048 and ECDSA P256 independent signature verification and tamper rejection",
+        "Both version aliases and installed links",
+        "Invalid credential-process rejects missing credentials",
+        "Both brush aliases require credential-process and block --debug while permitting credential-process execution"
+      ],
+      "cleanup": "Disposable files removed; admin was already enabled and remains unchanged",
+      "limitations": [
+        "No live Roles Anywhere session",
+        "No hardware-backed signer"
+      ]
+    },
+    {
+      "status": "passed",
+      "observed_at": "2026-10-06T07:36:52.646373+00:00",
+      "arch": "aarch64",
+      "instance_id": "i-01b338113a1ffe964",
+      "ami_id": "ami-028cec707d0083e36",
+      "core_kit_revision": "ac8104fadeba8e18ecd4d266314a2e66e3876368",
+      "consumer_revision": "4a3a643456536696b5adcdf2c663f07ac4f5a774",
+      "version": "1.8.5",
+      "binary_sha256": "66b16302c67cae1ed1917aa1de573f482ed3f3397938c72382bd09451168db83",
+      "fixture_sha256": "30eb60fa7638960aa4de5b41fcc53d57192e58036c1e840a319dde518688b020",
+      "commands": {
+        "admin-before": "e7615e42-c587-4374-bb62-b1c2386d35b4",
+        "fixture": "a291ab5a-cdc1-4723-8eef-8b8c82879216"
+      },
+      "passed": [
+        "RSA2048 and ECDSA P256 independent signature verification and tamper rejection",
+        "Both version aliases and installed links",
+        "Invalid credential-process rejects missing credentials",
+        "Both brush aliases require credential-process and block --debug while permitting credential-process execution"
+      ],
+      "cleanup": "Disposable files removed; admin was already enabled and remains unchanged",
+      "limitations": [
+        "No live Roles Anywhere session",
+        "No hardware-backed signer"
+      ]
+    }
+  ],
+  "evidence_sha256": {
+    "bottlerocket/.symphony/helper-runtime-corrected-2026-10-06/verification.json": "ec875c28e436ca681c4205110d30d16bfb4788a3aa3e438e66aadd3cadc3bae6",
+    "bottlerocket/.symphony/runtime-corrected-2026-10-06/x86-runtime-verification.json": "60cc67d325b200540ceaa4496b0d6c9c49ac2178d8055d42f07a2b9289701ed1",
+    "bottlerocket/.symphony/runtime-corrected-2026-10-06/x86_64/payload-hashes/verification.json": "385b9cc68cc2a9340e0f11a966b1d6b662cd3051589fdd66d7c0f04021fbd8da",
+    "bottlerocket/.symphony/runtime-corrected-2026-10-06/arm-runtime-verification.json": "5b2eef96362cab0ca195ddb18b2a1dd33134cf145ed90c136cf90a5c00097fc1",
+    "bottlerocket/.symphony/runtime-corrected-2026-10-06/aarch64/payload-hashes/verification.json": "8893505c035067d265cbcb3e8c20c17c24df3318e057c68a88f2f2dfda306126"
+  },
+  "limitations": [
+    "Collector forwarding uses loopback OTLP with temporary plaintext exporter override; external TLS is not covered.",
+    "Signing helper uses disposable local keys; no live Roles Anywhere session or hardware signer."
+  ],
+  "cleanup": "Completed; see cleanup.json.",
+  "conformance": "All 14 corrected runs accepted; see conformance.json."
+}

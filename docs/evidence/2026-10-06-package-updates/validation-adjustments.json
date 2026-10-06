@@ -1,0 +1,44 @@
+{
+  "as_of": "2026-10-06T08:30:14.858361+00:00",
+  "product_source_changed": false,
+  "adjustments": [
+    {
+      "change": "Remaining conformance runs launched in parallel after applied quotas and conservative capacity bounds were verified.",
+      "authorization": "bottlerocket/.symphony/conformance-2026-10-06/parallel-authorization.json",
+      "evidence": "bottlerocket/.symphony/conformance-2026-10-06/quota-observation-2026-10-06-0523/admission-verification.json"
+    },
+    {
+      "change": "Read-only bounded exact-15 node and ASG stabilization before original identity checks on x86 1.33 retry and all 1.34-1.37 runs; capture historical instances/volumes for cleanup.",
+      "reason": "Original x86 1.33 pre-test caught 20 registered nodes during ASG AZ rebalancing after capacity shortage; no suite ran.",
+      "evidence": "bottlerocket/.symphony/conformance-2026-10-06/recovery-2026-10-06-node-rebalancing"
+    },
+    {
+      "change": "ARM 1.33 automatic cleanup required three EKS deletion attempts; tests unchanged.",
+      "evidence": "bottlerocket/.symphony/conformance-2026-10-06/1.33-aarch64-attempt1/lead-observation/deletion-retry.json"
+    },
+    {
+      "change": "Corrected x86 1.36 startup recovered through native ASG retries after m5.xlarge capacity shortage; no instance-type or test-filter changes.",
+      "evidence": "bottlerocket/.symphony/conformance-corrected-2026-10-06/observation-batch9/verification.json"
+    },
+    {
+      "change": "Collector report parser now accepts only known gRPC preamble lines before one complete JSON document; x86 successful SSM evidence reconciled without replay.",
+      "evidence": "bottlerocket/.symphony/runtime-corrected-2026-10-06/x86-parser-recovery.json"
+    },
+    {
+      "change": "Cleanup verification resolves EIP allocation IDs through exact recorded NAT gateways, VPC and stack ownership. AWS recycled a released public IP into a later test cluster; both allocations retained in evidence. No cloud mutations or test reruns.",
+      "evidence": "bottlerocket/.symphony/conformance-corrected-2026-10-06/recovery-eip-identity/verification.json"
+    },
+    {
+      "change": "Acceptance separates exactly 15 tested nodes from complete historical cleanup inventory; 1.32 ARM replaced seven instances during stabilization and correctly cleaned 22 instances/44 volumes. All history now ownership-checked and hashed.",
+      "evidence": "bottlerocket/.symphony/conformance-corrected-2026-10-06/recovery-historical-node-coverage/verification.json",
+      "validation": "11 saved successful runs checked; seven invalid ownership or coverage cases rejected; no conformance reruns or product source changes."
+    },
+    {
+      "change": "Suite success parser validates the optional Flaked count against selected passing JUnit cases and per-test retry records, enforcing the existing three-attempt limit. ARM 1.35 evidence reconciled after parser rejected its 2 Flaked summary.",
+      "evidence": "bottlerocket/.symphony/conformance-corrected-2026-10-06/recovery-flaked-summary/verification.json",
+      "validation": "All 14 saved summaries accepted and eight invalid summaries rejected; no test replay, source or filter changes."
+    }
+  ],
+  "acceptance_unchanged": "All 14 filtered conformance cells passed with both architectures, 15 verified nodes, unchanged filters/parallel15/flake3, source/artifact identity and independent cleanup.",
+  "source_revision": "ac8104fadeba8e18ecd4d266314a2e66e3876368"
+}
