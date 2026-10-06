@@ -1,0 +1,89 @@
+[
+  {
+    "command": [
+      "systemd-analyze",
+      "verify",
+      "--man=no",
+      "/tmp/symphony14-uki-wrg7vyso/proc-sys-fs-binfmt_misc.mount"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "expected_exit": 0
+  },
+  {
+    "command": [
+      "systemd-analyze",
+      "condition",
+      "--unit=proc-sys-fs-binfmt_misc.mount"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "expected_exit": 0
+  },
+  {
+    "command": [
+      "systemd-analyze",
+      "verify",
+      "--man=no",
+      "/tmp/symphony14-uki-wrg7vyso/proc-sys-fs-binfmt_misc.mount"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "expected_exit": 0
+  },
+  {
+    "command": [
+      "systemd-analyze",
+      "condition",
+      "--unit=proc-sys-fs-binfmt_misc.mount"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "proc-sys-fs-binfmt_misc.mount: ConditionPathExists=!/ failed.\nConditions failed.\n",
+    "expected_exit": 1
+  },
+  {
+    "command": [
+      "rpmspec",
+      "-q",
+      "--define",
+      "_cross_os bottlerocket-",
+      "--qf",
+      "%{NAME}\n[%{REQUIRENAME}\n][conflict: %{CONFLICTNAME}\n]\n",
+      "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/packages/release/release.spec"
+    ],
+    "exit_code": 0,
+    "stdout": "bottlerocket-release\n(bottlerocket-release-fips if bottlerocket-image-feature(fips))\n(bottlerocket-release-managed if bottlerocket-image-feature(no-standalone-image))\n(bottlerocket-release-uki if bottlerocket-image-feature(uki-image))\nbottlerocket-audit\nbottlerocket-auditd\nbottlerocket-conntrack-tools\nbottlerocket-containerd\nbottlerocket-coreutils\nbottlerocket-dbus-broker\nbottlerocket-e2fsprogs\nbottlerocket-filesystem\nbottlerocket-findutils\nbottlerocket-glibc\nbottlerocket-grep\nbottlerocket-iproute\nbottlerocket-iptables\nbottlerocket-keyutils\nbottlerocket-libgcc\nbottlerocket-libkcapi\nbottlerocket-libstd-rust\nbottlerocket-policycoreutils\nbottlerocket-procps\nbottlerocket-selinux-policy\nbottlerocket-systemd\nbottlerocket-util-linux\nbottlerocket-xfsprogs\n\nbottlerocket-release-managed\n((bottlerocket-release-crypt-luks or bottlerocket-image-feature(ephemeral-encryption-keys)) if bottlerocket-image-feature(encrypted-storage))\n(bottlerocket-bootloader(efi) if (bottlerocket-image-feature(uki-image) or bottlerocket-image-feature(no-uki-image)))\n(bottlerocket-grub or bottlerocket-image-feature(uki-image) or bottlerocket-image-feature(no-uki-image))\n(bottlerocket-image-feature(no-standalone-image) and bottlerocket-release)\n(bottlerocket-rdma-core if bottlerocket-variant-platform(aws))\n(bottlerocket-release-crypt if bottlerocket-image-feature(encrypted-storage))\n(bottlerocket-release-ephemeral-crypt if bottlerocket-image-feature(ephemeral-encryption-keys))\n(bottlerocket-shim or bottlerocket-image-feature(uki-image))\nbottlerocket-chrony\nbottlerocket-early-boot-config\nbottlerocket-ethtool\nbottlerocket-kexec-tools\nbottlerocket-makedumpfile\nbottlerocket-mdadm\nbottlerocket-netdog\nbottlerocket-os\nbottlerocket-pciutils\n\nbottlerocket-release-fips\n(bottlerocket-image-feature(fips) and bottlerocket-release)\nconflict: bottlerocket-image-feature(no-fips)\n\nbottlerocket-release-crypt\n(bottlerocket-image-feature(encrypted-storage) and bottlerocket-release-managed)\nbottlerocket-rottweiler\n\nbottlerocket-release-crypt-luks\n(bottlerocket-image-feature(encrypted-storage) and bottlerocket-release-crypt)\nbottlerocket-rottweiler\nconflict: bottlerocket-image-feature(ephemeral-encryption-keys)\n\nbottlerocket-release-ephemeral-crypt\n(bottlerocket-image-feature(ephemeral-encryption-keys) and bottlerocket-release-crypt)\n\nbottlerocket-release-uki\n(bottlerocket-image-feature(uki-image) and bottlerocket-release)\nconflict: bottlerocket-image-feature(no-uki-image)\n\nbottlerocket-release-swap\nbottlerocket-release\n\n",
+    "stderr": "",
+    "expected_exit": 0
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "expected_exit": 0
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "bottlerocket",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "expected_exit": 0
+  }
+]

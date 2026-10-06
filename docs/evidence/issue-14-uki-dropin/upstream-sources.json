@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/systemd/systemd/v257/units/proc-sys-fs-binfmt_misc.mount",
+    "sha256": "09fb79335f7b604598f70599f36d076b775524647c5c14fee3c1e2103d6bcdec"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/systemd/systemd/v257/src/core/load-fragment-gperf.gperf.in",
+    "sha256": "d380441a0fcce311c42bb6df63e558367c8dc50615f22cc6d555ec024be78927"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/systemd/systemd/v257/src/shared/condition.c",
+    "sha256": "4d52416fa316645d05fc36abfc3b353ee537eabe19962043d1dd9d74e687ba56"
+  }
+]

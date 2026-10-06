@@ -1,0 +1,1669 @@
+make: Entering directory '/home/fedora/Repositories/symphony'
+cargo fmt --all -- --check
+cargo clippy --workspace --all-targets --locked -- -D warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.08s
+cargo test --workspace --locked
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.08s
+     Running unittests src/lib.rs (target/debug/deps/conductor-4a3100cc030d71ff)
+
+running 252 tests
+test approval::tests::a_marker_event_the_conductor_made_is_not_a_grant ... ok
+test approval::tests::a_marker_applied_by_a_non_writer_opens_no_grant ... ok
+test approval::tests::a_hand_applied_implementing_consumes_nothing ... ok
+test approval::tests::a_removal_whose_timestamp_will_not_parse_refuses_rather_than_keeping_the_grant ... ok
+test approval::tests::a_timeline_with_no_marker_event_yields_no_record ... ok
+test approval::tests::a_removal_by_a_non_writer_does_not_close_a_grant ... ok
+test approval::tests::a_second_addition_while_a_grant_is_open_is_a_no_op ... ok
+test approval::tests::an_unrelated_label_event_does_not_consume_a_grant ... ok
+test approval::tests::an_unrelated_label_event_with_no_readable_timestamp_refuses_nothing ... ok
+test approval::tests::granted_and_still_open_authorizes_dispatch ... ok
+test approval::tests::granted_consumed_then_withdrawn_keeps_the_record_and_gains_a_revocation ... ok
+test approval::tests::an_event_with_no_readable_timestamp_is_skipped_rather_than_dated_to_now ... ok
+test approval::tests::re_dispatch_under_one_grant_keeps_the_first_consumption_instant ... ok
+test approval::tests::approved_twice_with_a_revocation_between_leaves_two_records ... ok
+test approval::tests::granted_then_withdrawn_before_consumption_leaves_no_record ... ok
+test approval::tests::an_event_with_no_actor_is_skipped ... ok
+test authority::tests::authority_distinguishes_writers_own_account_unknown_and_missing_actors ... ok
+test approval::tests::the_fold_is_idempotent_over_a_growing_prefix ... ok
+test approval::tests::the_ledgers_own_consumption_survives_a_replay_the_label_write_never_reached ... ok
+test approval::tests::a_timeline_that_no_longer_shows_a_grant_does_not_erase_the_record_of_it ... ok
+test builds::tests::an_identity_is_derived_so_a_replayed_request_is_the_same_build ... ok
+test capture::tests::a_turn_that_tried_docker_is_told_why_rather_than_left_with_an_obscure_failure ... ok
+test capture::tests::a_budget_warning_is_captured_and_an_ordinary_spend_is_not ... ok
+test capture::tests::a_killed_turn_and_a_violated_schema_are_candidates_without_a_stream ... ok
+test capture::tests::a_candidate_names_its_issue_and_points_at_its_evidence ... ok
+test capture::tests::every_candidate_points_inside_the_stage_rather_than_at_the_host ... ok
+test capture::tests::the_fourteen_signals_are_the_ones_the_table_lists ... ok
+test clock::tests::an_instant_in_the_future_has_not_elapsed_yet ... ok
+test builds::tests::a_derived_identity_is_a_well_formed_uuid ... ok
+test builds::tests::missing_rebuild_reasons_use_labeled_turn_context_and_explicit_reasons_win ... ok
+test capture::tests::a_non_zero_command_and_a_sandbox_denial_are_each_one_candidate ... ok
+test commands::tests::there_is_a_definition_for_every_one_of_the_nine_labels ... ok
+test comment::tests::a_comment_a_human_wrote_is_not_ours ... ok
+test comment::tests::a_key_that_would_break_its_own_marker_is_refused ... ok
+test comment::tests::a_marker_with_an_unknown_kind_is_not_a_key ... ok
+test comment::tests::a_marker_round_trips_through_the_body_it_was_written_into ... ok
+test comment::tests::a_build_result_is_keyed_by_the_build_so_a_retry_does_not_post_twice ... ok
+test comment::tests::an_escalation_restates_a_rounds_questions_rather_than_editing_them_away ... ok
+test comment::tests::progress_is_the_only_kind_capped_at_one_forever ... ok
+test comment::tests::rendering_is_stable_so_an_unchanged_comment_is_not_an_edit ... ok
+test comment::tests::an_escalation_is_keyed_by_the_state_it_is_stuck_on ... ok
+test comment::tests::the_kinds_are_the_ones_the_table_lists ... ok
+test comment::tests::two_rounds_of_the_same_kind_are_two_comments ... ok
+test concise::tests::the_limit_counts_characters_and_leaves_short_content_intact ... ok
+test concise::tests::a_shortened_log_does_not_leave_an_open_code_block ... ok
+test coordination::tests::process_worker ... ok
+test fingerprint::tests::a_comment_by_the_conductor_with_no_marker_is_still_ours ... ok
+test fingerprint::tests::a_commit_id_is_published_abbreviated ... ok
+test fingerprint::tests::a_fingerprint_is_stable_and_abbreviated ... ok
+test comment::tests::the_conductors_own_bookkeeping_is_boilerplate_and_a_relay_is_not ... ok
+test fingerprint::tests::a_relayed_comment_counts_even_though_the_conductor_posted_it ... ok
+test fingerprint::tests::our_own_notice_is_not_progress_and_a_human_reply_is ... ok
+test fingerprint::tests::the_canonical_form_names_its_components ... ok
+test fingerprint::tests::an_ignored_comment_does_not_count_as_progress ... ok
+test fingerprint::tests::each_of_the_four_components_moves_the_fingerprint ... ok
+test heal::tests::a_hand_applied_implementing_beside_another_phase_is_still_vetted ... ok
+test fingerprint::tests::the_marker_is_part_of_the_label_set ... ok
+test heal::tests::a_legal_set_is_left_alone ... ok
+test fingerprint::tests::the_order_a_component_was_read_in_does_not_change_it ... ok
+test heal::tests::a_re_arm_is_vetted_and_blocks_again_naming_the_prerequisite_that_is_missing ... ok
+test heal::tests::a_redirect_has_its_own_prerequisite_checked_like_any_other_choice ... ok
+test heal::tests::a_repeated_label_is_one_label ... ok
+test heal::tests::a_redirect_that_lands_on_another_redirect_is_resolved_in_one_pass ... ok
+test heal::tests::a_revoked_approval_blocks_and_the_record_is_not_mentioned_as_missing ... ok
+test heal::tests::a_stage_that_records_a_terminal_phase_is_not_re_armed_into_it ... ok
+test heal::tests::a_terminal_issue_is_sticky_even_when_its_preconditions_are_missing ... ok
+test heal::tests::a_terminal_label_plus_a_phase_leaves_the_terminal_label_alone ... ok
+test heal::tests::a_terminal_label_plus_the_marker_keeps_both ... ok
+test heal::tests::blocked_and_stalled_together_keep_blocked ... ok
+test heal::tests::an_unconsumed_approval_whose_marker_is_gone_is_not_a_revocation ... ok
+test heal::tests::an_illegal_label_pair_heals_to_the_most_advanced_phase_with_an_artifact_behind_it ... ok
+test heal::tests::every_reason_names_itself_and_explains_itself ... ok
+test heal::tests::clearing_a_terminal_label_re_arms_at_the_phase_the_stage_records ... ok
+test heal::tests::implementing_with_a_record_and_the_marker_still_there_is_just_working ... ok
+test heal::tests::implementing_with_no_approval_record_blocks ... ok
+test heal::tests::needs_answer_with_an_open_question_is_a_state ... ok
+test heal::tests::needs_answer_with_no_open_question_restores_the_phase_the_stage_records ... ok
+test heal::tests::in_review_with_nothing_to_review_goes_back_to_implementing ... ok
+test heal::tests::needs_answer_with_nothing_recorded_falls_back_to_the_phase_behind ... ok
+test capture::tests::a_turn_that_failed_two_hundred_commands_contributes_a_bounded_number_of_candidates ... ok
+test heal::tests::no_symphony_label_and_no_stage_is_not_symphonys_issue ... ok
+test heal::tests::no_symphony_label_with_a_stage_on_disk_blocks ... ok
+test heal::tests::the_marker_alone_is_not_a_phase ... ok
+test heal::tests::queued_plus_a_later_phase_loses_the_queue ... ok
+test heal::tests::the_marker_with_no_design_artifact_blocks_and_the_marker_is_never_mentioned ... ok
+test host::tests::a_body_this_build_cannot_read_defers_rather_than_healing_on_a_guess ... ok
+test host::tests::a_branch_that_is_not_a_stage_branch_names_no_issue ... ok
+test heal::tests::with_nothing_backed_the_phase_that_is_behind_wins ... ok
+test heal::tests::the_most_advanced_backed_phase_wins_when_it_is_the_later_one ... ok
+test host::tests::a_reply_carries_the_anchor_to_the_wire_and_keeps_its_key_off_it ... ok
+test host::tests::a_pull_request_branch_names_its_issue ... ok
+test host::tests::an_actor_renders_whether_it_can_write ... ok
+test host::tests::an_unreachable_host_is_never_absent_and_a_404_is_never_unreachable ... ok
+test host::tests::maintenance_only_removes_owned_submission_notices ... ok
+test identity::tests::an_edited_comment_is_a_new_identity ... ok
+test identity::tests::an_identity_renders_all_three_parts ... ok
+test identity::tests::an_issue_comment_and_a_pull_request_comment_with_the_same_id_are_different_identities ... ok
+test identity::tests::the_four_sources_are_spelled_the_way_the_document_spells_them ... ok
+test label_changes::tests::a_comment_failure_prevents_the_label_change ... ok
+test label_changes::tests::a_failed_put_does_not_duplicate_the_explanation_on_retry ... ok
+test label_changes::tests::posting_an_explanation_cannot_restore_withdrawn_approval ... ok
+test label_changes::tests::explanations_require_both_fields_and_count_unicode_characters ... ok
+test label_changes::tests::a_later_transition_gets_its_own_explanation_and_preserves_the_previous_one ... ok
+test ledger::tests::an_unreadable_counter_reads_as_already_at_its_cap ... ok
+test ledger::tests::every_counter_has_a_distinct_name ... ok
+test needs_answer::tests::a_marker_with_no_readable_instant_climbs_the_ladder_rather_than_waiting_for_ever ... ok
+test needs_answer::tests::an_empty_question_set_has_no_recommendation_to_proceed_under ... ok
+test needs_answer::tests::an_expiry_counter_that_cannot_be_read_lands_on_the_second_rung_rather_than_the_first ... ok
+test needs_answer::tests::a_question_with_no_recommendation_stalls_instead_of_assuming_one ... ok
+test needs_answer::tests::nothing_is_due_before_the_first_timeout_and_the_report_says_when_it_will_be ... ok
+test needs_answer::tests::the_first_expiry_escalates_and_the_second_proceeds_under_the_recommendation ... ok
+test notice::tests::a_denied_command_and_a_merge_refusal_are_both_in_the_one_comment_a_human_watches ... ok
+test notice::tests::a_heal_is_written_into_the_progress_comment ... ok
+test notice::tests::a_human_wait_says_who_it_is_waiting_for_and_that_it_will_not_stall ... ok
+test notice::tests::a_spent_budget_is_not_told_to_remove_the_label_and_nothing_else ... ok
+test notice::tests::a_progress_comment_with_nothing_yet_still_renders ... ok
+test notice::tests::a_terminal_notice_states_the_reason_and_how_to_clear_it ... ok
+test notice::tests::a_stall_notice_carries_the_fingerprint_it_stalled_on ... ok
+test notice::tests::an_assumption_is_written_down_rather_than_taken_silently ... ok
+test notice::tests::an_escalation_mentions_the_author_and_says_who_may_answer ... ok
+test notice::tests::an_escalation_says_what_it_looked_at_and_that_it_moved_nothing ... ok
+test notice::tests::current_activity_and_milestone_fit_before_verbose_notices ... ok
+test notice::tests::elapsed_reads_as_a_human_reads_it ... ok
+test notice::tests::every_other_terminal_reason_still_gets_the_standard_advice ... ok
+test notice::tests::retained_work_is_named_and_not_retried ... ok
+test notice::tests::rebuild_reason_survives_the_comment_limit_before_token_notices ... ok
+test notice::tests::the_progress_comment_carries_the_five_things_the_table_names ... ok
+test phase::tests::only_the_phases_with_a_sandbox_occupy_a_concurrency_slot ... ok
+test phase::tests::queued_and_the_terminal_two_are_not_watched ... ok
+test phase::tests::exactly_two_phases_are_terminal ... ok
+test phase::tests::the_happy_path_is_in_order ... ok
+test pool::tests::issue_ownership_excludes_other_workers_until_the_whole_pass_ends ... ok
+test pulls::tests::a_round_is_a_verdict_and_not_somebody_talking ... ok
+test reviews::tests::a_check_state_round_trips_and_an_unknown_one_is_carried_rather_than_rejected ... ok
+test reviews::tests::a_check_that_is_not_passing_is_refused_and_named_including_an_unknown_state ... ok
+test pulls::tests::a_placement_says_whether_the_reply_was_threaded ... ok
+test pulls::tests::only_an_approving_review_becomes_an_approval ... ok
+test reviews::tests::all_three_conditions_together_are_ready_and_nothing_here_merges ... ok
+test reviews::tests::a_refusal_names_every_condition_that_is_missing_rather_than_the_first ... ok
+test reviews::tests::a_missing_independent_approval_is_refused_and_named ... ok
+test stages::tests::a_dispatch_marker_with_an_unreadable_instant_grants_no_grace ... ok
+test settings::tests::a_missing_file_leaves_the_defaults_in_place ... ok
+test settings::tests::an_unknown_conductor_key_is_refused_rather_than_ignored ... ok
+test settings::tests::the_gitea_table_the_stage_crate_owns_is_read_and_not_refused ... ok
+test settings::tests::every_number_is_overridable ... ok
+test stages::tests::marker_names_come_out_in_a_fixed_order_whatever_order_they_went_in ... ok
+test stages::tests::the_four_markers_are_the_ones_the_fingerprint_table_names ... ok
+test stages::tests::a_member_directory_and_a_default_branch_come_from_the_configuration ... ok
+test reviews::tests::an_empty_check_set_is_refused_and_named ... ok
+test reviews::tests::an_approval_that_is_not_independent_is_not_an_approval ... ok
+test reviews::tests::unmergeable_and_undecided_are_both_refused_and_named ... ok
+test stages::tests::a_recorded_phase_is_one_of_the_eight_or_nothing ... ok
+test testing::tests::a_scripted_turn_returns_what_it_was_given_and_then_fails ... ok
+test testing::tests::an_unreachable_fake_host_fails_every_call_as_unreachable ... ok
+test stages::tests::a_design_that_is_a_symlink_has_a_marker_and_no_digest ... ok
+test turns::tests::this_process_is_alive_and_a_pid_that_cannot_exist_is_not ... ok
+test units::tests::an_interval_of_zero_is_raised_so_the_unit_is_valid ... ok
+test testing::tests::a_design_result_validates_only_for_the_design_phase ... ok
+test units::tests::both_units_carry_the_ownership_marker ... ok
+test units::tests::rendering_prints_both_files_with_their_names ... ok
+test units::tests::status_timer_is_independent_and_does_not_run_an_ordinary_tick ... ok
+test units::tests::the_service_is_a_oneshot_that_runs_a_tick ... ok
+test units::tests::the_service_path_supports_both_agent_turns_and_rust_builds ... ok
+test units::tests::the_timer_measures_from_the_end_of_the_last_run ... ok
+test coordination::tests::a_status_writer_does_not_wait_for_build_preparation ... ok
+test settings::tests::a_concurrency_of_zero_is_raised_to_one ... ok
+test units::tests::a_unit_symphony_did_not_write_is_refused_rather_than_overwritten ... ok
+test units::tests::housekeeping_and_shared_workers_have_independent_schedules ... ok
+test units::tests::a_unit_symphony_wrote_is_updated_in_place ... ok
+test watchdog::tests::a_missing_baseline_is_recorded_and_counts_nothing ... ok
+test settings::tests::a_repository_name_that_would_not_be_safe_in_a_url_is_refused ... ok
+test stages::tests::a_planted_private_directory_is_refused_without_naming_what_it_pointed_at ... ok
+test stages::tests::a_stage_file_hard_linked_to_the_design_is_refused_before_the_append_rewrites_it ... ok
+test stages::tests::evidence_that_is_a_link_to_another_directory_is_refused_rather_than_counted_as_work ... ok
+test stages::tests::the_two_feedback_kinds_are_counted_apart ... ok
+test stages::tests::reconciliation_keeps_provider_diagnostics_and_accepts_older_metadata ... ok
+test stages::tests::questions_round_trip_with_their_recommendations ... ok
+test stages::tests::publishing_refuses_a_name_that_is_not_a_member_a_missing_stage_and_a_missing_clone ... ok
+test settings::tests::a_stall_threshold_below_the_escalation_threshold_is_clamped_here_too ... ok
+test watchdog::tests::a_stall_threshold_below_the_escalation_threshold_is_clamped ... ok
+test watchdog::tests::a_recent_dispatch_holds_the_counter_at_zero_however_many_ticks_pass ... ok
+test watchdog::tests::an_escalation_is_posted_once_per_run_of_unchanged_ticks ... ok
+test watchdog::tests::an_unreadable_counter_stalls_even_while_a_human_is_being_waited_for ... ok
+test watchdog::tests::an_unreadable_counter_beats_even_the_grace_period ... ok
+test watchdog::tests::a_wait_on_a_human_escalates_once_and_then_never_stalls ... ok
+test watchdog::tests::the_same_run_of_ticks_stalls_when_the_move_is_the_conductors ... ok
+test stages::tests::assumptions_and_candidates_are_appended_rather_than_rewritten ... ok
+test stages::tests::token_accounting_that_cannot_be_read_is_reported_rather_than_shown_as_zero ... ok
+test stages::tests::a_stage_file_replaced_by_a_symlink_out_of_the_stage_is_refused ... ok
+test units::tests::the_unit_names_are_the_ones_coexistence_allocates ... ok
+test units::tests::installing_writes_both_units_and_a_second_install_changes_nothing ... ok
+test watchdog::tests::a_fingerprint_that_moved_resets_the_counter ... ok
+test watchdog::tests::a_counter_that_cannot_be_read_stalls_immediately_with_the_read_failure_as_the_reason ... ok
+test watchdog::tests::a_fingerprint_that_stops_moving_escalates_then_stalls ... ok
+test stages::tests::edited_feedback_replaces_queued_words_and_survives_consuming_the_old_version ... ok
+test watchdog::tests::a_dispatch_older_than_the_grace_period_grants_none_of_it ... ok
+test stages::tests::an_observation_that_could_not_be_made_is_not_an_absent_marker ... ok
+test watchdog::tests::a_stall_reason_always_names_itself_and_explains_itself ... ok
+test watchdog::tests::a_dispatch_marker_dated_in_the_future_does_not_grant_forever ... ok
+test units::tests::worker_templates_install_under_separate_owned_names ... ok
+test stages::tests::every_reader_of_a_path_a_turn_owns_refuses_rather_than_blocking_the_conductor ... ok
+test ledger::tests::a_database_from_a_future_version_is_refused_rather_than_opened ... ok
+test ledger::tests::a_migration_and_the_version_it_writes_land_together_or_not_at_all ... ok
+test coordination::tests::a_delayed_heartbeat_cannot_overwrite_a_newer_completion ... ok
+test turns::tests::orphan_stage_processes_are_detected_until_they_exit ... ok
+test turns::tests::accepted_build_groups_are_distinguished_from_turn_children ... ok
+test coordination::tests::agent_processes_overlap_but_result_writers_serialize ... ok
+test commands::tests::an_actor_that_cannot_resolve_authority_is_not_usable_however_well_it_writes ... ok
+test commands::tests::a_checked_installation_after_setup_is_usable ... ok
+test commands::tests::setup_creates_the_labels_once_and_records_the_boundary_once ... ok
+test commands::tests::check_reports_the_actor_and_whether_it_can_write ... ok
+test commands::tests::setup_turns_the_issue_tracker_on_and_check_refuses_an_installation_without_it ... ok
+test commands::tests::status_reports_retained_turns_from_the_ledger_alone ... ok
+test commands::tests::check_says_so_loudly_when_the_actor_cannot_write ... ok
+test commands::tests::setup_moves_the_boundary_only_when_forced ... ok
+test ledger::tests::a_published_comment_with_no_id_is_retained_rather_than_cleared ... ok
+test ledger::tests::a_fresh_ledger_is_at_the_current_schema_version ... ok
+test ledger::tests::an_exhausted_turn_counter_never_reuses_a_turn_number ... ok
+test ledger::tests::moving_a_comments_owner_is_one_write_and_not_two ... ok
+test publish::tests::an_unknown_delivery_nobody_can_ask_about_is_retained_rather_than_resent ... ok
+test ledger::tests::a_thread_identity_is_recorded_with_the_phase_it_was_created_for ... ok
+test ledger::tests::a_fingerprint_row_round_trips ... ok
+test testing::tests::a_faulty_ledger_breaks_only_what_it_was_told_to ... ok
+test ledger::tests::replacing_an_approval_history_with_an_empty_one_leaves_no_record ... ok
+test ledger::tests::a_review_round_counts_up_per_head_so_a_repeat_is_visible ... ok
+test ledger::tests::an_approval_record_is_keyed_by_its_granting_event_so_a_rewrite_is_the_same_record ... ok
+test publish::tests::an_unknown_delivery_is_reconciled_against_gitea_rather_than_against_a_stale_snapshot ... ok
+test ledger::tests::a_build_row_is_recorded_before_its_process_and_read_back_by_a_later_tick ... ok
+test publish::tests::a_first_publication_posts_once_and_records_the_id ... ok
+test ledger::tests::a_live_lease_is_not_stolen_and_a_lapsed_one_is ... ok
+test publish::tests::publication_preserves_the_supplied_body ... ok
+test ledger::tests::a_comment_identity_is_recorded_once_and_a_replay_finds_it ... ok
+test publish::tests::a_thrown_away_ledger_still_finds_the_comment_by_its_marker ... ok
+test publish::tests::a_crash_between_posting_and_recording_does_not_double_post ... ok
+test publish::tests::a_host_that_cannot_be_reached_is_a_deferral_rather_than_a_lost_comment ... ok
+test ledger::tests::a_ledger_left_at_a_version_whose_migration_already_ran_cannot_be_opened ... ok
+test ledger::tests::a_process_record_survives_the_process_that_wrote_it ... ok
+test publish::tests::a_replayed_publication_of_the_same_body_sends_nothing ... ok
+test ledger::tests::the_enrollment_boundary_is_written_once_and_read_back ... ok
+test publish::tests::a_marker_somebody_else_planted_is_never_adopted_as_a_machine_comment ... ok
+test publish::tests::a_changed_body_edits_in_place_and_never_appends ... ok
+test ledger::tests::a_counter_starts_at_zero_and_only_the_named_ones_reset_on_dispatch ... ok
+test publish::tests::editing_a_routine_comment_applies_the_same_limit ... ok
+test publish::tests::an_unchanged_notice_records_when_it_was_asserted_again ... ok
+test ledger::tests::migrating_twice_changes_nothing ... ok
+test publish::tests::two_kinds_do_not_share_a_cap_or_a_comment ... ok
+test pool::tests::claim_generation_and_process_start_identity_fence_old_owners ... ok
+test publish::tests::requested_detail_survives_publication_and_an_identical_replay_is_silent ... ok
+test publish::tests::routine_comments_are_bounded_but_design_reviews_keep_their_detail ... ok
+test publish::tests::a_recycling_whose_ledger_write_fails_changes_nothing_and_says_so ... ok
+test publish::tests::over_the_cap_the_newest_edits_the_oldest_of_its_kind ... ok
+test ledger::tests::concurrent_connections_allocate_distinct_turns ... ok
+
+test result: ok. 252 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+
+     Running unittests src/main.rs (target/debug/deps/conductor-e697790836f9a205)
+
+running 8 tests
+test tests::the_root_comes_from_the_flag_then_the_environment_then_the_working_directory ... ok
+test tests::git_receives_the_token_value_without_the_header_scheme ... ok
+test tests::the_subcommand_is_spelled_with_a_dash ... ok
+test tests::an_issue_number_no_stage_could_have_is_refused ... ok
+test tests::arguments_land_where_they_are_meant_to ... ok
+test tests::maintenance_is_an_independent_non_dispatching_command ... ok
+test tests::undocumented_invocations_are_refused ... ok
+test tests::every_documented_invocation_parses ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/pool.rs (target/debug/deps/pool-334f5988e919b6a7)
+
+running 3 tests
+test pool_process ... ok
+
+running 1 test
+
+running 1 test
+
+running 1 test
+
+running 1 test
+test pool_process ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.02s
+
+
+running 1 test
+test pool_process ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.02s
+
+
+running 1 test
+test surviving_preparation_children_keep_the_issue_exclusive_even_after_legacy_recovery ... ok
+test pool_process ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.07s
+
+test pool_process ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.14s
+
+test pool_process ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.13s
+
+test same_parity_issues_overlap_without_duplicate_claims_or_exceeding_capacity ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+     Running tests/pr_status.rs (target/debug/deps/pr_status-0cda79d9e1a0ef27)
+
+running 1 test
+test pr_status_posts_before_labels_preserves_other_labels_and_retries_without_duplicate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/tick.rs (target/debug/deps/tick-ebf8556173cd0521)
+
+running 136 tests
+test a_dry_run_never_rewrites_the_approval_history ... ok
+test a_dry_run_consumes_no_review_counter_and_no_feedback_acknowledgement ... ok
+test a_counter_that_cannot_be_read_stalls_the_issue_rather_than_resetting_it ... ok
+test an_unreachable_host_is_a_deferral_and_not_an_issue_with_no_labels ... ok
+test every_worker_can_claim_the_same_oldest_issue ... ok
+test a_round_counter_that_cannot_be_read_blocks_rather_than_starting_the_argument_again ... ok
+test approval_withdrawn_between_the_scan_and_the_launch_launches_nothing ... ok
+test a_hand_applied_implementing_beside_another_phase_never_reaches_an_implementation_turn ... ok
+test a_design_deleted_between_the_scan_and_the_launch_launches_nothing ... ok
+test admission_pause_prevents_new_turns_without_stopping_housekeeping ... ok
+test a_changes_requested_verdict_from_somebody_without_write_access_launches_nothing ... ok
+test two_conductors_reading_the_turn_counter_together_do_not_both_launch ... ok
+test an_illegal_label_pair_is_healed_to_the_backed_phase_and_the_marker_is_kept ... ok
+test an_issue_with_no_symphony_label_but_a_stage_on_disk_is_blocked ... ok
+test an_issue_with_neither_a_label_nor_a_stage_is_not_symphonys ... ok
+test a_dry_run_decides_and_writes_nothing ... ok
+test approval_withdrawn_before_a_follow_up_implementation_turn_launches_nothing_either ... ok
+test dispatch_prefers_the_oldest_waiting_issue_over_host_order ... ok
+test an_old_delivery_receipt_repairs_a_stale_running_ledger_row ... ok
+test heartbeat_collects_observations_inside_the_status_publication_lock ... ok
+test a_rebuild_does_not_launder_an_approval_a_human_revoked_before_it_was_used ... ok
+test a_queued_issue_is_dispatched_and_the_dispatch_marker_is_written ... ok
+test an_unlabelled_issue_with_an_unreadable_stage_is_left_alone ... ok
+test a_non_writers_comment_is_ignored_in_both_directions ... ok
+test an_issue_another_holder_has_leased_is_not_dispatched_a_second_time ... ok
+test sidecar_failures_report_the_issue_without_stopping_unrelated_maintenance ... ok
+test an_implementation_with_no_design_at_all_goes_to_write_one ... ok
+test an_expiry_counter_that_cannot_be_read_carries_out_the_capped_rung ... ok
+test replaying_the_corrected_blocker_turn_does_not_spend_another_attempt ... ok
+test a_turn_that_produces_no_result_blocks_the_issue_with_the_reason ... ok
+test a_conductor_killed_mid_dispatch_reconciles_rather_than_replaying ... ok
+test an_issue_created_before_the_enrollment_boundary_does_not_enroll ... ok
+test a_pull_request_on_a_branch_that_is_not_a_stage_branch_names_no_issue ... ok
+test the_conductor_never_acts_on_its_own_comment ... ok
+test default_service_tick_keeps_housekeeping_when_admissions_are_paused ... ok
+test a_crash_between_queueing_a_comment_and_recording_it_does_not_queue_it_twice ... ok
+test progress_keeps_the_previous_milestone_while_an_agent_runs ... ok
+test a_revoked_approval_stops_the_issue_and_keeps_the_record ... ok
+test a_code_issue_produces_one_pull_request_per_changed_member ... ok
+test an_expired_lease_cannot_expose_a_live_issue_to_dispatch_or_maintenance ... ok
+test an_escalation_that_could_not_be_published_does_not_consume_its_rung ... ok
+test a_requested_pull_request_publishes_the_branch_before_gitea_is_asked_to_open_it ... ok
+test a_stored_record_gains_the_revocation_the_timeline_shows_after_it ... ok
+test a_turn_that_tries_docker_itself_is_told_why_rather_than_failing_obscurely ... ok
+test early_approval_does_not_hide_an_answer_from_the_design_turn ... ok
+test the_prompt_quotes_the_issue_body_as_material_and_bounds_the_questions ... ok
+test a_push_that_fails_opens_no_pull_request_and_says_so_on_the_issue ... ok
+test a_usable_result_resets_the_missing_blocker_correction ... ok
+test a_large_design_round_count_does_not_block_research ... ok
+test a_second_expiry_with_no_recommendation_stalls_and_restates_the_questions ... ok
+test a_second_round_on_an_already_open_pull_request_still_publishes_the_new_commits ... ok
+test a_turn_that_asks_questions_moves_the_issue_to_needs_answer_and_records_them ... ok
+test a_changes_requested_verdict_returns_the_issue_to_implementing ... ok
+test a_turn_whose_outcome_nothing_records_is_retained_and_never_resent ... ok
+test a_turn_the_token_cap_refused_is_not_reported_as_a_launch_failure ... ok
+test a_started_final_review_is_not_repeated_after_interruption ... ok
+test a_pull_request_for_a_member_that_is_not_one_of_the_six_is_refused_and_named ... ok
+test passing_the_warn_threshold_is_said_on_the_issue_and_the_spend_has_a_denominator ... ok
+test missing_blocker_correction_does_not_bypass_the_token_cap ... ok
+test a_build_requested_by_an_issue_with_no_approval_record_is_refused_and_nothing_runs ... ok
+test a_changes_requested_verdict_the_same_reviewer_superseded_launches_nothing ... ok
+test a_turn_with_no_design_still_reaches_in_review_when_it_says_so ... ok
+test build_recovery_restores_a_missing_ledger_row_before_result_delivery ... ok
+test unlimited_tokens_are_reported_without_a_zero_ceiling_or_refusal_warning ... ok
+test a_reply_to_a_comment_on_another_issues_pull_request_is_refused ... ok
+test agent_design_content_reaches_gitea_without_redaction ... ok
+test a_reapproval_between_ticks_replaces_the_cached_grant ... ok
+test the_initial_design_waits_for_human_approval_without_a_critic ... ok
+test the_database_can_be_thrown_away_and_the_approval_rebuilt_from_the_timeline ... ok
+test a_second_build_is_refused_with_the_slot_holder_named_rather_than_silently_dropped ... ok
+test evidence_and_early_pr_requests_do_not_declare_validation_complete ... ok
+test a_review_verdict_counted_across_an_interrupted_tick_is_one_round ... ok
+test default_service_tick_advances_question_expiry_without_a_separate_timer ... ok
+test legacy_evidence_only_review_resumes_validation_under_existing_approval ... ok
+test readiness_refuses_when_the_head_moved_between_the_listing_and_the_fresh_read ... ok
+test status_refresh_during_a_turn_only_edits_the_status_comment ... ok
+test a_marker_removed_during_a_turn_is_not_restored_by_the_write_that_applies_the_result ... ok
+test a_rebuilt_database_still_sees_a_grant_the_timeline_records_after_its_revocation ... ok
+test a_design_turn_cannot_skip_the_design_gate_by_reporting_in_review ... ok
+test a_stage_that_never_becomes_readable_blocks_the_issue_on_gitea_rather_than_vanishing ... ok
+test the_progress_comment_is_one_comment_that_carries_the_spend ... ok
+test a_writers_objection_still_beats_the_critic ... ok
+test an_issue_dispatched_this_tick_is_never_stall_checked_in_the_same_tick ... ok
+test a_final_critic_failure_blocks_without_starting_another_review ... ok
+test initial_approval_starts_implementation_without_a_design_review_record ... ok
+test an_issue_that_lost_the_concurrency_slot_is_told_so_on_the_issue ... ok
+test a_turn_needing_input_that_asked_nothing_is_asked_again_rather_than_blocking ... ok
+test a_design_review_with_no_design_writes_one_rather_than_being_stalled_for_not_having_it ... ok
+test the_issue_says_where_its_pull_request_is_and_why_it_did_nothing_this_tick ... ok
+test the_agents_own_attempt_to_apply_the_authorization_marker_is_refused ... ok
+test a_blocked_turn_still_answers_an_ordinary_pr_comment ... ok
+test a_tick_narrowed_to_one_issue_looks_at_nothing_else ... ok
+test a_pinned_twoliter_build_resolves_the_stage_and_returns_provenance ... ok
+test a_dispatch_that_fails_before_recording_a_process_gives_the_slot_back ... ok
+test progress_is_published_before_waiting_for_a_synchronous_turn ... ok
+test the_concurrency_cap_holds_an_issue_back_and_idle_work_consumes_no_slot ... ok
+test a_second_unusable_result_blocks_rather_than_asking_a_third_time ... ok
+test housekeeping_has_one_clock_independent_of_worker_count ... ok
+test a_question_nobody_has_answered_is_not_reported_as_a_hang ... ok
+test a_replayed_tick_acts_on_nothing_and_sends_nothing ... ok
+test an_unanswered_question_escalates_and_then_proceeds_under_a_recorded_assumption ... ok
+test a_turn_whose_result_could_not_be_applied_stays_visible_to_reconciliation ... ok
+test one_readable_tick_forgives_the_whole_run_of_unreadable_ones ... ok
+test a_reply_naming_only_a_pull_request_number_cannot_reach_the_wrong_member ... ok
+test provider_failure_keeps_the_issue_blocked_with_the_actual_diagnostic ... ok
+test a_correction_is_delivered_to_the_next_turn_and_read_before_the_work ... ok
+test an_edited_comment_is_a_new_event ... ok
+test an_inline_review_comment_is_answered_by_a_threaded_reply_carrying_its_hunk ... ok
+test three_concurrent_issues_each_get_their_own_stage_and_turn ... ok
+test local_publication_is_a_tracked_job_and_returns_registry_evidence ... ok
+test comments_created_or_edited_after_approval_steer_the_first_implementation ... ok
+test our_own_escalation_does_not_reset_the_counter_and_a_writers_reply_does ... ok
+test shared_workers_rotate_same_parity_issues_after_each_turn ... ok
+test an_answer_to_an_implementation_question_resumes_implementation ... ok
+test a_build_whose_result_could_not_be_delivered_is_delivered_by_the_next_tick ... ok
+test any_worker_recovers_and_reports_abandoned_results_once ... ok
+test an_issue_that_stops_changing_is_escalated_and_then_stalled ... ok
+test cloud_requests_beyond_worker_capacity_stay_outstanding_without_model_polling ... ok
+test a_second_review_round_on_one_head_is_distinguishable_from_the_first ... ok
+test a_terminal_transition_that_cannot_write_its_label_posts_one_notice_and_not_one_per_tick ... ok
+test steering_is_captured_and_an_answer_to_a_posed_question_is_not ... ok
+test maintenance_does_not_stall_an_eligible_issue_waiting_for_capacity ... ok
+test a_phase_change_starts_a_new_thread_and_a_second_turn_in_one_phase_resumes ... ok
+test completion_defers_prs_runs_one_final_review_and_returns_findings_to_implementation ... ok
+test work_published_as_evidence_rather_than_as_a_pull_request_is_still_a_humans_move ... ok
+test an_open_question_prevents_completion_and_pr_publication_even_after_final_review ... ok
+test ordinary_issue_feedback_during_implementation_does_not_reopen_design ... ok
+test an_issue_waiting_for_its_pull_request_to_be_reviewed_is_never_stalled ... ok
+test a_build_that_outlives_the_conductor_is_reconciled_from_its_log_and_its_exit_status ... ok
+test conditions_before_a_fresh_approval_reach_implementation_without_another_design_round ... ok
+test recovered_provider_failure_blocks_before_releasing_running_or_finished_records ... ok
+test missing_or_blank_blocker_reasons_get_one_correction_then_stop ... ok
+test a_blocked_result_publishes_its_handoff_and_the_measured_budget_remedy ... ok
+test ready_to_merge_is_refused_for_each_of_the_three_reasons_and_says_which ... ok
+test subject_amendments_require_the_exact_request_from_a_human_writer ... ok
+test design_discussion_continues_beyond_old_limits_and_recycles_old_comments ... ok
+
+test result: ok. 136 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.49s
+
+     Running unittests src/main.rs (target/debug/deps/ensemble-56a5708a1d88309b)
+
+running 51 tests
+test credentials::tests::the_three_paths_sit_together_under_the_ignored_state_directory ... ok
+test credentials::tests::a_second_run_writes_nothing_and_keeps_the_password ... ok
+test credentials::tests::two_different_passwords_are_refused_rather_than_reconciled ... ok
+test credentials::tests::a_group_readable_credentials_file_is_refused_by_the_mode_check ... ok
+test credentials::tests::a_half_written_pair_is_completed_from_the_file_that_is_there ... ok
+test init::tests::a_daemon_that_says_the_name_does_not_exist_is_an_absence ... ok
+test credentials::tests::a_first_run_generates_both_files_at_0600_holding_one_password ... ok
+test init::tests::a_docker_that_is_not_answering_is_not_an_empty_host ... ok
+test init::tests::a_dry_run_changes_nothing_at_all ... ok
+test init::tests::a_first_run_provisions_five_resources_and_then_asks_for_a_token ... ok
+test init::tests::a_daemon_that_is_not_running_is_never_read_as_a_host_with_nothing_on_it ... ok
+test init::tests::a_docker_that_refuses_a_creation_stops_the_run_and_says_what_it_said ... ok
+test credentials::tests::a_file_that_is_not_a_credentials_file_is_said_so ... ok
+test init::tests::a_plan_can_be_printed_for_a_bug_report ... ok
+test init::tests::a_gitea_that_cannot_be_reached_is_never_read_as_an_absent_repository ... ok
+test init::tests::a_resource_that_is_not_ours_is_refused_and_says_whose_it_is ... ok
+test init::tests::identifiers_this_module_builds_are_valid ... ok
+test init::tests::a_port_this_run_does_not_bind_is_reported_and_not_fatal ... ok
+test init::tests::the_same_root_is_the_same_installation_and_another_root_is_not ... ok
+test init::tests::a_partial_installation_is_finished_deliberately_and_says_what_was_missing ... ok
+test init::tests::an_empty_host_is_planned_as_five_creations_and_a_deferred_gitea ... ok
+test init::tests::a_taken_port_refuses_before_anything_is_created ... ok
+test init::tests::the_real_host_reads_proc ... ok
+test init::tests::an_inspection_that_did_not_answer_stops_init_rather_than_reading_as_an_absence ... ok
+test init::tests::an_ephemeral_range_that_cannot_be_read_is_said_rather_than_assumed_free ... ok
+test init::tests::a_provisioned_installation_with_a_token_creates_both_orgs_and_twelve_repositories ... ok
+test init::tests::an_organization_that_already_exists_is_not_an_error ... ok
+test stages::tests::an_issue_with_no_stage_is_told_how_to_make_one ... ok
+test init::tests::a_second_run_creates_nothing_and_seeds_nothing ... ok
+test stages::tests::list_says_so_when_there_is_nothing_there ... ok
+test sync::tests::a_divergence_on_its_own_is_refused_with_nothing_written ... ok
+test tests::arguments_land_where_they_are_meant_to ... ok
+test tests::an_issue_number_no_stage_could_have_is_refused ... ok
+test sync::tests::accepting_a_rewrite_records_the_decision_and_writes_nothing_else ... ok
+test stages::tests::create_announces_the_directory_the_branch_and_the_six_clones ... ok
+test sync::tests::only_the_members_named_are_touched ... ok
+test tests::every_subcommand_reads_the_configuration_and_none_of_them_refuses_as_unimplemented ... ok
+test sync::tests::a_divergence_fails_loudly_and_the_other_five_are_still_synced ... ok
+test sync::tests::a_member_that_is_behind_is_fast_forwarded_and_the_plan_says_so_first ... ok
+test stages::tests::creating_a_stage_that_exists_is_refused_and_names_the_two_ways_out ... ok
+test sync::tests::a_member_that_is_equal_is_left_alone_and_nothing_is_pushed ... ok
+test stages::tests::remove_takes_the_slug_off_disk_rather_than_from_a_retyped_title ... ok
+test tests::every_documented_invocation_parses ... ok
+test tests::only_the_six_members_can_be_synced ... ok
+test stages::tests::resume_refuses_a_state_it_must_not_touch_and_says_what_needs_a_human ... ok
+test stages::tests::list_keeps_a_directory_that_is_not_ours_under_a_heading_that_says_so ... ok
+test stages::tests::resume_plans_the_repair_before_it_makes_it ... ok
+test stages::tests::resume_reports_a_stage_that_is_already_whole ... ok
+test stages::tests::remove_refuses_unsaved_work_naming_the_member_and_why_until_force_is_given ... ok
+test tests::undocumented_invocations_are_refused ... ok
+test init::tests::a_fork_that_is_accepted_and_never_fills_in_is_refused_by_name ... ok
+
+test result: ok. 51 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running unittests src/lib.rs (target/debug/deps/symphony_board-36f5fc4d5fd576c9)
+
+running 81 tests
+test age::tests::an_instant_in_the_future_has_not_elapsed_yet ... ok
+test age::tests::a_duration_is_not_rendered_as_an_age ... ok
+test age::tests::an_age_never_reads_as_fresher_than_it_is ... ok
+test artifacts::tests::a_stream_that_is_a_directory_is_a_problem_the_card_shows ... ok
+test credential::tests::an_ordinary_environment_is_not_a_credential ... ok
+test credential::tests::the_environment_scan_reports_names_and_never_values ... ok
+test credential::tests::a_token_shaped_variable_is_recognised_whatever_it_is_called ... ok
+test credential::tests::the_board_cannot_reach_gitea ... ok
+test credential::tests::the_refusal_names_the_variables_and_the_way_round_it ... ok
+test ledger::tests::a_missing_ledger_is_an_error_that_names_the_path_and_creates_nothing ... ok
+test ledger::tests::the_kind_and_counter_names_are_the_conductors_own_spellings ... ok
+test ledger::tests::the_read_only_uri_carries_mode_ro_and_escapes_what_would_truncate_a_path ... ok
+test ledger::tests::the_columns_the_board_reads_are_the_columns_the_conductor_writes ... ok
+test render::tests::the_five_characters_that_could_close_a_tag_are_escaped ... ok
+test sources::tests::a_moved_ledger_is_read_where_it_is ... ok
+test server::tests::a_test_support_dependency_outside_dev_dependencies_is_reported ... ok
+test sources::tests::the_default_ledger_is_where_the_conductor_puts_it ... ok
+test stages::tests::a_directory_that_is_not_a_stage_is_reported_and_never_read ... ok
+test sources::tests::the_stages_directory_name_agrees_with_symphony_core ... ok
+test server::tests::the_injecting_constructor_is_never_enabled_by_a_real_dependency ... ok
+test render::tests::a_board_with_no_stages_and_no_ledger_says_both_rather_than_rendering_a_quiet_afternoon ... ok
+test server::tests::a_board_over_an_empty_root_serves_and_says_it_has_nothing_to_show ... ok
+test stages::tests::a_turns_directory_that_cannot_be_listed_is_unreadable_and_not_an_empty_history ... ok
+test stages::tests::a_stage_that_cannot_be_examined_is_an_error_and_never_reported_as_not_a_stage ... ok
+test stages::tests::a_repository_with_no_stages_directory_is_not_an_error ... ok
+test stages::tests::a_stage_is_found_by_issue_and_absence_is_not_an_error ... ok
+test testing::tests::the_marker_file_names_are_the_conductors_own ... ok
+test stages::tests::an_unreadable_stages_directory_is_an_error_rather_than_an_empty_list ... ok
+test stages::tests::turns_are_found_by_number_and_the_latest_is_the_highest ... ok
+test ledger::tests::a_ledger_that_is_not_a_database_is_an_error_rather_than_an_empty_board ... ok
+test artifacts::tests::a_blocked_turn_carries_its_reason_in_full ... ok
+test artifacts::tests::a_result_that_is_not_a_turn_result_still_renders_what_it_says ... ok
+test artifacts::tests::a_stream_in_a_directory_that_cannot_be_examined_is_unreadable_and_not_missing ... ok
+test artifacts::tests::a_review_verdict_is_read_off_the_feedback_the_conductor_queued ... ok
+test artifacts::tests::one_bad_line_spoils_the_feedback_queue_rather_than_being_skipped ... ok
+test artifacts::tests::a_stages_markers_artifacts_and_spend_all_read ... ok
+test server::tests::a_turn_whose_stream_is_a_symlink_to_a_credential_serves_the_refusal_and_not_the_credential ... ok
+test server::tests::a_taken_port_is_a_refusal_that_names_the_address ... ok
+test server::tests::the_production_path_reads_the_real_environment_rather_than_being_told ... ok
+test render::tests::a_turn_that_is_still_running_shows_its_command_as_running ... ok
+test artifacts::tests::a_missing_file_and_an_unreadable_one_are_different_answers ... ok
+test card::tests::a_missing_ledger_is_named_on_every_card_and_the_stages_still_render ... ok
+test render::tests::a_turn_with_no_stream_says_what_that_looks_like_rather_than_showing_nothing ... ok
+test render::tests::the_transcript_view_is_the_terminal_renderer_line_for_line ... ok
+test server::tests::the_board_binds_loopback_and_nothing_else ... ok
+test card::tests::a_marker_whose_instant_cannot_be_read_is_reported_and_not_called_undated ... ok
+test server::tests::serving_is_refused_while_the_environment_carries_a_credential ... ok
+test render::tests::the_page_fetches_nothing_and_carries_no_script_at_all ... ok
+test card::tests::a_terminal_issue_is_placed_from_the_notice_and_carries_every_reason_it_has ... ok
+test render::tests::the_columns_are_the_eight_phase_labels_by_their_short_names ... ok
+test server::tests::a_real_request_over_the_socket_gets_the_board ... ok
+test card::tests::a_lease_that_stopped_moving_under_a_running_process_is_stale_and_says_which ... ok
+test render::tests::a_cards_fields_are_all_on_the_page ... ok
+test ledger::tests::a_terminal_notice_is_distinguished_from_a_no_progress_escalation ... ok
+test render::tests::a_terminal_card_whose_phase_was_not_recorded_says_so_in_its_column_and_on_the_card ... ok
+test ledger::tests::a_write_through_the_boards_connection_is_refused ... ok
+test ledger::tests::the_rows_a_card_is_built_from_read_back_as_they_were_written ... ok
+test card::tests::a_stage_whose_artifacts_are_unreadable_says_so_and_the_others_do_not ... ok
+test server::tests::anything_that_is_not_a_read_is_refused_with_the_reason ... ok
+test card::tests::a_card_shows_the_phase_the_turn_the_command_the_spend_and_the_pull_requests ... ok
+test card::tests::the_columns_are_the_eight_phase_labels_and_nothing_else ... ok
+test card::tests::a_no_progress_escalation_is_a_warning_and_not_a_column ... ok
+test render::tests::a_planted_script_tag_in_a_title_and_in_a_command_line_comes_back_inert ... ok
+test card::tests::a_terminal_notice_that_was_never_posted_is_not_a_terminal_state ... ok
+test card::tests::a_stage_with_nothing_recorded_is_queued_and_says_why ... ok
+test card::tests::a_lapsed_dispatch_lease_is_reported_as_what_a_killed_conductor_leaves ... ok
+test card::tests::a_pull_request_a_turn_asked_for_outlives_the_feedback_queue ... ok
+test ledger::tests::a_stored_count_that_is_not_a_count_is_reported_rather_than_clamped ... ok
+test render::tests::a_turn_history_that_cannot_be_listed_is_unreadable_on_the_page_and_not_no_turns ... ok
+test ledger::tests::a_stored_comment_id_that_is_not_an_id_is_reported_rather_than_read_as_undelivered ... ok
+test card::tests::a_turn_history_that_cannot_be_listed_is_unknown_on_the_card_and_never_none ... ok
+test card::tests::every_issue_with_a_stage_appears_in_exactly_one_column ... ok
+test card::tests::a_ledger_no_tick_has_finished_against_says_exactly_that ... ok
+test card::tests::a_busy_conductor_is_not_reported_as_dead ... ok
+test card::tests::a_notice_asserted_after_the_phase_marker_puts_the_card_back_in_its_terminal_lane ... ok
+test render::tests::a_stale_card_is_marked_and_carries_the_age_of_its_data ... ok
+test card::tests::a_conductor_that_is_not_running_leaves_every_card_visibly_stale ... ok
+test server::tests::the_routes_are_the_three_the_page_offers ... ok
+test server::tests::printed_content_is_preserved_on_the_page ... ok
+test card::tests::a_recorded_terminal_phase_is_read_rather_than_inferred_from_the_notice ... ok
+test card::tests::the_watchdogs_timing_never_decides_which_terminal_state_a_card_is_in ... ok
+
+test result: ok. 81 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+
+     Running unittests src/lib.rs (target/debug/deps/symphony_build-01850b02957db547)
+
+running 75 tests
+test brdev::live::live_registry_publication_status_and_cleanup ... ignored, requires SYMPHONY_TEST_BRDEV, SYMPHONY_TEST_PUBSYS and a local Docker daemon
+test brdev::publication_set::tests::index_verification_requires_exactly_the_verified_architecture_set ... ok
+test brdev::publish::tests::real_kit_metadata ... ignored, requires SYMPHONY_TEST_KIT_ARCHIVE and SYMPHONY_TEST_KIT_SHA256
+test brdev::publish::tests::published_versions_separate_issues_and_builds_and_are_valid_tags ... ok
+test brdev::tests::stage_and_symlink_boundaries_are_checked ... ok
+test brdev::registry::tests::ownership_requires_identity_labels_binding_and_data_volume ... ok
+test brdev::publish::tests::an_archive_hash_mismatch_stops_before_registry_creation ... ok
+test brdev::registry::tests::only_unprivileged_localhost_endpoints_are_accepted ... ok
+test executor::tests::a_build_from_an_issue_with_no_approval_record_is_refused_and_nothing_runs ... ok
+test executor::tests::a_delivery_cannot_be_recorded_for_a_build_that_has_not_ended ... ok
+test executor::tests::a_build_whose_process_vanished_without_a_status_is_killed_rather_than_succeeded ... ok
+test executor::tests::reconciling_a_build_nobody_started_is_unknown_rather_than_a_result ... ok
+test executor::tests::a_build_that_outlived_the_conductor_is_reconciled_from_its_log_and_its_exit_status ... ok
+test executor::tests::a_pinned_request_never_falls_back_when_the_tool_clone_is_missing ... ok
+test executor::tests::a_replayed_submission_starts_nothing_twice ... ok
+test executor::tests::a_refusal_is_awaiting_delivery_like_any_other_result ... ok
+test executor::tests::an_approved_build_starts_and_its_log_is_readable_while_it_runs ... ok
+test executor::tests::a_claim_whose_process_never_appeared_is_neither_relaunched_nor_held_forever ... ok
+test executor::tests::remote_preparation_does_not_occupy_the_local_slot_before_cloud_descriptor_exists ... ok
+test executor::tests::the_cap_of_one_counts_every_build_on_the_host_rather_than_one_stage_worth ... ok
+test executor::tests::a_launch_that_fails_is_a_refusal_with_the_failure_as_its_reason ... ok
+test executor::tests::the_cap_of_one_defers_a_second_build_rather_than_running_it ... ok
+test id::tests::an_identity_round_trips_through_json ... ok
+test executor::tests::a_finished_build_stays_discoverable_until_its_delivery_is_recorded ... ok
+test executor::tests::verified_remote_result_preserves_artifacts_executor_and_killed_invariant ... ok
+test id::tests::an_identity_that_could_leave_the_builds_directory_is_refused ... ok
+test executor::tests::two_submissions_racing_on_one_identity_start_exactly_one_build ... ok
+test id::tests::the_documented_form_is_accepted_and_anything_else_is_not ... ok
+test job::tests::a_job_with_nothing_in_it_reads_as_nothing_rather_than_as_an_error ... ok
+test job::tests::a_record_written_before_states_existed_reads_as_a_running_build ... ok
+test job::tests::a_result_that_breaks_the_contract_is_refused_on_the_way_out_as_well_as_in ... ok
+test job::tests::a_job_holds_the_five_files_and_reads_each_of_them_back ... ok
+test plan::tests::a_kit_build_is_the_command_the_skill_invokes_today ... ok
+test plan::tests::a_package_build_passes_the_package_in_the_environment ... ok
+test job::tests::the_builds_root_lists_only_the_directories_this_crate_wrote ... ok
+test job::tests::a_claim_is_released_only_while_nothing_has_run_under_it ... ok
+test plan::tests::a_variant_build_drives_twoliter_through_cargo_make ... ok
+test process::tests::a_cap_of_zero_and_an_empty_command_are_refused_rather_than_run ... ok
+test process::tests::a_host_with_no_shell_for_the_wrapper_refuses_to_build ... ok
+test executor::tests::remote_requests_keep_their_identities_beyond_capacity_and_recover_observation ... ok
+test process::tests::a_status_file_that_is_not_a_number_reads_as_no_status_at_all ... ok
+test process::tests::a_tail_is_bounded_and_a_missing_log_is_empty_rather_than_an_error ... ok
+test request::tests::a_kit_request_needs_only_a_target_and_an_arch ... ok
+test brdev::metadata::tests::metadata_refuses_duplicate_names_and_aliases ... ok
+test brdev::metadata::tests::metadata_accepts_bare_and_dot_prefixed_members ... ok
+test request::tests::a_request_round_trips_through_the_json_the_result_carries ... ok
+test request::tests::a_target_or_arch_outside_the_enum_is_a_refusal ... ok
+test brdev::metadata::tests::metadata_refuses_truncated_selected_and_skipped_members ... ok
+test job::tests::eight_threads_claiming_one_identity_produce_exactly_one_winner ... ok
+test request::tests::build_context_rejects_blank_or_overlong_values_and_preserves_unicode ... ok
+test request::tests::a_variant_is_required_for_bottlerocket_and_forbidden_for_a_kit ... ok
+test request::tests::publication_requires_an_exact_local_archive_and_rejects_other_targets ... ok
+test result::tests::a_refusal_has_no_exit_code_and_always_has_a_reason ... ok
+test request::tests::the_variant_and_package_patterns_are_enforced_rather_than_described ... ok
+test result::tests::a_result_round_trips_through_the_file_the_job_directory_holds ... ok
+test result::tests::a_result_whose_exit_code_disagrees_with_its_status_is_refused_on_the_way_in ... ok
+test result::tests::an_exit_code_decides_the_status_rather_than_accompanying_it ... ok
+test root::tests::an_operators_own_layout_is_not_a_stage_however_they_spell_it ... ok
+test testing::tests::a_scripted_launcher_hands_out_what_it_was_given_and_then_fails ... ok
+test request::tests::an_invented_field_is_refused_rather_than_dropped ... ok
+test root::tests::the_builds_root_hangs_off_the_workspace_root_beside_the_ledger ... ok
+test request::tests::local_twoliter_requests_require_a_commit_and_mean_every_field ... ok
+test root::tests::a_stage_directory_is_refused_with_a_reason_and_a_relative_root_is_resolved ... ok
+test request::tests::a_reason_past_its_bound_is_refused_in_characters_and_not_in_bytes ... ok
+test brdev::publish::tests::prefixed_archives_still_require_matching_digests_and_architecture ... ok
+test brdev::publish::tests::publication_prepares_bare_and_exporter_prefixed_archives ... ok
+test brdev::metadata::tests::metadata_refuses_links_and_oversize_members ... ok
+test brdev::publication_set::tests::same_build_cannot_replace_an_architecture_with_different_bytes ... ok
+test brdev::publication_set::tests::interrupted_initialization_snapshot_and_receipt_writes_can_be_retried ... ok
+test brdev::publication_set::tests::corrupt_or_missing_retained_evidence_never_silently_drops_a_platform ... ok
+test process::tests::a_build_records_its_own_exit_status_and_its_log_as_it_runs ... ok
+test process::tests::the_build_runs_where_it_was_told_to_and_with_the_environment_it_was_given ... ok
+test brdev::publication_set::tests::sequential_architectures_and_retries_retain_verified_inputs ... ok
+test process::tests::a_real_build_streams_its_log_while_it_runs_and_records_its_own_exit_code ... ok
+test process::tests::the_wall_clock_kills_a_build_and_leaves_no_exit_status ... ok
+
+test result: ok. 73 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 5.03s
+
+     Running unittests src/bin/symphony-brdev.rs (target/debug/deps/symphony_brdev-b696d71d6ad863a9)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/local_twoliter.rs (target/debug/deps/local_twoliter-a7b2425bcdca5711)
+
+running 4 tests
+test unavailable_revision_and_dirty_source_stop_before_a_build ... ok
+test integration_runs_the_complete_make_target_and_propagates_failure ... ok
+test baseline_build_uses_the_old_commit_without_moving_the_issue_branch ... ok
+test product_build_uses_the_requested_source_and_preserves_its_binary ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+     Running unittests src/main.rs (target/debug/deps/symphony-7f0a270414d3d603)
+
+running 24 tests
+test stages::tests::a_stages_directory_that_will_not_read_is_an_error_rather_than_an_empty_list ... ok
+test stages::tests::an_issue_with_no_stage_says_where_it_looked ... ok
+test tests::a_board_refuses_to_serve_while_the_environment_carries_a_credential ... ok
+test tests::a_board_on_a_taken_port_refuses_and_says_which_address ... ok
+test tests::an_issue_number_no_stage_could_have_is_refused ... ok
+test tests::arguments_land_where_they_are_meant_to ... ok
+test tests::watch_all_on_an_empty_repository_says_so_rather_than_hanging ... ok
+test tests::a_bound_board_prints_where_it_is_before_it_serves ... ok
+test tests::logs_needs_the_issue_it_is_replaying ... ok
+test tests::an_issue_with_no_stage_is_a_refusal_that_says_where_it_looked ... ok
+test tests::watch_needs_an_issue_or_all_but_not_both ... ok
+test tests::logs_is_wired_to_the_artifacts_on_disk ... ok
+test tests::every_documented_invocation_parses ... ok
+test view::tests::logs_on_a_turn_whose_stream_is_unreadable_names_the_file ... ok
+test view::tests::logs_on_a_stage_with_no_turns_says_so_rather_than_showing_nothing ... ok
+test tests::undocumented_invocations_are_refused ... ok
+test view::tests::logs_replays_a_command_its_exit_code_its_output_and_the_cost ... ok
+test view::tests::watch_follows_a_stream_that_grows_between_polls ... ok
+test view::tests::watch_of_a_stage_with_no_turn_waits_rather_than_refusing ... ok
+test view::tests::logs_replays_the_turn_it_is_asked_for_and_refuses_one_that_is_not_there ... ok
+test view::tests::logs_on_a_turn_history_it_cannot_read_says_so_rather_than_no_turns ... ok
+test view::tests::watch_all_labels_each_issue_and_survives_one_unreadable_source ... ok
+test view::tests::logs_shows_a_command_that_is_still_running_and_says_the_turn_did_not_finish ... ok
+test view::tests::watch_prints_what_a_replay_prints ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/symphony_core-01a3db36c078df59)
+
+running 74 tests
+test credentials::tests::a_directory_is_not_a_credential_file ... ok
+test credentials::tests::a_file_that_does_not_exist_is_a_failure_and_never_a_pass ... ok
+test credentials::tests::a_file_only_its_owner_can_reach_is_accepted ... ok
+test credentials::tests::a_group_or_world_reachable_file_is_refused_with_its_mode ... ok
+test digest::tests::an_abbreviation_is_a_prefix_and_never_longer_than_the_digest ... ok
+test credentials::tests::the_metadata_the_mode_was_proven_on_is_returned ... ok
+test credentials::tests::a_symlink_is_judged_by_the_file_it_points_at ... ok
+test digest::tests::a_digest_is_sixty_four_lowercase_hex_characters ... ok
+test label::tests::a_legal_set_renders_the_labels_it_holds ... ok
+test digest::tests::the_nist_vectors_are_the_ones_everyone_else_computes ... ok
+test label::tests::a_repeated_label_is_the_same_label_and_not_a_second_one ... ok
+test label::tests::every_label_carries_the_prefix_and_a_short_name ... ok
+test label::tests::foreign_labels_are_refused_rather_than_guessed ... ok
+test label::tests::an_empty_set_is_not_a_legal_set ... ok
+test label::tests::labels_round_trip_through_from_str ... ok
+test label::tests::labels_round_trip_through_serde_as_the_full_label ... ok
+test label::tests::the_exact_strings_match_the_plan ... ok
+test label::tests::the_eight_phase_labels_are_the_ones_the_design_names ... ok
+test label::tests::the_marker_alone_is_not_a_legal_set ... ok
+test label::tests::one_phase_label_plus_the_marker_is_a_legal_set ... ok
+test label::tests::the_nine_labels_are_the_eight_phases_plus_the_one_marker ... ok
+test label::tests::two_phase_labels_are_not_a_legal_set ... ok
+test label::tests::the_marker_is_not_a_phase_and_a_phase_is_not_the_marker ... ok
+test pinned::tests::a_directory_that_is_a_link_is_refused_and_an_existing_one_is_fine ... ok
+test pinned::tests::a_failed_write_leaves_no_temporary_of_its_own_behind ... ok
+test pinned::tests::a_foreign_temporary_in_the_directory_is_left_alone ... ok
+test pinned::tests::a_link_at_the_leaf_is_refused_by_every_operation ... ok
+test pinned::tests::a_link_above_the_leaf_is_refused_and_one_above_the_stage_is_not ... ok
+test pinned::tests::a_second_name_for_the_file_is_refused ... ok
+test pinned::tests::a_read_of_a_path_that_is_not_there_makes_no_directories ... ok
+test pinned::tests::a_second_symphony_component_does_not_move_the_boundary_down_the_path ... ok
+test pinned::tests::a_temporary_that_was_replaced_is_refused_rather_than_published ... ok
+test pinned::tests::a_traversal_component_and_a_directory_spelling_are_refused_rather_than_normalised ... ok
+test stage::tests::a_member_carries_the_upstream_projects_own_repository_name ... ok
+test stage::tests::a_member_is_one_of_six_and_round_trips_through_its_name ... ok
+test pinned::tests::an_operators_own_layout_above_the_stages_directory_is_theirs_to_spell ... ok
+test stage::tests::a_zero_issue_is_not_an_issue_number ... ok
+test stage::tests::an_issue_number_too_wide_for_the_bound_does_not_exist ... ok
+test pinned::tests::an_ordinary_write_read_append_and_remove_all_work ... ok
+test stage::tests::derived_names_are_what_the_plan_says ... ok
+test pinned::tests::a_fifo_is_refused_rather_than_blocking_the_reader ... ok
+test pinned::tests::listing_a_directory_refuses_a_link_at_it_and_names_a_link_inside_it ... ok
+test stage::tests::issue_numbers_parse_from_the_text_a_caller_types ... ok
+test stage::tests::every_issue_number_that_exists_round_trips ... ok
+test stage::tests::name_round_trips_through_parse ... ok
+test stage::tests::parse_errors_say_which_rule_was_broken ... ok
+test stage::tests::parse_is_also_reachable_through_from_str ... ok
+test stage::tests::parse_never_panics_on_arbitrary_directory_names ... ok
+test stage::tests::parse_rejects_names_that_are_not_ours ... ok
+test stage::tests::paths_hang_off_the_root ... ok
+test pinned::tests::the_cleanup_after_a_failure_of_our_own_still_asks_whose_file_the_name_is ... ok
+test stage::tests::slugify_output_is_always_canonical ... ok
+test stage::tests::truncation_at_an_exact_boundary_keeps_the_whole_word ... ok
+test stage::tests::the_label_value_bound_is_tight ... ok
+test stage::tests::truncation_cuts_through_a_word_too_long_to_save ... ok
+test stage::tests::truncation_prefers_a_nearby_word_boundary ... ok
+test stage::tests::slugify_normalizes_titles_and_falls_back_for_empty_slugs ... ok
+test stage::tests::truncation_reach_is_respected_in_both_directions ... ok
+test tests::not_implemented_names_the_command_and_the_phase ... ok
+test stage::tests::member_tag_is_a_valid_kubernetes_label_value ... ok
+test timestamp::tests::an_instant_no_calendar_reaches_is_refused_rather_than_wrapped ... ok
+test timestamp::tests::a_timestamp_round_trips_through_serde_as_the_string_it_renders ... ok
+test timestamp::tests::an_offset_is_converted_and_a_fraction_is_floored ... ok
+test timestamp::tests::known_instants_render_as_rfc3339 ... ok
+test timestamp::tests::the_far_end_of_the_range_is_jiffs_and_is_stated ... ok
+test timestamp::tests::text_that_is_not_an_instant_is_refused_and_says_what_it_was_given ... ok
+test timestamp::tests::the_clock_reads_as_a_date_in_this_century ... ok
+test timestamp::tests::the_rendering_is_an_instant_and_not_a_locale_rendering ... ok
+test timestamp::tests::the_rendering_and_the_parse_are_inverses ... ok
+test turn::tests::only_working_continues_without_a_human ... ok
+test turn::tests::a_turn_state_is_read_from_a_field_and_not_from_prose ... ok
+test turn::tests::turn_state_names_parse_and_serialize_as_the_wire_contract ... ok
+test turn::tests::unknown_states_are_refused ... ok
+test stage::tests::member_tag_is_bounded_for_every_issue_number_that_exists ... ok
+
+test result: ok. 74 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/symphony_docker-cf050849b4b9a260)
+
+running 73 tests
+test command::tests::a_command_keeps_its_arguments_in_order_and_renders_them ... ok
+test command::tests::a_non_utf8_argument_survives_into_the_vector_and_is_only_lossy_when_rendered ... ok
+test command::tests::the_daemon_probe_asks_the_daemon_and_not_the_client ... ok
+test credentials::tests::a_directory_is_not_a_credentials_file ... ok
+test credentials::tests::a_0600_file_is_accepted_and_reports_its_path ... ok
+test credentials::tests::a_missing_file_is_a_metadata_failure_and_not_a_pass ... ok
+test credentials::tests::a_group_or_world_readable_file_is_refused_with_its_mode ... ok
+test inspect::tests::a_container_with_no_labels_reads_as_no_labels_rather_than_one_empty_label ... ok
+test inspect::tests::a_container_with_several_names_reports_the_first ... ok
+test inspect::tests::a_network_inspect_parses_through_the_same_reader ... ok
+test inspect::tests::a_null_label_map_reads_as_no_labels ... ok
+test inspect::tests::a_ps_line_that_is_not_json_is_an_error_naming_the_line ... ok
+test inspect::tests::a_real_ps_line_parses_into_its_fields_and_its_labels ... ok
+test inspect::tests::a_real_container_inspect_parses_and_its_labels_are_a_map ... ok
+test inspect::tests::an_empty_inspect_array_is_absent_and_not_malformed ... ok
+test inspect::tests::empty_ps_output_is_no_containers_and_not_an_error ... ok
+test inspect::tests::inspect_output_that_is_not_json_is_an_error_naming_the_call ... ok
+test inspect::tests::more_than_one_object_for_one_name_is_refused_rather_than_picked_from ... ok
+test inspect::tests::several_ps_lines_parse_as_several_containers ... ok
+test install::tests::a_foreign_resource_with_one_of_our_names_refuses_classification ... ok
+test install::tests::an_unlabelled_resource_with_one_of_our_names_refuses_classification ... ok
+test install::tests::a_partial_installation_is_reported_and_not_silently_completed ... ok
+test install::tests::an_empty_host_classifies_as_absent_and_plans_five_creations ... ok
+test install::tests::every_resource_has_a_creation_command ... ok
+test install::tests::provisioning_a_complete_installation_twice_changes_nothing_and_is_not_an_error ... ok
+test install::tests::the_five_resources_are_the_ones_the_allocation_table_names ... ok
+test install::tests::the_container_listing_command_filters_on_this_installation ... ok
+test install::tests::teardown_runs_in_reverse_creation_order ... ok
+test install::tests::the_network_creation_command_is_exact ... ok
+test install::tests::the_gitea_creation_command_is_exact_and_publishes_only_loopback_3100 ... ok
+test install::tests::the_volume_creation_commands_are_exact ... ok
+test ownership::tests::a_docker_that_cannot_be_run_yields_neither_a_proof_nor_an_absence ... ok
+test install::tests::the_postgres_creation_command_is_exact_and_publishes_nothing ... ok
+test ownership::tests::a_different_contract_under_our_installation_is_still_ours ... ok
+test ownership::tests::a_foreign_label_set_is_a_refusal_naming_the_owner ... ok
+test ownership::tests::a_matching_installation_value_under_a_foreign_manager_is_still_refused ... ok
+test ownership::tests::a_name_that_does_not_exist_is_absent_and_a_refusal_with_a_reason_is_not ... ok
+test ownership::tests::a_missing_label_set_is_a_refusal_naming_the_resource ... ok
+test ownership::tests::a_proof_is_taken_from_the_resource_and_never_from_what_the_caller_believes ... ok
+test ownership::tests::a_proof_whose_labels_have_since_changed_reads_as_stale ... ok
+test ownership::tests::an_identifier_that_would_not_survive_a_label_round_trip_is_refused ... ok
+test ownership::tests::a_read_of_our_own_labels_proves_ownership_and_produces_the_teardown_pair ... ok
+test ownership::tests::inspecting_a_resource_picks_the_right_subcommand_for_each_kind ... ok
+test ownership::tests::labels_render_sorted_and_say_so_when_there_are_none ... ok
+test ownership::tests::resource_kinds_render_the_way_docker_spells_them ... ok
+test ownership::tests::a_second_symphony_installation_is_refused ... ok
+test ownership::tests::an_answer_that_cannot_be_read_is_unreadable_rather_than_absent ... ok
+test ownership::tests::symphony_with_no_installation_label_is_refused_rather_than_assumed_ours ... ok
+test ownership::tests::teardown_matches_the_kind_of_resource ... ok
+test ownership::tests::the_label_arguments_are_three_pairs_in_a_fixed_order ... ok
+test preflight::tests::a_conflict_names_the_holder_when_one_is_known ... ok
+test preflight::tests::a_header_only_table_is_no_sockets_and_a_truncated_row_is_an_error ... ok
+test preflight::tests::a_missing_proc_directory_fails_the_enumeration_rather_than_reporting_nothing_bound ... ok
+test preflight::tests::a_non_hex_address_is_an_error_rather_than_a_guess ... ok
+test preflight::tests::a_port_allocation_renders_as_a_sentence_fragment ... ok
+test preflight::tests::a_real_proc_net_tcp_table_parses_into_listening_sockets_only ... ok
+test preflight::tests::an_allocation_inside_the_ephemeral_range_is_a_finding_of_its_own ... ok
+test preflight::tests::an_ipv6_address_decodes_word_by_word ... ok
+test preflight::tests::an_unreadable_ephemeral_range_is_an_error_and_never_an_all_clear ... ok
+test preflight::tests::every_udp_row_counts_because_a_bound_udp_socket_has_taken_its_port ... ok
+test preflight::tests::a_wildcard_binding_takes_a_loopback_allocation_and_another_loopback_address_does_not ... ok
+test preflight::tests::maddens_gitea_on_3000_is_not_a_conflict ... ok
+test preflight::tests::the_allocations_are_the_two_the_table_names_and_both_are_loopback ... ok
+test preflight::tests::preflight_reports_a_conflict_when_a_wanted_port_is_bound ... ok
+test runner::tests::an_output_knows_whether_it_succeeded ... ok
+test test_support::tests::an_unlabelled_resource_renders_the_null_docker_really_emits ... ok
+test test_support::tests::the_helper_rejects_a_missing_argument - should panic ... ok
+test test_support::tests::the_helper_rejects_an_extra_argument - should panic ... ok
+test test_support::tests::the_scripted_docker_says_so_when_a_test_asks_for_a_command_it_never_scripted - should panic ... ok
+test runner::tests::a_missing_program_is_a_spawn_failure_and_not_a_nonzero_status ... ok
+test test_support::tests::the_scripted_docker_answers_what_it_was_given_and_records_the_call ... ok
+test runner::tests::the_real_runner_passes_arguments_without_a_shell ... ok
+test preflight::tests::the_live_host_enumerates_and_finds_at_least_one_listening_socket ... ok
+
+test result: ok. 73 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests src/lib.rs (target/debug/deps/symphony_gitea-47176f4f57a58933)
+
+running 108 tests
+test client::tests::a_base_url_is_normalised_and_a_bad_one_is_refused ... ok
+test client::tests::a_404_is_a_status_error_and_a_dead_host_is_a_transport_error ... ok
+test client::tests::a_commit_with_no_checks_is_an_empty_set_and_not_a_passing_one ... ok
+test client::tests::a_collaborators_permission_is_read_at_the_documented_url ... ok
+test client::tests::a_500_and_a_401_are_statuses_too_and_neither_is_absent ... ok
+test client::tests::a_commits_statuses_are_read_at_the_documented_url ... ok
+test client::tests::a_label_write_is_one_put_of_the_whole_target_set ... ok
+test client::tests::a_label_write_that_would_add_the_marker_never_reaches_the_transport ... ok
+test client::tests::a_pull_request_is_read_with_its_verdicts_and_inline_comments ... ok
+test client::tests::a_pull_request_with_no_reviews_still_reports_no_changes_requested ... ok
+test client::tests::a_reply_cannot_send_a_verdict_because_no_request_shape_carries_one ... ok
+test client::tests::a_pull_request_number_outside_the_supported_range_is_reported_rather_than_guessed_at ... ok
+test client::tests::a_reply_goes_to_the_replies_endpoint_and_carries_only_its_text ... ok
+test client::tests::a_repository_with_more_labels_than_one_page_is_read_to_the_end ... ok
+test client::tests::a_success_with_a_body_this_client_cannot_read_is_a_decode_error_that_keeps_the_body ... ok
+test client::tests::an_already_open_pull_request_is_a_409_the_caller_can_recognise ... ok
+test client::tests::an_observed_set_can_be_rebuilt_from_parts_without_a_read ... ok
+test client::tests::an_illegal_live_label_set_is_reported_as_healings_problem ... ok
+test client::tests::an_empty_first_page_is_one_request_and_no_comments ... ok
+test client::tests::creating_a_push_mirror_posts_under_the_repository_and_keeps_the_secret_out_of_the_url ... ok
+test client::tests::a_verdict_is_the_latest_one_its_reviewer_left_on_the_current_head ... ok
+test client::tests::an_unknown_collaborator_is_a_404_and_never_a_silent_yes ... ok
+test client::tests::creating_a_repository_posts_under_the_organization ... ok
+test client::tests::creating_an_organization_posts_the_documented_url_and_body ... ok
+test client::tests::editing_a_pull_request_sends_only_text_and_the_observed_content_revision ... ok
+test client::tests::a_page_past_the_last_one_may_be_null_rather_than_an_empty_array ... ok
+test client::tests::every_request_the_client_makes_carries_the_token_and_no_url_ever_does ... ok
+test client::tests::forking_a_mirror_posts_under_the_mirror_and_names_only_the_organization ... ok
+test client::tests::listing_pull_requests_filters_on_state_and_pages ... ok
+test client::tests::mirroring_a_repository_from_an_upstream_remote_posts_to_migrate ... ok
+test client::tests::listing_open_issues_asks_for_issues_and_reads_every_page ... ok
+test client::tests::one_pull_request_is_re_read_for_its_mergeability ... ok
+test client::tests::opening_a_pull_request_posts_the_branches_in_the_body_and_never_in_the_path ... ok
+test client::tests::reading_issue_labels_gets_the_documented_url ... ok
+test client::tests::listing_comments_reads_one_complete_response_even_at_or_above_the_page_size ... ok
+test client::tests::posting_and_editing_a_comment_use_the_documented_urls_and_methods ... ok
+test client::tests::syncing_a_mirror_posts_to_mirror_sync_and_decodes_nothing ... ok
+test client::tests::the_labels_a_repository_defines_are_read_and_created_at_the_documented_urls ... ok
+test error::tests::a_404_and_an_unreachable_host_are_different_variants_and_answer_differently ... ok
+test client::tests::the_label_timeline_keeps_only_label_events_in_the_order_they_happened ... ok
+test error::tests::a_refusal_converts_with_the_question_mark_operator ... ok
+test client::tests::who_the_token_belongs_to_is_asked_rather_than_configured ... ok
+test error::tests::a_refusal_is_told_apart_from_anything_the_host_said ... ok
+test error::tests::a_status_failure_carries_the_status_and_the_body_into_its_message ... ok
+test labels::tests::a_transition_carries_the_marker_and_the_foreign_labels_through ... ok
+test error::tests::a_server_error_is_a_status_and_is_not_absent ... ok
+test labels::tests::an_explicit_target_that_adds_the_marker_is_refused ... ok
+test labels::tests::an_explicit_target_that_drops_the_marker_is_refused_too ... ok
+test error::tests::a_value_outside_the_supported_range_is_neither_a_status_nor_a_decode_failure ... ok
+test labels::tests::an_explicit_target_that_keeps_the_marker_exactly_is_allowed ... ok
+test labels::tests::an_illegal_live_set_is_healings_problem_and_not_guessed_at ... ok
+test labels::tests::an_observation_separates_our_labels_from_everyone_elses ... ok
+test labels::tests::an_unrecognised_symphony_label_is_carried_by_neither_half_and_is_reportable ... ok
+test labels::tests::every_transition_in_the_design_is_expressible_without_touching_the_marker ... ok
+test labels::tests::pr_status_preserves_foreign_unknown_and_approval_labels ... ok
+test labels::tests::the_marker_cannot_be_smuggled_in_as_a_foreign_label ... ok
+test labels::tests::the_write_body_is_the_replace_all_shape_gitea_documents ... ok
+test models::tests::a_comment_payload_round_trips_and_keeps_both_timestamps ... ok
+test models::tests::a_commit_status_payload_round_trips_and_a_bare_one_reads ... ok
+test models::tests::a_fork_names_only_the_organization_so_it_keeps_the_upstream_name ... ok
+test models::tests::a_label_payload_round_trips ... ok
+test models::tests::a_migration_is_always_a_private_pull_mirror_synced_only_on_request ... ok
+test models::tests::a_label_timeline_entry_says_whether_the_label_was_added_or_removed ... ok
+test models::tests::a_pull_request_in_an_issue_listing_is_recognised_as_one ... ok
+test models::tests::a_repository_payload_round_trips ... ok
+test models::tests::a_review_payload_round_trips_and_the_changes_requested_verdict_is_recognised ... ok
+test models::tests::a_state_string_maps_and_an_unknown_one_is_carried ... ok
+test models::tests::a_pull_request_payload_round_trips_and_keeps_the_head_sha ... ok
+test models::tests::a_timeline_entry_with_an_unparseable_timestamp_fails_only_where_time_is_needed ... ok
+test models::tests::a_reply_is_anchored_where_the_comment_it_answers_is ... ok
+test models::tests::a_user_payload_round_trips_and_missing_optional_fields_are_empty ... ok
+test models::tests::a_secret_in_a_body_serializes_but_never_prints ... ok
+test models::tests::an_inline_review_comment_keeps_its_file_line_and_hunk ... ok
+test models::tests::an_issue_payload_round_trips_with_its_labels_and_its_author ... ok
+test models::tests::an_organization_payload_round_trips_with_both_name_fields_present ... ok
+test models::tests::an_organization_payload_with_only_one_name_field_still_reports_its_name ... ok
+test models::tests::an_unknown_mergeability_stays_unknown_rather_than_becoming_false ... ok
+test models::tests::every_review_verdict_string_maps_and_an_unknown_one_is_carried ... ok
+test models::tests::every_timeline_event_kind_maps_and_an_unknown_one_is_carried ... ok
+test models::tests::the_create_bodies_serialize_to_what_the_api_documents ... ok
+test models::tests::only_the_writing_permission_levels_may_write ... ok
+test names::tests::a_bad_owner_refuses_the_whole_reference ... ok
+test names::tests::a_commit_id_is_hexadecimal_and_anything_else_is_refused ... ok
+test names::tests::a_commit_id_that_would_change_the_path_or_is_not_one_is_refused ... ok
+test names::tests::a_name_that_would_change_the_path_is_refused ... ok
+test names::tests::a_repository_reference_renders_as_two_path_segments ... ok
+test names::tests::each_refusal_says_which_rule_was_broken ... ok
+test names::tests::the_real_names_are_accepted_and_round_trip ... ok
+test test_support::tests::only_request_refuses_to_pick_from_several - should panic ... ok
+test test_support::tests::the_fake_says_so_when_a_test_asks_for_more_calls_than_it_scripted - should panic ... ok
+test test_support::tests::the_fake_records_what_it_was_asked_and_replays_in_order ... ok
+test token::tests::a_0600_and_a_0400_file_are_both_accepted ... ok
+test token::tests::a_0600_token_file_is_read_and_the_trailing_newline_is_trimmed ... ok
+test token::tests::a_directory_is_not_a_token_file ... ok
+test test_support::tests::the_unreachable_fake_fails_every_call_and_still_records_it ... ok
+test token::tests::a_file_far_too_large_to_be_a_token_is_refused_before_it_is_read ... ok
+test token::tests::a_missing_file_is_a_metadata_failure_and_never_a_pass ... ok
+test token::tests::a_group_or_world_readable_token_file_is_refused_with_its_mode ... ok
+test token::tests::an_empty_or_blank_file_is_refused ... ok
+test transport::tests::a_request_carries_no_credential_and_renders_as_a_line ... ok
+test token::tests::a_token_holding_a_header_breaking_character_is_refused ... ok
+test transport::tests::a_response_knows_whether_the_status_was_a_success ... ok
+test token::tests::neither_the_token_nor_its_header_can_be_printed_by_accident ... ok
+test transport::tests::a_reference_to_a_transport_is_one_and_reaches_the_same_recorder ... ok
+test transport::tests::methods_render_the_way_http_spells_them ... ok
+test transport::tests::the_default_timeouts_are_bounded_because_a_tick_has_to_end ... ok
+test transport::tests::the_real_transport_reports_an_unreachable_host_as_a_failure_and_not_as_a_status ... ok
+test client::tests::a_host_that_returns_full_pages_forever_is_refused_rather_than_looped_on ... ok
+
+test result: ok. 108 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests src/lib.rs (target/debug/deps/symphony_stage-d13f33992aa81a9f)
+
+running 116 tests
+test config::tests::a_branch_name_git_would_refuse_is_refused_here_first ... ok
+test config::tests::a_duplicate_member_is_refused ... ok
+test config::tests::a_missing_member_is_refused_and_named ... ok
+test config::tests::a_name_that_is_not_a_member_is_refused_with_the_alternatives ... ok
+test config::tests::no_members_at_all_names_every_one_of_them ... ok
+test config::tests::an_unusable_branch_names_the_member ... ok
+test config::tests::an_unknown_key_in_a_member_entry_is_a_typo_and_is_refused ... ok
+test config::tests::a_member_nested_inside_another_is_refused ... ok
+test config::tests::syntax_errors_name_the_file ... ok
+test config::tests::an_origin_url_is_derived_from_the_gitea_table ... ok
+test git::tests::a_git_that_cannot_be_started_is_a_different_failure ... ok
+test git::tests::a_non_zero_exit_is_an_outcome_and_not_an_error ... ok
+test git::tests::a_signalled_process_is_reported_as_one ... ok
+test git::tests::an_invocation_renders_as_a_person_would_type_it ... ok
+test git::tests::an_invocation_inherits_the_network_and_nothing_that_selects_configuration ... ok
+test config::tests::one_organization_named_for_both_halves_is_refused ... ok
+test git::tests::run_ok_turns_a_failing_exit_into_an_error_that_quotes_git ... ok
+test config::tests::two_members_at_one_path_are_refused ... ok
+test config::tests::a_member_at_a_stage_owned_entry_is_refused ... ok
+test config::tests::upstream_is_the_mirror_on_this_host_and_the_source_is_the_public_repository ... ok
+test config::tests::the_example_configuration_loads_and_holds_all_six ... ok
+test config::tests::the_upstream_push_url_is_a_scheme_git_cannot_dial ... ok
+test config::tests::keys_belonging_to_other_phases_are_ignored ... ok
+test git::tests::a_failure_quotes_the_line_that_says_what_happened_and_not_the_advice ... ok
+test config::tests::loading_names_the_file_it_could_not_read ... ok
+test git::tests::the_double_records_every_invocation_in_order ... ok
+test git::tests::the_double_can_fail_a_chosen_invocation ... ok
+test config::tests::a_member_path_naming_the_boundary_directories_is_refused_at_any_depth ... ok
+test isolation::tests::a_boundary_that_does_not_exist_is_refused ... ok
+test isolation::tests::a_dangling_symlink_is_refused_rather_than_followed ... ok
+test isolation::tests::a_plain_relative_path_is_accepted ... ok
+test isolation::tests::a_symlink_inside_the_boundary_is_allowed ... ok
+test isolation::tests::a_symlink_out_of_the_boundary_is_refused ... ok
+test isolation::tests::traversal_and_absolute_paths_are_refused_lexically ... ok
+test isolation::tests::an_empty_relative_path_names_the_boundary_it_was_measured_against ... ok
+test isolation::tests::resolution_returns_a_path_under_the_boundary ... ok
+test layout::tests::every_path_hangs_off_the_stage_directory ... ok
+test layout::tests::the_owned_directories_are_created_parent_first ... ok
+test config::tests::an_unusable_gitea_table_is_refused ... ok
+test layout::tests::the_reserved_entries_are_the_ones_the_stage_owns ... ok
+test config::tests::escaping_member_paths_are_refused_with_the_member_and_path ... ok
+test layout::tests::the_stages_directory_name_agrees_with_symphony_core ... ok
+test sandbox::tests::a_relative_stage_path_cannot_become_a_trust_key ... ok
+test sandbox::tests::every_phase_name_round_trips_and_is_distinct ... ok
+test sandbox::tests::the_workspace_root_is_the_stage_and_the_repository_check_is_skipped ... ok
+test sandbox::tests::the_profile_serializes_to_the_fields_a_turn_records ... ok
+test sandbox::tests::trust_is_an_invocation_local_override_keyed_by_the_stage_path ... ok
+test layout::tests::a_member_path_is_the_configured_path_joined_to_the_stage ... ok
+test config::tests::a_url_that_git_would_read_as_an_option_is_refused ... ok
+test sandbox::tests::every_phase_reports_full_access_and_keeps_its_artifact_roots ... ok
+test stagehand::tests::a_repository_with_no_shared_guidance_cannot_stage_anything ... ok
+test stagehand::tests::a_sandbox_needs_a_stage_that_exists_and_has_its_artifact_directories ... ok
+test stagehand::tests::a_creation_that_dies_on_the_fourth_member_reports_a_partial_stage ... ok
+test stagehand::tests::removing_something_that_is_not_a_stage_is_refused ... ok
+test stagehand::tests::a_planted_symlink_at_a_member_path_is_refused_rather_than_cloned_through ... ok
+test stagehand::tests::a_member_that_committed_nothing_has_nothing_to_publish_rather_than_a_failed_push ... ok
+test stagehand::tests::a_stage_that_already_exists_is_never_overwritten ... ok
+test stagehand::tests::a_branch_the_remote_already_holds_is_published_and_says_it_changed_nothing ... ok
+test stagehand::tests::an_origin_git_will_not_name_is_refused_rather_than_assumed_correct ... ok
+test stagehand::tests::collection_only_considers_stages_whose_issue_is_closed ... ok
+test stagehand::tests::a_branch_whose_commits_exist_on_another_remote_ref_is_still_publishable ... ok
+test stagehand::tests::a_push_the_server_did_not_receive_is_refused_rather_than_reported_as_published ... ok
+test stagehand::tests::creating_a_stage_lays_out_the_artifact_directories_and_the_shared_guidance ... ok
+test stagehand::tests::creating_a_stage_issues_exactly_the_invocations_the_design_calls_for ... ok
+test stagehand::tests::a_second_push_destination_is_refused_even_though_the_first_is_the_right_one ... ok
+test state::tests::a_missing_remote_is_added_and_a_surprising_one_is_reported ... ok
+test stagehand::tests::collection_keeps_a_stage_with_unsaved_work_and_says_which_members ... ok
+test stagehand::tests::collection_carries_on_when_a_stage_in_the_plan_has_already_gone ... ok
+test state::tests::a_detached_head_is_never_moved_by_a_repair ... ok
+test state::tests::a_member_creation_finished_needs_nothing_done_to_it ... ok
+test stagehand::tests::resume_refuses_a_stage_that_does_not_exist ... ok
+test state::tests::a_missing_member_is_cloned_and_an_occupied_one_is_reported ... ok
+test stagehand::tests::publishing_never_forces_and_reports_the_rejection_instead ... ok
+test stagehand::tests::publishing_refuses_a_missing_stage_a_member_that_was_never_cloned_and_a_missing_branch ... ok
+test stagehand::tests::listing_leaves_alone_everything_it_does_not_recognize ... ok
+test state::tests::a_problem_says_which_member_and_which_rule ... ok
+test stagehand::tests::resume_reports_a_state_it_must_not_touch_and_changes_nothing ... ok
+test stagehand::tests::the_base_is_the_configured_default_branch_and_not_what_the_clone_recorded ... ok
+test stagehand::tests::publishing_pushes_the_stage_branch_to_origin_and_never_to_upstream ... ok
+test stagehand::tests::removing_a_stage_with_unsaved_work_is_refused_until_it_is_asked_for ... ok
+test state::tests::work_states_read_as_english ... ok
+test state::tests::a_member_that_cannot_be_read_is_reported_with_what_was_said ... ok
+test state::tests::a_wrong_or_absent_upstream_push_url_is_always_repaired ... ok
+test state::tests::the_stage_branch_is_cut_or_checked_out_only_when_that_is_safe ... ok
+test sync::tests::a_git_that_cannot_be_started_stops_the_whole_run ... ok
+test state::tests::unsaved_work_names_every_member_and_both_kinds_of_loss ... ok
+test git::tests::the_real_git_answers_about_a_real_repository ... ok
+test sync::tests::every_outcome_names_the_commits_a_person_has_to_look_at ... ok
+test stagehand::tests::a_redirected_origin_is_refused_before_anything_is_pushed ... ok
+test sync::tests::a_branch_the_development_copy_does_not_have_is_created_rather_than_reported_behind ... ok
+test sync::tests::a_conflicting_tag_refuses_the_member_and_is_never_pushed ... ok
+test sync::tests::a_member_half_applied_reports_both_what_was_written_and_what_failed ... ok
+test sync::tests::a_mirror_that_has_never_seen_upstream_cannot_report_a_rewrite ... ok
+test sync::tests::a_refused_rewrite_leaves_the_baseline_where_it_was ... ok
+test sync::tests::a_remote_pointing_elsewhere_is_refused_rather_than_repointed ... ok
+test sync::tests::a_new_tag_is_fetched_and_pushed_as_the_tag_rather_than_as_its_commit ... ok
+test sync::tests::a_selection_covers_what_it_names_and_nothing_else ... ok
+test sync::tests::accepting_a_rewrite_moves_the_baseline_and_nothing_else ... ok
+test sync::tests::a_tag_name_git_would_not_accept_is_reported_rather_than_used ... ok
+test sync::tests::an_annotated_tag_and_a_lightweight_one_at_the_same_commit_do_not_conflict ... ok
+test sync::tests::a_mirror_that_is_not_bare_is_refused ... ok
+test sync::tests::applying_a_behind_member_pushes_one_refspec_and_never_a_force ... ok
+test sync::tests::an_object_id_is_only_what_git_could_have_printed ... ok
+test sync::tests::a_mirror_is_a_bare_repository_under_the_state_directory_with_two_remotes ... ok
+test sync::tests::a_report_reads_as_one_line_per_member ... ok
+test sync::tests::a_transport_failure_is_one_members_problem_and_not_the_whole_runs ... ok
+test sync::tests::the_accepted_baseline_is_read_before_the_fetch_and_written_after_the_check ... ok
+test sync::tests::the_plan_reads_where_upstream_was_before_the_fetch_moves_it ... ok
+test sync::tests::a_refused_member_is_left_alone_and_the_others_are_still_synced ... ok
+test sync::tests::an_upstream_rewrite_is_decided_before_the_counts_are_even_asked_for ... ok
+test sync::tests::the_counts_are_asked_of_the_commits_and_not_of_the_refs ... ok
+test sync::tests::there_is_nothing_to_accept_in_a_mirror_that_has_not_seen_upstream ... ok
+test sync::tests::nothing_a_sync_runs_merges_or_reaches_for_upstream_with_a_push ... ok
+test sync::tests::a_plan_made_against_a_mirror_that_has_since_moved_is_not_applied ... ok
+test sync::tests::an_equal_or_ahead_member_is_never_pushed ... ok
+test sync::tests::the_four_outcomes_come_from_the_commit_counts ... ok
+
+test result: ok. 116 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/on_disk.rs (target/debug/deps/on_disk-92d4aa0b8051bff0)
+
+running 16 tests
+test the_upstream_remote_cannot_be_pushed_to_and_origin_can ... ok
+test a_commit_made_in_a_stage_is_authored_by_the_conductor_and_not_by_whoever_owns_the_host ... ok
+test a_pre_push_hook_in_the_clone_never_runs ... ok
+test a_real_push_reaches_every_configured_destination_and_publishing_refuses_them ... ok
+test a_remote_change_between_verification_and_amendment_push_is_not_overwritten ... ok
+test resume_refuses_to_move_a_checkout_that_holds_changes ... ok
+test the_shared_guidance_is_one_tree_reached_by_symlink ... ok
+test a_created_stage_is_six_real_clones_on_one_branch ... ok
+test subject_amendments_use_an_exact_lease_and_refuse_product_or_parent_changes ... ok
+test the_sandbox_profile_describes_the_stage_that_is_really_there ... ok
+test removal_refuses_unpushed_commits_until_they_are_pushed ... ok
+test an_identity_that_only_wins_on_the_stage_branch_is_caught_after_the_branch_is_switched ... ok
+test resume_repairs_what_cannot_lose_work_and_leaves_the_rest ... ok
+test resume_completes_a_stage_whose_creation_really_died_partway ... ok
+test collection_removes_the_closed_and_clean_and_reports_the_rest ... ok
+test an_existing_stage_with_no_commit_identity_is_repaired_rather_than_left_misattributing ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.12s
+
+     Running tests/sync.rs (target/debug/deps/sync-c334854299c1bf12)
+
+running 9 tests
+test an_upstream_force_push_is_refused_even_though_the_counts_read_as_ahead ... ok
+test a_refused_rewrite_is_still_refused_on_the_next_sync ... ok
+test a_conflicting_tag_is_never_moved_and_blocks_the_member_it_belongs_to ... ok
+test a_mirror_whose_origin_reaches_a_second_repository_is_refused_before_it_pushes ... ok
+test a_development_copy_that_does_not_have_the_branch_yet_has_it_created ... ok
+test a_member_whose_upstream_cannot_be_reached_does_not_stop_the_others ... ok
+test the_four_outcomes_are_distinguished_on_real_repositories ... ok
+test a_stage_branch_with_unpushed_commits_is_untouched_by_a_sync ... ok
+test syncing_twice_in_a_row_writes_nothing_the_second_time ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.84s
+
+     Running unittests src/lib.rs (target/debug/deps/symphony_turn-a6bd21c2102b8319)
+
+running 116 tests
+test artifacts::tests::a_turns_files_sit_under_the_path_the_design_names ... ok
+test artifacts::tests::an_atomic_write_creates_the_directory_it_needs ... ok
+test budget::tests::a_budget_warns_then_refuses ... ok
+test artifacts::tests::create_makes_both_directories_a_launch_needs ... ok
+test artifacts::tests::an_atomic_write_leaves_no_temporary_behind ... ok
+test artifacts::tests::the_instants_in_meta_json_are_rfc3339_in_utc_on_disk ... ok
+test artifacts::tests::a_meta_record_dated_at_an_offset_reads_back_as_the_same_instant ... ok
+test artifacts::tests::creating_a_turn_directory_through_a_planted_link_is_refused ... ok
+test budget::tests::a_warning_above_a_finite_cap_is_refused ... ok
+test budget::tests::a_corrupt_ledger_is_refused_rather_than_reset ... ok
+test budget::tests::a_recorded_row_is_dated_with_one_unambiguous_instant ... ok
+test budget::tests::the_issue_eight_resume_charges_only_its_measured_increment ... ok
+test budget::tests::a_counter_reset_or_missing_thread_never_reduces_the_charge ... ok
+test budget::tests::unlimited_usage_never_refuses_even_when_accounting_saturates ... ok
+test budget::tests::recording_the_same_turn_twice_is_not_a_second_charge ... ok
+test critic::tests::a_critic_can_use_tools_and_still_returns_its_last_result ... ok
+test critic::tests::a_critic_turn_requests_the_operator_selected_permission_mode ... ok
+test critic::tests::a_critics_result_object_carries_the_review_and_nothing_else ... ok
+test budget::tests::legacy_rows_use_only_matching_codex_metadata_for_attribution ... ok
+test critic::tests::a_missing_or_non_string_result_says_which_it_was ... ok
+test critic::tests::a_prompt_that_could_be_read_as_a_flag_is_refused ... ok
+test critic::tests::a_stream_that_never_answered_is_a_failed_turn_rather_than_an_empty_review ... ok
+test critic::tests::an_empty_review_is_a_defect_rather_than_an_endorsement ... ok
+test critic::tests::an_error_result_is_a_failure_and_not_findings ... ok
+test budget::tests::the_ledger_sums_over_turns_and_keeps_every_field ... ok
+test critic::tests::a_later_result_line_supersedes_an_earlier_one ... ok
+test critic::tests::the_findings_and_the_cost_come_off_the_last_result_line ... ok
+test budget::tests::resumed_session_totals_are_charged_once_and_other_calls_stay_separate ... ok
+test event::tests::a_known_type_in_an_unexpected_shape_is_kept_rather_than_rejected ... ok
+test event::tests::a_command_execution_carries_its_command_output_and_exit_code ... ok
+test event::tests::a_line_that_is_not_json_survives_as_itself ... ok
+test event::tests::a_thread_id_that_could_be_read_as_a_flag_is_refused ... ok
+test event::tests::a_turn_completed_with_no_usage_still_parses ... ok
+test event::tests::an_extra_field_on_a_known_event_does_not_make_it_unknown ... ok
+test event::tests::an_unknown_item_type_is_kept_whole_and_is_not_fatal ... ok
+test event::tests::usage_accrues_field_by_field ... ok
+test event::tests::findings_four_lines_parse_into_the_four_typed_events ... ok
+test invocation::tests::a_prompt_that_could_be_read_as_a_flag_is_refused ... ok
+test invocation::tests::a_relative_path_is_refused_everywhere_it_could_appear ... ok
+test event::tests::an_unknown_event_type_is_kept_whole_and_is_not_fatal ... ok
+test invocation::tests::a_resume_carries_no_sandbox_workspace_or_writable_root ... ok
+test invocation::tests::a_research_turns_vector_is_exactly_the_designs_line ... ok
+test invocation::tests::every_new_and_resumed_turn_requests_permission_bypass ... ok
+test invocation::tests::the_critic_phase_is_refused_rather_than_given_codexs_flags ... ok
+test invocation::tests::an_implementation_turn_adds_the_evidence_root_and_writes ... ok
+test phase::tests::only_the_critic_runs_a_different_command_line ... ok
+test lease::tests::a_lease_that_is_not_a_lease_is_an_error_rather_than_a_default ... ok
+test lease::tests::a_lease_holds_the_three_fields_the_design_names ... ok
+test phase::tests::phases_round_trip_through_their_names ... ok
+test phase::tests::research_design_and_review_are_unlimited ... ok
+test phase::tests::sandbox_modes_spell_themselves_as_the_flag_takes_them ... ok
+test phase::tests::the_design_phase_has_no_writable_root_and_still_owes_a_document ... ok
+test lease::tests::rewriting_leaves_one_file_and_no_temporary_behind ... ok
+test process::tests::a_timeout_exit_is_recognised_as_the_wall_clock_firing ... ok
+test phase::tests::the_permission_table_is_the_one_in_the_design ... ok
+test process::tests::no_allowed_variable_is_credential_shaped ... ok
+test process::tests::an_empty_vector_is_refused_rather_than_run ... ok
+test recorder::tests::a_lease_that_cannot_be_written_is_noted_and_does_not_fail_the_turn ... ok
+test recorder::tests::an_unparsable_line_is_recorded_and_returned_rather_than_ending_the_turn ... ok
+test result::tests::a_design_turn_still_owes_a_design_when_it_claims_to_be_working ... ok
+test result::tests::a_design_turn_that_asks_and_still_offers_a_design_keeps_both ... ok
+test recorder::tests::the_stream_reaches_disk_verbatim_and_the_lease_moves_once_per_line ... ok
+test result::tests::a_build_request_that_is_not_an_object_is_refused_without_restating_its_schema ... ok
+test result::tests::a_design_turn_may_ask_a_question_before_it_has_a_design ... ok
+test result::tests::a_state_outside_the_enum_is_a_violation_rather_than_a_coin_flip ... ok
+test result::tests::a_revision_owes_a_changelog ... ok
+test result::tests::a_sibling_directory_with_the_stages_name_as_a_prefix_does_not_count_as_inside ... ok
+test result::tests::a_full_result_validates_and_keeps_every_field ... ok
+test result::tests::a_symlink_out_of_the_stage_is_refused_after_resolution ... ok
+test result::tests::design_is_required_of_a_design_turn_and_forbidden_of_the_others ... ok
+test result::tests::an_invented_field_is_a_violation_rather_than_silent_data_loss ... ok
+test result::tests::a_path_that_walks_out_of_the_stage_is_refused_lexically ... ok
+test result::tests::a_design_turn_that_is_blocked_owes_no_design_either ... ok
+test result::tests::prose_is_not_a_result ... ok
+test result::tests::findings_absolute_evidence_path_is_refused ... ok
+test result::tests::the_stage_itself_and_a_missing_path_are_both_refused ... ok
+test schema::tests::a_caller_can_bundle_the_owning_documents_definition_unchanged ... ok
+test schema::tests::build_requests_is_a_reference_to_the_bundled_definition ... ok
+test schema::tests::every_object_in_the_schema_is_closed ... ok
+test schema::tests::no_property_carries_a_description ... ok
+test schema::tests::no_conditional_keyword_is_relied_on_anywhere_in_the_schema ... ok
+test result::tests::the_design_bounds_are_enforced_as_numbers ... ok
+test supervision::tests::a_cap_of_zero_cannot_be_built_because_timeout_would_read_it_as_no_cap ... ok
+test supervision::tests::a_host_without_the_mechanism_refuses_rather_than_running_unbounded ... ok
+test schema::tests::the_bounds_are_keywords_and_not_prose ... ok
+test schema::tests::the_nine_fields_of_the_design_are_all_present ... ok
+test schema::tests::questions_is_required_and_may_be_empty ... ok
+test supervision::tests::each_phases_cap_reaches_the_vector ... ok
+test supervision::tests::a_supervisor_naming_a_binary_that_is_not_there_fails_its_own_check ... ok
+test supervision::tests::research_and_design_keep_a_process_group_without_a_timeout ... ok
+test supervision::tests::the_backstop_sits_past_timeouts_own_deadline ... ok
+test supervision::tests::a_review_has_neither_a_timeout_wrapper_nor_a_runner_deadline ... ok
+test supervision::tests::the_wrapper_is_the_designs_line ... ok
+test transcript::tests::a_missing_usage_is_said_rather_than_guessed ... ok
+test testing::tests::a_script_can_write_its_result_and_then_go_silent ... ok
+test transcript::tests::a_command_appears_once_with_its_final_exit_code ... ok
+test testing::tests::the_double_replays_lines_and_writes_the_result_where_o_points ... ok
+test transcript::tests::an_unknown_event_is_rendered_with_why_it_was_not_understood ... ok
+test transcript::tests::an_in_flight_command_is_visible_before_it_finishes ... ok
+test transcript::tests::an_unknown_item_is_rendered_as_raw_json_rather_than_dropped ... ok
+test transcript::tests::the_live_lines_show_a_command_running_and_then_its_code ... ok
+test view::tests::a_half_written_line_is_not_an_event_until_it_is_whole ... ok
+test view::tests::a_follower_shows_a_command_while_it_is_still_running ... ok
+test view::tests::a_refilled_stream_does_not_join_an_old_fragment_to_new_bytes ... ok
+test view::tests::a_unicode_character_split_between_polls_survives ... ok
+test transcript::tests::the_transcript_carries_every_command_its_code_its_output_and_the_cost ... ok
+test view::tests::a_replay_prints_what_the_live_view_printed ... ok
+test view::tests::two_turns_are_followed_at_once_and_one_failure_does_not_end_the_view ... ok
+test view::tests::a_stream_replaced_by_one_of_the_same_length_is_read_from_its_start ... ok
+test process::tests::a_setsid_group_is_the_childs_own_and_not_the_harnesss ... ok
+test process::tests::a_silent_process_reaches_the_deadline_rather_than_blocking_forever ... ok
+test process::tests::a_turn_is_given_a_built_environment_and_never_the_conductors ... ok
+test process::tests::the_launcher_reads_complete_lines_and_then_the_end_of_the_stream ... ok
+test process::tests::a_token_in_the_parent_environment_is_absent_from_the_child ... ok
+test process::tests::stdin_is_dev_null_so_a_turn_that_reads_it_sees_the_end_of_a_file ... ok
+test process::tests::a_child_in_the_harnesss_own_group_is_refused_rather_than_signalled ... ok
+
+test result: ok. 116 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.26s
+
+     Running tests/turn.rs (target/debug/deps/turn-b5519c1abe29e9e6)
+
+running 35 tests
+test a_codex_phase_is_refused_by_the_critic_path_rather_than_run_without_a_sandbox ... ok
+test a_host_without_a_wall_clock_refuses_the_turn_rather_than_running_it_unbounded ... ok
+test a_critic_turn_produces_findings_an_artifact_set_and_no_thread ... ok
+test a_turn_directory_that_is_a_link_is_refused_before_anything_is_deleted_through_it ... ok
+test a_provider_diagnostic_alone_does_not_override_a_valid_result ... ok
+test a_bad_exit_code_cannot_fail_a_turn_that_produced_a_result ... ok
+test a_review_past_the_summary_bound_is_published_whole ... ok
+test a_resume_turn_cannot_carry_a_sandbox_flag ... ok
+test a_research_turn_produces_the_whole_artifact_set ... ok
+test the_critic_phase_is_refused_because_this_crate_does_not_drive_it ... ok
+test a_stale_result_from_an_earlier_attempt_is_not_read_as_this_turns_answer ... ok
+test an_absolute_evidence_path_fails_the_turn ... ok
+test a_review_continues_without_a_deadline_and_keeps_its_verdict ... ok
+test a_resume_whose_thread_was_created_for_another_phase_is_refused_before_anything_runs ... ok
+test an_unknown_event_type_and_an_unknown_item_type_both_survive_the_turn ... ok
+test a_wedged_turn_is_killed_and_recorded_rather_than_hung ... ok
+test a_writable_root_that_is_a_planted_link_is_refused_before_the_turn_is_launched ... ok
+test a_turn_killed_after_writing_its_result_succeeded ... ok
+test a_review_process_that_exits_before_answering_still_fails ... ok
+test the_hard_cap_refuses_a_turn_before_it_starts ... ok
+test a_teardown_failure_after_a_good_result_still_succeeds ... ok
+test a_view_that_cannot_be_written_is_a_note_on_the_record_and_not_a_failed_turn ... ok
+test a_schema_violation_fails_the_turn_and_keeps_the_raw_output ... ok
+test the_final_critic_runs_in_the_stage_with_permission_bypass ... ok
+test logs_replays_a_finished_turn_identically_and_watch_saw_the_same_lines ... ok
+test a_second_turn_of_the_same_issue_keeps_its_own_directory_and_adds_to_the_spend ... ok
+test terminal_provider_failure_is_reported_without_retrying_or_fabricating_a_result ... ok
+test a_design_turn_owes_a_document_and_any_other_phase_must_not_return_one ... ok
+test the_launched_vector_is_the_line_the_design_specifies ... ok
+test an_evidence_path_that_escapes_the_stage_through_a_symlink_fails_the_turn ... ok
+test an_empty_review_fails_the_turn_rather_than_publishing_silence ... ok
+test the_warn_threshold_is_reported_and_the_turn_still_runs ... ok
+test unlimited_tokens_allow_player_and_critic_turns_and_keep_accounting ... ok
+test a_review_past_the_review_bound_is_still_trimmed_rather_than_discarded ... ok
+test research_and_design_delegate_on_new_and_resumed_turns_without_a_deadline ... ok
+
+test result: ok. 35 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests conductor
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests symphony_board
+
+running 2 tests
+test sources/symphony-board/src/lib.rs - (line 63) - compile ... ok
+test sources/symphony-board/src/server.rs - server::Server (line 199) - compile ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.17s; merged doctests compilation took 0.17s
+   Doc-tests symphony_build
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests symphony_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests symphony_docker
+
+running 1 test
+test sources/symphony-docker/src/ownership.rs - ownership::Owned (line 248) - compile ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 2 tests
+test sources/symphony-docker/src/ownership.rs - ownership::Owned (line 278) - compile fail ... ok
+test sources/symphony-docker/src/ownership.rs - ownership::Owned (line 263) - compile fail ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+all doctests ran in 0.19s; merged doctests compilation took 0.16s
+   Doc-tests symphony_gitea
+
+running 1 test
+test sources/symphony-gitea/src/transport.rs - transport::Transport (line 229) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test sources/symphony-gitea/src/transport.rs - transport::HttpRequest (line 104) - compile fail ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+all doctests ran in 0.23s; merged doctests compilation took 0.20s
+   Doc-tests symphony_stage
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests symphony_turn
+
+running 1 test
+test sources/symphony-turn/src/lib.rs - (line 18) - compile ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test sources/symphony-turn/src/invocation.rs - invocation (line 18) - compile fail ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+all doctests ran in 0.23s; merged doctests compilation took 0.20s
+==> python3 scripts/lint_skills.py
+lint_skills: no violations
+==> python3 scripts/lint_brain.py
+lint_brain: no violations
+==> python3 scripts/lint_prose.py
+lint_prose: no violations
+==> python3 -m unittest discover -s tests -v
+test_ambiguous_create_recovers_same_identity_and_rejects_foreign_name (test_cloud_builds.CloudBuildTests.test_ambiguous_create_recovers_same_identity_and_rejects_foreign_name) ... ok
+test_archive_rejects_escape_and_accepts_internal_symlinks (test_cloud_builds.CloudBuildTests.test_archive_rejects_escape_and_accepts_internal_symlinks) ... ok
+test_baseline_requests_snapshot_the_commit_without_detaching_the_issue_checkout (test_cloud_builds.CloudBuildTests.test_baseline_requests_snapshot_the_commit_without_detaching_the_issue_checkout) ... ok
+test_collection_rejects_identity_and_checksum_before_completion (test_cloud_builds.CloudBuildTests.test_collection_rejects_identity_and_checksum_before_completion) ... ok
+test_collection_replay_retains_failure_artifacts_and_publication_paths (test_cloud_builds.CloudBuildTests.test_collection_replay_retains_failure_artifacts_and_publication_paths) ... ok
+test_completion_racing_the_first_result_read_is_collected (test_cloud_builds.CloudBuildTests.test_completion_racing_the_first_result_read_is_collected) ... ok
+test_dependency_receipt_selection_uses_retained_platforms_not_directory_order (test_cloud_builds.CloudBuildTests.test_dependency_receipt_selection_uses_retained_platforms_not_directory_order) ... ok
+test_failed_observer_launch_does_not_block_the_next_queued_request (test_cloud_builds.CloudBuildTests.test_failed_observer_launch_does_not_block_the_next_queued_request) ... ok
+test_fifth_request_is_admitted_and_terminal_jobs_do_not_consume_slots (test_cloud_builds.CloudBuildTests.test_fifth_request_is_admitted_and_terminal_jobs_do_not_consume_slots) ... ok
+test_finished_result_signal_is_repaired_without_aws_or_rebuilding (test_cloud_builds.CloudBuildTests.test_finished_result_signal_is_repaired_without_aws_or_rebuilding) ... ok
+test_image_collection_keeps_canonical_products_without_copying_aliases (test_cloud_builds.CloudBuildTests.test_image_collection_keeps_canonical_products_without_copying_aliases) ... ok
+test_killed_result_has_no_exit_code_and_cloud_executor (test_cloud_builds.CloudBuildTests.test_killed_result_has_no_exit_code_and_cloud_executor) ... ok
+test_kubernetes_omitted_empty_environment_is_equivalent_but_changed_values_are_not (test_cloud_builds.CloudBuildTests.test_kubernetes_omitted_empty_environment_is_equivalent_but_changed_values_are_not) ... ok
+test_lost_submission_receipt_never_authorizes_a_replacement_job (test_cloud_builds.CloudBuildTests.test_lost_submission_receipt_never_authorizes_a_replacement_job) ... ok
+test_manifest_bounds_workers_and_has_no_host_socket_or_kubernetes_token (test_cloud_builds.CloudBuildTests.test_manifest_bounds_workers_and_has_no_host_socket_or_kubernetes_token) ... ok
+test_round_robin_is_fifo_and_allows_one_issue_to_use_capacity (test_cloud_builds.CloudBuildTests.test_round_robin_is_fifo_and_allows_one_issue_to_use_capacity) ... ok
+test_selected_twoliter_rejects_an_index_deletion_even_if_worktree_matches_head (test_cloud_builds.CloudBuildTests.test_selected_twoliter_rejects_an_index_deletion_even_if_worktree_matches_head) ... ok
+test_sixth_request_stays_durable_without_creating_a_job (test_cloud_builds.CloudBuildTests.test_sixth_request_stays_durable_without_creating_a_job) ... ok
+test_source_snapshot_preserves_dirty_files_ignored_overrides_and_signing_state (test_cloud_builds.CloudBuildTests.test_source_snapshot_preserves_dirty_files_ignored_overrides_and_signing_state) ... ok
+test_worker_timeout_stops_command_descendants_before_collection (test_cloud_builds.CloudBuildTests.test_worker_timeout_stops_command_descendants_before_collection) ... ok
+test_missing_data_disk_is_not_a_complete_split_image (test_eks_build_matrix.TestArtifactTransport.test_missing_data_disk_is_not_a_complete_split_image) ... ok
+test_removed_node_log_timeout_is_nonfatal_and_not_retried (test_eks_build_matrix.TestArtifactTransport.test_removed_node_log_timeout_is_nonfatal_and_not_retried) ... ok
+test_resume_recovers_receipt_without_aggregate_index (test_eks_build_matrix.TestArtifactTransport.test_resume_recovers_receipt_without_aggregate_index) ... ok
+test_resume_rejects_corruption_after_receipt_was_written (test_eks_build_matrix.TestArtifactTransport.test_resume_rejects_corruption_after_receipt_was_written) ... ok
+test_resume_repeats_interrupted_ack_only_for_the_original_running_pod (test_eks_build_matrix.TestArtifactTransport.test_resume_repeats_interrupted_ack_only_for_the_original_running_pod) ... ok
+test_same_size_corruption_leaves_no_accepted_output (test_eks_build_matrix.TestArtifactTransport.test_same_size_corruption_leaves_no_accepted_output) ... ok
+test_split_os_and_data_disks_are_both_selected (test_eks_build_matrix.TestArtifactTransport.test_split_os_and_data_disks_are_both_selected) ... ok
+test_traversal_is_refused_before_materialization (test_eks_build_matrix.TestArtifactTransport.test_traversal_is_refused_before_materialization) ... ok
+test_undeclared_file_is_refused (test_eks_build_matrix.TestArtifactTransport.test_undeclared_file_is_refused) ... ok
+test_valid_artifacts_are_materialized_after_verification (test_eks_build_matrix.TestArtifactTransport.test_valid_artifacts_are_materialized_after_verification) ... ok
+test_compute_and_worker_caps_cannot_silently_increase (test_eks_build_matrix.TestWorkerPoolBounds.test_compute_and_worker_caps_cannot_silently_increase) ... ok
+test_current_flexible_pool_passes_preflight (test_eks_build_matrix.TestWorkerPoolBounds.test_current_flexible_pool_passes_preflight) ... ok
+test_matrix_must_fit_remaining_five_pod_quota (test_eks_build_matrix.TestWorkerPoolBounds.test_matrix_must_fit_remaining_five_pod_quota) ... ok
+test_resume_needs_no_free_slots_when_quota_is_full (test_eks_build_matrix.TestWorkerPoolBounds.test_resume_needs_no_free_slots_when_quota_is_full) ... ok
+test_unsafe_or_incompatible_resource_changes_are_refused (test_eks_build_matrix.TestWorkerPoolBounds.test_unsafe_or_incompatible_resource_changes_are_refused) ... ok
+test_an_unexpected_instance_role_is_refused (test_eks_builders.TestWorkerOwnership.test_an_unexpected_instance_role_is_refused) ... ok
+test_different_account_stops_before_reading_the_cluster (test_eks_builders.TestWorkerOwnership.test_different_account_stops_before_reading_the_cluster) ... ok
+test_public_route_is_refused_even_without_automatic_public_addresses (test_eks_builders.TestWorkerOwnership.test_public_route_is_refused_even_without_automatic_public_addresses) ... ok
+test_renders_only_the_verified_private_resources (test_eks_builders.TestWorkerOwnership.test_renders_only_the_verified_private_resources) ... ok
+test_second_zone_route_is_also_checked (test_eks_builders.TestWorkerOwnership.test_second_zone_route_is_also_checked) ... ok
+test_stack_output_cannot_redirect_to_another_cluster (test_eks_builders.TestWorkerOwnership.test_stack_output_cannot_redirect_to_another_cluster) ... ok
+test_a_missing_brain_directory_is_a_violation (test_lint_brain.TestCleanTree.test_a_missing_brain_directory_is_a_violation) ... ok
+test_clean_tree_has_no_violations (test_lint_brain.TestCleanTree.test_clean_tree_has_no_violations) ... ok
+test_main_returns_one_and_prints_greppable_lines (test_lint_brain.TestCleanTree.test_main_returns_one_and_prints_greppable_lines) ... ok
+test_main_returns_zero_on_a_clean_tree (test_lint_brain.TestCleanTree.test_main_returns_zero_on_a_clean_tree) ... ok
+test_a_lesson_without_an_issue_is_reported (test_lint_brain.TestRule10LessonIssue.test_a_lesson_without_an_issue_is_reported) ... ok
+test_an_issue_frontmatter_field_satisfies_the_rule (test_lint_brain.TestRule10LessonIssue.test_an_issue_frontmatter_field_satisfies_the_rule) ... ok
+test_an_issue_reference_in_the_body_satisfies_the_rule (test_lint_brain.TestRule10LessonIssue.test_an_issue_reference_in_the_body_satisfies_the_rule) ... ok
+test_other_types_need_no_issue (test_lint_brain.TestRule10LessonIssue.test_other_types_need_no_issue) ... ok
+test_a_block_list_of_contradictions_is_read (test_lint_brain.TestRule11Contradictions.test_a_block_list_of_contradictions_is_read) ... ok
+test_a_contradicts_edge_to_a_superseded_note_is_accepted (test_lint_brain.TestRule11Contradictions.test_a_contradicts_edge_to_a_superseded_note_is_accepted) ... ok
+test_a_dangling_contradicts_edge_is_left_to_the_wikilink_rule (test_lint_brain.TestRule11Contradictions.test_a_dangling_contradicts_edge_is_left_to_the_wikilink_rule) ... ok
+test_a_depends_on_edge_is_not_a_contradiction (test_lint_brain.TestRule11Contradictions.test_a_depends_on_edge_is_not_a_contradiction) ... ok
+test_a_superseded_note_may_contradict_an_active_one (test_lint_brain.TestRule11Contradictions.test_a_superseded_note_may_contradict_an_active_one) ... ok
+test_a_top_level_contradicts_field_is_read (test_lint_brain.TestRule11Contradictions.test_a_top_level_contradicts_field_is_read) ... ok
+test_two_active_notes_on_a_contradicts_edge_are_reported (test_lint_brain.TestRule11Contradictions.test_two_active_notes_on_a_contradicts_edge_are_reported) ... ok
+test_a_core_inside_its_budget_is_accepted (test_lint_brain.TestRule12InjectedCoreBudget.test_a_core_inside_its_budget_is_accepted) ... ok
+test_an_oversized_core_is_reported (test_lint_brain.TestRule12InjectedCoreBudget.test_an_oversized_core_is_reported) ... ok
+test_the_budget_is_stated_in_tokens_and_measured_in_characters (test_lint_brain.TestRule12InjectedCoreBudget.test_the_budget_is_stated_in_tokens_and_measured_in_characters) ... ok
+test_the_digest_counts_toward_the_same_budget (test_lint_brain.TestRule12InjectedCoreBudget.test_the_digest_counts_toward_the_same_budget)
+index.md alone is inside budget; the pair is not. ... ok
+test_the_real_injected_core_is_inside_its_budget (test_lint_brain.TestRule12InjectedCoreBudget.test_the_real_injected_core_is_inside_its_budget)
+The one test that reads the real brain, because the budget is about it. ... ok
+test_a_missing_type_is_reported (test_lint_brain.TestRule1Type.test_a_missing_type_is_reported) ... ok
+test_a_note_without_frontmatter_is_reported (test_lint_brain.TestRule1Type.test_a_note_without_frontmatter_is_reported) ... ok
+test_an_unknown_type_is_reported (test_lint_brain.TestRule1Type.test_an_unknown_type_is_reported) ... ok
+test_the_index_needs_no_frontmatter (test_lint_brain.TestRule1Type.test_the_index_needs_no_frontmatter) ... ok
+test_a_missing_status_is_reported (test_lint_brain.TestRule2Status.test_a_missing_status_is_reported) ... ok
+test_an_unknown_status_is_reported (test_lint_brain.TestRule2Status.test_an_unknown_status_is_reported) ... ok
+test_a_date_that_is_not_a_real_day_is_reported (test_lint_brain.TestRule3Dates.test_a_date_that_is_not_a_real_day_is_reported) ... ok
+test_a_missing_date_is_reported (test_lint_brain.TestRule3Dates.test_a_missing_date_is_reported) ... ok
+test_a_non_iso_date_is_reported (test_lint_brain.TestRule3Dates.test_a_non_iso_date_is_reported) ... ok
+test_updated_before_created_is_reported (test_lint_brain.TestRule3Dates.test_updated_before_created_is_reported) ... ok
+test_updated_equal_to_created_is_accepted (test_lint_brain.TestRule3Dates.test_updated_equal_to_created_is_accepted) ... ok
+test_a_block_list_of_sources_is_accepted (test_lint_brain.TestRule4FactSources.test_a_block_list_of_sources_is_accepted) ... ok
+test_a_fact_with_an_empty_sources_list_is_reported (test_lint_brain.TestRule4FactSources.test_a_fact_with_an_empty_sources_list_is_reported) ... ok
+test_a_fact_without_sources_is_reported (test_lint_brain.TestRule4FactSources.test_a_fact_without_sources_is_reported) ... ok
+test_a_placeholder_source_entry_is_reported (test_lint_brain.TestRule4FactSources.test_a_placeholder_source_entry_is_reported)
+'sources' must hold citations, and null, false and {} are not citations. ... ok
+test_a_source_that_names_nothing_to_follow_is_reported (test_lint_brain.TestRule4FactSources.test_a_source_that_names_nothing_to_follow_is_reported)
+A citation has to be followable, and a number or a bare phrase is not. ... ok
+test_a_sources_value_that_is_not_a_list_is_reported (test_lint_brain.TestRule4FactSources.test_a_sources_value_that_is_not_a_list_is_reported) ... ok
+test_an_inline_list_of_sources_is_accepted (test_lint_brain.TestRule4FactSources.test_an_inline_list_of_sources_is_accepted) ... ok
+test_one_bad_entry_among_good_ones_is_reported (test_lint_brain.TestRule4FactSources.test_one_bad_entry_among_good_ones_is_reported) ... ok
+test_other_types_need_no_sources (test_lint_brain.TestRule4FactSources.test_other_types_need_no_sources) ... ok
+test_the_citation_shapes_the_brain_uses_are_accepted (test_lint_brain.TestRule4FactSources.test_the_citation_shapes_the_brain_uses_are_accepted) ... ok
+test_a_recency_form_without_a_source_is_reported (test_lint_brain.TestRule5Recency.test_a_recency_form_without_a_source_is_reported) ... ok
+test_an_as_of_claim_without_the_recency_form_is_reported (test_lint_brain.TestRule5Recency.test_an_as_of_claim_without_the_recency_form_is_reported) ... ok
+test_the_recency_form_is_accepted (test_lint_brain.TestRule5Recency.test_the_recency_form_is_accepted) ... ok
+test_a_dangling_wikilink_in_the_index_is_reported (test_lint_brain.TestRule6Wikilinks.test_a_dangling_wikilink_in_the_index_is_reported) ... ok
+test_a_dangling_wikilink_is_reported (test_lint_brain.TestRule6Wikilinks.test_a_dangling_wikilink_is_reported) ... ok
+test_a_wikilink_resolves_by_filename_stem_across_directories (test_lint_brain.TestRule6Wikilinks.test_a_wikilink_resolves_by_filename_stem_across_directories) ... ok
+test_aliases_and_headings_are_stripped_before_resolving (test_lint_brain.TestRule6Wikilinks.test_aliases_and_headings_are_stripped_before_resolving) ... ok
+test_a_missing_superseded_by_is_reported (test_lint_brain.TestRule7Supersession.test_a_missing_superseded_by_is_reported) ... ok
+test_a_missing_supersedes_is_reported (test_lint_brain.TestRule7Supersession.test_a_missing_supersedes_is_reported) ... ok
+test_a_reciprocal_pair_is_accepted (test_lint_brain.TestRule7Supersession.test_a_reciprocal_pair_is_accepted) ... ok
+test_a_replacement_that_is_not_active_is_reported (test_lint_brain.TestRule7Supersession.test_a_replacement_that_is_not_active_is_reported) ... ok
+test_a_superseded_note_that_claims_to_be_active_is_reported (test_lint_brain.TestRule7Supersession.test_a_superseded_note_that_claims_to_be_active_is_reported) ... ok
+test_a_missing_index_is_reported (test_lint_brain.TestRule8Orphans.test_a_missing_index_is_reported) ... ok
+test_a_note_nothing_links_to_is_reported (test_lint_brain.TestRule8Orphans.test_a_note_nothing_links_to_is_reported) ... ok
+test_reachability_is_transitive (test_lint_brain.TestRule8Orphans.test_reachability_is_transitive) ... ok
+test_an_em_dash_in_a_note_is_reported (test_lint_brain.TestRule9EmDash.test_an_em_dash_in_a_note_is_reported) ... ok
+test_an_em_dash_in_any_file_under_brain_is_reported (test_lint_brain.TestRule9EmDash.test_an_em_dash_in_any_file_under_brain_is_reported) ... ok
+test_a_captured_prefix_that_matches_nothing_is_reported (test_lint_prose.TestCharacterExemptions.test_a_captured_prefix_that_matches_nothing_is_reported)
+The same staleness rule as the paths: a carve out must name something. ... ok
+test_a_declared_evidence_directory_that_is_not_on_disk_is_reported (test_lint_prose.TestCharacterExemptions.test_a_declared_evidence_directory_that_is_not_on_disk_is_reported) ... ok
+test_a_declared_path_that_is_not_on_disk_is_reported (test_lint_prose.TestCharacterExemptions.test_a_declared_path_that_is_not_on_disk_is_reported) ... ok
+test_a_generated_file_is_exempt_when_declared (test_lint_prose.TestCharacterExemptions.test_a_generated_file_is_exempt_when_declared) ... ok
+test_a_preserved_upstream_file_is_exempt_only_when_declared (test_lint_prose.TestCharacterExemptions.test_a_preserved_upstream_file_is_exempt_only_when_declared) ... ok
+test_an_authored_file_beside_the_evidence_is_still_checked (test_lint_prose.TestCharacterExemptions.test_an_authored_file_beside_the_evidence_is_still_checked)
+A directory does not make a file captured output; being captured does. ... ok
+test_captured_evidence_is_checked_when_the_directory_is_not_declared (test_lint_prose.TestCharacterExemptions.test_captured_evidence_is_checked_when_the_directory_is_not_declared) ... ok
+test_captured_evidence_is_exempt_while_prose_beside_it_is_not (test_lint_prose.TestCharacterExemptions.test_captured_evidence_is_exempt_while_prose_beside_it_is_not)
+A .jsonl transcript is the tool's own words; acceptance.md is ours. ... ok
+test_the_preserved_exemption_does_not_extend_to_a_neighbour (test_lint_prose.TestCharacterExemptions.test_the_preserved_exemption_does_not_extend_to_a_neighbour) ... ok
+test_the_shipped_exemptions_all_point_at_something (test_lint_prose.TestCharacterExemptions.test_the_shipped_exemptions_all_point_at_something)
+The one test that reads the real repository, because staleness is about it. ... ok
+test_clean_tree_has_no_violations (test_lint_prose.TestCleanTree.test_clean_tree_has_no_violations) ... ok
+test_main_returns_one_and_prints_greppable_lines (test_lint_prose.TestCleanTree.test_main_returns_one_and_prints_greppable_lines) ... ok
+test_main_returns_zero_on_a_clean_tree (test_lint_prose.TestCleanTree.test_main_returns_zero_on_a_clean_tree) ... ok
+test_em_dash_is_reported (test_lint_prose.TestEmDashRule.test_em_dash_is_reported) ... ok
+test_every_occurrence_on_a_line_is_reported (test_lint_prose.TestEmDashRule.test_every_occurrence_on_a_line_is_reported) ... ok
+test_the_ban_reaches_code_comments_and_strings (test_lint_prose.TestEmDashRule.test_the_ban_reaches_code_comments_and_strings)
+AGENTS.md bans the character in code and comments, not only in prose. ... ok
+test_the_ban_reaches_files_without_a_suffix (test_lint_prose.TestEmDashRule.test_the_ban_reaches_files_without_a_suffix) ... ok
+test_binary_files_are_skipped (test_lint_prose.TestFileSelection.test_binary_files_are_skipped) ... ok
+test_build_output_directories_are_skipped_at_any_depth (test_lint_prose.TestFileSelection.test_build_output_directories_are_skipped_at_any_depth)
+The other exclusions are names, not paths: a nested target/ is still output. ... ok
+test_exclude_list_skips_directories (test_lint_prose.TestFileSelection.test_exclude_list_skips_directories) ... ok
+test_files_that_are_not_utf_8_are_skipped (test_lint_prose.TestFileSelection.test_files_that_are_not_utf_8_are_skipped) ... ok
+test_non_markdown_files_are_character_checked_but_not_link_checked (test_lint_prose.TestFileSelection.test_non_markdown_files_are_character_checked_but_not_link_checked) ... ok
+test_only_tracked_files_are_checked (test_lint_prose.TestFileSelection.test_only_tracked_files_are_checked) ... ok
+test_skills_and_brain_are_left_to_their_own_linters (test_lint_prose.TestFileSelection.test_skills_and_brain_are_left_to_their_own_linters) ... ok
+test_the_delegation_is_anchored_at_the_root (test_lint_prose.TestFileSelection.test_the_delegation_is_anchored_at_the_root)
+Only the root skills/ and brain/ trees have their own linter. ... ok
+test_the_exclude_flag_adds_to_the_always_excluded_set (test_lint_prose.TestFileSelection.test_the_exclude_flag_adds_to_the_always_excluded_set)
+Naming one directory must not silently re-admit .git and target/. ... ok
+test_a_hash_inside_a_quoted_string_is_kept (test_lint_prose.TestFrontmatterParser.test_a_hash_inside_a_quoted_string_is_kept)
+Quoting is how YAML says the '#' is content, so stripping it would lie. ... ok
+test_a_hash_that_starts_no_comment_is_kept (test_lint_prose.TestFrontmatterParser.test_a_hash_that_starts_no_comment_is_kept)
+YAML only starts a comment at a '#' that follows a space or begins the value. ... ok
+test_a_trailing_comment_is_not_part_of_the_value (test_lint_prose.TestFrontmatterParser.test_a_trailing_comment_is_not_part_of_the_value)
+A YAML comment is not data, and a rule that compares values must not see it. ... ok
+test_block_lists_and_nested_maps (test_lint_prose.TestFrontmatterParser.test_block_lists_and_nested_maps) ... ok
+test_folded_multi_line_scalars (test_lint_prose.TestFrontmatterParser.test_folded_multi_line_scalars) ... ok
+test_key_line_numbers_are_recorded (test_lint_prose.TestFrontmatterParser.test_key_line_numbers_are_recorded) ... ok
+test_missing_and_unterminated_frontmatter_are_errors (test_lint_prose.TestFrontmatterParser.test_missing_and_unterminated_frontmatter_are_errors) ... ok
+test_scalars_inline_lists_and_inline_maps (test_lint_prose.TestFrontmatterParser.test_scalars_inline_lists_and_inline_maps) ... ok
+test_a_leading_byte_order_mark_is_not_reported_as_invisible (test_lint_prose.TestInvisibleCharacterRule.test_a_leading_byte_order_mark_is_not_reported_as_invisible)
+It is an encoding artifact rather than prose, and pointing a reader at column 1 ... ok
+test_every_invisible_character_is_named (test_lint_prose.TestInvisibleCharacterRule.test_every_invisible_character_is_named) ... ok
+test_the_rule_reaches_code_as_well_as_prose (test_lint_prose.TestInvisibleCharacterRule.test_the_rule_reaches_code_as_well_as_prose)
+AGENTS.md bans the em dash in code and comments too, and the same argument ... ok
+test_zero_width_space_is_reported (test_lint_prose.TestInvisibleCharacterRule.test_zero_width_space_is_reported) ... ok
+test_a_link_after_an_inline_code_span_on_the_same_line_is_checked (test_lint_prose.TestLinkRule.test_a_link_after_an_inline_code_span_on_the_same_line_is_checked) ... ok
+test_a_link_inside_an_inline_code_span_is_not_checked (test_lint_prose.TestLinkRule.test_a_link_inside_an_inline_code_span_is_not_checked)
+Quoted text, not a reference: no renderer links it, so neither do we. ... ok
+test_an_angle_bracket_destination_is_checked (test_lint_prose.TestLinkRule.test_an_angle_bracket_destination_is_checked)
+The only way to write a target containing a space, so it must be read. ... ok
+test_an_angle_bracket_destination_that_resolves_is_accepted (test_lint_prose.TestLinkRule.test_an_angle_bracket_destination_that_resolves_is_accepted) ... ok
+test_an_empty_angle_bracket_destination_is_reported (test_lint_prose.TestLinkRule.test_an_empty_angle_bracket_destination_is_reported) ... ok
+test_an_info_string_with_a_backtick_does_not_open_a_fence (test_lint_prose.TestLinkRule.test_an_info_string_with_a_backtick_does_not_open_a_fence) ... ok
+test_broken_relative_link_is_reported (test_lint_prose.TestLinkRule.test_broken_relative_link_is_reported) ... ok
+test_external_and_anchor_links_are_ignored (test_lint_prose.TestLinkRule.test_external_and_anchor_links_are_ignored) ... ok
+test_image_links_are_checked (test_lint_prose.TestLinkRule.test_image_links_are_checked) ... ok
+test_links_after_a_closed_fence_are_still_checked (test_lint_prose.TestLinkRule.test_links_after_a_closed_fence_are_still_checked) ... ok
+test_links_after_an_inline_code_span_are_still_checked (test_lint_prose.TestLinkRule.test_links_after_an_inline_code_span_are_still_checked)
+A line of ``` word ``` is an inline code span, not an opening fence. ... ok
+test_links_inside_fenced_code_blocks_are_ignored (test_lint_prose.TestLinkRule.test_links_inside_fenced_code_blocks_are_ignored) ... ok
+test_links_resolve_relative_to_the_containing_file (test_lint_prose.TestLinkRule.test_links_resolve_relative_to_the_containing_file) ... ok
+test_a_missing_root_is_a_violation (test_lint_prose.TestMissingRoot.test_a_missing_root_is_a_violation) ... ok
+test_a_missing_skills_directory_is_a_violation (test_lint_skills.TestCleanTree.test_a_missing_skills_directory_is_a_violation) ... ok
+test_clean_tree_has_no_violations (test_lint_skills.TestCleanTree.test_clean_tree_has_no_violations) ... ok
+test_main_returns_one_and_prints_greppable_lines (test_lint_skills.TestCleanTree.test_main_returns_one_and_prints_greppable_lines) ... ok
+test_main_returns_zero_on_a_clean_tree (test_lint_skills.TestCleanTree.test_main_returns_zero_on_a_clean_tree) ... ok
+test_a_declared_file_still_faces_the_other_rules (test_lint_skills.TestEmDashProvenanceExemption.test_a_declared_file_still_faces_the_other_rules) ... ok
+test_a_declared_preserved_file_is_exempt (test_lint_skills.TestEmDashProvenanceExemption.test_a_declared_preserved_file_is_exempt) ... ok
+test_a_preserved_file_is_checked_when_it_is_not_declared (test_lint_skills.TestEmDashProvenanceExemption.test_a_preserved_file_is_checked_when_it_is_not_declared) ... ok
+test_a_stale_exemption_is_reported (test_lint_skills.TestEmDashProvenanceExemption.test_a_stale_exemption_is_reported) ... ok
+test_the_exemption_does_not_extend_to_its_neighbours (test_lint_skills.TestEmDashProvenanceExemption.test_the_exemption_does_not_extend_to_its_neighbours) ... ok
+test_the_template_is_exempt_from_the_index_rule (test_lint_skills.TestRule10TemplateExemptions.test_the_template_is_exempt_from_the_index_rule) ... ok
+test_the_template_is_exempt_from_the_uniqueness_rule (test_lint_skills.TestRule10TemplateExemptions.test_the_template_is_exempt_from_the_uniqueness_rule) ... ok
+test_the_template_still_needs_a_description (test_lint_skills.TestRule10TemplateExemptions.test_the_template_still_needs_a_description) ... ok
+test_the_template_still_needs_a_matching_name (test_lint_skills.TestRule10TemplateExemptions.test_the_template_still_needs_a_matching_name) ... ok
+test_the_template_still_needs_frontmatter (test_lint_skills.TestRule10TemplateExemptions.test_the_template_still_needs_frontmatter) ... ok
+test_a_skill_without_frontmatter_is_reported (test_lint_skills.TestRule1Frontmatter.test_a_skill_without_frontmatter_is_reported) ... ok
+test_unparseable_frontmatter_is_reported (test_lint_skills.TestRule1Frontmatter.test_unparseable_frontmatter_is_reported) ... ok
+test_unterminated_frontmatter_is_reported (test_lint_skills.TestRule1Frontmatter.test_unterminated_frontmatter_is_reported) ... ok
+test_a_missing_name_is_reported (test_lint_skills.TestRule2NameMatchesDirectory.test_a_missing_name_is_reported) ... ok
+test_a_name_that_differs_from_the_directory_is_reported (test_lint_skills.TestRule2NameMatchesDirectory.test_a_name_that_differs_from_the_directory_is_reported) ... ok
+test_a_missing_description_is_reported (test_lint_skills.TestRule3Description.test_a_missing_description_is_reported) ... ok
+test_an_empty_description_is_reported (test_lint_skills.TestRule3Description.test_an_empty_description_is_reported) ... ok
+test_a_name_used_in_two_buckets_reports_both_paths (test_lint_skills.TestRule4UniqueNames.test_a_name_used_in_two_buckets_reports_both_paths) ... ok
+test_distinct_names_are_accepted (test_lint_skills.TestRule4UniqueNames.test_distinct_names_are_accepted) ... ok
+test_a_broken_frontmatter_path_is_reported (test_lint_skills.TestRule5Links.test_a_broken_frontmatter_path_is_reported) ... ok
+test_a_broken_relative_markdown_link_is_reported (test_lint_skills.TestRule5Links.test_a_broken_relative_markdown_link_is_reported) ... ok
+test_external_links_are_ignored (test_lint_skills.TestRule5Links.test_external_links_are_ignored) ... ok
+test_links_inside_fenced_code_blocks_are_ignored (test_lint_skills.TestRule5Links.test_links_inside_fenced_code_blocks_are_ignored) ... ok
+test_links_resolve_relative_to_the_containing_file (test_lint_skills.TestRule5Links.test_links_resolve_relative_to_the_containing_file) ... ok
+test_non_markdown_files_are_not_link_checked (test_lint_skills.TestRule5Links.test_non_markdown_files_are_not_link_checked) ... ok
+test_an_em_dash_in_a_skill_is_reported (test_lint_skills.TestRule6EmDash.test_an_em_dash_in_a_skill_is_reported) ... ok
+test_an_em_dash_in_any_file_under_skills_is_reported (test_lint_skills.TestRule6EmDash.test_an_em_dash_in_any_file_under_skills_is_reported) ... ok
+test_an_em_dash_in_the_template_is_reported (test_lint_skills.TestRule6EmDash.test_an_em_dash_in_the_template_is_reported) ... ok
+test_a_madden_marker_in_a_non_markdown_file_is_reported (test_lint_skills.TestRule7MaddenPaths.test_a_madden_marker_in_a_non_markdown_file_is_reported) ... ok
+test_every_madden_marker_is_reported (test_lint_skills.TestRule7MaddenPaths.test_every_madden_marker_is_reported) ... ok
+test_a_commented_marker_still_agrees_with_its_counterpart (test_lint_skills.TestRule8InvocationAgreement.test_a_commented_marker_still_agrees_with_its_counterpart)
+Stripping the comment must not turn agreement into a violation. ... ok
+test_a_trailing_comment_does_not_hide_the_claude_marker (test_lint_skills.TestRule8InvocationAgreement.test_a_trailing_comment_does_not_hide_the_claude_marker)
+A comment is not part of a YAML value, so it cannot switch off a rule. ... ok
+test_a_trailing_comment_does_not_hide_the_codex_policy (test_lint_skills.TestRule8InvocationAgreement.test_a_trailing_comment_does_not_hide_the_codex_policy) ... ok
+test_an_unparseable_openai_agent_is_reported (test_lint_skills.TestRule8InvocationAgreement.test_an_unparseable_openai_agent_is_reported) ... ok
+test_claude_user_invoked_but_codex_model_invoked_is_reported (test_lint_skills.TestRule8InvocationAgreement.test_claude_user_invoked_but_codex_model_invoked_is_reported) ... ok
+test_claude_user_invoked_without_an_openai_agent_is_reported (test_lint_skills.TestRule8InvocationAgreement.test_claude_user_invoked_without_an_openai_agent_is_reported)
+The contract is 'both harnesses or neither', so a missing side breaks it. ... ok
+test_codex_user_invoked_but_claude_model_invoked_is_reported (test_lint_skills.TestRule8InvocationAgreement.test_codex_user_invoked_but_claude_model_invoked_is_reported) ... ok
+test_codex_user_invoked_without_a_claude_marker_is_reported (test_lint_skills.TestRule8InvocationAgreement.test_codex_user_invoked_without_a_claude_marker_is_reported) ... ok
+test_model_invoked_in_both_harnesses_is_accepted (test_lint_skills.TestRule8InvocationAgreement.test_model_invoked_in_both_harnesses_is_accepted) ... ok
+test_neither_harness_restricting_invocation_is_accepted (test_lint_skills.TestRule8InvocationAgreement.test_neither_harness_restricting_invocation_is_accepted) ... ok
+test_user_invoked_in_both_harnesses_is_accepted (test_lint_skills.TestRule8InvocationAgreement.test_user_invoked_in_both_harnesses_is_accepted) ... ok
+test_a_bullet_list_row_for_a_missing_skill_is_reported (test_lint_skills.TestRule9IndexMatchesTree.test_a_bullet_list_row_for_a_missing_skill_is_reported) ... ok
+test_a_duplicate_row_for_one_skill_is_reported (test_lint_skills.TestRule9IndexMatchesTree.test_a_duplicate_row_for_one_skill_is_reported)
+One skill, one entry: two rows mean the router has two answers. ... ok
+test_a_missing_readme_is_reported (test_lint_skills.TestRule9IndexMatchesTree.test_a_missing_readme_is_reported) ... ok
+test_a_prose_mention_is_not_an_index_entry (test_lint_skills.TestRule9IndexMatchesTree.test_a_prose_mention_is_not_an_index_entry)
+Rule 9 asks for a row that links to the skill, not for the word. ... ok
+test_a_readme_row_for_a_missing_skill_is_reported (test_lint_skills.TestRule9IndexMatchesTree.test_a_readme_row_for_a_missing_skill_is_reported) ... ok
+test_a_router_inside_a_code_fence_routes_nothing (test_lint_skills.TestRule9IndexMatchesTree.test_a_router_inside_a_code_fence_routes_nothing)
+A fenced block is an illustration, so a fenced router has no entries. ... ok
+test_a_row_pointing_at_another_skill_is_reported (test_lint_skills.TestRule9IndexMatchesTree.test_a_row_pointing_at_another_skill_is_reported)
+A destination nobody compares is a router that can send you anywhere. ... ok
+test_a_skill_missing_from_the_readme_is_reported (test_lint_skills.TestRule9IndexMatchesTree.test_a_skill_missing_from_the_readme_is_reported) ... ok
+test_an_example_row_in_a_fence_does_not_satisfy_a_real_row (test_lint_skills.TestRule9IndexMatchesTree.test_an_example_row_in_a_fence_does_not_satisfy_a_real_row)
+A fenced row must not count, and the real row beside it must still. ... ok
+test_code_ticks_and_trailing_slashes_in_a_label_are_normalised (test_lint_skills.TestRule9IndexMatchesTree.test_code_ticks_and_trailing_slashes_in_a_label_are_normalised) ... ok
+test_a_discovery_failure_is_a_hard_failure_and_not_an_empty_result (test_makefile.TestLintShell.test_a_discovery_failure_is_a_hard_failure_and_not_an_empty_result)
+The defect: a broken ``find`` reported 'no *.sh files' and exited 0. ... ok
+test_a_shell_file_that_does_not_parse_fails (test_makefile.TestLintShell.test_a_shell_file_that_does_not_parse_fails) ... ok
+test_a_shell_file_that_parses_passes (test_makefile.TestLintShell.test_a_shell_file_that_parses_passes) ... ok
+test_a_tree_with_no_shell_files_is_reported_as_empty_and_passes (test_makefile.TestLintShell.test_a_tree_with_no_shell_files_is_reported_as_empty_and_passes) ... ok
+test_a_shell_file_in_a_stage_is_not_linted (test_makefile.TestLintShellScope.test_a_shell_file_in_a_stage_is_not_linted)
+A stage is six clones of other people's repositories. ... ok
+test_lint_python_fails_when_a_linter_is_missing (test_makefile.TestRequiredGates.test_lint_python_fails_when_a_linter_is_missing) ... ok
+test_unittest_fails_when_the_test_tree_is_missing (test_makefile.TestRequiredGates.test_unittest_fails_when_the_test_tree_is_missing) ... ok
+
+----------------------------------------------------------------------
+Ran 213 tests in 1.119s
+
+OK
+==> bash -n, one call per file, on 21 shell files
+lint-shell: all 21 shell files parse
+integ: all gates passed
+make: Leaving directory '/home/fedora/Repositories/symphony'
