@@ -858,6 +858,7 @@ install -p -m 0644 %{S:3} %{buildroot}%{loaderdir}/loader.conf
 %exclude %{_cross_journalcatalogdir}/systemd.zh_TW.catalog
 
 %dir %{_cross_systemdgeneratordir}
+%{_cross_systemdgeneratordir}/systemd-debug-generator
 %{_cross_systemdgeneratordir}/systemd-fstab-generator
 %{_cross_systemdgeneratordir}/systemd-run-generator
 %{_cross_systemdgeneratordir}/systemd-tpm2-generator
@@ -885,7 +886,6 @@ install -p -m 0644 %{S:3} %{buildroot}%{loaderdir}/loader.conf
 %{_cross_bindir}/systemd-tty-ask-password-agent
 %{_cross_libdir}/systemd/systemd-sulogin-shell
 %{_cross_libdir}/systemd/systemd-reply-password
-%{_cross_systemdgeneratordir}/systemd-debug-generator
 %{_cross_systemdgeneratordir}/systemd-getty-generator
 %{_cross_unitdir}/autovt@.service
 %{_cross_unitdir}/console-getty.service
