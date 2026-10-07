@@ -136,11 +136,21 @@ Requires: %{_cross_os}libtss2
 Requires: %{_cross_os}libuuid
 Requires: %{_cross_os}libxcrypt
 
+Requires: (%{name}-binfmt or %{_cross_os}image-feature(uki-image))
+
 Provides: %{_cross_os}systemd = %{package_priority_epoch}:
 Provides: %{_cross_os}libudev = %{package_priority_epoch}:
 Conflicts: %{_cross_os}systemd
 
 %description
+%{summary}.
+
+%package binfmt
+Summary: Miscellaneous binary format filesystem mount
+Requires: %{name}
+Conflicts: %{_cross_os}image-feature(uki-image)
+
+%description binfmt
 %{summary}.
 
 %package console
@@ -570,7 +580,6 @@ install -p -m 0644 %{S:3} %{buildroot}%{loaderdir}/loader.conf
 %{_cross_unitdir}/nss-user-lookup.target
 %{_cross_unitdir}/paths.target
 %{_cross_unitdir}/poweroff.target
-%{_cross_unitdir}/proc-sys-fs-binfmt_misc.mount
 %{_cross_unitdir}/reboot.target
 %{_cross_unitdir}/rpcbind.target
 %{_cross_unitdir}/shutdown.target
@@ -596,7 +605,6 @@ install -p -m 0644 %{S:3} %{buildroot}%{loaderdir}/loader.conf
 %{_cross_unitdir}/sysinit.target.wants/dev-mqueue.mount
 %{_cross_unitdir}/sysinit.target.wants/kmod-static-nodes.service
 %{_cross_unitdir}/sysinit.target.wants/ldconfig.service
-%{_cross_unitdir}/sysinit.target.wants/proc-sys-fs-binfmt_misc.mount
 %{_cross_unitdir}/sysinit.target.wants/sys-fs-fuse-connections.mount
 %{_cross_unitdir}/sysinit.target.wants/sys-kernel-config.mount
 %{_cross_unitdir}/sysinit.target.wants/sys-kernel-debug.mount
@@ -870,6 +878,10 @@ install -p -m 0644 %{S:3} %{buildroot}%{loaderdir}/loader.conf
 %exclude %{_cross_sysconfdir}/udev/
 %exclude %{_cross_sysconfdir}/X11
 %exclude %{_cross_sysconfdir}/xdg
+
+%files binfmt
+%{_cross_unitdir}/proc-sys-fs-binfmt_misc.mount
+%{_cross_unitdir}/sysinit.target.wants/proc-sys-fs-binfmt_misc.mount
 
 %files devel
 %{_cross_libdir}/libsystemd.so

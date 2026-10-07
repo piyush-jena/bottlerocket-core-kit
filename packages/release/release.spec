@@ -116,7 +116,6 @@ Source1110: tmp-mount-noexec.conf
 Source1111: network-pre-target-dbus-dep.conf
 Source1112: fips-go.conf
 Source1113: requires-tmp.conf
-Source1114: binfmt-misc-mount-uki.conf
 
 # network link rules
 Source1200: 80-release.link
@@ -198,7 +197,6 @@ Requires: %{_cross_os}xfsprogs
 
 Requires: (%{name}-fips if %{_cross_os}image-feature(fips))
 Requires: (%{name}-managed if %{_cross_os}image-feature(no-standalone-image))
-Requires: (%{name}-uki if %{_cross_os}image-feature(uki-image))
 
 %description
 %{summary}.
@@ -259,14 +257,6 @@ Summary: Bottlerocket release, with ephemeral encryption keys
 Requires: (%{_cross_os}image-feature(ephemeral-encryption-keys) and %{name}-crypt)
 
 %description ephemeral-crypt
-%{summary}.
-
-%package uki
-Summary: Bottlerocket release, UKI boot configuration
-Requires: (%{_cross_os}image-feature(uki-image) and %{name})
-Conflicts: %{_cross_os}image-feature(no-uki-image)
-
-%description uki
 %{summary}.
 
 %package swap
@@ -381,10 +371,6 @@ install -p -m 0644 %{S:1110} \
 install -d %{buildroot}%{_cross_unitdir}/network-pre.target.d
 install -p -m 0644 %{S:1111} \
   %{buildroot}%{_cross_unitdir}/network-pre.target.d/00-dbus-dep.conf
-
-install -d %{buildroot}%{_cross_unitdir}/proc-sys-fs-binfmt_misc.mount.d
-install -p -m 0644 %{S:1114} \
-  %{buildroot}%{_cross_unitdir}/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf
 
 # Empty (but packaged) directory. The FIPS packages for kernels will add drop-ins to
 # this directory to arrange for the right modules to be loaded before the check runs.
@@ -633,10 +619,6 @@ install -p -m 0644 %{S:1753} %{buildroot}%{_cross_tmpfilesdir}/release-managed.c
 %{_cross_unitdir}/prepare-private-fs.service
 %{_cross_unitdir}/\x2ebottlerocket.mount.d/20-ephemeral.conf
 %{_cross_unitdir}/run-rottweiler.mount
-
-%files uki
-%dir %{_cross_unitdir}/proc-sys-fs-binfmt_misc.mount.d
-%{_cross_unitdir}/proc-sys-fs-binfmt_misc.mount.d/10-uki.conf
 
 %files swap
 %{_cross_sysctldir}/81-release-swap.conf
