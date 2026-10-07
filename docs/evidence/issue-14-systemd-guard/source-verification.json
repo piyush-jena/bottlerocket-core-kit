@@ -1,0 +1,107 @@
+[
+  {
+    "status": "passed",
+    "job": "1c7c145d-b165-81c9-a667-e4368d21c016",
+    "source": {
+      "revision": "b26951c7cf95cd3cddf8ecefbbbc42162d89bdc2",
+      "tracked_changes": "M Release.toml\n M Twoliter.lock\n M Twoliter.toml"
+    },
+    "input_sha256": "c1ed6f3605c4057f6b82e07fbc09f1b7c2b2b77f60c243ea052ddf04185fbcb6",
+    "configuration_patch_sha256": "f2d1ed1ecc93ac5cd92df444693a884302fbfb9b4a2c64fd467f722e07e4b0e1",
+    "checked_snapshot_files": {
+      "Release.toml": "d601f54e077b1e6677cfbe62ef0d8b8b2acf5caf60522d5c1a5e26aa9737b57b",
+      "Twoliter.lock": "a8a2ddf20c8283a7703321f068fa38d419e4c929e47d2b2e201c7fd13f36f5fa",
+      "Twoliter.toml": "f0c755a2b3dd1807d83c4cd65a089bebc417a89225d3230a7fea8da49615f3fe",
+      "variants/aws-mantle-1/Cargo.toml": "7fbb0ab2f97dfdf4bdfc10e6f82c4b89fa555a14fd876e8485dc425dc4a0a23d"
+    },
+    "core_version": "17.0.1-symphony.14.build-f36d9c2b",
+    "core_index_digest": "sha256:5ff08d597ba9aa781c8d760fb6fa9d59058bf6d4fbaf2dc666b286b5a09c6b9e",
+    "twoliter_revision": "d2c650ad1489fe545f68c4fcbd481f2163ed5629",
+    "variant": "aws-mantle-1",
+    "arch": "x86_64"
+  },
+  {
+    "status": "passed",
+    "job": "e2209cfc-01bc-8357-a66c-a655c592d1a3",
+    "source": {
+      "revision": "b26951c7cf95cd3cddf8ecefbbbc42162d89bdc2",
+      "tracked_changes": "M Release.toml\n M Twoliter.lock\n M Twoliter.toml"
+    },
+    "input_sha256": "a2994373a339f5620819ead31bba25a05ff64f6c9e20808f22214572920aba2b",
+    "configuration_patch_sha256": "f2d1ed1ecc93ac5cd92df444693a884302fbfb9b4a2c64fd467f722e07e4b0e1",
+    "checked_snapshot_files": {
+      "Release.toml": "d601f54e077b1e6677cfbe62ef0d8b8b2acf5caf60522d5c1a5e26aa9737b57b",
+      "Twoliter.lock": "a8a2ddf20c8283a7703321f068fa38d419e4c929e47d2b2e201c7fd13f36f5fa",
+      "Twoliter.toml": "f0c755a2b3dd1807d83c4cd65a089bebc417a89225d3230a7fea8da49615f3fe",
+      "variants/aws-mantle-1/Cargo.toml": "7fbb0ab2f97dfdf4bdfc10e6f82c4b89fa555a14fd876e8485dc425dc4a0a23d"
+    },
+    "core_version": "17.0.1-symphony.14.build-f36d9c2b",
+    "core_index_digest": "sha256:5ff08d597ba9aa781c8d760fb6fa9d59058bf6d4fbaf2dc666b286b5a09c6b9e",
+    "twoliter_revision": "d2c650ad1489fe545f68c4fcbd481f2163ed5629",
+    "variant": "aws-mantle-1",
+    "arch": "aarch64"
+  },
+  {
+    "status": "passed",
+    "job": "49bcb8e3-ea6a-88b3-a5a3-d57dbf0bf278",
+    "source": {
+      "revision": "b26951c7cf95cd3cddf8ecefbbbc42162d89bdc2",
+      "tracked_changes": "M Release.toml\n M Twoliter.lock\n M Twoliter.toml"
+    },
+    "input_sha256": "0ffc4de75c88a5f872c7006543875f119200588d795bc900aab818bcba436fd4",
+    "configuration_patch_sha256": "f2d1ed1ecc93ac5cd92df444693a884302fbfb9b4a2c64fd467f722e07e4b0e1",
+    "checked_snapshot_files": {
+      "Release.toml": "d601f54e077b1e6677cfbe62ef0d8b8b2acf5caf60522d5c1a5e26aa9737b57b",
+      "Twoliter.lock": "a8a2ddf20c8283a7703321f068fa38d419e4c929e47d2b2e201c7fd13f36f5fa",
+      "Twoliter.toml": "f0c755a2b3dd1807d83c4cd65a089bebc417a89225d3230a7fea8da49615f3fe",
+      "variants/aws-mantle-1-fips/Cargo.toml": "12dfd72ccb85aa8094a78d0dc7ca75248502bacb828b11f03f44f38746ee3633"
+    },
+    "core_version": "17.0.1-symphony.14.build-f36d9c2b",
+    "core_index_digest": "sha256:5ff08d597ba9aa781c8d760fb6fa9d59058bf6d4fbaf2dc666b286b5a09c6b9e",
+    "twoliter_revision": "d2c650ad1489fe545f68c4fcbd481f2163ed5629",
+    "variant": "aws-mantle-1-fips",
+    "arch": "x86_64"
+  },
+  {
+    "status": "passed",
+    "job": "ab22cee4-84e2-802a-a72f-98618416d7e8",
+    "source": {
+      "revision": "b26951c7cf95cd3cddf8ecefbbbc42162d89bdc2",
+      "tracked_changes": "M Release.toml\n M Twoliter.lock\n M Twoliter.toml"
+    },
+    "input_sha256": "39226d161ecd854bf114899b7ea92801aa9bd749b4e18480d0b853c080afe19b",
+    "configuration_patch_sha256": "f2d1ed1ecc93ac5cd92df444693a884302fbfb9b4a2c64fd467f722e07e4b0e1",
+    "checked_snapshot_files": {
+      "Release.toml": "d601f54e077b1e6677cfbe62ef0d8b8b2acf5caf60522d5c1a5e26aa9737b57b",
+      "Twoliter.lock": "a8a2ddf20c8283a7703321f068fa38d419e4c929e47d2b2e201c7fd13f36f5fa",
+      "Twoliter.toml": "f0c755a2b3dd1807d83c4cd65a089bebc417a89225d3230a7fea8da49615f3fe",
+      "variants/aws-mantle-1-nvidia/Cargo.toml": "818a4952a7348669747224df358964647a242979b50e41bdd7c6b24a7c765aea"
+    },
+    "core_version": "17.0.1-symphony.14.build-f36d9c2b",
+    "core_index_digest": "sha256:5ff08d597ba9aa781c8d760fb6fa9d59058bf6d4fbaf2dc666b286b5a09c6b9e",
+    "twoliter_revision": "d2c650ad1489fe545f68c4fcbd481f2163ed5629",
+    "variant": "aws-mantle-1-nvidia",
+    "arch": "x86_64"
+  },
+  {
+    "status": "passed",
+    "job": "13bc80f4-41c1-847f-a217-c52eb49d66bb",
+    "source": {
+      "revision": "b26951c7cf95cd3cddf8ecefbbbc42162d89bdc2",
+      "tracked_changes": "M Release.toml\n M Twoliter.lock\n M Twoliter.toml"
+    },
+    "input_sha256": "432cbc56474bb1b5d3ea04814199fc5d93eedca1aa48d9149e7383980ce414df",
+    "configuration_patch_sha256": "f2d1ed1ecc93ac5cd92df444693a884302fbfb9b4a2c64fd467f722e07e4b0e1",
+    "checked_snapshot_files": {
+      "Release.toml": "d601f54e077b1e6677cfbe62ef0d8b8b2acf5caf60522d5c1a5e26aa9737b57b",
+      "Twoliter.lock": "a8a2ddf20c8283a7703321f068fa38d419e4c929e47d2b2e201c7fd13f36f5fa",
+      "Twoliter.toml": "f0c755a2b3dd1807d83c4cd65a089bebc417a89225d3230a7fea8da49615f3fe",
+      "variants/aws-mantle-1-nvidia-fips/Cargo.toml": "ccc4704ef7267c0aed6f3eba22520bd62f77041b2038d929ecd887b935a2ef0f"
+    },
+    "core_version": "17.0.1-symphony.14.build-f36d9c2b",
+    "core_index_digest": "sha256:5ff08d597ba9aa781c8d760fb6fa9d59058bf6d4fbaf2dc666b286b5a09c6b9e",
+    "twoliter_revision": "d2c650ad1489fe545f68c4fcbd481f2163ed5629",
+    "variant": "aws-mantle-1-nvidia-fips",
+    "arch": "x86_64"
+  }
+]

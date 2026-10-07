@@ -141,6 +141,30 @@ The new runtime directory is
 original and test configurations, the revised policy probe and the input
 verification script. No image build or live result is claimed yet.
 
+All five jobs were submitted and their immutable input snapshots verified
+against the recorded release configuration, four variant definitions,
+Twoliter revision and combined core-kit index. `source-verification.json`
+records the input archive identities and checked file hashes:
+
+| Variant | Architecture | Job |
+| --- | --- | --- |
+| aws-mantle-1 | x86_64 | 1c7c145d-b165-81c9-a667-e4368d21c016 |
+| aws-mantle-1 | aarch64 | e2209cfc-01bc-8357-a66c-a655c592d1a3 |
+| aws-mantle-1-fips | x86_64 | 49bcb8e3-ea6a-88b3-a5a3-d57dbf0bf278 |
+| aws-mantle-1-nvidia | x86_64 | ab22cee4-84e2-802a-a72f-98618416d7e8 |
+| aws-mantle-1-nvidia-fips | x86_64 | 13bc80f4-41c1-847f-a217-c52eb49d66bb |
+
+Runtime preparation reused the prior registration, SSM transport and
+container workflow scripts in the new runtime directory, preserving the
+revised guard policy. Python AST parsing and shell syntax checks passed;
+the main NVIDIA workflow and CDI merge script hashes match the recorded
+forest revision. `runtime-preparation.json` retains the checks. The publisher
+binary from kit build fbf7b2d1 was independently hashed and matches
+`accafb87fd7127891026c1a3f63c8aa8405d35d0758cb65eb8fddd1288317e91`.
+The new runtime access-stack name is `symphony-14-systemd-guard`.
+This is preparation only: the stack, AMIs and instances have not been
+created, and all five image jobs remain pending at this checkpoint.
+
 1. Build fresh private 1.66.1 images with the empty migration entry and
    names containing symphony.14.r10. Preserve the exact temporary config
    patch; keep it out of product configuration commits.

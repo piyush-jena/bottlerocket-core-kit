@@ -1,0 +1,40 @@
+{
+  "status": "prepared",
+  "source_snapshots_verified": 5,
+  "shell_syntax_checks": [
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/bottlerocket/build/symphony/issue-14-systemd-guard-runtime/nvidia-smoke-test/run-nvidia-smoke.sh"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/bottlerocket/build/symphony/issue-14-systemd-guard-runtime/nvidia-smoke-test/sheltie.sh"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/bottlerocket/build/symphony/issue-14-systemd-guard-runtime/nvidia-smoke-test/deliver-file.sh"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "python_syntax": "AST parse passed for runtime Python files",
+  "gpu_workflow_main_and_merge": "hashes match recorded forest source",
+  "runtime_status": "not run; image jobs still pending",
+  "resources_created": []
+}
