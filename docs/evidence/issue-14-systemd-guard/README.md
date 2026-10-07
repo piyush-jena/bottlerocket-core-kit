@@ -64,25 +64,56 @@ an unsuccessful explicit start, no failed boot units, and absent module,
 filesystem and mount state before and after loading attempts. It retains
 the exact blacklist, module-object and image identity checks.
 
+## Built kit checks, 2026-10-07
+
+Both builds succeeded from clean snapshot
+`f36d9c2bbc25887c07d7c8b79662b3944eb60ddc`, containing product change
+`fcaa82729f1f10519ce592ba54a1f710507c19c1`:
+
+| Architecture | Build request | Verified archive SHA-256 |
+| --- | --- | --- |
+| x86_64 | b47eda7c-d766-8bee-ac9d-05bfc2ebdae4 | 3b1938f64940fd9c5e65763d71088ddc21344c06685c0734d24a897c446c93ba |
+| aarch64 | fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19 | 936677ac5398aae118e93ea6732acd67b3cf2820c71b691315ebac97cf31ab83 |
+
+`inspect-kit.py` ran successfully for both archives. The complete arguments,
+RPM query commands, exit statuses, stdout/stderr, file ownership, symlink
+targets and hashes are in `built-kit-x86_64.json` and
+`built-kit-aarch64.json`. It checked the archive bytes against the worker
+receipts, the input archive hash, captured spec bytes against the source
+commit, and the OCI manifest, config and all 132 layer hashes per architecture.
+The x86_64 completion was confirmed through its collected cloud result and
+observer exit code 0 before its notification arrived.
+
+The built base RPM contains the expected package-or-UKI requirement.
+Only `systemd-257-binfmt` owns the mount and wants-link, whose target is
+`../proc-sys-fs-binfmt_misc.mount`. Its dependency on base systemd and conflict
+with the UKI feature are present. There is no release-uki RPM, and the release
+RPMs contain no binfmt policy or drop-in. The debug generator remains in
+the console package.
+
+The first inspection attempt assumed final root paths in the RPM header
+and failed its ownership assertion: these cross RPMs use an architecture
+sysroot prefix. The inspector was corrected to require that exact prefix
+for each architecture. Both subsequent inspections passed without product
+source changes or rebuilds. These are artifact checks; actual image
+composition and live policy remain unvalidated for this revision.
+
 ## Remaining validation
 
-1. Build core-kit on x86_64 and aarch64 at this milestone. Inspect the
-   resulting RPM ownership and dependencies, especially the absent
-   release-uki package and exclusive systemd-257-binfmt ownership.
-2. Publish both verified archives through the conductor and verify the
+1. Publish both verified archives through the conductor and verify the
    combined registry receipt before changing the image dependency lock.
-3. Build fresh private 1.66.1 images with the empty migration entry and
+2. Build fresh private 1.66.1 images with the empty migration entry and
    names containing symphony.14.r10. Preserve the exact temporary config
    patch; keep it out of product configuration commits.
-4. Test base mantle on both architectures and FIPS, NVIDIA and NVIDIA-FIPS
+3. Test base mantle on both architectures and FIPS, NVIDIA and NVIDIA-FIPS
    on x86_64. Run the revised policy before and after native containers,
    and the supplied NVIDIA smoke workflow on both GPU cases. Recheck base
    x86_64 after reboot and a negative direct mount attempt.
-5. Record full commands, digests, instances and cleanup; update both PRs
+4. Record full commands, digests, instances and cleanup; update both PRs
    after validation. The single final adversarial review already ran;
    do not request another round.
 
 The four variant blacklists and the tested Twoliter prerequisite are
 unchanged. Their previous source identity and integration-gate evidence
 remain available. No AMIs or cloud runtime resources were created for
-this revision in this turn, and no new build or live pass is claimed.
+this revision in this turn, and no live pass is claimed.

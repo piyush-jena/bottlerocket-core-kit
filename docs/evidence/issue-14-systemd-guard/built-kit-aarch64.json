@@ -1,0 +1,1554 @@
+{
+  "status": "passed",
+  "date": "2026-10-07T00:38:50.029564+00:00",
+  "argv": [
+    "docs/evidence/issue-14-systemd-guard/inspect-kit.py",
+    "fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19",
+    "aarch64",
+    "/home/fedora/Repositories/symphony/.symphony/builds"
+  ],
+  "request_id": "fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19",
+  "arch": "aarch64",
+  "archive": "build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/kits/bottlerocket-core-kit/bottlerocket-core-kit-v17.0.1-f36d9c2b-aarch64.tar",
+  "archive_sha256": "936677ac5398aae118e93ea6732acd67b3cf2820c71b691315ebac97cf31ab83",
+  "archive_size": 896143360,
+  "provenance": {
+    "input_sha256": "ffe1b651c67795b963e1e1cd1caacb4c65d38dcfb7b8944c1dd787c63ecd1945",
+    "sources": {
+      "member": {
+        "revision": "f36d9c2bbc25887c07d7c8b79662b3944eb60ddc",
+        "tracked_changes": ""
+      }
+    },
+    "dependencies": [],
+    "request_id": "fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19"
+  },
+  "captured_source_sha256": {
+    "packages/systemd-257/systemd-257.spec": "b9864a854a523ca3f40430b6cf8ca35f9e4c9b2599c90ddefb29e8be6cd5bb5b",
+    "packages/release/release.spec": "173a534e238dc216e246d4b664285fdebc0649fd4b5d14d663312dd5542336e6"
+  },
+  "oci_manifest": {
+    "mediaType": "application/vnd.oci.image.manifest.v1+json",
+    "digest": "sha256:8fbcadaae8fcb9d5ebe458a059dde9418419b83a267b9f4506ee18fc65699553",
+    "size": 20387,
+    "annotations": {
+      "org.opencontainers.image.created": "2026-10-07T00:34:36.706256424Z"
+    },
+    "platform": {
+      "architecture": "arm64",
+      "os": "linux"
+    }
+  },
+  "verified_layer_count": 132,
+  "all_rpm_paths": [
+    "Packages/kubernetes-1.32/bottlerocket-kube-proxy-1.32-1.32.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.32/bottlerocket-kubelet-1.32-1.32.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.32/bottlerocket-kubernetes-sbom-1.32.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/aws-signer-notation-plugin/bottlerocket-aws-signer-notation-plugin-1.0.2292-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/aws-signer-notation-plugin/bottlerocket-aws-signer-notation-plugin-sbom-1.0.2292-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libpcre/bottlerocket-libpcre-10.47-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libpcre/bottlerocket-libpcre-devel-10.47-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libpcre/bottlerocket-libpcre-sbom-10.47-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libglib/bottlerocket-libglib-2.90.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libglib/bottlerocket-libglib-devel-2.90.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libglib/bottlerocket-libglib-sbom-2.90.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/readline/bottlerocket-readline-8.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/readline/bottlerocket-readline-devel-8.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/readline/bottlerocket-readline-sbom-8.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libaio/bottlerocket-libaio-0.3.113-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libaio/bottlerocket-libaio-devel-0.3.113-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libaio/bottlerocket-libaio-sbom-0.3.113-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/cri-tools/bottlerocket-cri-tools-1.35.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/cri-tools/bottlerocket-cri-tools-sbom-1.35.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iputils/bottlerocket-iputils-20250605-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iputils/bottlerocket-iputils-sbom-20250605-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvidia-dra-driver-gpu/bottlerocket-nvidia-dra-driver-gpu-25.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvidia-dra-driver-gpu/bottlerocket-nvidia-dra-driver-gpu-sbom-25.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/soci-snapshotter/bottlerocket-soci-snapshotter-0.16.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/soci-snapshotter/bottlerocket-soci-snapshotter-igzip-0.16.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/soci-snapshotter/bottlerocket-soci-snapshotter-k8s-0.16.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/soci-snapshotter/bottlerocket-soci-snapshotter-pigz-0.16.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/soci-snapshotter/bottlerocket-soci-snapshotter-sbom-0.16.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iptables/bottlerocket-iptables-1.8.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iptables/bottlerocket-iptables-devel-1.8.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iptables/bottlerocket-iptables-legacy-1.8.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iptables/bottlerocket-iptables-nft-1.8.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iptables/bottlerocket-iptables-sbom-1.8.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/filesystem/bottlerocket-filesystem-1.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/rdma-core/bottlerocket-rdma-core-65.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/rdma-core/bottlerocket-rdma-core-devel-65.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/rdma-core/bottlerocket-rdma-core-sbom-65.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/login/bottlerocket-login-0.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libelf/bottlerocket-libelf-0.196-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libelf/bottlerocket-libelf-devel-0.196-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libelf/bottlerocket-libelf-sbom-0.196-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.35/bottlerocket-ecr-credential-provider-1.35-1.35.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.35/bottlerocket-ecr-credential-provider-1.35-sbom-1.35.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-helper/bottlerocket-ecr-credential-helper-0.12.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-helper/bottlerocket-ecr-credential-helper-sbom-0.12.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-apiclient-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-apiclient-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-apiclient-fips-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-apiserver-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-bloodhound-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-bloodhound-fips-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-bloodhound-k8s-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-bloodhound-k8s-overrides-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-bootstrap-commands-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-bootstrap-containers-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-bork-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-brush-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-certdog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-cfsignal-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-cfsignal-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-cfsignal-fips-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-corndog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-digestion-image-verifier-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-driverdog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-ghostdog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-ghostdog-nvidia-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-host-containers-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-logdog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-logdog-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-logdog-fips-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-metricdog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-metricdog-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-metricdog-fips-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-migration-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-migration-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-migration-fips-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-notation-image-verifier-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-os-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-os-sbom-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-pluto-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-pluto-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-pluto-fips-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-prairiedog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-schnauzer-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-settings-committer-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-shibaken-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-signpost-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-storewolf-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-sundog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-thar-be-image-verifiers-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-thar-be-registries-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-thar-be-settings-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-thar-be-updates-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-updog-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-updog-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-updog-fips-bin-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-warm-pool-wait-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-whippet-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/os/bottlerocket-xfscli-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/conntrack-tools/bottlerocket-conntrack-tools-1.4.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/conntrack-tools/bottlerocket-conntrack-tools-sbom-1.4.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/runc/bottlerocket-runc-1.3.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/runc/bottlerocket-runc-sbom-1.3.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libblkid-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libblkid-devel-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libfdisk-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libfdisk-devel-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libmount-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libmount-devel-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libsmartcols-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libsmartcols-devel-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libuuid-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-libuuid-devel-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-util-linux-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/util-linux/bottlerocket-util-linux-sbom-2.42.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_cttimeout/bottlerocket-libnetfilter_cttimeout-1.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_cttimeout/bottlerocket-libnetfilter_cttimeout-devel-1.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_cttimeout/bottlerocket-libnetfilter_cttimeout-sbom-1.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/tpm2-tools/bottlerocket-tpm2-tools-5.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/tpm2-tools/bottlerocket-tpm2-tools-sbom-5.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/glibc/bottlerocket-glibc-2.43-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/glibc/bottlerocket-glibc-devel-2.43-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/glibc/bottlerocket-glibc-sbom-2.43-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libbpf/bottlerocket-libbpf-1.7.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libbpf/bottlerocket-libbpf-devel-1.7.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libbpf/bottlerocket-libbpf-sbom-1.7.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/erofs-utils/bottlerocket-erofs-utils-1.8.10-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/erofs-utils/bottlerocket-erofs-utils-sbom-1.8.10-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libdrm/bottlerocket-libdrm-2.4.129-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libdrm/bottlerocket-libdrm-devel-2.4.129-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libdrm/bottlerocket-libdrm-sbom-2.4.129-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvidia-k8s-device-plugin/bottlerocket-nvidia-k8s-device-plugin-0.19.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvidia-k8s-device-plugin/bottlerocket-nvidia-k8s-device-plugin-sbom-0.19.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-2.2/bottlerocket-containerd-2.2-2.2.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-2.2/bottlerocket-containerd-2.2-igzip-2.2.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-2.2/bottlerocket-containerd-2.2-pigz-2.2.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-2.2/bottlerocket-containerd-2.2-sbom-2.2.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/strace/bottlerocket-strace-7.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/strace/bottlerocket-strace-sbom-7.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/early-boot-config/bottlerocket-early-boot-config-0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/early-boot-config/bottlerocket-early-boot-config-aws-0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/early-boot-config/bottlerocket-early-boot-config-local-0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/early-boot-config/bottlerocket-early-boot-config-metal-0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/early-boot-config/bottlerocket-early-boot-config-sbom-0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-1.7/bottlerocket-containerd-1.7-1.7.35-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-1.7/bottlerocket-containerd-1.7-igzip-1.7.35-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-1.7/bottlerocket-containerd-1.7-pigz-1.7.35-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-1.7/bottlerocket-containerd-1.7-sbom-1.7.35-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/host-ctr/bottlerocket-host-ctr-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/host-ctr/bottlerocket-host-ctr-sbom-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/rottweiler/bottlerocket-rottweiler-0.1.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/rottweiler/bottlerocket-rottweiler-sbom-0.1.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libudev/bottlerocket-libudev-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libudev/bottlerocket-libudev-devel-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libudev/bottlerocket-libudev-sbom-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecs-agent/bottlerocket-ecs-agent-1.106.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecs-agent/bottlerocket-ecs-agent-config-1.106.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecs-agent/bottlerocket-ecs-agent-nvidia-config-1.106.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecs-agent/bottlerocket-ecs-agent-sbom-1.106.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcrypto/bottlerocket-libcrypto-3.3.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcrypto/bottlerocket-libcrypto-devel-3.3.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcrypto/bottlerocket-libcrypto-sbom-3.3.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcrypto/bottlerocket-libcrypto-tools-3.3.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcrypto/bottlerocket-libssl-3.3.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcrypto/bottlerocket-libssl-devel-3.3.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/dbus-broker/bottlerocket-dbus-broker-37-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/dbus-broker/bottlerocket-dbus-broker-sbom-37-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libffi/bottlerocket-libffi-3.8.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libffi/bottlerocket-libffi-devel-3.8.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libffi/bottlerocket-libffi-sbom-3.8.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnftnl/bottlerocket-libnftnl-1.3.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnftnl/bottlerocket-libnftnl-devel-1.3.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnftnl/bottlerocket-libnftnl-sbom-1.3.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/cni-plugins/bottlerocket-cni-plugins-1.9.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/cni-plugins/bottlerocket-cni-plugins-sbom-1.9.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.31/bottlerocket-ecr-credential-provider-1.31-1.31.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.31/bottlerocket-ecr-credential-provider-1.31-sbom-1.31.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libseccomp/bottlerocket-libseccomp-2.6.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libseccomp/bottlerocket-libseccomp-devel-2.6.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libseccomp/bottlerocket-libseccomp-sbom-2.6.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.36/bottlerocket-kube-proxy-1.36-1.36.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.36/bottlerocket-kubelet-1.36-1.36.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.36/bottlerocket-kubernetes-sbom-1.36.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-cli-29/bottlerocket-docker-cli-29-29.0.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-cli-29/bottlerocket-docker-cli-29-sbom-29.0.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/cni/bottlerocket-cni-1.3.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/cni/bottlerocket-cni-sbom-1.3.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/open-vm-tools/bottlerocket-open-vm-tools-13.1.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/open-vm-tools/bottlerocket-open-vm-tools-devel-13.1.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/open-vm-tools/bottlerocket-open-vm-tools-sbom-13.1.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcryptsetup/bottlerocket-libcryptsetup-2.8.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcryptsetup/bottlerocket-libcryptsetup-devel-2.8.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcryptsetup/bottlerocket-libcryptsetup-sbom-2.8.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcryptsetup/bottlerocket-libcryptsetup-tools-2.8.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/mdadm/bottlerocket-mdadm-4.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/mdadm/bottlerocket-mdadm-sbom-4.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvme-cli/bottlerocket-nvme-cli-2.16-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvme-cli/bottlerocket-nvme-cli-sbom-2.16-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-ssm-agent/bottlerocket-amazon-ssm-agent-3.3.5390.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-ssm-agent/bottlerocket-amazon-ssm-agent-plugin-3.3.5390.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-ssm-agent/bottlerocket-amazon-ssm-agent-sbom-3.3.5390.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libncurses/bottlerocket-libncurses-6.6-20260912.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libncurses/bottlerocket-libncurses-devel-6.6-20260912.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libncurses/bottlerocket-libncurses-sbom-6.6-20260912.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libisal/bottlerocket-igzip-2.32.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libisal/bottlerocket-libisal-2.32.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libisal/bottlerocket-libisal-devel-2.32.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libisal/bottlerocket-libisal-sbom-2.32.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libjson-c/bottlerocket-libjson-c-0.18-20240915.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libjson-c/bottlerocket-libjson-c-devel-0.18-20240915.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libjson-c/bottlerocket-libjson-c-sbom-0.18-20240915.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecs-gpu-init/bottlerocket-ecs-gpu-init-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecs-gpu-init/bottlerocket-ecs-gpu-init-sbom-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvidia-container-toolkit/bottlerocket-nvidia-container-toolkit-1.19.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvidia-container-toolkit/bottlerocket-nvidia-container-toolkit-ecs-1.19.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvidia-container-toolkit/bottlerocket-nvidia-container-toolkit-k8s-1.19.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nvidia-container-toolkit/bottlerocket-nvidia-container-toolkit-sbom-1.19.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.34/bottlerocket-kube-proxy-1.34-1.34.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.34/bottlerocket-kubelet-1.34-1.34.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.34/bottlerocket-kubernetes-sbom-1.34.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.33/bottlerocket-kube-proxy-1.33-1.33.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.33/bottlerocket-kubelet-1.33-1.33.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.33/bottlerocket-kubernetes-sbom-1.33.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libacl/bottlerocket-libacl-2.4.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libacl/bottlerocket-libacl-devel-2.4.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libacl/bottlerocket-libacl-sbom-2.4.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libaudit/bottlerocket-audit-4.2.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libaudit/bottlerocket-audit-rules-4.2.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libaudit/bottlerocket-libaudit-4.2.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libaudit/bottlerocket-libaudit-devel-4.2.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libaudit/bottlerocket-libaudit-sbom-4.2.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnfnetlink/bottlerocket-libnfnetlink-1.0.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnfnetlink/bottlerocket-libnfnetlink-devel-1.0.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnfnetlink/bottlerocket-libnfnetlink-sbom-1.0.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.33/bottlerocket-ecr-credential-provider-1.33-1.33.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.33/bottlerocket-ecr-credential-provider-1.33-sbom-1.33.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nftables/bottlerocket-nftables-1.1.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nftables/bottlerocket-nftables-devel-1.1.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/nftables/bottlerocket-nftables-sbom-1.1.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnl/bottlerocket-libnl-3.12.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnl/bottlerocket-libnl-devel-3.12.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnl/bottlerocket-libnl-sbom-3.12.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/static-pods/bottlerocket-static-pods-0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/static-pods/bottlerocket-static-pods-sbom-0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.35/bottlerocket-kube-proxy-1.35-1.35.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.35/bottlerocket-kubelet-1.35-1.35.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.35/bottlerocket-kubernetes-sbom-1.35.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-binfmt-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-bootloader-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-console-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-cryptsetup-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-devel-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-journald-audit-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-networkd-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-resolved-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-257/bottlerocket-systemd-257-sbom-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/procps/bottlerocket-procps-4.0.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/procps/bottlerocket-procps-devel-4.0.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/procps/bottlerocket-procps-sbom-4.0.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-252/bottlerocket-systemd-252-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-252/bottlerocket-systemd-252-console-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-252/bottlerocket-systemd-252-cryptsetup-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-252/bottlerocket-systemd-252-devel-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-252/bottlerocket-systemd-252-journald-audit-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-252/bottlerocket-systemd-252-networkd-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-252/bottlerocket-systemd-252-resolved-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/systemd-252/bottlerocket-systemd-252-sbom-252.39-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/policycoreutils/bottlerocket-policycoreutils-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/policycoreutils/bottlerocket-policycoreutils-sbom-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/keyutils/bottlerocket-keyutils-1.6.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/keyutils/bottlerocket-keyutils-devel-1.6.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/keyutils/bottlerocket-keyutils-sbom-1.6.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/selinux-policy/bottlerocket-selinux-policy-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/selinux-policy/bottlerocket-selinux-policy-sbom-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.37/bottlerocket-ecr-credential-provider-1.37-1.37.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.37/bottlerocket-ecr-credential-provider-1.37-sbom-1.37.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libdevmapper/bottlerocket-dmsetup-2.03.42-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libdevmapper/bottlerocket-libdevmapper-2.03.42-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libdevmapper/bottlerocket-libdevmapper-devel-2.03.42-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libdevmapper/bottlerocket-libdevmapper-sbom-2.03.42-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libxcrypt/bottlerocket-libxcrypt-4.5.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libxcrypt/bottlerocket-libxcrypt-devel-4.5.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libxcrypt/bottlerocket-libxcrypt-sbom-4.5.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/aws-signing-helper/bottlerocket-aws-signing-helper-1.8.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/aws-signing-helper/bottlerocket-aws-signing-helper-sbom-1.8.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kexec-tools/bottlerocket-kexec-tools-2.0.32-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kexec-tools/bottlerocket-kexec-tools-sbom-2.0.32-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/liburcu/bottlerocket-liburcu-0.15.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/liburcu/bottlerocket-liburcu-devel-0.15.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/liburcu/bottlerocket-liburcu-sbom-0.15.6-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libstd-rust/bottlerocket-libstd-rust-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libstd-rust/bottlerocket-libstd-rust-sbom-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.34/bottlerocket-ecr-credential-provider-1.34-1.34.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.34/bottlerocket-ecr-credential-provider-1.34-sbom-1.34.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kmod/bottlerocket-kmod-34.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kmod/bottlerocket-kmod-devel-34.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kmod/bottlerocket-kmod-sbom-34.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/binutils/bottlerocket-binutils-2.44-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/binutils/bottlerocket-binutils-devel-2.44-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/binutils/bottlerocket-binutils-sbom-2.44-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-engine-25/bottlerocket-docker-engine-25-25.0.17-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-engine-25/bottlerocket-docker-engine-25-sbom-25.0.17-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_queue/bottlerocket-libnetfilter_queue-1.0.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_queue/bottlerocket-libnetfilter_queue-devel-1.0.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_queue/bottlerocket-libnetfilter_queue-sbom-1.0.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libmnl/bottlerocket-libmnl-1.0.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libmnl/bottlerocket-libmnl-devel-1.0.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libmnl/bottlerocket-libmnl-sbom-1.0.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/perf/bottlerocket-perf-6.18.10-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/perf/bottlerocket-perf-sbom-6.18.10-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libsepol/bottlerocket-libsepol-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libsepol/bottlerocket-libsepol-devel-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libsepol/bottlerocket-libsepol-sbom-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-engine-29/bottlerocket-docker-engine-29-29.0.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-engine-29/bottlerocket-docker-engine-29-sbom-29.0.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-ecs-cni-plugins/bottlerocket-amazon-ecs-cni-plugins-2026.05.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-ecs-cni-plugins/bottlerocket-amazon-ecs-cni-plugins-ecs-agent-extras-2026.05.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-ecs-cni-plugins/bottlerocket-amazon-ecs-cni-plugins-sbom-2026.05.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/pciutils/bottlerocket-pciutils-3.15.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/pciutils/bottlerocket-pciutils-sbom-3.15.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libpopt/bottlerocket-libpopt-1.19-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libpopt/bottlerocket-libpopt-devel-1.19-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libpopt/bottlerocket-libpopt-sbom-1.19-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/coreutils/bottlerocket-coreutils-9.11-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/coreutils/bottlerocket-coreutils-sbom-9.11-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/notation/bottlerocket-notation-1.3.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/notation/bottlerocket-notation-sbom-1.3.2-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/xfsprogs/bottlerocket-xfsprogs-7.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/xfsprogs/bottlerocket-xfsprogs-devel-7.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/xfsprogs/bottlerocket-xfsprogs-sbom-7.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libselinux/bottlerocket-libselinux-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libselinux/bottlerocket-libselinux-devel-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libselinux/bottlerocket-libselinux-sbom-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libselinux/bottlerocket-libselinux-utils-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ethtool/bottlerocket-ethtool-7.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ethtool/bottlerocket-ethtool-sbom-7.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libz/bottlerocket-libz-2.3.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libz/bottlerocket-libz-devel-2.3.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libz/bottlerocket-libz-sbom-2.3.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.36/bottlerocket-ecr-credential-provider-1.36-1.36.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.36/bottlerocket-ecr-credential-provider-1.36-sbom-1.36.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/grep/bottlerocket-grep-3.12-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/grep/bottlerocket-grep-sbom-3.12-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libtss2/bottlerocket-libtss2-4.2.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libtss2/bottlerocket-libtss2-devel-4.2.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libtss2/bottlerocket-libtss2-sbom-4.2.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-cli-25/bottlerocket-docker-cli-25-25.0.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-cli-25/bottlerocket-docker-cli-25-sbom-25.0.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.32/bottlerocket-ecr-credential-provider-1.32-1.32.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/ecr-credential-provider-1.32/bottlerocket-ecr-credential-provider-1.32-sbom-1.32.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libinih/bottlerocket-libinih-62-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libinih/bottlerocket-libinih-devel-62-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libinih/bottlerocket-libinih-sbom-62-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.31/bottlerocket-kube-proxy-1.31-1.31.14-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.31/bottlerocket-kubelet-1.31-1.31.14-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.31/bottlerocket-kubernetes-sbom-1.31.14-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/pigz/bottlerocket-pigz-2.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/pigz/bottlerocket-pigz-sbom-2.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iproute/bottlerocket-iproute-7.1.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/iproute/bottlerocket-iproute-sbom-7.1.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-2.3/bottlerocket-containerd-2.3-2.3.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-2.3/bottlerocket-containerd-2.3-igzip-2.3.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-2.3/bottlerocket-containerd-2.3-pigz-2.3.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/containerd-2.3/bottlerocket-containerd-2.3-sbom-2.3.5-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/chrony/bottlerocket-chrony-4.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/chrony/bottlerocket-chrony-sbom-4.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/chrony/bottlerocket-chrony-tools-4.8-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-init/bottlerocket-docker-init-19.03.15-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/docker-init/bottlerocket-docker-init-sbom-19.03.15-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_conntrack/bottlerocket-libnetfilter_conntrack-1.1.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_conntrack/bottlerocket-libnetfilter_conntrack-devel-1.1.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_conntrack/bottlerocket-libnetfilter_conntrack-sbom-1.1.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/makedumpfile/bottlerocket-makedumpfile-1.7.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/makedumpfile/bottlerocket-makedumpfile-sbom-1.7.9-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libzstd/bottlerocket-libzstd-1.5.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libzstd/bottlerocket-libzstd-devel-1.5.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libzstd/bottlerocket-libzstd-sbom-1.5.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libtirpc/bottlerocket-libtirpc-1.3.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libtirpc/bottlerocket-libtirpc-devel-1.3.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libtirpc/bottlerocket-libtirpc-sbom-1.3.7-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libjansson/bottlerocket-libjansson-2.14.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libjansson/bottlerocket-libjansson-devel-2.14.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libjansson/bottlerocket-libjansson-sbom-2.14.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/aws-iam-authenticator/bottlerocket-aws-iam-authenticator-0.7.11-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/aws-iam-authenticator/bottlerocket-aws-iam-authenticator-sbom-0.7.11-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/bash/bottlerocket-bash-5.3.15-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/bash/bottlerocket-bash-devel-5.3.15-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/bash/bottlerocket-bash-sbom-5.3.15-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.37/bottlerocket-kube-proxy-1.37-1.37.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.37/bottlerocket-kubelet-1.37-1.37.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/kubernetes-1.37/bottlerocket-kubernetes-sbom-1.37.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/release/bottlerocket-release-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/release/bottlerocket-release-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/release/bottlerocket-release-crypt-luks-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/release/bottlerocket-release-ephemeral-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/release/bottlerocket-release-fips-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/release/bottlerocket-release-managed-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/release/bottlerocket-release-swap-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_cthelper/bottlerocket-libnetfilter_cthelper-1.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_cthelper/bottlerocket-libnetfilter_cthelper-devel-1.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnetfilter_cthelper/bottlerocket-libnetfilter_cthelper-sbom-1.0.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libsemanage/bottlerocket-libsemanage-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libsemanage/bottlerocket-libsemanage-devel-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libsemanage/bottlerocket-libsemanage-sbom-3.8.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libattr/bottlerocket-libattr-2.6.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libattr/bottlerocket-libattr-devel-2.6.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libattr/bottlerocket-libattr-sbom-2.6.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcap/bottlerocket-libcap-2.78-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcap/bottlerocket-libcap-devel-2.78-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libcap/bottlerocket-libcap-sbom-2.78-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/aws-otel-collector/bottlerocket-aws-otel-collector-0.49.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/aws-otel-collector/bottlerocket-aws-otel-collector-sbom-0.49.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnvidia-container/bottlerocket-libnvidia-container-1.19.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnvidia-container/bottlerocket-libnvidia-container-devel-1.19.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnvidia-container/bottlerocket-libnvidia-container-sbom-1.19.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnvme/bottlerocket-libnvme-1.16-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnvme/bottlerocket-libnvme-devel-1.16-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libnvme/bottlerocket-libnvme-sbom-1.16-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/hwloc/bottlerocket-hwloc-2.14.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/hwloc/bottlerocket-hwloc-devel-2.14.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/hwloc/bottlerocket-hwloc-sbom-2.14.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/hwloc/bottlerocket-hwloc-tools-2.14.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/e2fsprogs/bottlerocket-e2fsprogs-1.47.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/e2fsprogs/bottlerocket-e2fsprogs-devel-1.47.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/e2fsprogs/bottlerocket-e2fsprogs-libs-1.47.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/e2fsprogs/bottlerocket-e2fsprogs-sbom-1.47.4-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/findutils/bottlerocket-findutils-4.10.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/findutils/bottlerocket-findutils-sbom-4.10.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libgcc/bottlerocket-libgcc-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libgcc/bottlerocket-libgcc-sbom-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/libgcc/bottlerocket-libstdc++-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/netdog/bottlerocket-hostname-imds-0.1.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/netdog/bottlerocket-hostname-reverse-dns-0.1.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/netdog/bottlerocket-netdog-0.1.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/netdog/bottlerocket-netdog-sbom-0.1.1-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-vpc-cni-plugins/bottlerocket-amazon-vpc-cni-plugins-1.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-vpc-cni-plugins/bottlerocket-amazon-vpc-cni-plugins-ecs-agent-extras-1.3-1.1791331552.f36d9c2b.br1.aarch64.rpm",
+    "Packages/amazon-vpc-cni-plugins/bottlerocket-amazon-vpc-cni-plugins-sbom-1.3-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+  ],
+  "queried_rpms": {
+    "bottlerocket-systemd-257": {
+      "sha256": "d233b65c8d8f85364eaf73ccca3a00a70e54588ebd31f12e0850cf1b08eb12e4",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/busctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/journalctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/loginctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-ac-power\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-analyze\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cat\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cgls\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cgtop\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-creds\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-delta\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-detect-virt\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-dissect\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-escape\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-id128\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-inhibit\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-machine-id-setup\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-notify\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-nspawn\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-path\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-repart\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-run\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-socket-activate\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-stdio-bridge\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-sysusers\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-tmpfiles\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-umount\tsystemd-mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-vpick\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/udevadm\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/varlinkctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libsystemd.so.0\tlibsystemd.so.0.40.0\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libsystemd.so.0.40.0\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libudev.so.1\tlibudev.so.1.7.10\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libudev.so.1.7.10\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/modprobe.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/modprobe.d/systemd.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d/50-default.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d/50-pid-max.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/catalog\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/catalog/systemd.catalog\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/libsystemd-core-257.so\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/libsystemd-shared-257.so\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-fstab-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-run-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-tpm2-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-preset\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-preset/90-systemd.preset\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-shutdown\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-sleep\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/basic.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/blockdev@.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/boot-complete.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/ctrl-alt-del.target\treboot.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/dbus-org.freedesktop.login1.service\tsystemd-logind.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/dev-hugepages.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/dev-mqueue.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/exit.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/factory-reset.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/final.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/first-boot-complete.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/getty-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/getty.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/halt.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/kexec.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/kmod-static-nodes.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/ldconfig.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local-fs-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local-fs.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local-fs.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local-fs.target.wants/tmp.mount\t../tmp.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/modprobe@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target.wants/getty.target\t../getty.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target.wants/systemd-logind.service\t../systemd-logind.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network-online.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/nss-lookup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/nss-user-lookup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/paths.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/poweroff.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/reboot.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/rpcbind.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/shutdown.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sigpwr.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sleep.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/slices.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-creds.socket\t../systemd-creds.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-journald-dev-log.socket\t../systemd-journald-dev-log.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-journald.socket\t../systemd-journald.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-udevd-control.socket\t../systemd-udevd-control.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-udevd-kernel.socket\t../systemd-udevd-kernel.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/suspend.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/swap.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sys-fs-fuse-connections.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sys-kernel-config.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sys-kernel-debug.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sys-kernel-tracing.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/dev-hugepages.mount\t../dev-hugepages.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/dev-mqueue.mount\t../dev-mqueue.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service\t../kmod-static-nodes.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/ldconfig.service\t../ldconfig.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/sys-fs-fuse-connections.mount\t../sys-fs-fuse-connections.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/sys-kernel-config.mount\t../sys-kernel-config.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/sys-kernel-debug.mount\t../sys-kernel-debug.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/sys-kernel-tracing.mount\t../sys-kernel-tracing.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-journal-catalog-update.service\t../systemd-journal-catalog-update.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service\t../systemd-journal-flush.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service\t../systemd-journald.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service\t../systemd-machine-id-commit.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service\t../systemd-modules-load.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service\t../systemd-random-seed.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-repart.service\t../systemd-repart.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service\t../systemd-sysctl.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-sysusers.service\t../systemd-sysusers.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev-early.service\t../systemd-tmpfiles-setup-dev-early.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service\t../systemd-tmpfiles-setup-dev.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service\t../systemd-tmpfiles-setup.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service\t../systemd-udev-trigger.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-udevd.service\t../systemd-udevd.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/syslog.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-boot-check-no-failures.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-creds.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-creds@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-exit.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-fsck-root.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-fsck@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-halt.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journal-catalog-update.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journal-flush.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald-dev-log.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald-sync@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald-varlink@.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald@.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-kexec.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-logind.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-machine-id-commit.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-modules-load.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-network-generator.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-nspawn@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-poweroff.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pstore.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-random-seed.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-reboot.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-remount-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-suspend.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-sysctl.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-sysusers.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-clean.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-clean.timer\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup-dev-early.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup-dev.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-load-credentials.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-settle.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-trigger.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udevd-control.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udevd-kernel.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udevd.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/time-set.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/time-sync.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/timers.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/timers.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/timers.target.wants/systemd-tmpfiles-clean.timer\t../systemd-tmpfiles-clean.timer\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/tmp.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/tpm2.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/umount.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-boot-check-no-failures\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-cgroups-agent\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-executor\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-fsck\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-growfs\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-journald\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-logind\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-makefs\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-modules-load\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-network-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-pstore\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-random-seed\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-remount-fs\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-shutdown\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-sleep\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-socket-proxyd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-sysctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-sysroot-fstab-check\tsystem-generators/systemd-fstab-generator\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-udevd\t../../bin/udevadm\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d/basic.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d/systemd-journal.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/credstore.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/etc.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/home.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/journal-nocow.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/provision.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/static-nodes-permissions.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd-pstore.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd-tmp.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/tmp.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/var.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/ata_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/cdrom_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/dmi_memory_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/fido_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/iocost\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/mtd_probe\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/50-udev-default.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-autosuspend.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-block.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-cdrom_id.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-dmi-id.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-drm.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-evdev.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-fido-id.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-infiniband.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-input-id.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-persistent-input.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-persistent-storage-mtd.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-persistent-storage-tape.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-persistent-storage.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-sensor.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-serial.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/64-btrfs.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/70-memory.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/70-power-switch.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/75-net-description.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/75-probe_mtd.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/80-drivers.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/80-net-setup-link.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/81-net-dhcp.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/90-iocost.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/99-systemd.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/scsi_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/halt\t../bin/systemctl\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/init\t../lib/systemd/systemd\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/mount.ddi\t../bin/systemd-dissect\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/poweroff\t../bin/systemctl\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/reboot\t../bin/systemctl\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/shutdown\t../bin/systemctl\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/dbus-1/system.d/org.freedesktop.login1.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/dbus-1/system.d/org.freedesktop.systemd1.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/factory\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/factory/etc/locale.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/systemd-257\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/systemd-257/LICENSE.GPL2\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/systemd-257/LICENSE.LGPL2.1\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/systemd-257/attribution.txt\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/whippet/policies.d/org.freedesktop.login1.toml\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/whippet/policies.d/org.freedesktop.systemd1.toml\t\n/boot/boot-config.d\t\n/boot/boot-config.d/20-mount-rate-limit-burst.conf\t\n/boot/boot-config.d/21-cgroup-enable-legacy-force.conf\t\n",
+      "requires": [
+        "(bottlerocket-systemd-257-binfmt or bottlerocket-image-feature(uki-image))",
+        "bottlerocket-kmod",
+        "bottlerocket-libacl",
+        "bottlerocket-libattr",
+        "bottlerocket-libblkid",
+        "bottlerocket-libcap",
+        "bottlerocket-libcrypto",
+        "bottlerocket-libcryptsetup",
+        "bottlerocket-libfdisk",
+        "bottlerocket-libmount",
+        "bottlerocket-libseccomp",
+        "bottlerocket-libselinux",
+        "bottlerocket-libtss2",
+        "bottlerocket-libuuid",
+        "bottlerocket-libxcrypt",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1",
+        "rpmlib(RichDependencies) <= 4.12.0-1"
+      ],
+      "conflicts": [
+        "bottlerocket-systemd"
+      ]
+    },
+    "bottlerocket-systemd-257-binfmt": {
+      "sha256": "ed6e3aa42f17be0f8bb8dc307c53e4d34ef9cc1b2ce339729807246d10a90dae",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/proc-sys-fs-binfmt_misc.mount\t../proc-sys-fs-binfmt_misc.mount\n",
+      "requires": [
+        "bottlerocket-systemd-257",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": [
+        "bottlerocket-image-feature(uki-image)"
+      ]
+    },
+    "bottlerocket-systemd-257-bootloader": {
+      "sha256": "2ffabc4b812526809d726af38346cc67331840806f9e610ede3f3d165cf80c93",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/boot\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/boot/efi\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/boot/efi/addonaa64.efi.stub\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/boot/efi/linuxaa64.efi.stub\t\n/boot/efi/EFI/BOOT\t\n/boot/efi/EFI/BOOT/systemd-bootaa64.efi\t\n/boot/efi/loader\t\n/boot/efi/loader/loader.conf\t\n",
+      "requires": [
+        "bottlerocket-image-feature(uki-image)",
+        "bottlerocket-systemd-257",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": [
+        "bottlerocket-image-feature(in-place-updates)",
+        "bottlerocket-image-feature(no-uki-image)"
+      ]
+    },
+    "bottlerocket-systemd-257-console": {
+      "sha256": "0ae587aa0bafe8a73c474cbb0024938b7465cbf72a6387cf720d03189492f71a",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-ask-password\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-tty-ask-password-agent\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-debug-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-getty-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/autovt@.service\tgetty@.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/console-getty.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/container-getty@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/debug-shell.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/emergency.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/emergency.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/getty@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target.wants/systemd-ask-password-wall.path\t../systemd-ask-password-wall.path\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/rescue.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/rescue.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/serial-getty@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-ask-password-console.path\t../systemd-ask-password-console.path\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-ask-password-console.path\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-ask-password-console.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-ask-password-wall.path\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-ask-password-wall.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-reply-password\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-sulogin-shell\t\n",
+      "requires": [
+        "bottlerocket-systemd-257",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-systemd-257-cryptsetup": {
+      "sha256": "7d365b62b6ada20520b53cfaf4f9a286c332c2f90f115c27cf6268c8ee754945",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cryptenroll\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cryptsetup\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/cryptsetup/libcryptsetup-token-systemd-tpm2.so\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-cryptsetup-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-integritysetup-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-veritysetup-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/cryptsetup-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/cryptsetup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/integritysetup-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/integritysetup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/cryptsetup.target\t../cryptsetup.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/integritysetup.target\t../integritysetup.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/veritysetup.target\t../veritysetup.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/system-systemd\\x2dcryptsetup.slice\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/system-systemd\\x2dveritysetup.slice\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/veritysetup-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/veritysetup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-cryptsetup\t../../bin/systemd-cryptsetup\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-integritysetup\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-keyutil\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-measure\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-pcrlock\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-veritysetup\t\n",
+      "requires": [
+        "bottlerocket-cryptsetup",
+        "bottlerocket-systemd-257",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-systemd-257-devel": {
+      "sha256": "ae073de99cb55810c6fa1cce48de535cdcba26917cbda90b3cd7f25648e551e1",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/libudev.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/_sd-common.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-bus-protocol.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-bus-vtable.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-bus.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-daemon.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-device.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-event.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-gpt.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-hwdb.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-id128.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-journal.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-json.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-login.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-messages.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-path.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-varlink-idl.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-varlink.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libsystemd.so\tlibsystemd.so.0\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libudev.so\tlibudev.so.1\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/pkgconfig/libsystemd.pc\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/pkgconfig/libudev.pc\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/pkgconfig/systemd.pc\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/pkgconfig/udev.pc\t\n",
+      "requires": [
+        "bottlerocket-systemd-257",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-systemd-257-journald-audit": {
+      "sha256": "84282486e06d4be1c905bd46df55bc259594a233c6602f8e2e6f8e703a6b1122",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald-audit.socket\t\n",
+      "requires": [
+        "bottlerocket-audit-rules",
+        "bottlerocket-systemd-257",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": [
+        "bottlerocket-auditd"
+      ]
+    },
+    "bottlerocket-systemd-257-networkd": {
+      "sha256": "9a2d67cb243eb89d2e2532ed1fbe62ff8841b4fb111df36b05e70f88c3b9ff9b",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/networkctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/network\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd-wait-online.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd-wait-online@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-networkd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-networkd-wait-online\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d/systemd-network.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd-network.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/dbus-1/system.d/org.freedesktop.network1.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/whippet/policies.d/org.freedesktop.network1.toml\t\n",
+      "requires": [
+        "bottlerocket-systemd-257",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-systemd-257-resolved": {
+      "sha256": "74f76d78c359de4e1056a74262e7cc3294dcf86de827aaaf2864c65c5dad2038",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/resolvectl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/resolv.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-resolved.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-resolved\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d/systemd-resolve.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd-resolve.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/dbus-1/system.d/org.freedesktop.resolve1.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/whippet/policies.d/org.freedesktop.resolve1.toml\t\n",
+      "requires": [
+        "bottlerocket-systemd-257",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-systemd-257-sbom": {
+      "sha256": "11e5e6c8f22548716918ede103fd1daed799fc56826b911926a056ce05ffb92f",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/sboms/systemd-257/systemd-257-cyclonedx.json\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/sboms/systemd-257/systemd-257-spdx.json\t\n",
+      "requires": [
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1",
+        "rpmlib(RichDependencies) <= 4.12.0-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-release": {
+      "sha256": "9b4975ec385846654092d441278ab0bcbc404444d17a089618c928debda18363",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/modules-load.d/nf_conntrack.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/os-release\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/repart.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/repart.d/80-local.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d/80-release.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/journald.conf.d/journald.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/logind.conf.d/80-inhibit-maxdelay.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/network/80-release.link\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/networkd.conf.d/80-release.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system.conf.d/80-release.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-bin.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-lib-modules.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-libexec.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-share-licenses.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-configured.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-multi-user.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-multi-user.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-preconfigured.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/check-fips-modules.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/check-fips-modules.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/check-kernel-integrity.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/configure-snapshotter.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/configured.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/default.target\tpreconfigured.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/drivers.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/drivers.target.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/fips-modprobe@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/fipscheck.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/generate-fips-hmac-path-uki.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/generate-fips-hmac-path-vmlinuz.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local.mount.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/mask-local-mnt.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/mask-local-opt.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/mask-local-var.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/mnt.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/modprobe@.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/modprobe@.service.d/10-remain-after-exit.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network-pre.target.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network-pre.target.d/00-dbus-dep.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/opt.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/preconfigured.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-opt.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-var.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-local.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-local.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/runtime.slice\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/service.d/00-aws-config.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/service.d/10-requires-tmp.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald.service.d/50-systemd-journald.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd.service.d/00-env.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-resolved.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-resolved.service.d/00-env.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-resolved.service.d/10-private-tmp.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-sysusers.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-sysusers.service.d/50-systemd-sysusers.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup.service.d/00-debug.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-trigger.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-trigger.service.d/00-selinux.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/tmp.mount.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/tmp.mount.d/10-no-exec.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/var.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/release-ca-certificates.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/release-fips.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/release.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/factory/etc/issue\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/factory/etc/nsswitch.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates\t\n",
+      "requires": [
+        "(bottlerocket-release-fips if bottlerocket-image-feature(fips))",
+        "(bottlerocket-release-managed if bottlerocket-image-feature(no-standalone-image))",
+        "bottlerocket-audit",
+        "bottlerocket-auditd",
+        "bottlerocket-conntrack-tools",
+        "bottlerocket-containerd",
+        "bottlerocket-coreutils",
+        "bottlerocket-dbus-broker",
+        "bottlerocket-e2fsprogs",
+        "bottlerocket-filesystem",
+        "bottlerocket-findutils",
+        "bottlerocket-glibc",
+        "bottlerocket-grep",
+        "bottlerocket-iproute",
+        "bottlerocket-iptables",
+        "bottlerocket-keyutils",
+        "bottlerocket-libgcc",
+        "bottlerocket-libkcapi",
+        "bottlerocket-libstd-rust",
+        "bottlerocket-policycoreutils",
+        "bottlerocket-procps",
+        "bottlerocket-selinux-policy",
+        "bottlerocket-systemd",
+        "bottlerocket-util-linux",
+        "bottlerocket-xfsprogs",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1",
+        "rpmlib(RichDependencies) <= 4.12.0-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-release-crypt": {
+      "sha256": "e17da84ad20bfd7b73b2ae0e15b57884c43fd2de4ce543c997260a8b246f7743",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/measure-cmdline.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/measure-settings.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/measure-user-data.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pcrphase-configured.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pcrphase-multi-user.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pcrphase-preconfigured.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pcrphase-sysinit.service\t\n",
+      "requires": [
+        "(bottlerocket-image-feature(encrypted-storage) and bottlerocket-release-managed)",
+        "bottlerocket-rottweiler",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1",
+        "rpmlib(RichDependencies) <= 4.12.0-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-release-crypt-luks": {
+      "sha256": "b75da46c2d2eacf68427c19b1be75ec17dea9cf343f8b1cd0d8277a181b29f75",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-datastore.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-local-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local.mount.d/10-encrypted.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service.d/10-encrypted.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-local.service.d/10-encrypted.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/unlock-datastore.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/unlock-local-fs.service\t\n",
+      "requires": [
+        "(bottlerocket-image-feature(encrypted-storage) and bottlerocket-release-crypt)",
+        "bottlerocket-rottweiler",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1",
+        "rpmlib(RichDependencies) <= 4.12.0-1"
+      ],
+      "conflicts": [
+        "bottlerocket-image-feature(ephemeral-encryption-keys)"
+      ]
+    },
+    "bottlerocket-release-ephemeral-crypt": {
+      "sha256": "3be7142cf2ca5d432ceae1208e3ded5f91dc7c3d247847d67f6a486250822bf0",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/\\x2ebottlerocket.mount.d/20-ephemeral.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-unlock-datastore.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-unlock-local-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-unlock-private-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local.mount.d/10-ephemeral.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service.d/20-ephemeral.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-private-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-local.service.d/10-ephemeral.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/run-rottweiler.mount\t\n",
+      "requires": [
+        "(bottlerocket-image-feature(ephemeral-encryption-keys) and bottlerocket-release-crypt)",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1",
+        "rpmlib(RichDependencies) <= 4.12.0-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-release-fips": {
+      "sha256": "537c48cf9437cae0f1db6bf5e07f7e304a4f93cd29d0b56620885373a1fbf06c",
+      "files_and_links": "/boot/boot-config.d/10-fips.conf\t\n",
+      "requires": [
+        "(bottlerocket-image-feature(fips) and bottlerocket-release)",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1",
+        "rpmlib(RichDependencies) <= 4.12.0-1"
+      ],
+      "conflicts": [
+        "bottlerocket-image-feature(no-fips)"
+      ]
+    },
+    "bottlerocket-release-managed": {
+      "sha256": "9eb7e0aa7fc9af079a8ae5acb1495dbd9037c09d87eb94b8902701edb4b0d5cf",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/\\x2ebottlerocket.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/\\x2ebottlerocket.mount.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-src-kernels.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-multi-user.service.d/10-managed.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/capture-kernel-dump.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/create-fips-marker.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/deprecation-warning@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/deprecation-warning@.timer\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/disable-kexec-load.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/drivers.target.d/10-managed.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/etc-cni.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/generate-fips-env.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/load-crash-kernel.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/media-cdrom.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/opt-civ.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/opt-cni.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/opt-csi.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-boot.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service.d/10-managed.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-data-fallback.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-data-preferred.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/root-.aws.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/service.d/00-fips-go.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/set-hostname.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/var-lib-bottlerocket.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/var-lib-kernel\\x2ddevel-.overlay-lower.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/release-managed.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/61-mount-cdrom.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/bottlerocket/fips-go.env\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/logdog.d/logdog.common.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/aws-config\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/aws-credentials\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/hostname-env\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/hosts\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/log4j-hotpatch-enabled\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/modprobe-conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/modules-load\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/motd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/netdog-toml\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/proxy-env\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/selected-snapshotter\t\n",
+      "requires": [
+        "((bottlerocket-release-crypt-luks or bottlerocket-image-feature(ephemeral-encryption-keys)) if bottlerocket-image-feature(encrypted-storage))",
+        "(bottlerocket-bootloader(efi) if (bottlerocket-image-feature(uki-image) or bottlerocket-image-feature(no-uki-image)))",
+        "(bottlerocket-grub or bottlerocket-image-feature(uki-image) or bottlerocket-image-feature(no-uki-image))",
+        "(bottlerocket-image-feature(no-standalone-image) and bottlerocket-release)",
+        "(bottlerocket-rdma-core if bottlerocket-variant-platform(aws))",
+        "(bottlerocket-release-crypt if bottlerocket-image-feature(encrypted-storage))",
+        "(bottlerocket-release-ephemeral-crypt if bottlerocket-image-feature(ephemeral-encryption-keys))",
+        "(bottlerocket-shim or bottlerocket-image-feature(uki-image))",
+        "bottlerocket-chrony",
+        "bottlerocket-early-boot-config",
+        "bottlerocket-ethtool",
+        "bottlerocket-kexec-tools",
+        "bottlerocket-makedumpfile",
+        "bottlerocket-mdadm",
+        "bottlerocket-netdog",
+        "bottlerocket-os",
+        "bottlerocket-pciutils",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1",
+        "rpmlib(RichDependencies) <= 4.12.0-1"
+      ],
+      "conflicts": []
+    },
+    "bottlerocket-release-swap": {
+      "sha256": "1d08966c5120483aa976eb38b7b3383b2e07972cef19ff1062f8683959b85670",
+      "files_and_links": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d/81-release-swap.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-swap.service\t\n",
+      "requires": [
+        "bottlerocket-release",
+        "rpmlib(CompressedFileNames) <= 3.0.4-1",
+        "rpmlib(FileDigests) <= 4.6.0-1",
+        "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+        "rpmlib(PayloadIsZstd) <= 5.4.18-1"
+      ],
+      "conflicts": []
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/busctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/journalctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/loginctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-ac-power\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-analyze\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cat\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cgls\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cgtop\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-creds\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-delta\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-detect-virt\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-dissect\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-escape\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-id128\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-inhibit\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-machine-id-setup\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-notify\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-nspawn\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-path\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-repart\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-run\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-socket-activate\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-stdio-bridge\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-sysusers\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-tmpfiles\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-umount\tsystemd-mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-vpick\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/udevadm\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/varlinkctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libsystemd.so.0\tlibsystemd.so.0.40.0\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libsystemd.so.0.40.0\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libudev.so.1\tlibudev.so.1.7.10\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libudev.so.1.7.10\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/modprobe.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/modprobe.d/systemd.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d/50-default.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d/50-pid-max.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/catalog\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/catalog/systemd.catalog\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/libsystemd-core-257.so\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/libsystemd-shared-257.so\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-fstab-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-run-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-tpm2-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-preset\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-preset/90-systemd.preset\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-shutdown\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-sleep\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/basic.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/blockdev@.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/boot-complete.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/ctrl-alt-del.target\treboot.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/dbus-org.freedesktop.login1.service\tsystemd-logind.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/dev-hugepages.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/dev-mqueue.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/exit.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/factory-reset.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/final.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/first-boot-complete.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/getty-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/getty.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/halt.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/kexec.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/kmod-static-nodes.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/ldconfig.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local-fs-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local-fs.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local-fs.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local-fs.target.wants/tmp.mount\t../tmp.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/modprobe@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target.wants/getty.target\t../getty.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target.wants/systemd-logind.service\t../systemd-logind.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network-online.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/nss-lookup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/nss-user-lookup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/paths.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/poweroff.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/reboot.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/rpcbind.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/shutdown.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sigpwr.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sleep.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/slices.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-creds.socket\t../systemd-creds.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-journald-dev-log.socket\t../systemd-journald-dev-log.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-journald.socket\t../systemd-journald.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-udevd-control.socket\t../systemd-udevd-control.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sockets.target.wants/systemd-udevd-kernel.socket\t../systemd-udevd-kernel.socket\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/suspend.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/swap.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sys-fs-fuse-connections.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sys-kernel-config.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sys-kernel-debug.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sys-kernel-tracing.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/dev-hugepages.mount\t../dev-hugepages.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/dev-mqueue.mount\t../dev-mqueue.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service\t../kmod-static-nodes.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/ldconfig.service\t../ldconfig.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/sys-fs-fuse-connections.mount\t../sys-fs-fuse-connections.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/sys-kernel-config.mount\t../sys-kernel-config.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/sys-kernel-debug.mount\t../sys-kernel-debug.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/sys-kernel-tracing.mount\t../sys-kernel-tracing.mount\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-journal-catalog-update.service\t../systemd-journal-catalog-update.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service\t../systemd-journal-flush.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service\t../systemd-journald.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service\t../systemd-machine-id-commit.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service\t../systemd-modules-load.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service\t../systemd-random-seed.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-repart.service\t../systemd-repart.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service\t../systemd-sysctl.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-sysusers.service\t../systemd-sysusers.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev-early.service\t../systemd-tmpfiles-setup-dev-early.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service\t../systemd-tmpfiles-setup-dev.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service\t../systemd-tmpfiles-setup.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service\t../systemd-udev-trigger.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-udevd.service\t../systemd-udevd.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/syslog.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-boot-check-no-failures.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-creds.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-creds@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-exit.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-fsck-root.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-fsck@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-halt.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journal-catalog-update.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journal-flush.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald-dev-log.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald-sync@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald-varlink@.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald@.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-kexec.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-logind.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-machine-id-commit.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-modules-load.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-network-generator.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-nspawn@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-poweroff.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pstore.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-random-seed.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-reboot.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-remount-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-suspend.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-sysctl.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-sysusers.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-clean.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-clean.timer\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup-dev-early.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup-dev.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-load-credentials.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-settle.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-trigger.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udevd-control.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udevd-kernel.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udevd.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/time-set.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/time-sync.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/timers.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/timers.target.wants\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/timers.target.wants/systemd-tmpfiles-clean.timer\t../systemd-tmpfiles-clean.timer\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/tmp.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/tpm2.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/umount.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-boot-check-no-failures\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-cgroups-agent\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-executor\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-fsck\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-growfs\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-journald\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-logind\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-makefs\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-modules-load\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-network-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-pstore\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-random-seed\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-remount-fs\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-shutdown\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-sleep\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-socket-proxyd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-sysctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-sysroot-fstab-check\tsystem-generators/systemd-fstab-generator\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-udevd\t../../bin/udevadm\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d/basic.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d/systemd-journal.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/credstore.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/etc.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/home.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/journal-nocow.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/provision.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/static-nodes-permissions.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd-pstore.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd-tmp.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/tmp.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/var.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/ata_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/cdrom_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/dmi_memory_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/fido_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/iocost\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/mtd_probe\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/50-udev-default.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-autosuspend.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-block.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-cdrom_id.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-dmi-id.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-drm.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-evdev.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-fido-id.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-infiniband.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-input-id.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-persistent-input.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-persistent-storage-mtd.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-persistent-storage-tape.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-persistent-storage.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-sensor.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/60-serial.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/64-btrfs.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/70-memory.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/70-power-switch.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/75-net-description.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/75-probe_mtd.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/80-drivers.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/80-net-setup-link.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/81-net-dhcp.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/90-iocost.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/99-systemd.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/scsi_id\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/halt\t../bin/systemctl\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/init\t../lib/systemd/systemd\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/mount.ddi\t../bin/systemd-dissect\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/poweroff\t../bin/systemctl\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/reboot\t../bin/systemctl\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/sbin/shutdown\t../bin/systemctl\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/dbus-1/system.d/org.freedesktop.login1.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/dbus-1/system.d/org.freedesktop.systemd1.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/factory\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/factory/etc/locale.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/systemd-257\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/systemd-257/LICENSE.GPL2\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/systemd-257/LICENSE.LGPL2.1\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/systemd-257/attribution.txt\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/whippet/policies.d/org.freedesktop.login1.toml\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/whippet/policies.d/org.freedesktop.systemd1.toml\t\n/boot/boot-config.d\t\n/boot/boot-config.d/20-mount-rate-limit-burst.conf\t\n/boot/boot-config.d/21-cgroup-enable-legacy-force.conf\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "(bottlerocket-systemd-257-binfmt or bottlerocket-image-feature(uki-image))\nbottlerocket-kmod\nbottlerocket-libacl\nbottlerocket-libattr\nbottlerocket-libblkid\nbottlerocket-libcap\nbottlerocket-libcrypto\nbottlerocket-libcryptsetup\nbottlerocket-libfdisk\nbottlerocket-libmount\nbottlerocket-libseccomp\nbottlerocket-libselinux\nbottlerocket-libtss2\nbottlerocket-libuuid\nbottlerocket-libxcrypt\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-binfmt-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-binfmt",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-binfmt-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/proc-sys-fs-binfmt_misc.mount\t../proc-sys-fs-binfmt_misc.mount\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-binfmt-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-binfmt-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-image-feature(uki-image)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-bootloader-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-bootloader",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-bootloader-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/boot\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/boot/efi\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/boot/efi/addonaa64.efi.stub\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/boot/efi/linuxaa64.efi.stub\t\n/boot/efi/EFI/BOOT\t\n/boot/efi/EFI/BOOT/systemd-bootaa64.efi\t\n/boot/efi/loader\t\n/boot/efi/loader/loader.conf\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-bootloader-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-image-feature(uki-image)\nbottlerocket-systemd-257\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-bootloader-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-image-feature(in-place-updates)\nbottlerocket-image-feature(no-uki-image)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-console-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-console",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-console-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-ask-password\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-tty-ask-password-agent\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-debug-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-getty-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/autovt@.service\tgetty@.service\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/console-getty.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/container-getty@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/debug-shell.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/emergency.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/emergency.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/getty@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target.wants/systemd-ask-password-wall.path\t../systemd-ask-password-wall.path\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/rescue.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/rescue.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/serial-getty@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/systemd-ask-password-console.path\t../systemd-ask-password-console.path\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-ask-password-console.path\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-ask-password-console.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-ask-password-wall.path\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-ask-password-wall.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-reply-password\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-sulogin-shell\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-console-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-console-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-cryptsetup-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-cryptsetup",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-cryptsetup-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cryptenroll\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/systemd-cryptsetup\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/cryptsetup/libcryptsetup-token-systemd-tpm2.so\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-cryptsetup-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-integritysetup-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system-generators/systemd-veritysetup-generator\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/cryptsetup-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/cryptsetup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/integritysetup-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/integritysetup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/cryptsetup.target\t../cryptsetup.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/integritysetup.target\t../integritysetup.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/sysinit.target.wants/veritysetup.target\t../veritysetup.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/system-systemd\\x2dcryptsetup.slice\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/system-systemd\\x2dveritysetup.slice\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/veritysetup-pre.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/veritysetup.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-cryptsetup\t../../bin/systemd-cryptsetup\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-integritysetup\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-keyutil\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-measure\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-pcrlock\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-veritysetup\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-cryptsetup-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-cryptsetup\nbottlerocket-systemd-257\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-cryptsetup-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-devel-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-devel",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-devel-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/libudev.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/_sd-common.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-bus-protocol.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-bus-vtable.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-bus.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-daemon.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-device.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-event.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-gpt.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-hwdb.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-id128.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-journal.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-json.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-login.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-messages.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-path.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-varlink-idl.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/include/systemd/sd-varlink.h\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libsystemd.so\tlibsystemd.so.0\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/libudev.so\tlibudev.so.1\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/pkgconfig/libsystemd.pc\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/pkgconfig/libudev.pc\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/pkgconfig/systemd.pc\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/pkgconfig/udev.pc\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-devel-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-devel-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-journald-audit-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-journald-audit",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-journald-audit-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald-audit.socket\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-journald-audit-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-audit-rules\nbottlerocket-systemd-257\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-journald-audit-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-auditd\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-networkd-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-networkd",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-networkd-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/networkctl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/network\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd-wait-online.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd-wait-online@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd.socket\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-networkd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-networkd-wait-online\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d/systemd-network.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd-network.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/dbus-1/system.d/org.freedesktop.network1.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/whippet/policies.d/org.freedesktop.network1.toml\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-networkd-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-networkd-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-resolved-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-resolved",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-resolved-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/bin/resolvectl\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/resolv.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-resolved.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/systemd-resolved\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysusers.d/systemd-resolve.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/systemd-resolve.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/dbus-1/system.d/org.freedesktop.resolve1.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/whippet/policies.d/org.freedesktop.resolve1.toml\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-resolved-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-resolved-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-sbom-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-systemd-257-sbom",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-sbom-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/sboms/systemd-257/systemd-257-cyclonedx.json\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/sboms/systemd-257/systemd-257-spdx.json\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-sbom-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "rpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-systemd-257-sbom-257.13-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-release",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/modules-load.d/nf_conntrack.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/os-release\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/repart.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/repart.d/80-local.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d/80-release.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/journald.conf.d/journald.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/logind.conf.d/80-inhibit-maxdelay.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/network/80-release.link\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/networkd.conf.d/80-release.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system.conf.d/80-release.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-bin.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-lib-modules.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-libexec.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-share-licenses.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-configured.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-multi-user.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-multi-user.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-preconfigured.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/check-fips-modules.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/check-fips-modules.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/check-kernel-integrity.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/configure-snapshotter.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/configured.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/default.target\tpreconfigured.target\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/drivers.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/drivers.target.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/fips-modprobe@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/fipscheck.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/generate-fips-hmac-path-uki.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/generate-fips-hmac-path-vmlinuz.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local.mount.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/mask-local-mnt.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/mask-local-opt.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/mask-local-var.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/mnt.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/modprobe@.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/modprobe@.service.d/10-remain-after-exit.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/multi-user.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network-pre.target.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/network-pre.target.d/00-dbus-dep.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/opt.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/preconfigured.target\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-opt.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-var.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-local.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-local.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/runtime.slice\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/service.d/00-aws-config.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/service.d/10-requires-tmp.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-journald.service.d/50-systemd-journald.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-networkd.service.d/00-env.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-resolved.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-resolved.service.d/00-env.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-resolved.service.d/10-private-tmp.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-sysusers.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-sysusers.service.d/50-systemd-sysusers.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-tmpfiles-setup.service.d/00-debug.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-trigger.service.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-udev-trigger.service.d/00-selinux.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/tmp.mount.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/tmp.mount.d/10-no-exec.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/var.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/release-ca-certificates.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/release-fips.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/release.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/factory/etc/issue\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/factory/etc/nsswitch.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "(bottlerocket-release-fips if bottlerocket-image-feature(fips))\n(bottlerocket-release-managed if bottlerocket-image-feature(no-standalone-image))\nbottlerocket-audit\nbottlerocket-auditd\nbottlerocket-conntrack-tools\nbottlerocket-containerd\nbottlerocket-coreutils\nbottlerocket-dbus-broker\nbottlerocket-e2fsprogs\nbottlerocket-filesystem\nbottlerocket-findutils\nbottlerocket-glibc\nbottlerocket-grep\nbottlerocket-iproute\nbottlerocket-iptables\nbottlerocket-keyutils\nbottlerocket-libgcc\nbottlerocket-libkcapi\nbottlerocket-libstd-rust\nbottlerocket-policycoreutils\nbottlerocket-procps\nbottlerocket-selinux-policy\nbottlerocket-systemd\nbottlerocket-util-linux\nbottlerocket-xfsprogs\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-release-crypt",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/measure-cmdline.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/measure-settings.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/measure-user-data.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pcrphase-configured.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pcrphase-multi-user.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pcrphase-preconfigured.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/systemd-pcrphase-sysinit.service\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "(bottlerocket-image-feature(encrypted-storage) and bottlerocket-release-managed)\nbottlerocket-rottweiler\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-crypt-luks-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-release-crypt-luks",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-crypt-luks-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-datastore.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-local-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local.mount.d/10-encrypted.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service.d/10-encrypted.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-local.service.d/10-encrypted.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/unlock-datastore.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/unlock-local-fs.service\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-crypt-luks-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "(bottlerocket-image-feature(encrypted-storage) and bottlerocket-release-crypt)\nbottlerocket-rottweiler\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-crypt-luks-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-image-feature(ephemeral-encryption-keys)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-ephemeral-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-release-ephemeral-crypt",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-ephemeral-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/\\x2ebottlerocket.mount.d/20-ephemeral.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-unlock-datastore.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-unlock-local-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/encrypt-unlock-private-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/local.mount.d/10-ephemeral.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service.d/20-ephemeral.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-private-fs.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-local.service.d/10-ephemeral.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/run-rottweiler.mount\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-ephemeral-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "(bottlerocket-image-feature(ephemeral-encryption-keys) and bottlerocket-release-crypt)\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-ephemeral-crypt-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-fips-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-release-fips",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-fips-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/boot/boot-config.d/10-fips.conf\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-fips-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "(bottlerocket-image-feature(fips) and bottlerocket-release)\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-fips-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-image-feature(no-fips)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-managed-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-release-managed",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-managed-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/\\x2ebottlerocket.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/\\x2ebottlerocket.mount.d\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/aarch64\\x2dbottlerocket\\x2dlinux\\x2dgnu-sys\\x2droot-usr-src-kernels.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/activate-multi-user.service.d/10-managed.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/capture-kernel-dump.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/create-fips-marker.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/deprecation-warning@.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/deprecation-warning@.timer\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/disable-kexec-load.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/drivers.target.d/10-managed.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/etc-cni.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/generate-fips-env.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/load-crash-kernel.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/media-cdrom.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/opt-civ.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/opt-cni.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/opt-csi.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-boot.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-local-fs.service.d/10-managed.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-data-fallback.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/repart-data-preferred.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/root-.aws.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/service.d/00-fips-go.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/set-hostname.service\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/var-lib-bottlerocket.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/var-lib-kernel\\x2ddevel-.overlay-lower.mount\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/tmpfiles.d/release-managed.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/udev/rules.d/61-mount-cdrom.rules\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/bottlerocket/fips-go.env\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/logdog.d/logdog.common.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/aws-config\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/aws-credentials\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/hostname-env\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/hosts\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/log4j-hotpatch-enabled\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/modprobe-conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/modules-load\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/motd\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/netdog-toml\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/proxy-env\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/share/templates/selected-snapshotter\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-managed-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "((bottlerocket-release-crypt-luks or bottlerocket-image-feature(ephemeral-encryption-keys)) if bottlerocket-image-feature(encrypted-storage))\n(bottlerocket-bootloader(efi) if (bottlerocket-image-feature(uki-image) or bottlerocket-image-feature(no-uki-image)))\n(bottlerocket-grub or bottlerocket-image-feature(uki-image) or bottlerocket-image-feature(no-uki-image))\n(bottlerocket-image-feature(no-standalone-image) and bottlerocket-release)\n(bottlerocket-rdma-core if bottlerocket-variant-platform(aws))\n(bottlerocket-release-crypt if bottlerocket-image-feature(encrypted-storage))\n(bottlerocket-release-ephemeral-crypt if bottlerocket-image-feature(ephemeral-encryption-keys))\n(bottlerocket-shim or bottlerocket-image-feature(uki-image))\nbottlerocket-chrony\nbottlerocket-early-boot-config\nbottlerocket-ethtool\nbottlerocket-kexec-tools\nbottlerocket-makedumpfile\nbottlerocket-mdadm\nbottlerocket-netdog\nbottlerocket-os\nbottlerocket-pciutils\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-managed-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-swap-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-release-swap",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--qf",
+        "[%{FILENAMES}\\t%{FILELINKTOS}\\n]",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-swap-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/sysctl.d/81-release-swap.conf\t\n/aarch64-bottlerocket-linux-gnu/sys-root/usr/lib/systemd/system/prepare-swap.service\t\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--requires",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-swap-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "bottlerocket-release\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rpm",
+        "-qp",
+        "--conflicts",
+        "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/kits/bottlerocket-core-kit/build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/inspection/bottlerocket-release-swap-0.0-1.1791331552.f36d9c2b.br1.aarch64.rpm"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "limitation": "Artifact and RPM metadata checks only; image composition and EC2 validation remain pending."
+}
