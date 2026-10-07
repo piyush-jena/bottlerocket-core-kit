@@ -1,5 +1,18 @@
 # Issue 14: systemd image-feature guard, 2026-10-07
 
+Latest checkpoint: all five image builds and private AMI registrations
+succeeded. Base mantle on both architectures and FIPS x86_64 passed boot,
+native container execution and effective-policy checks. Base x86_64 also
+passed direct mount refusal and reboot validation. GPU runtime validation
+is blocked by 14 EC2 capacity refusals; no GPU instance was created.
+The three tested instances and their six volumes are deleted. Private
+AMIs, snapshots, access stack and kit registry are retained to resume.
+Full commands, SSM IDs, image hashes, cleanup and the capacity errors are
+committed in Bottlerocket `d86f5938`,
+`docs/evidence/issue-14-systemd-guard/README.md`. The preparation checkpoints
+below describe the sequence leading to those results. Final acceptance
+and PR updates remain pending GPU capacity; no rebuild is needed to resume.
+
 The new core-kit PR 3 review asks for the binfmt mount to be omitted from
 UKI images through `packages/systemd-257/systemd-257.spec`. This replaces
 the release-uki package and its drop-in. The earlier successful AMI results
