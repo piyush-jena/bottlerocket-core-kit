@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-07T00:40:13.680655+00:00",
+  "refused_request": {
+    "request_id": "ee2f165c-1c13-8aae-a0c2-10f28688787b",
+    "request": {
+      "target": "core-kit",
+      "arch": "aarch64",
+      "reason": "Publish the verified matching aarch64 kit. Both platform receipts must be checked before updating the image dependency lock.",
+      "testing": "Verify publication preserves the inspected aarch64 archive and produces a combined index containing both required architectures.",
+      "last_change": "No product source changed since build fbf7b2d1. Snapshot f36d9c2b contains fcaa82729's systemd guard; subsequent commit 7659b3579 records artifact evidence only.",
+      "operation": "publish",
+      "archive": "build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/kits/bottlerocket-core-kit/bottlerocket-core-kit-v17.0.1-f36d9c2b-aarch64.tar",
+      "archive_sha256": "936677ac5398aae118e93ea6732acd67b3cf2820c71b691315ebac97cf31ab83"
+    },
+    "status": "refused",
+    "exit_code": null,
+    "log": "/home/fedora/Repositories/symphony/.symphony/builds/ee2f165c-1c13-8aae-a0c2-10f28688787b/build.log",
+    "wall_clock_s": 0.0,
+    "artifacts": [],
+    "cache": "unknown",
+    "executor": "local",
+    "refusal": "the local executor runs one build at a time and build f24ebd90-1fd6-88d6-a91d-99c4777227ad holds the slot. Nothing was started. Ask again once that build has finished: its result will reach you the same way this refusal did"
+  },
+  "holding_job": "f24ebd90-1fd6-88d6-a91d-99c4777227ad",
+  "holding_job_exit_code": 0,
+  "x86_publication_verified_against_inspected_archive": true,
+  "index_document_digest_verified": true,
+  "aarch64_archive": "build/symphony/fbf7b2d1-57c7-8e6d-acd5-a0d0bda1bf19/kits/bottlerocket-core-kit/bottlerocket-core-kit-v17.0.1-f36d9c2b-aarch64.tar",
+  "rechecked_aarch64_archive_sha256": "936677ac5398aae118e93ea6732acd67b3cf2820c71b691315ebac97cf31ab83",
+  "next_action": "Retry aarch64 publication only. Keep image dependency lock unchanged until both platform receipts are verified."
+}

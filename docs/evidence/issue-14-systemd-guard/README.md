@@ -100,6 +100,20 @@ composition and live policy remain unvalidated for this revision.
 
 ## Remaining validation
 
+Publication update, 2026-10-07: x86_64 job
+`f24ebd90-1fd6-88d6-a91d-99c4777227ad` exited 0 and published
+`17.0.1-symphony.14.build-f36d9c2b`. Its archive and manifest digests match
+the inspected artifact, and the index document hash was verified.
+`publication-x86_64.json` retains the receipt.
+
+The local executor refused aarch64 publication
+`ee2f165c-1c13-8aae-a0c2-10f28688787b` while that x86_64 job occupied
+its single slot; nothing started. The holding job is now complete.
+`publication-retry.json` records the refusal, completion check and fresh
+aarch64 archive hash check. Retry publication with unchanged archive
+bytes; no rebuild is needed. The image dependency lock remains unchanged
+until both platforms have been published and verified.
+
 1. Publish both verified archives through the conductor and verify the
    combined registry receipt before changing the image dependency lock.
 2. Build fresh private 1.66.1 images with the empty migration entry and
