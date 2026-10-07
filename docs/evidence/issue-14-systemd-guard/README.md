@@ -1,17 +1,23 @@
 # Issue 14: systemd image-feature guard, 2026-10-07
 
-Latest checkpoint: all five image builds and private AMI registrations
-succeeded. Base mantle on both architectures and FIPS x86_64 passed boot,
-native container execution and effective-policy checks. Base x86_64 also
-passed direct mount refusal and reboot validation. GPU runtime validation
-is blocked by 14 EC2 capacity refusals; no GPU instance was created.
-The three tested instances and their six volumes are deleted. Private
-AMIs, snapshots, access stack and kit registry are retained to resume.
-Full commands, SSM IDs, image hashes, cleanup and the capacity errors are
-committed in Bottlerocket `d86f5938`,
-`docs/evidence/issue-14-systemd-guard/README.md`. The preparation checkpoints
-below describe the sequence leading to those results. Final acceptance
-and PR updates remain pending GPU capacity; no rebuild is needed to resume.
+Latest checkpoint: validation is complete under the operator's explicit
+GPU-capacity exception. Base mantle on both architectures and FIPS x86_64
+passed boot, native container execution and effective-policy checks.
+Base x86_64 also passed direct mount refusal and reboot validation.
+The requested west-region g6.2xlarge attempts added five capacity refusals
+to the fourteen east refusals. Ordinary-instance NVIDIA fallbacks reached
+driver initialization but lacked GPU hardware and could not start SSM;
+their runtime policy and GPU smoke tests did not run.
+
+Both NVIDIA disk images passed static inspection: the UKI contains the exact
+blacklist, the mount and wants-link are absent, and binfmt_misc remains a
+shipped module. All five instances, seven AMIs, fourteen snapshots and both
+temporary access stacks are removed. Registry cleanup awaits the conductor.
+Full commands, SSM IDs, hashes, operator instruction and cleanup are committed
+in Bottlerocket `555c4bba`, `docs/evidence/issue-14-final-validation/README.md`.
+Final PR updates follow registry cleanup. The preparation checkpoints below
+remain historical; their pending-validation and retained-resource statements
+are superseded by this checkpoint. No product source changed in this turn.
 
 The new core-kit PR 3 review asks for the binfmt mount to be omitted from
 UKI images through `packages/systemd-257/systemd-257.spec`. This replaces
