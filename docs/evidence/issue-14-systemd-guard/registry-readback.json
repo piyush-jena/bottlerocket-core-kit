@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "request": "http://localhost:6539/v2/bottlerocket-core-kit/manifests/v17.0.1-symphony.14.build-f36d9c2b",
+  "index_digest": "sha256:5ff08d597ba9aa781c8d760fb6fa9d59058bf6d4fbaf2dc666b286b5a09c6b9e",
+  "verified_platforms": {
+    "aarch64": {
+      "archive_sha256": "936677ac5398aae118e93ea6732acd67b3cf2820c71b691315ebac97cf31ab83",
+      "manifest_digest": "sha256:8fbcadaae8fcb9d5ebe458a059dde9418419b83a267b9f4506ee18fc65699553"
+    },
+    "x86_64": {
+      "archive_sha256": "3b1938f64940fd9c5e65763d71088ddc21344c06685c0734d24a897c446c93ba",
+      "manifest_digest": "sha256:9917183f064b6653947e29d4ad5b90999d905111ffc3f188d1fe5f158761ad6d"
+    }
+  },
+  "publication_job": "1ccef26d-4ac9-8364-a65a-524e94c804f0"
+}

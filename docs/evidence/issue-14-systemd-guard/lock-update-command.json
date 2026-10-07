@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "./tools/twoliter/twoliter",
+    "update"
+  ],
+  "cwd": "/home/fedora/Repositories/symphony/stages/14-binfmt-misc-encrypted-storage/bottlerocket",
+  "exit_code": 0,
+  "binary_sha256": "72933272f75719ba06ac66dd72760ae981d1b0fb59d64387c44865c4a84ba22d",
+  "stdout": "",
+  "stderr": "[2026-10-07T00:41:55Z WARN  twoliter::project] A Release.toml file was found. Release.toml is deprecated. Please remove it from your project.\n[2026-10-07T00:41:55Z INFO  twoliter::project::lock] Resolving project references to create lock file\n[2026-10-07T00:41:55Z INFO  twoliter::project::lock::image] Resolving dependency image dependency 'bottlerocket-kernel-kit-9.2.0@public.ecr.aws/bottlerocket/bottlerocket-kernel-kit:v9.2.0'.\n[2026-10-07T00:41:56Z INFO  twoliter::project::lock::image] Resolving dependency image dependency 'bottlerocket-core-kit-17.0.1-symphony.14.build-f36d9c2b@localhost:6539/bottlerocket-core-kit:v17.0.1-symphony.14.build-f36d9c2b'.\n[2026-10-07T00:41:56Z INFO  twoliter::project::lock::image] Resolving dependency image dependency 'bottlerocket-sdk-0.79.0@public.ecr.aws/bottlerocket/bottlerocket-sdk:v0.79.0'.\n",
+  "note": "Lock refreshed by the existing released tool; repeated with RUST_LOG=debug to verify the fetched core manifest matches registry receipt. Preserve generated lock digest, not raw OCI digest."
+}

@@ -114,16 +114,41 @@ aarch64 archive hash check. Retry publication with unchanged archive
 bytes; no rebuild is needed. The image dependency lock remains unchanged
 until both platforms have been published and verified.
 
-1. Publish both verified archives through the conductor and verify the
-   combined registry receipt before changing the image dependency lock.
-2. Build fresh private 1.66.1 images with the empty migration entry and
+The retry `1ccef26d-4ac9-8364-a65a-524e94c804f0` subsequently exited 0.
+`publication-combined.json` contains both platform receipts, each matching
+the inspected archive and manifest. A direct registry readback matched the
+receipt bytes and index digest
+`sha256:5ff08d597ba9aa781c8d760fb6fa9d59058bf6d4fbaf2dc666b286b5a09c6b9e`;
+see `registry-readback.json`.
+
+The five image builds now use Bottlerocket
+`b26951c7cf95cd3cddf8ecefbbbc42162d89bdc2` plus the exact temporary
+`test-configuration.patch`. `release-config.json` records all three file
+hashes: numeric release 1.66.1, its empty migration entry and the local
+core-kit dependency. SDK and kernel-kit lock entries are unchanged.
+`lock-update-command.json` records the successful metadata-only lock
+refresh. A debug repeat confirmed the fetched core manifest matches the
+registry receipt; `lock-debug-excerpt.txt` and `lock-manifest.json` retain
+that output without HTTP headers. A hand-calculated raw-manifest-plus-newline
+digest did not match the released tool's lock digest, so the tool-generated
+lock is preserved. No manual digest substitution was made.
+
+The image builds request tested Twoliter
+`d2c650ad1489fe545f68c4fcbd481f2163ed5629`. Its tree still matches the
+stage HEAD and its previously passed integration gate remains applicable.
+The new runtime directory is
+`bottlerocket/build/symphony/issue-14-systemd-guard-runtime`; it retains
+original and test configurations, the revised policy probe and the input
+verification script. No image build or live result is claimed yet.
+
+1. Build fresh private 1.66.1 images with the empty migration entry and
    names containing symphony.14.r10. Preserve the exact temporary config
    patch; keep it out of product configuration commits.
-3. Test base mantle on both architectures and FIPS, NVIDIA and NVIDIA-FIPS
+2. Test base mantle on both architectures and FIPS, NVIDIA and NVIDIA-FIPS
    on x86_64. Run the revised policy before and after native containers,
    and the supplied NVIDIA smoke workflow on both GPU cases. Recheck base
    x86_64 after reboot and a negative direct mount attempt.
-4. Record full commands, digests, instances and cleanup; update both PRs
+3. Record full commands, digests, instances and cleanup; update both PRs
    after validation. The single final adversarial review already ran;
    do not request another round.
 

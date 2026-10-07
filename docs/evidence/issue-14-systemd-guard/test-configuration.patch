@@ -1,0 +1,54 @@
+diff --git a/Release.toml b/Release.toml
+index 9c2d6fc8..c94c8830 100644
+--- a/Release.toml
++++ b/Release.toml
+@@ -1,4 +1,4 @@
+-version = "1.66.0"
++version = "1.66.1"
+ 
+ [migrations]
+ "(0.3.1, 0.3.2)" = ["migrate_v0.3.2_admin-container-v0-5-0.lz4"]
+@@ -485,3 +485,5 @@ version = "1.66.0"
+     "migrate_v1.66.0_nvidia-driver-branch-setting.lz4",
+     "migrate_v1.66.0_kubelet-dra-drivers-nvidia-enabled.lz4"
+ ]
++
++"(1.66.0, 1.66.1)" = []
+diff --git a/Twoliter.lock b/Twoliter.lock
+index b8ed013c..52a54fa7 100644
+--- a/Twoliter.lock
++++ b/Twoliter.lock
+@@ -17,7 +17,7 @@ digest = "M0Q1dRP8cbnxPG0cp8LRjC8G3Zh9CGdZCFY4jphCyIA="
+ 
+ [[kit]]
+ name = "bottlerocket-core-kit"
+-version = "17.0.0"
+-vendor = "bottlerocket"
+-source = "public.ecr.aws/bottlerocket/bottlerocket-core-kit:v17.0.0"
+-digest = "Ieo0q3dYRurX63Vj1QUTcdtm9EOyGnmKU+cu5ziRops="
++version = "17.0.1-symphony.14.build-f36d9c2b"
++vendor = "local"
++source = "localhost:6539/bottlerocket-core-kit:v17.0.1-symphony.14.build-f36d9c2b"
++digest = "UFtl1KwcIXOOQDesrqUIwQo3Q/h9Yc2vRGzewE8JOhA="
+diff --git a/Twoliter.toml b/Twoliter.toml
+index 240ac498..65aa0450 100644
+--- a/Twoliter.toml
++++ b/Twoliter.toml
+@@ -1,5 +1,5 @@
+ schema-version = 2
+-release-version = "1.66.0"
++release-version = "1.66.1"
+ project-vendor = "Bottlerocket"
+ 
+ [vendor.bottlerocket]
+@@ -17,6 +17,8 @@ vendor = "bottlerocket"
+ 
+ [[kit]]
+ name = "bottlerocket-core-kit"
+-version = "17.0.0"
++version = "17.0.1-symphony.14.build-f36d9c2b"
++vendor = "local"
+ 
+-vendor = "bottlerocket"
++[vendor.local]
++registry = "localhost:6539"
