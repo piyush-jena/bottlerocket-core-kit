@@ -229,7 +229,7 @@ Requires: (%{name}-kexec-hardening or %{_cross_os}image-feature(uki-image))
 %{summary}.
 
 %package kexec-hardening
-Summary: Bottlerocket kexec loading hardening
+Summary: Bottlerocket release, kexec loading hardening
 Requires: %{name}-managed
 Conflicts: %{_cross_os}image-feature(uki-image)
 
