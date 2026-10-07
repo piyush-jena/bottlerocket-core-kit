@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "command": "python3 docs/evidence/issue-14-systemd-guard/verify-guard.py",
+  "spec_sha256": "b9864a854a523ca3f40430b6cf8ca35f9e4c9b2599c90ddefb29e8be6cd5bb5b",
+  "guard": "(bottlerocket-systemd-257-binfmt or bottlerocket-image-feature(uki-image))",
+  "mount_requires": [
+    "bottlerocket-systemd-257"
+  ],
+  "mount_conflicts": [
+    "bottlerocket-image-feature(uki-image)"
+  ],
+  "exclusive_spec_files": [
+    "%{_cross_unitdir}/proc-sys-fs-binfmt_misc.mount",
+    "%{_cross_unitdir}/sysinit.target.wants/proc-sys-fs-binfmt_misc.mount"
+  ],
+  "release_spec_matches_upstream": true,
+  "cases": [
+    {
+      "arch": "x86_64",
+      "uki": true,
+      "force_binfmt": false,
+      "solver_success": true,
+      "expected_success": true,
+      "selected": [
+        "bottlerocket-systemd-257",
+        "metadata"
+      ]
+    },
+    {
+      "arch": "x86_64",
+      "uki": false,
+      "force_binfmt": false,
+      "solver_success": true,
+      "expected_success": true,
+      "selected": [
+        "bottlerocket-systemd-257",
+        "bottlerocket-systemd-257-binfmt",
+        "metadata"
+      ]
+    },
+    {
+      "arch": "x86_64",
+      "uki": true,
+      "force_binfmt": true,
+      "solver_success": false,
+      "expected_success": false,
+      "selected": []
+    },
+    {
+      "arch": "aarch64",
+      "uki": true,
+      "force_binfmt": false,
+      "solver_success": true,
+      "expected_success": true,
+      "selected": [
+        "bottlerocket-systemd-257",
+        "metadata"
+      ]
+    },
+    {
+      "arch": "aarch64",
+      "uki": false,
+      "force_binfmt": false,
+      "solver_success": true,
+      "expected_success": true,
+      "selected": [
+        "bottlerocket-systemd-257",
+        "bottlerocket-systemd-257-binfmt",
+        "metadata"
+      ]
+    },
+    {
+      "arch": "aarch64",
+      "uki": true,
+      "force_binfmt": true,
+      "solver_success": false,
+      "expected_success": false,
+      "selected": []
+    }
+  ],
+  "limitation": "Metadata-only dependency checks; actual built RPMs and fresh AMIs still require validation."
+}

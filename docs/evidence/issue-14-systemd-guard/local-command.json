@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "python3",
+    "kits/bottlerocket-core-kit/docs/evidence/issue-14-systemd-guard/verify-guard.py"
+  ],
+  "exit_code": 0,
+  "at": "2026-10-07T00:04:33.171218+00:00"
+}

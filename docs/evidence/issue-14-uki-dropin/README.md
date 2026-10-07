@@ -1,5 +1,9 @@
 # Issue 14: UKI mount drop-in revision, 2026-10-06
 
+Historical result: the 2026-10-07 review supersedes this implementation
+with the [systemd image-feature guard](../issue-14-systemd-guard/README.md).
+The pass below applies only to the recorded drop-in revision.
+
 ## Acceptance follow-up, 23:02 UTC
 
 Both architecture builds at `fa6d388f834b2c370fed8f61c6c7145a20c0bab0`

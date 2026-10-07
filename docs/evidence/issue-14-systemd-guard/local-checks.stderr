@@ -1,0 +1,12 @@
+/usr/lib64/python3.14/site-packages/hawkey/__init__.py:359: DeprecationWarning: The class hawkey.Repo is deprecated. Please use dnf.repo.Repo instead. The class will be removed on 2019-12-31.
+  warnings.warn(msg, DeprecationWarning)
+/usr/lib64/python3.14/site-packages/hawkey/__init__.py:359: DeprecationWarning: The class hawkey.Repo is deprecated. Please use dnf.repo.Repo instead. The class will be removed on 2019-12-31.
+  warnings.warn(msg, DeprecationWarning)
+/usr/lib64/python3.14/site-packages/hawkey/__init__.py:359: DeprecationWarning: The class hawkey.Repo is deprecated. Please use dnf.repo.Repo instead. The class will be removed on 2019-12-31.
+  warnings.warn(msg, DeprecationWarning)
+/usr/lib64/python3.14/site-packages/hawkey/__init__.py:359: DeprecationWarning: The class hawkey.Repo is deprecated. Please use dnf.repo.Repo instead. The class will be removed on 2019-12-31.
+  warnings.warn(msg, DeprecationWarning)
+/usr/lib64/python3.14/site-packages/hawkey/__init__.py:359: DeprecationWarning: The class hawkey.Repo is deprecated. Please use dnf.repo.Repo instead. The class will be removed on 2019-12-31.
+  warnings.warn(msg, DeprecationWarning)
+/usr/lib64/python3.14/site-packages/hawkey/__init__.py:359: DeprecationWarning: The class hawkey.Repo is deprecated. Please use dnf.repo.Repo instead. The class will be removed on 2019-12-31.
+  warnings.warn(msg, DeprecationWarning)

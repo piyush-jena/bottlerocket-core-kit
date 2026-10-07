@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-07T00:04:33.076710+00:00",
+  "artifacts": [
+    {
+      "build": "43e02580-38ce-8015-af43-98dfc1e8e1f7",
+      "arch": "x86_64",
+      "archive": "build/symphony/43e02580-38ce-8015-af43-98dfc1e8e1f7/kits/bottlerocket-core-kit/bottlerocket-core-kit-v17.0.1-fa6d388f-x86_64.tar",
+      "sha256": "835ef72697d2fb9f126d070448c084c6b7704e34421851f326ecdbe2ae6d8f5f",
+      "matches_prior_receipt": true
+    },
+    {
+      "build": "e75c116b-d698-8c08-af5c-d1c584b223e8",
+      "arch": "aarch64",
+      "archive": "build/symphony/e75c116b-d698-8c08-af5c-d1c584b223e8/kits/bottlerocket-core-kit/bottlerocket-core-kit-v17.0.1-fa6d388f-aarch64.tar",
+      "sha256": "83fb5c7e8518dd457701e3f2306976f84b78ca0c1e1cbf41953b55a11cfaced4",
+      "matches_prior_receipt": true
+    }
+  ],
+  "reason_for_rebuild": "Both prior archives remain intact but contain the now-superseded release-uki drop-in. The changed systemd package must be built and tested."
+}
