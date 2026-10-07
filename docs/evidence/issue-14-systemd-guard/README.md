@@ -12,12 +12,14 @@ their runtime policy and GPU smoke tests did not run.
 Both NVIDIA disk images passed static inspection: the UKI contains the exact
 blacklist, the mount and wants-link are absent, and binfmt_misc remains a
 shipped module. All five instances, seven AMIs, fourteen snapshots and both
-temporary access stacks are removed. Registry cleanup awaits the conductor.
+temporary access stacks are removed. Conductor job
+`176f6e3a-19ac-8fa8-a9d4-19e0c8e742aa` removed the local registry; read-only
+Docker checks confirm its container and volume are absent.
 Full commands, SSM IDs, hashes, operator instruction and cleanup are committed
-in Bottlerocket `555c4bba`, `docs/evidence/issue-14-final-validation/README.md`.
-Final PR updates follow registry cleanup. The preparation checkpoints below
+in Bottlerocket `368c1f91`, `docs/evidence/issue-14-final-validation/README.md`.
+Final PR updates are ready. The preparation checkpoints below
 remain historical; their pending-validation and retained-resource statements
-are superseded by this checkpoint. No product source changed in this turn.
+are superseded by this checkpoint. No product source changed during final validation or cleanup.
 
 The new core-kit PR 3 review asks for the binfmt mount to be omitted from
 UKI images through `packages/systemd-257/systemd-257.spec`. This replaces
