@@ -19,13 +19,13 @@ credential and error regression tests.]
 ---
  daemon/containerd/image_pull.go                    | 106 +++++
  daemon/containerd/image_pull_transfer.go           |  62 +++
- daemon/containerd/image_pull_transfer_test.go      | 138 ++++++
+ daemon/containerd/image_pull_transfer_test.go      | 137 ++++++
  .../v2/core/transfer/image/imagestore.go           | 500 +++++++++++++++++++++
  .../containerd/v2/core/transfer/plugins/plugins.go |  63 +++
  .../v2/core/transfer/registry/registry.go          | 476 ++++++++++++++++++++
  .../containerd/containerd/v2/pkg/httpdbg/debug.go  | 122 +++++
  vendor/modules.txt                                 |   4 +
- 8 files changed, 1471 insertions(+)
+ 8 files changed, 1470 insertions(+)
 
 diff --git a/daemon/containerd/image_pull.go b/daemon/containerd/image_pull.go
 index aee19bd..b3c053f 100644
@@ -229,10 +229,10 @@ index 0000000..f7c958f
 +}
 diff --git a/daemon/containerd/image_pull_transfer_test.go b/daemon/containerd/image_pull_transfer_test.go
 new file mode 100644
-index 0000000..6502216
+index 0000000..f518939
 --- /dev/null
 +++ b/daemon/containerd/image_pull_transfer_test.go
-@@ -0,0 +1,138 @@
+@@ -0,0 +1,137 @@
 +package containerd
 +
 +import (
@@ -247,7 +247,6 @@ index 0000000..6502216
 +	cerrdefs "github.com/containerd/errdefs"
 +	"github.com/distribution/reference"
 +	registrytypes "github.com/moby/moby/api/types/registry"
-+	"github.com/moby/moby/v2/errdefs"
 +	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 +)
 +
@@ -343,7 +342,7 @@ index 0000000..6502216
 +	ctx := context.Background()
 +	t.Run("authorization", func(t *testing.T) {
 +		got := translateTransferPullError(ctx, ref, platform, docker.ErrInvalidAuthorization)
-+		if !errdefs.IsNotFound(got) || !strings.Contains(got.Error(), "pull access denied") {
++		if !cerrdefs.IsNotFound(got) || !strings.Contains(got.Error(), "pull access denied") {
 +			t.Fatalf("unexpected authorization error: %v", got)
 +		}
 +	})
@@ -355,7 +354,7 @@ index 0000000..6502216
 +	})
 +	t.Run("platform", func(t *testing.T) {
 +		got := translateTransferPullError(ctx, ref, platform, fmt.Errorf("no match for platform: %w", cerrdefs.ErrNotFound))
-+		if !errdefs.IsNotFound(got) || !strings.Contains(got.Error(), "linux/arm64") {
++		if !cerrdefs.IsNotFound(got) || !strings.Contains(got.Error(), "linux/arm64") {
 +			t.Fatalf("unexpected platform error: %v", got)
 +		}
 +	})
