@@ -3,9 +3,9 @@
 %global goorg github.com/moby
 %global goimport %{goorg}/moby
 
-%global gover 29.0.4
+%global gover 29.9.0
 %global rpmver %{gover}
-%global gitrev 4612690e23f7c4200af175e12cae206b2ee00c7b
+%global gitrev a5b58c94d334674eae3a3207d4f05417643a90d0
 
 %global source_date_epoch 1363394400
 
@@ -61,6 +61,14 @@ Conflicts: %{_cross_os}docker-engine
 
 %build
 %cross_go_configure %{goimport}
+go version
+
+# Run the transfer adapter regressions on the build host, including for cross builds.
+CGO_ENABLED=0 GOOS="$(go env GOHOSTOS)" GOARCH="$(go env GOHOSTARCH)" \
+  GOFLAGS="-mod=vendor -buildvcs=false -trimpath" \
+  go test -v daemon/containerd/image_pull_transfer.go \
+    daemon/containerd/image_pull_transfer_test.go daemon/containerd/registry_errors.go
+
 BUILDTAGS="journald selinux seccomp"
 BUILDTAGS+=" exclude_graphdriver_btrfs"
 BUILDTAGS+=" exclude_graphdriver_devicemapper"
