@@ -2,9 +2,9 @@
 %global gorepo cli
 %global goimport %{goproject}/%{gorepo}
 
-%global gover 29.0.4
+%global gover 29.9.0
 %global rpmver %{gover}
-%global gitrev 3247a5aae3791c8306f5b2e215c314267c31c570
+%global gitrev f415da838bed6a0e12ca6cb86ba198fdac6beb9c
 
 %global source_date_epoch 1492525740
 
@@ -36,6 +36,7 @@ Conflicts: %{_cross_os}docker-%{gorepo}
 
 %build
 %cross_go_configure %{goimport}
+go version
 LD_VERSION="-X github.com/docker/cli/cli/version.Version=%{gover}"
 LD_GIT_REV="-X github.com/docker/cli/cli/version.GitCommit=%{gitrev}"
 LD_PLATFORM="-X \"github.com/docker/cli/cli/version.PlatformName=Docker Engine - Community\""
