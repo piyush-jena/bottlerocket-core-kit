@@ -12,6 +12,8 @@ path = "../packages.rs"
 releases-url = "https://github.com/docker/cli/releases"
 
 [[package.metadata.build-package.external-files]]
+# Permit verified upstream retrieval until this release is in the source cache.
+force-upstream = true
 url = "https://github.com/docker/cli/archive/v29.9.0/cli-29.9.0.tar.gz"
 sha512 = "5cb32b584418c5aaa5aecce7b2e25f65d1c1d0b6cf16b5a27df9cb2633ab34cb331bc69d45ab4ba7c99a82b50403401fe6e4f382d564780166426f5fe739208d"
 
