@@ -37,6 +37,7 @@ Patch0001: 0001-Change-default-capabilities-using-daemon-config.patch
 Patch0002: 0002-oci-inject-kmod-in-all-containers.patch
 Patch0003: 0003-Switch-containerd-image-backend-s-image-pull-to-tran.patch
 Patch0004: 0004-Set-label-for-containerd-overlayfs-mounts.patch
+Patch0005: 0005-Preserve-compatible-platforms-in-transfer-pulls.patch
 
 BuildRequires: git
 BuildRequires: %{_cross_os}glibc-devel
@@ -128,4 +129,3 @@ install -D -p -m 0644 %{S:7} %{buildroot}%{_cross_libdir}/bottlerocket/ephemeral
 %{_cross_bindir}/docker-proxy
 
 %changelog
-

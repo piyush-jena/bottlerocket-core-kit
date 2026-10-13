@@ -1,0 +1,177 @@
+Subject: [PATCH] Preserve compatible platforms in transfer pulls
+
+The transfer store uses an ordered list of exact platform matches. Sending
+only the CPU-specific host platform skips baseline amd64 manifests on v4
+hosts, causing the complete-content check to reject normal ECS image pulls.
+Expose the vendored platforms package's existing compatibility vector and
+use it for both download selection and unpack configuration. Limit the
+selected manifests to one, matching Docker's platform preference behavior.
+
+Exercise the transfer store's actual image filter for fallback, preference,
+unsupported platforms and unpack configuration in the package regressions.
+---
+
+diff --git a/daemon/containerd/image_pull.go b/daemon/containerd/image_pull.go
+--- a/daemon/containerd/image_pull.go
++++ b/daemon/containerd/image_pull.go
+@@ -141,13 +141,8 @@
+ 	if err != nil {
+ 		return err
+ 	}
+-	storeOpts := []transferimage.StoreOpt{
+-		transferimage.WithPlatforms(pullPlatform),
+-	}
+ 	lazy := i.lazyPull(i.snapshotter)
+-	if lazy {
+-		storeOpts = append(storeOpts, transferimage.WithUnpack(pullPlatform, i.snapshotter))
+-	}
++	storeOpts := transferPullStoreOptions(pullPlatform, i.snapshotter, lazy)
+ 	if err := i.client.Transfer(ctx, reg, transferimage.NewStore(ref.String(), storeOpts...)); err != nil {
+ 		return translateTransferPullError(ctx, ref, pullPlatform, err)
+ 	}
+@@ -176,7 +171,7 @@
+ 		if err != nil {
+ 			return err
+ 		}
+-		storeOpts = append(storeOpts, transferimage.WithUnpack(pullPlatform, i.snapshotter))
++		storeOpts = transferPullStoreOptions(pullPlatform, i.snapshotter, true)
+ 		if err := i.client.Transfer(ctx, reg, transferimage.NewStore(ref.String(), storeOpts...)); err != nil {
+ 			return translateTransferPullError(ctx, ref, pullPlatform, err)
+ 		}
+diff --git a/daemon/containerd/image_pull_transfer.go b/daemon/containerd/image_pull_transfer.go
+--- a/daemon/containerd/image_pull_transfer.go
++++ b/daemon/containerd/image_pull_transfer.go
+@@ -6,6 +6,7 @@
+ 	"strings"
+ 
+ 	"github.com/containerd/containerd/v2/core/remotes/docker"
++	transferimage "github.com/containerd/containerd/v2/core/transfer/image"
+ 	transferregistry "github.com/containerd/containerd/v2/core/transfer/registry"
+ 	cerrdefs "github.com/containerd/errdefs"
+ 	"github.com/containerd/platforms"
+@@ -16,6 +17,23 @@
+ 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
+ 	"github.com/pkg/errors"
+ )
++
++// The transfer protocol carries an ordered list of exact platforms, not a
++// MatchComparer. Expand Only's compatibility set so an amd64/v4 host can pull
++// a baseline amd64 image, while still preferring the best matching manifest.
++func transferPullStoreOptions(platform ocispec.Platform, snapshotter string, unpack bool) []transferimage.StoreOpt {
++	compatible := platforms.CompatiblePlatforms(platform)
++	opts := []transferimage.StoreOpt{
++		transferimage.WithPlatforms(compatible...),
++		transferimage.WithManifestLimit(1),
++	}
++	if unpack {
++		for _, p := range compatible {
++			opts = append(opts, transferimage.WithUnpack(p, snapshotter))
++		}
++	}
++	return opts
++}
+ 
+ func translateTransferPullError(ctx context.Context, ref reference.Named, platform ocispec.Platform, err error) error {
+ 	if errors.Is(err, docker.ErrInvalidAuthorization) {
+diff --git a/daemon/containerd/image_pull_transfer_test.go b/daemon/containerd/image_pull_transfer_test.go
+--- a/daemon/containerd/image_pull_transfer_test.go
++++ b/daemon/containerd/image_pull_transfer_test.go
+@@ -7,13 +7,82 @@
+ 	"strings"
+ 	"testing"
+ 
++	"github.com/containerd/containerd/v2/core/content"
+ 	"github.com/containerd/containerd/v2/core/remotes/docker"
++	transferimage "github.com/containerd/containerd/v2/core/transfer/image"
+ 	transferregistry "github.com/containerd/containerd/v2/core/transfer/registry"
+ 	cerrdefs "github.com/containerd/errdefs"
++	"github.com/containerd/platforms"
+ 	"github.com/distribution/reference"
+ 	registrytypes "github.com/moby/moby/api/types/registry"
++	"github.com/opencontainers/go-digest"
+ 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
+ )
++
++// ImageFilter writes GC labels, which do not affect platform selection.
++type platformSelectionStore struct {
++	content.Store
++}
++
++func (platformSelectionStore) Update(_ context.Context, info content.Info, _ ...string) (content.Info, error) {
++	return info, nil
++}
++
++func TestTransferPlatformSelection(t *testing.T) {
++	tests := []struct {
++		name      string
++		requested string
++		available []string
++		want      string
++	}{
++		{"amd64 v4 accepts baseline", "linux/amd64/v4", []string{"linux/arm64", "linux/amd64"}, "linux/amd64"},
++		{"prefer best compatible amd64", "linux/amd64/v4", []string{"linux/amd64", "linux/amd64/v3", "linux/amd64/v2"}, "linux/amd64/v3"},
++		{"reject newer amd64", "linux/amd64/v2", []string{"linux/amd64/v4", "linux/amd64"}, "linux/amd64"},
++		{"retain 386 compatibility", "linux/amd64", []string{"linux/386"}, "linux/386"},
++		{"arm64 compatibility", "linux/arm64/v9", []string{"linux/arm64/v8", "linux/arm/v7"}, "linux/arm64/v8"},
++		{"arm compatibility", "linux/arm/v7", []string{"linux/arm/v6", "linux/arm/v5"}, "linux/arm/v6"},
++		{"reject unrelated architecture", "linux/amd64/v4", []string{"linux/arm64"}, ""},
++	}
++	for _, tt := range tests {
++		t.Run(tt.name, func(t *testing.T) {
++			requested := platforms.MustParse(tt.requested)
++			children := make([]ocispec.Descriptor, 0, len(tt.available))
++			for _, text := range tt.available {
++				p := platforms.MustParse(text)
++				children = append(children, ocispec.Descriptor{MediaType: ocispec.MediaTypeImageManifest, Digest: digest.FromString(text), Platform: &p})
++			}
++			for _, unpack := range []bool{false, true} {
++				store := transferimage.NewStore("example.com/test:latest", transferPullStoreOptions(requested, "overlayfs", unpack)...)
++				filter := store.ImageFilter(func(context.Context, ocispec.Descriptor) ([]ocispec.Descriptor, error) {
++					return children, nil
++				}, platformSelectionStore{})
++				selected, err := filter(context.Background(), ocispec.Descriptor{MediaType: ocispec.MediaTypeImageIndex, Digest: digest.FromString("index")})
++				if tt.want == "" {
++					if !cerrdefs.IsNotFound(err) {
++						t.Fatalf("unpack=%v: wanted not-found, got %v (%v)", unpack, err, selected)
++					}
++					continue
++				}
++				if err != nil {
++					t.Fatalf("unpack=%v: %v", unpack, err)
++				}
++				if len(selected) != 1 || !platforms.OnlyStrict(platforms.MustParse(tt.want)).Match(*selected[0].Platform) {
++					t.Fatalf("unpack=%v: selected %v, want only %s", unpack, selected, tt.want)
++				}
++				matchedUnpack := false
++				for _, config := range store.UnpackPlatforms() {
++					if config.Snapshotter != "overlayfs" {
++						t.Fatalf("wrong snapshotter: %q", config.Snapshotter)
++					}
++					matchedUnpack = matchedUnpack || platforms.OnlyStrict(config.Platform).Match(*selected[0].Platform)
++				}
++				if unpack != matchedUnpack {
++					t.Fatalf("unpack=%v: selected platform has unpack configuration=%v", unpack, matchedUnpack)
++				}
++			}
++		})
++	}
++}
+ 
+ func TestTransferCredentials(t *testing.T) {
+ 	tests := []struct {
+diff --git a/vendor/github.com/containerd/platforms/compatible.go b/vendor/github.com/containerd/platforms/compatible.go
+new file mode 100644
+--- /dev/null
++++ b/vendor/github.com/containerd/platforms/compatible.go
+@@ -0,0 +1,11 @@
++// SPDX-License-Identifier: Apache-2.0
++
++package platforms
++
++import specs "github.com/opencontainers/image-spec/specs-go/v1"
++
++// CompatiblePlatforms exposes the same ordered compatibility set as Only for
++// protocols, such as containerd transfer, that require explicit platform lists.
++func CompatiblePlatforms(platform specs.Platform) []specs.Platform {
++	return platformVector(Normalize(platform))
++}
