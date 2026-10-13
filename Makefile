@@ -24,8 +24,9 @@ export GO_MODULES = ecs-gpu-init host-ctr
 
 # Cargo normally hides successful build-script output, including RPM %check.
 # Keep the Docker transfer regression results visible for package validation.
+# CARGO_MAKE_CARGO_ARGS is overwritten by the embedded development profile.
 ifeq ($(PACKAGE),docker-engine-29)
-export CARGO_MAKE_CARGO_ARGS ?= --offline --locked -vv
+export CARGO_BUILD_ARGS += -vv
 endif
 
 all: build
