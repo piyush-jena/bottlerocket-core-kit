@@ -7,7 +7,7 @@ Recorded 2026-10-13 for Symphony issue 25.
 This package version does **not** establish full remediation of the security
 issues advertised in Docker's 29.9.0 release notes. SDK 0.80.0 builds these
 binaries with Go 1.26.8, whereas Docker's release used Go 1.26.9. The package
-version and SBOM version identify the Docker source release, not the security
+version and SBOM RPM version identify the Docker source release, not the security
 patch level of the compiler and standard library.
 
 Decision: do not file a staging BRSA claiming that this build fixes
@@ -104,8 +104,12 @@ that pre-existing behavior.
 ## Delivery and history
 
 ARM runtime validation, GPU/FIPS, full MACIS and Go 1.26.9 remediation are
-outside this campaign. Aarch64 package compilation is being added following
-review and must be reported separately from runtime coverage.
+outside this campaign. Both Docker packages passed x86_64 and aarch64 builds
+at `ff6e85a4c651891ebfb573d01d74b0162e261b8b`. The logging-only follow-up at
+`7da910391561aeffeb135b09f298421fd59e834e` captured uncached engine `%check`
+output: three top-level tests and 22 subtests passed in build
+`98468196-58bd-833f-afde-62fceff9638c`. This establishes package compilation
+and regression coverage, not ARM runtime qualification.
 
 Earlier commit messages describe validation as pending at the time those
 commits were made. Preserve these historical commit IDs because the retained
