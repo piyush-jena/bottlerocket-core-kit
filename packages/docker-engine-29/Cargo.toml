@@ -12,7 +12,8 @@ path = "../packages.rs"
 releases-url = "https://github.com/moby/moby/releases"
 
 [[package.metadata.build-package.external-files]]
-# Permit verified upstream retrieval until this release is in the source cache.
+# Temporary: cache probes returned 403 for this exact archive.
+# Remove force-upstream after the cache serves bytes matching the SHA-512 below.
 force-upstream = true
 url = "https://github.com/moby/moby/archive/docker-v29.9.0/moby-docker-v29.9.0.tar.gz"
 sha512 = "c3d086576d645f8602812b7718afbe07603244e2cff8c6cd81730b3fa2dafe253f0066fac4f180599c89e8d0f5c46c40bd2ad7c5f0c4d879c47831242fd880fb"

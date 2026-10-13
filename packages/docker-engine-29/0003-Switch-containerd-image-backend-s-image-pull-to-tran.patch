@@ -15,7 +15,13 @@ Signed-off-by: Ben Cressey <bcressey@amazon.com>
 regenerate vendor additions from containerd v2.4.1. Preserve image bookkeeping
 and content completeness, validate unpacking, and retain the upstream pull
 path for bearer tokens unsupported by the transfer resolver. Add focused
-credential and error regression tests.]
+credential and error regression tests.
+RegistryToken pulls use Docker's upstream resolver, which does not consume
+containerd hosts.toml. Such pulls bypass settings.container-registry.mirrors
+and hosts.toml-only configuration. Do not rely on a mirror-only endpoint
+policy for preissued-token pulls; the non-token transfer path is required
+for hosts.toml routing. This fallback limit is intentional until the
+transfer resolver can represent preissued bearer credentials.]
 ---
  daemon/containerd/image_pull.go                    | 106 +++++
  daemon/containerd/image_pull_transfer.go           |  62 +++

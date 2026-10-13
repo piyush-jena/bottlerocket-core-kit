@@ -62,13 +62,6 @@ Conflicts: %{_cross_os}docker-engine
 
 %build
 %cross_go_configure %{goimport}
-go version
-
-# Run the transfer adapter regressions on the build host, including for cross builds.
-CGO_ENABLED=0 GOOS="$(go env GOHOSTOS)" GOARCH="$(go env GOHOSTARCH)" \
-  GOFLAGS="-mod=vendor -buildvcs=false -trimpath" \
-  go test -v daemon/containerd/image_pull_transfer.go \
-    daemon/containerd/image_pull_transfer_test.go daemon/containerd/registry_errors.go
 
 BUILDTAGS="journald selinux seccomp"
 BUILDTAGS+=" exclude_graphdriver_btrfs"
@@ -113,6 +106,14 @@ install -p -m 0644 %{S:6} %{buildroot}%{_cross_tmpfilesdir}/docker-engine.conf
 install -D -p -m 0644 %{S:7} %{buildroot}%{_cross_libdir}/bottlerocket/ephemeral-storage.d/docker.conf
 
 %cross_scan_attribution --clarify %{S:1000} go-vendor vendor
+
+%check
+%cross_go_configure %{goimport}
+# Run the transfer adapter regressions on the build host, including for cross builds.
+CGO_ENABLED=0 GOOS="$(go env GOHOSTOS)" GOARCH="$(go env GOHOSTARCH)" \
+  GOFLAGS="-mod=vendor -buildvcs=false -trimpath" \
+  go test -count=1 -v daemon/containerd/image_pull_transfer.go \
+    daemon/containerd/image_pull_transfer_test.go daemon/containerd/registry_errors.go
 
 %files
 %{_cross_attribution_file}

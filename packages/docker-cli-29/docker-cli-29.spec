@@ -36,7 +36,6 @@ Conflicts: %{_cross_os}docker-%{gorepo}
 
 %build
 %cross_go_configure %{goimport}
-go version
 LD_VERSION="-X github.com/docker/cli/cli/version.Version=%{gover}"
 LD_GIT_REV="-X github.com/docker/cli/cli/version.GitCommit=%{gitrev}"
 LD_PLATFORM="-X \"github.com/docker/cli/cli/version.PlatformName=Docker Engine - Community\""

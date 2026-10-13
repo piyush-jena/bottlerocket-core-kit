@@ -3,12 +3,16 @@ Subject: [PATCH] Preserve compatible platforms in transfer pulls
 The transfer store uses an ordered list of exact platform matches. Sending
 only the CPU-specific host platform skips baseline amd64 manifests on v4
 hosts, causing the complete-content check to reject normal ECS image pulls.
-Expose the vendored platforms package's existing compatibility vector and
-use it for both download selection and unpack configuration. Limit the
-selected manifests to one, matching Docker's platform preference behavior.
+Keep the compatibility-vector adapter in daemon/containerd, derived from
+containerd/platforms v1.0.0-rc.5 under Apache-2.0. Do not change the vendor
+module or add an exported API that a vendor refresh would delete.
+Use the vector for download selection and unpack configuration, limiting
+selected manifests to one to match Docker's platform preference behavior.
 
-Exercise the transfer store's actual image filter for fallback, preference,
+Exercise the transfer store's image filter for fallback, preference,
 unsupported platforms and unpack configuration in the package regressions.
+These in-process regressions use containerd client 2.4.1; daemon 2.2.9
+behavior is separately validated by the live ECS pulls.
 ---
 
 diff --git a/daemon/containerd/image_pull.go b/daemon/containerd/image_pull.go
@@ -41,7 +45,11 @@ diff --git a/daemon/containerd/image_pull.go b/daemon/containerd/image_pull.go
 diff --git a/daemon/containerd/image_pull_transfer.go b/daemon/containerd/image_pull_transfer.go
 --- a/daemon/containerd/image_pull_transfer.go
 +++ b/daemon/containerd/image_pull_transfer.go
-@@ -6,6 +6,7 @@
+@@ -3,9 +3,11 @@
+ import (
+ 	"context"
+ 	"fmt"
++	"strconv"
  	"strings"
  
  	"github.com/containerd/containerd/v2/core/remotes/docker"
@@ -49,16 +57,126 @@ diff --git a/daemon/containerd/image_pull_transfer.go b/daemon/containerd/image_
  	transferregistry "github.com/containerd/containerd/v2/core/transfer/registry"
  	cerrdefs "github.com/containerd/errdefs"
  	"github.com/containerd/platforms"
-@@ -16,6 +17,23 @@
+@@ -16,6 +18,133 @@
  	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
  	"github.com/pkg/errors"
  )
++
++type transferPlatformVersions struct {
++	major []int
++	minor []int
++}
++
++var transferARM64Variants = map[string]transferPlatformVersions{
++	"v8":   {[]int{8}, []int{0}},
++	"v8.0": {[]int{8}, []int{0}},
++	"v8.1": {[]int{8}, []int{1}},
++	"v8.2": {[]int{8}, []int{2}},
++	"v8.3": {[]int{8}, []int{3}},
++	"v8.4": {[]int{8}, []int{4}},
++	"v8.5": {[]int{8}, []int{5}},
++	"v8.6": {[]int{8}, []int{6}},
++	"v8.7": {[]int{8}, []int{7}},
++	"v8.8": {[]int{8}, []int{8}},
++	"v8.9": {[]int{8}, []int{9}},
++	"v9":   {[]int{9, 8}, []int{0, 5}},
++	"v9.0": {[]int{9, 8}, []int{0, 5}},
++	"v9.1": {[]int{9, 8}, []int{1, 6}},
++	"v9.2": {[]int{9, 8}, []int{2, 7}},
++	"v9.3": {[]int{9, 8}, []int{3, 8}},
++	"v9.4": {[]int{9, 8}, []int{4, 9}},
++	"v9.5": {[]int{9, 8}, []int{5, 9}},
++	"v9.6": {[]int{9, 8}, []int{6, 9}},
++	"v9.7": {[]int{9, 8}, []int{7, 9}},
++}
++
++// transferPlatformVector is adapted from containerd/platforms v1.0.0-rc.5
++// compare.go (Copyright The containerd Authors, Apache-2.0). Keep its ordering
++// aligned with platforms.Only when updating that dependency. The transfer wire
++// protocol needs explicit platforms rather than a MatchComparer.
++func transferPlatformVector(platform ocispec.Platform) []ocispec.Platform {
++	vector := []ocispec.Platform{platform}
++
++	switch platform.Architecture {
++	case "amd64":
++		if amd64Version, err := strconv.Atoi(strings.TrimPrefix(platform.Variant, "v")); err == nil && amd64Version > 1 {
++			for amd64Version--; amd64Version >= 1; amd64Version-- {
++				vector = append(vector, ocispec.Platform{
++					Architecture: platform.Architecture,
++					OS:           platform.OS,
++					OSVersion:    platform.OSVersion,
++					OSFeatures:   platform.OSFeatures,
++					Variant:      "v" + strconv.Itoa(amd64Version),
++				})
++			}
++		}
++		vector = append(vector, ocispec.Platform{
++			Architecture: "386",
++			OS:           platform.OS,
++			OSVersion:    platform.OSVersion,
++			OSFeatures:   platform.OSFeatures,
++		})
++	case "arm":
++		if armVersion, err := strconv.Atoi(strings.TrimPrefix(platform.Variant, "v")); err == nil && armVersion > 5 {
++			for armVersion--; armVersion >= 5; armVersion-- {
++				vector = append(vector, ocispec.Platform{
++					Architecture: platform.Architecture,
++					OS:           platform.OS,
++					OSVersion:    platform.OSVersion,
++					OSFeatures:   platform.OSFeatures,
++					Variant:      "v" + strconv.Itoa(armVersion),
++				})
++			}
++		}
++	case "arm64":
++		variant := platform.Variant
++		if variant == "" {
++			variant = "v8"
++		}
++
++		vector = []ocispec.Platform{} // Reset vector, the first variant will be added in loop.
++		arm64Versions, ok := transferARM64Variants[variant]
++		if !ok {
++			break
++		}
++		for i, major := range arm64Versions.major {
++			for minor := arm64Versions.minor[i]; minor >= 0; minor-- {
++				arm64Variant := "v" + strconv.Itoa(major) + "." + strconv.Itoa(minor)
++				if minor == 0 {
++					arm64Variant = "v" + strconv.Itoa(major)
++				}
++				vector = append(vector, ocispec.Platform{
++					Architecture: "arm64",
++					OS:           platform.OS,
++					OSVersion:    platform.OSVersion,
++					OSFeatures:   platform.OSFeatures,
++					Variant:      arm64Variant,
++				})
++			}
++		}
++
++		// All arm64/v8.x and arm64/v9.x are compatible with arm/v8 (32-bits) and below.
++		// There's no arm64 v9 variant, so it's normalized to v8.
++		if strings.HasPrefix(variant, "v8") || strings.HasPrefix(variant, "v9") {
++			variant = "v8"
++		}
++		vector = append(vector, transferPlatformVector(ocispec.Platform{
++			Architecture: "arm",
++			OS:           platform.OS,
++			OSVersion:    platform.OSVersion,
++			OSFeatures:   platform.OSFeatures,
++			Variant:      variant,
++		})...)
++	}
++
++	return vector
++}
 +
 +// The transfer protocol carries an ordered list of exact platforms, not a
 +// MatchComparer. Expand Only's compatibility set so an amd64/v4 host can pull
 +// a baseline amd64 image, while still preferring the best matching manifest.
 +func transferPullStoreOptions(platform ocispec.Platform, snapshotter string, unpack bool) []transferimage.StoreOpt {
-+	compatible := platforms.CompatiblePlatforms(platform)
++	compatible := transferPlatformVector(platforms.Normalize(platform))
 +	opts := []transferimage.StoreOpt{
 +		transferimage.WithPlatforms(compatible...),
 +		transferimage.WithManifestLimit(1),
@@ -159,19 +277,3 @@ diff --git a/daemon/containerd/image_pull_transfer_test.go b/daemon/containerd/i
  
  func TestTransferCredentials(t *testing.T) {
  	tests := []struct {
-diff --git a/vendor/github.com/containerd/platforms/compatible.go b/vendor/github.com/containerd/platforms/compatible.go
-new file mode 100644
---- /dev/null
-+++ b/vendor/github.com/containerd/platforms/compatible.go
-@@ -0,0 +1,11 @@
-+// SPDX-License-Identifier: Apache-2.0
-+
-+package platforms
-+
-+import specs "github.com/opencontainers/image-spec/specs-go/v1"
-+
-+// CompatiblePlatforms exposes the same ordered compatibility set as Only for
-+// protocols, such as containerd transfer, that require explicit platform lists.
-+func CompatiblePlatforms(platform specs.Platform) []specs.Platform {
-+	return platformVector(Normalize(platform))
-+}
