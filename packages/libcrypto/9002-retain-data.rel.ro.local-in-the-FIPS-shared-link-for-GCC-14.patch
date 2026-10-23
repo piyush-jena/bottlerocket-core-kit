@@ -1,0 +1,52 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Piyush Jena <jepiyush@amazon.com>
+Date: Fri, 23 Oct 2026 12:30:00 +0000
+Subject: [PATCH] retain .data.rel.ro.local in the FIPS shared link for GCC 14
+
+GCC 14 places read-only data that requires a dynamic relocation into
+.data.rel.ro.local, where GCC 13 left it in .rodata. In bcm.o this is a
+table of 83 pointers into .text, i.e. the static function pointer tables
+in the module.
+
+gcc_fips_shared.lds discards every other section as a tripwire, so the
+partial link now fails with one error per reference:
+
+  `.data.rel.ro.local' referenced in section `.text' of
+  libbcm_library.a(bcm.c.o): defined in discarded section
+  `.data.rel.ro.local' of libbcm_library.a(bcm.c.o)
+
+Give the section its own output section rather than discarding it.
+Output section matching is first-match-wins, so the broader *(*.data.*)
+discard still catches anything unexpected and the tripwire is preserved.
+
+The integrity hash is unaffected: util/fipstools/inject_hash hashes only
+.text and .rodata, bounded by the BORINGSSL_bcm_{text,rodata}_{start,end}
+markers, and the retained section lies outside both. That is also the
+correct place for data the dynamic linker rewrites, since bytes covered
+by the hash must be identical at build time and at startup.
+
+Signed-off-by: Piyush Jena <jepiyush@amazon.com>
+---
+ crypto/fipsmodule/gcc_fips_shared.lds | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/crypto/fipsmodule/gcc_fips_shared.lds b/crypto/fipsmodule/gcc_fips_shared.lds
+index 1111111..2222222 100644
+--- a/crypto/fipsmodule/gcc_fips_shared.lds
++++ b/crypto/fipsmodule/gcc_fips_shared.lds
+@@ -15,6 +15,15 @@ SECTIONS
+     BORINGSSL_bcm_rodata_end = .;
+   }
+
++  /* GCC 14 and later place read-only data that needs a dynamic relocation in
++   * .data.rel.ro.local rather than .rodata. Retain it in its own output
++   * section, outside the integrity-hashed ranges marked above. Output section
++   * matching is first-match-wins, so the broader *(*.data.*) discard below
++   * still catches anything else. */
++  .data.rel.ro.local : {
++    *(.data.rel.ro.local)
++  }
++
+   /DISCARD/ : {
+     /* These sections shouldn't exist. In order to catch any slip-ups, direct
+      * the linker to discard them. */

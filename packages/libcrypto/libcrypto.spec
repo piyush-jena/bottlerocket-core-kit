@@ -27,6 +27,7 @@ Patch1008: 1008-Prepare-v3.5.0-3362.patch
 Patch1009: 1009-Cherry-pick-2024-Enable-Hybrid-PQ-KeyShares-by-defau.patch
 Patch1010: 1010-Cherry-pick-2024-Fix-CMake-Compatability-CI-jobs-295.patch
 Patch9001: 9001-fix-memchr-const-correctness-for-C23-compatibility-as-implemented-in-glibc-2.43.patch
+Patch9002: 9002-retain-data.rel.ro.local-in-the-FIPS-shared-link-for-GCC-14.patch
 
 BuildRequires: %{_cross_os}glibc-devel
 Requires: %{_cross_os}glibc

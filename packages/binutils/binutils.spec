@@ -1,5 +1,5 @@
 Name: %{_cross_os}binutils
-Version: 2.44
+Version: 2.46.1
 Release: 1%{?dist}
 Epoch: 1
 Summary: Tools for working with binaries
@@ -7,7 +7,7 @@ URL: https://sourceware.org/binutils
 License: GPL-2.0-or-later AND LGPL-2.0-or-later AND GPL-3.0-or-later
 Source0: https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.xz
 Source1: https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.xz.sig
-Source2: gpgkey-3A24BC1E8FB409FA9F14371813FCEF89DD9E3C4F.asc
+Source2: gpgkey-5EF3A41171BB77E6110ED2D01F3D03348DB1A3E2.asc
 
 
 Requires: %{_cross_os}libz
