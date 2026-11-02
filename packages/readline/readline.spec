@@ -1,11 +1,14 @@
+%global majorminor 8.3
+%global version %{majorminor}.6
+
 Name: %{_cross_os}readline
-Version: 8.3
+Version: %{version}
 Release: 1%{?dist}
 Summary: A library for editing typed command lines
 License: GPL-3.0-or-later
 URL: https://tiswww.case.edu/php/chet/readline/rltop.html
-Source0: https://ftp.gnu.org/gnu/readline/readline-%{version}.tar.gz
-Source1: https://ftp.gnu.org/gnu/readline/readline-%{version}.tar.gz.sig
+Source0: https://ftp.gnu.org/gnu/readline/readline-%{majorminor}.tar.gz
+Source1: https://ftp.gnu.org/gnu/readline/readline-%{majorminor}.tar.gz.sig
 Source2: gpgkey-7C0135FB088AAF6C66C650B9BB5869F064EA74AB.asc
 Patch1: readline-8.3-shlib.patch
 
@@ -32,7 +35,7 @@ Requires: %{name}
 
 %prep
 %{gpgverify} --data=%{S:0} --signature=%{S:1} --keyring=%{S:2}
-%autosetup -n readline-%{version} -N
+%autosetup -n readline-%{majorminor} -N
 %autopatch -p1 -m0001 -M1000
 %autopatch -p0 -m1001
 
