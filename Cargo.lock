@@ -157,7 +157,6 @@ dependencies = [
  "libnftnl",
  "libnl",
  "libnvidia-container",
- "libnvme",
  "libpcre",
  "libpopt",
  "libseccomp",
@@ -707,7 +706,7 @@ dependencies = [
 
 [[package]]
 name = "libjansson"
-version = "2.14.1"
+version = "2.15.1"
 dependencies = [
  "glibc",
 ]
@@ -798,13 +797,6 @@ dependencies = [
  "libelf",
  "libseccomp",
  "libtirpc",
-]
-
-[[package]]
-name = "libnvme"
-version = "0.1.0"
-dependencies = [
- "glibc",
 ]
 
 [[package]]
@@ -994,7 +986,6 @@ version = "0.1.0"
 dependencies = [
  "glibc",
  "libjson-c",
- "libnvme",
 ]
 
 [[package]]
